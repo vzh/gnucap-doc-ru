@@ -1,0 +1,22 @@
+====== "include" command ======
+
+===== Purpose =====
+
+Include a file, directly, as is.
+
+===== Syntax =====
+
+  include filename
+
+===== Comments =====
+
+The file is included as is.
+
+If you are running interactive, it is as if you typed in what is in the file.
+
+If you are running in a batch mode, or including a file from another file, it is as if you did a copy and paste into that file.
+
+===== Examples =====
+
+  include npn.mod
+Include the file npn.mod.

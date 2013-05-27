@@ -1,0 +1,29 @@
+====== "get" command ======
+
+===== Purpose =====
+
+
+Gets an existing circuit file, but does not run it, after clearing memory. Start over.  Set up for interactive operation.
+
+===== Syntax =====
+
+  get filename
+
+===== Comments =====
+
+The first comment line of the file being read is taken as the `title'. See the title command.
+
+Comments in the circuit file are stored, unless they start with *+ in which case they are thrown away.
+
+`Dot cards' are set up, but not executed. This means that variables and options are changed, but simulation commands are not actually done. As an example, the options command is actually performed, since it only sets up variables. The ac card is not performed, but its parameters are stored, so that a plain ac command will perform the analysis specified in the file.
+
+Any circuit already in memory will be erased before loading the new circuit.
+
+===== Examples =====
+
+  get amp.ckt
+Get the circuit file amp.ckt from the current directory.
+  get /usr/foo/ckt/amp.ckt
+Get the file amp.ckt from the /usr/foo/ckt directory.
+  get npn.mod
+Get the file npn.mod.

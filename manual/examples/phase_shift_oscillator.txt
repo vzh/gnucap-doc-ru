@@ -1,0 +1,253 @@
+====== Phase shift oscillator ======
+
+===== Getting started =====
+
+In this example, we will analyze a phase shift oscillator.  It was designed in a hurry, so the specs are not expected to be very good.  We will see.
+
+It uses a single BJT, plus an emitter follower, and runs on a single-ended 12 volt supply.
+
+Some measurements might include:
+
+  - Oscillation frequency
+  - Start-up time (how long it takes to stabilize)
+  - Distortion
+
+Of course, we will look at the waveform.
+
+I did this on the 2008-07-07 development snapshot, using some new features.  I am not showing some of the mistake and trial steps, so your results may be a little different.
+
+I am using an external waveform viewer "gwave" to display the waveforms.
+
+That's enough for now, let's go...
+
+===== The circuit =====
+
+{{gnucap:pso.tar.gz|Here's a netlist for the circuit:}}
+
+  ' phase shift oscillator
+  .model npn npn bf=100
+  Vcc (vcc 0) pulse(iv=0 pv=12 rise=.01)
+  Rb1 (vcc b) 100k
+  Rb2 (b 0)   10k
+  Rc  (vcc c) 10k
+  Re  (e 0)   1k
+  Ce  (e 0)   5000u
+  Re2 (e2 0)  1k
+  Q1  (c b e)    npn
+  Q2  (vcc c e2) npn
+  C1  (e2 f1) .01u
+  C2  (f1 f2) .01u
+  C3  (f2 b)  .01u
+  Rf1 (f1 0)  10k
+  Rf2 (f2 0)  10k
+
+There are some tricks here ..
+
+First, the power supply (Vcc).  It is a voltage source, but instead of just saying "DC=12" to make it a constant 12 volt supply, I made it a pulse.  It starts at zero, and waits until time=.01 to switch on.  I did this because I want to see how it starts.
+
+With just plain "DC=12" it would still oscillate, but I cannot be sure of the actual start waveform.  For one, the emitter bypass would already be charged.
+
+Next, I used a simple model of the BJT, specifying only the beta.
+
+The emitter bypass gives a time constant of 5 seconds, which should make the start-up nice and slow.
+
+Finally, to show some contempt for good design, I just picked R and C for the filter arbitrarily, with no real idea what the frequency would be.
+
+===== Setting up =====
+
+Run it interactively ...
+
+  $$$$$$$gnucap
+  Gnucap 2008.07.07 RCS 26.86
+  The Gnu Circuit Analysis Package
+  Never trust any version less than 1.0
+  Copyright 1982-2007, Albert Davis
+  Gnucap comes with ABSOLUTELY NO WARRANTY
+  This is free software, and you are welcome
+  to redistribute it under the terms of
+  the GNU General Public License, version 3 or later.
+  See the file "COPYING" for details.
+  gnucap> get pso.ckt
+  ' phase shift oscillator
+
+Load the circuit .. it echos the title line.
+
+As a check, list it, see if it is what you expected.
+
+  gnucap> list
+  .model npn npn ( level=1 kf=NA( 0.) af=NA( 1.) bf= 100. br=NA( 1.) is=NA( 100.E-18) nf=NA( 1.) nr=NA( 1.) isc=NA(
+   0.) re=NA( 0.) rc=NA( 0.) cjc=NA( 0.) cje=NA( 0.) cjs=NA( 0.) fc=NA( 0.5) mjc=NA( 0.33) mje=NA( 0.33) mjs=NA( 0.)
+   tf=NA( 0.) tr=NA( 0.) xtf=NA( 0.) xtb=NA( 0.) xti=NA( 3.) eg=NA( 1.11))
+  Vcc ( vcc 0 ) pulse iv= 0. pv= 12. delay=NA( 0.) rise= 0.01 fall=NA( 0.) width=NA( Inf) period=NA( Inf)
+  Rb1 ( vcc b )  100.K
+  Rb2 ( b 0 )  10.K
+  Rc ( vcc c )  10.K
+  Re ( e 0 )  1.K
+  Ce ( e 0 )  0.005
+  Re2 ( e2 0 )  1.K
+  Q1 ( c b e )  npn NA( 1.)
+  Q2 ( vcc c e2 )  npn NA( 1.)
+  C1 ( e2 f1 )  10.n
+  C2 ( f1 f2 )  10.n
+  C3 ( f2 b )  10.n
+  Rf1 ( f1 0 )  10.K
+  Rf2 ( f2 0 )  10.K
+
+Looks good ..  note the "NA" fields ....  NA(5) means that the value is unspecified, but assumed to be 5.  You can see what parameters were specified, and which took the defaults.
+
+Before making a run, you need to set a few things up ...
+
+Pick the points you want to view (all node voltages):
+  gnucap> print tran v(nodes)
+
+Pick the points you want to be able to do things like "measure" on (all probes named "v" on anything, including nodes, devices, etc):
+  gnucap> store tran v(*)
+
+Now, check the options.  We may want to change some:
+  gnucap> opt
+  .options  noacct  nolist  mod  nopage  nonode  noopts  gmin= 1.p  reltol= 0.001  abstol= 1.p  vntol= 1.u  trtol= 7
+  0  limtim=2  limpts=201  lvlcod=2  lvltim=2  method=trap  maxord=2  itl1=100  itl2=50  itl3=6  itl4=20  itl5=5000
+  er  dampmax= 1.  dampmin= 0.5  dampstrategy=0  floor= 1.E-21  vfloor= 1.f  roundofftol= 100.f  temperature= 27.  s
+  ansits=2  nodupcheck  bypass  incmode  lcbypass  lubypass  fbbypass  traceload  itermin=1  vmax= 5.  vmin=-5.  dtm
+  old= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2= 0.04166667  trstepcoe
+   units=spice
+
+The only one I will change now is the printing precision .. Set it to 8 digits.  Starting an oscillator takes a long time.
+  gnucap> opt numdgt=8
+
+===== Get started, run to steady state =====
+
+For starters, let's run it for 10 seconds, with a trial time step of .01.  "trace all" says to output all of the internal time steps too.  Otherwise, you will just get the ones you asked for.
+
+I directed it to a file, boringly called "z".  Then look at it with "gwave".  The bang (!) says to run a command through the shell.  The ampersand (&) says to leave it running and return, just like a shell command.  That way we can keep the waveforms on the screen and keep going.
+
+  gnucap> tran 0 10 .01 trace all >z
+  gnucap> !gwave z &
+
+
+
+
+Here's the waveform.  It looks like it doesn't start oscillating until about 1 second.
+Then takes until about 5 seconds to settle.  It looks like 10 seconds was a good guess.
+
+{{gnucap:w1.png}}
+
+Here's an expanded view just as it starts to oscillate:
+
+{{gnucap:w7.png}}
+
+The last few cycles at the end of the run:
+
+{{gnucap:w8.png}}
+
+===== The measurements we want =====
+
+Now, tighten the tolerance, so we can get good measurements.  The default settings are fine most of the time, but for this we need better.
+
+See what they are:
+  gnucap> opt
+  .options  noacct  nolist  mod  nopage  nonode  noopts  gmin= 1.p  reltol= 0.001  abstol= 1.p  vntol= 1.u  trtol= 7.  chgtol= 10.f  pivtol= 100.f
+  pivrel= 0.001  numdgt=8  tnom= 27.  cptime=30000  limtim=2  limpts=201  lvlcod=2  lvltim=2  method=trap  maxord=2  itl1=100  itl2=50  itl3=6
+  itl4=20  itl5=5000  itl6=0  itl7=1  itl8=99  defl= 100.u  defw= 100.u  defad= 0.  defas= 0.  clobber  dampmax= 1.  dampmin= 0.5  dampstrategy=0
+  floor= 1.E-21  vfloor= 1.f  roundofftol= 100.f  temperature= 27.  short= 10.u  out=9999  ydivisions= 4.  phase=degrees  order=auto  mode=mixed
+  transits=2  nodupcheck  bypass  incmode  lcbypass  lubypass  fbbypass  traceload  itermin=1  vmax= 5.  vmin=-5.  dtmin= 1.p  dtratio= 1.G  rstray
+  cstray  harmonics=9  trstepgrow= 1.E+99  trstephold= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2=
+  0.04166667  trstepcoef3= 0.005208333  noquitconvfail  edit  recursion=20  language=acs  insensitive  units=spice
+
+Now tighten "reltol" and "trtol".
+  gnucap> opt reltol=.0001 trtol=1
+
+and run for another .01 seconds, continuing...
+  gnucap> tran 10.01 .001 trace all >z
+  gnucap> !gwave z &
+
+and make some measurements...
+  gnucap> measure t2=cross("v(e2)", cross=7, rise, last)
+  t2= 10.00943
+  gnucap> measure t1=cross("v(e2)", cross=7, rise, last, before=t2)
+  t1= 10.00778
+  gnucap> param frequency={1/(t2-t1)}
+  gnucap> eval frequency
+  frequency= 606.060606060714
+
+For the Fourier analysis, pick a fundamental of half of the real fundamental, as an indicator of accuracy.  We all know, there should be nothing there.  If the component at the odd frequencies is too big, it means the frequency we specified is slightly in error, and we need to tighten tolerances and fine tune.
+
+  gnucap> eval frequency/2
+  (frequency / 2)= 303.030303030357
+  gnucap> print fourier v(e2)
+  gnucap> fourier 0 10k 303.030303030357
+  #Time          v(e2)
+   10.0133       8.9974012
+   10.013326     8.7969959
+   10.013352     8.5847199
+
+   10.016574     9.0517243
+   10.0166       8.8549586
+  # v(e2)     --------- actual ---------  -------- relative --------
+  #freq       value        dB      phase  value        dB      phase
+   0.         7.0656      16.98   90.000  2.2861       7.18  -44.748
+   303.03     0.034076   -29.35  118.607  0.011025   -39.15  -16.141
+   606.06     3.0907       9.80  134.748  1.           0.00    0.000
+   909.09     0.040746   -27.80  -43.182  0.013183   -37.60 -177.930
+   1.2121K    0.3894      -8.19  -94.915  0.12599    -17.99  130.337
+   1.5152K    0.017954   -34.92   17.761  0.0058088  -44.72 -116.987
+   1.8182K    0.15704    -16.08    4.083  0.05081    -25.88 -130.665
+   2.1212K    0.0042367  -47.46   67.220  0.0013708  -57.26  -67.528
+   2.4242K    0.079307   -22.01   94.762  0.02566    -31.82  -39.986
+
+303 Hz has a relative amplitude of -39 db.  Not very good.
+
+Tighten the tolerances and measure again:
+
+  gnucap> opt reltol=.00001 trtol=1
+  gnucap> tran 10.01 .001 trace all >z
+  gnucap> measure t2=cross("v(e2)", cross=7, rise, last)
+  t2= Inf
+
+Error ....  we already went past 10.01 seconds ..  Move ahead and try again.
+
+  gnucap> tran 10.03 .001 trace all >z
+  gnucap> !gwave z &
+  gnucap> measure t2=cross("v(e2)", cross=7, rise, last)
+  t2= 10.02911
+  gnucap> measure t1=cross("v(e2)", cross=7, rise, last, before=t2)
+  t1= 10.02747
+  gnucap> eval frequency/2
+  (frequency / 2)= 304.878048780472
+  gnucap> eval frequency
+  frequency= 609.756097560944
+  gnucap> fourier 0 10k 304.878048780472
+  #Time          v(e2)
+   10.029986     6.3978311
+   10.030012     6.1507251
+   10.030037     5.9090503
+
+   10.033189     7.1588976
+   10.033215     6.9059126
+   10.03324      6.6531773
+   10.033266     6.4023893
+  # v(e2)     --------- actual ---------  -------- relative --------
+  #freq       value        dB      phase  value        dB      phase
+   0.         7.0581      16.97   90.000  2.2836       7.17 -104.675
+   304.88     256.82u    -71.81   -1.240  83.092u    -81.61  164.086
+   609.76     3.0908       9.80 -165.325  1.           0.00    0.000
+   914.63     0.0011098  -59.09 -171.143  359.08u    -68.90   -5.817
+   1.2195K    0.38362     -8.32   21.927  0.12412    -18.12 -172.748
+   1.5244K    103.52u    -79.70  178.156  33.493u    -89.50  -16.518
+   1.8293K    0.14832    -16.58 -177.459  0.047988   -26.38  -12.133
+   2.1341K    357.2u     -68.94 -179.519  115.57u    -78.74  -14.193
+   2.439K     0.079273   -22.02  -23.966  0.025648   -31.82  141.360
+   2.7439K    132.94u    -77.53 -126.976  43.011u    -87.33   38.350
+   3.0488K    0.049584   -26.09  126.722  0.016043   -35.89  -67.952
+   3.3537K    168.29u    -75.48  163.828  54.45u     -85.28  -30.847
+   3.6585K    0.033637   -29.46  -84.750  0.010883   -39.27   80.575
+   3.9634K    163.24u    -75.74 -138.899  52.816u    -85.54   26.426
+   4.2683K    0.024012   -32.39   63.711  0.0077689  -42.19 -130.964
+   4.5732K    52.818u    -85.54  168.840  17.089u    -95.35  -25.834
+   4.878K     0.018021   -34.88 -148.890  0.0058308  -44.69   16.435
+
+That's better.  Noise is -68 db or better.  305 Hz is -81 db.
+
+As I said, the oscillator isn't very good.  The second harmonic is only 18 db below the fundamental.
+
+Enough for now...

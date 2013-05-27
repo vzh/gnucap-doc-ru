@@ -1,0 +1,34 @@
+====== "log" command ======
+
+===== Purpose =====
+
+Saves a copy of your keyboard entries in a file.
+
+===== Syntax =====
+
+  log file
+  log >> file
+  log
+
+===== Comments =====
+
+The `>>' option appends to an existing file, if it exists, otherwise it creates one.
+
+Files can be nested. If you open one while another is already open, both will contain all the information.
+
+A bare log closes the file. Because of this, the last line of this file is always log. Ordinarily, this will not be of any consequence, but if a log file is open when you use this file as command input, this will close it. If more than one log file is open, they will be closed in the reverse of the order in which they were opened, maintaining nesting.
+
+See also: `>' and `<' commands.
+
+The file is an exact copy of what you type, so it is suitable for gnucap <file from the shell. It is NOT suitable for the < command in gnucap or the Spice-like mode gnucap file without <.
+
+===== Examples =====
+
+  log today
+Save the commands in a file today in the current directory. If today already exists, the old one is gone.
+  log >> doit
+Save the commands in a file doit. If doit already exists, it is kept, and the new data is added to the end.
+  log runit.bat
+Use the file runit.bat.
+  log
+Close the file. Stop saving.

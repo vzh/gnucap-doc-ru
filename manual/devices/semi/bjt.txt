@@ -1,0 +1,17 @@
+====== Semiconductor models ======
+
+===== BJT's =====
+
+==== Native models ====
+
+  * [[http://gnucap.org/gnucap-man-html/gnucap-man076.html|bjt]]
+==== Spice models ====
+
+Several Spice diode models are available.  They are not documented here.
+
+^Gnucap tarball      ^Name  ^Level  ^Origin        ^Status              ^Comments             ^
+|models-spice3f5     |bjt   |       |Spice 3f5     |+++++ supported     |The standard model   |
+|models-jspice3-2.5  |bjt   |       |Jspice 3-2.5  |+++-  inconsistent  |Not recommended      |
+|models-ngspice17    |bjt   |1      |NGspice-17    |++++  works         |similar to standard  |
+|models-ngspice17    |bjt2  |2      |NGspice-17    |+++   works         |similar to standard  |
+|models-ngspice17    |vbic  |4      |NGspice-17    |++++  works         |Colin McAndrew's VBIC model  |

@@ -1,0 +1,84 @@
+====== Switches ======
+
+===== Syntax =====
+
+== Voltage controlled switch ==
+
+Device:
+
+  Sxxxxxxx (n+ n- nc+ nc-) modelname ic
+
+Model (required):
+
+  .model modelname SW args
+
+
+== Current controlled switch ==
+
+Device:
+  Wxxxxxxx (n+ n- ce) modelname ic
+
+Model (required):
+
+  .model modelname CSW args
+
+===== Purpose =====
+
+Voltage or current controlled switch.
+
+===== Comments ======
+
+//N+// and //n-// are the positive and negative element nodes, respectively.
+
+For voltage controlled switch, //Nc+// and //nc-// are the controlling nodes.
+
+For current controlled switch, //ce// is the name of a controlling element.
+
+//Modelname// is the model name.
+
+A switch is a resistor between //n+// and //n-//.  The value of
+the resistor is determined by the state of the switch.
+
+^control                 ^resistance  ^
+|vc > von\\  ic > ion    |Ron         |
+|vc < voff\\  ic < ioff  |Roff        |
+|otherwise               |no change   |
+
+You may specify ''ON'' or ''OFF'' to indicate the initial state
+of the switch when the controlling voltage is in the hysteresis
+region.
+
+The parameters //ron// and //roff// must have finite positive values.
+===== Model Parameters =====
+
+^Voltage controlled switch  ^^
+|vt    |Threshold voltage.  (Default = 0.)         |
+|vh    |Hysteresis voltage.  (Default = 0.)        |
+|von   |On control voltage.  (Default = vt + vh)   |
+|voff  |Off control voltage.  (Default = vt - vh)  |
+|ron   |On resistance.  (Default = 1.)             |
+|roff  |Off resistance.  (Default = 1e12)          |
+
+^Current controlled switch  ^^
+|it    |Threshold current.  (Default = 0.)         |
+|ih    |Hysteresis current.  (Default = 0.)        |
+|ion   |On control current.  (Default = it + ih)   |
+|ioff  |Off control current.  (Default = it - ih)  |
+|ron   |On resistance.  (Default = 1.)             |
+|roff  |Off resistance.  (Default = 1e12)          |
+
+===== Time step control =====
+
+A change of state is considered to be an analog event.  An input
+crossing a threshold is a "cross event".  Cross events will generate
+extra time steps so the switch timing is accurate.
+
+A switch can be used anywhere in a circuit to improve timing accuracy
+by sensing cross events.
+
+Switches also influence time step control as resistors, which control
+smoothness by curve fitting.
+
+===== Convergence =====
+
+Switches are linear devices that do not iterate unless there is a state change.

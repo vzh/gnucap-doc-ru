@@ -1,0 +1,27 @@
+====== "at" measure ======
+
+===== Purpose =====
+
+Measure a signal at a time or frequency.
+
+===== Syntax =====
+
+  at(probe="p(d)"  at=time  derivative)
+===== Parameters =====
+
+|probe       |The name of a probe to measure.  |
+|at\\ x      |Measure the value here.  |
+|derivative  |Flag: measure the derivative instead of the value.  |
+
+===== Diagnostics =====
+
+If you specify x to be out of range, it returns the value at the end, with a derivative of zero.
+
+If you didn't store the waveform (see store command), it throws a "no match" exception, which prints "no match".
+
+===== Examples =====
+
+  measure sample = at(probe="v(out)", at=4u)
+Measure the value of "v(out)" at 4 microseconds.
+  measure sample = at(probe="v(out)", at=4u, derivative)
+Measure the derivative of "v(out)" at 4 microseconds.

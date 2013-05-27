@@ -1,0 +1,40 @@
+====== "store" command ======
+
+===== Purpose =====
+
+Select points in the circuit to store for postprocessing.
+
+===== Syntax =====
+
+  store
+  store mode points ... ...
+  store mode + points ... ...
+  store mode - points ... ...
+  store mode CLEAR
+
+===== Comments =====
+
+The "store" command selects probes to store for postprocessing, such as measures.
+
+There are separate lists of points for each type of analysis.
+
+To list the points, use the bare command "store".
+
+On start-up, probes are not set. You must do the command "store op v(nodes)", "store tran v(nodes)" or whatever you want, to store any data for post-processing.
+
+You can add to or delete from an existing list by prefixing with + or -. store ac + v(3) adds v(3) to the existing set of AC probes. store ac - q(c5) removes q(c5) from the list. You can use the wildcard characters * and ? when deleting.
+
+===== Examples =====
+
+  store ac v(nodes)
+The voltage at all nodes for AC analysis.
+  store dc v(nodes) id(M*)
+The voltage at all nodes and the parameter "id" on all devices witl labels starting with "M", for DC analysis.
+  store tran v(*) p(*)
+All parameters named "v", which probably means all node voltages and the most common voltage for all devices.  All parameters named "p", which is usually power.
+  store
+List all probes stored, for all modes.
+  store op
+Display the OP store list.
+  store ac clear
+Clear the AC list.

@@ -1,0 +1,143 @@
+====== Language : Verilog ======
+
+The Verilog language plugin attempts to support the syntax of the Verilog-AMS language.
+
+Not all features of Verilog-AMS are supported, but those that work will work with Verilog-AMS syntax.  Wherever possible, Gnucap features will work in Verilog-AMS mode, even if they don't work in Verilog-AMS.
+
+The Verilog mode is case sensitive, and uses "SI" units.
+
+The "SI" units are case sensitive.  1p is 1e-12.  1P is 1e15.  1m is 1e-3.  1M is 1e6.
+
+Comments are preceded by /****/ and extend to the end of the line.
+
+The format is not line oriented.  A semicolon terminates a statement.  You can extend a line by ending it with \  .
+
+In gnucap, for now, you must have one statement per line.  This is non-standard.
+
+From startup, you can set Verilog mode with the command line:
+
+  simulator lang=verilog
+
+or
+  verilog
+
+====== Components ======
+
+All components have the same syntax:
+
+  type #(arguments) label (port list) ;
+
+  * **Type** : The type of component.  If there is a "paramset" statement, this is the name in the paramset statement.  Otherwise, it could be the name of a "subckt", "model", or a standard device.  This is called "master" in the Spectre manual.
+  * **Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form ".name(value)", separated by a comma.  The value may be an expression.  In some cases, a principal value can be given just by value, without its name.  The argument list is surrounded by parentheses, and prefixed by "#".
+  * **Label** : a string.  The first letter has no significance.
+  * **Port list** : A list of the ports (connections), separated by a comma.  Mapping can be determined by order or by name.  The port list should be surrounded by parentheses.  By order, list them, comma separated.  By name, they use the same syntax as arguments.  .name(value)
+
+  resistor #(10K)     Rload (out, 0);         // one unnamed argument, ports by order
+  resistor #(.r(10K)) Rload (.p(out), .n(0)); // the same component, arguments by name, ports by name
+
+  amp #(.rload(100K)) X1 (.out(out), .in(in), .vcc(vc));
+
+There are some components that exploit the syntax in other languages that are not supported in Verilog mode, but you can use them by switching to a mode that does support that syntax.
+
+  // vsource  #(.dc(15)) Vcc (.p(vc), .n(0)); // Spice-style source arguments are not supported.
+  // vsource  #(.ac(1))  Vin (.p(in), .n(0)); // Spice-style source arguments are not supported.
+
+But you can switch modes, to one that does support the syntax:
+
+  // assume it is starting in Verilog mode
+  spice
+  * It takes Spice syntax now
+  Vcc (vc 0) dc 15
+  Vin (in 0) ac 1
+  * Commands in Spice mode start with a dot.
+  .verilog
+  // Now it is back in Verilog mode.
+
+
+
+====== Top-level blocks ======
+
+Two top level blocks are supported: module and paramset.
+
+===== paramset =====
+
+A "paramset" statement sets parameters based on an existing compiled model.  This will be extended to cover all "masters".  It becomes a "master" that can be instantiated later.  It is equivalent to a spice ".model".
+
+The syntax is:
+  "paramset" newname itsmaster ";"
+    parameters
+  "endparamset"
+
+  * **paramset** : Keyword identifies a paramset statement.
+  * **newtype** : The new type being defined.  This can be used as a device type later.
+  * **itsmaster** : The type it is derived from.
+  * **Parameters** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form ".name = value;".  (dot name equals value semicolon) The value may be an expression.
+
+  paramset gp_npn npn;\
+    .bf=150;\
+  endparamset
+
+According to the standard, lines are not significant.  In gnucap, for now, all must be on one line or lines extended by ending with "\".
+
+Note that the parameter syntax in paramset is different from the parameter syntax instantiating a device.
+===== module =====
+
+The basic building block is called a "module".  Modules are descriptions of individual components.  Gnucap directly supports only the structural subset of Verilog, so a "module" here is equivalent to a Spice "subckt".
+
+Modules take the form:
+
+  * A header line
+    * Keyword "module".
+    * The name of the new module being defined.
+    * The list of ports, separated by commas, in parentheses
+    * semicolon ";"
+  * Parameter statements.
+  * The "netlist".
+  * A closing line
+    * Keyword "endmodule".
+
+
+  module amp (out, in, vcc);
+    parameter rload=10k;
+    resistor  #(.r(1M))   Rb1  (base, vcc);        // 1 megohm
+    resistor  #(.r(100K)) Rb2  (base, 0  );
+    resistor  #(100K)     Rc   (col,  vcc);
+    resistor  #(.r(10K))  Re   (.p(emit), .n(0));
+    capacitor #(.c(1m))   Ce   (.p(emit), .n(0));  // 1 millifarad
+    capacitor #(.c(1u))   Cin  (base, in );
+    gp_npn                Q1   (.c(col), .b(base), .e(emit));
+    gp_npn                Q2   (.c(vcc), .b(col), .e(e2));
+    resistor  #(.r(1K))   Re2  (e2,  0  );
+    capacitor #(.c(10u))  Cout (e2,  out);
+    resistor  #(.r(rload))Rload(out, 0 );
+  endmodule
+
+  amp      #(.rload(100K)) X1    (.out(out), .in(in), .vcc(vc));
+  vsource  #(.dc(15))      Vcc   (.p(vc), .n(0));
+  vsource  #(.ac(1))       Vin   (.p(in), .n(0));
+  resistor #(10K)          Rload (out, 0);
+
+====== Commands ======
+
+The Verilog language has no concept of commands.
+
+In gnucap, commands are executed at top level the same as the native mode.
+
+====== Extras ======
+
+  * You can switch languages any time with the appropriate command.  In most cases, just name the language you want to switch to.  More generally, you can do ".option lang=xxx".  The command to switch back must be issued in the language you switched to.
+  * You can define a top-level circuit in Verilog syntax.  The Verilog standard provides no way to define a top level circuit.
+  * You can include commands, which work the same as the Gnucap native mode.
+
+====== Status ======
+
+The current implementation in gnucap is a very preliminary subset.
+
+  * The "master" must be defined before it is referenced.
+  * The devices and commands are whatever gnucap has installed, not necessarily what is defined in any standard.
+  * The circuit must be defined before any commands using it, unless you want to simulate a partial circuit.  Scripted and interactive modifications to the circuit are done the way gnucap usually does.
+  * The main circuit can also be in Verilog syntax.  The Verilog standard has no concept of components at top level.
+  * To simulate, there must be a component at top level.  Uninstantiated modules do nothing.
+  * Port direction statements like "inout" are not supported.
+  * Discipline statements like "electrical" are not supported.
+  * Some components, and some types of arguments, are not supported in Verilog mode, but you can switch modes at any time.

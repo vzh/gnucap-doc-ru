@@ -1,0 +1,73 @@
+====== Commands ======
+
+Gnucap commands are defined by plugins.  This section defines all commands supplied in the main tarball.
+
+Your installation may not have all of these commands, and may have others in addition to these.  It depends on which plugins you have installed.
+
+===== "Simulation" or "analysis" commands =====
+
+These commands are the core simulation commands.
+
+  * [[gnucap:manual:commands:ac]] Performs a small signal AC (frequency domain) analysis. Sweeps frequency.
+  * [[gnucap:manual:commands:dc]] Performs a nonlinear DC analysis, for determining transfer characteristics. Sweeps DC input or component values.
+  * [[gnucap:manual:commands:fourier]] Transient analysis, with results in frequency domain.
+  * [[gnucap:manual:commands:op]] Performs a nonlinear DC analysis, for determining quiescent operating conditions. Sweeps temperature.
+  * [[gnucap:manual:commands:transient]] Performs a nonlinear transient (time domain) analysis. Sweeps time.
+
+===== "Data" commands =====
+
+These commands manipulate the circuit.
+ 
+  * [[gnucap:manual:commands:build]] Build a new circuit or change an existing one.
+  * [[gnucap:manual:commands:delete|clear]] Delete the entire circuit, titles, etc.
+  * [[gnucap:manual:commands:delete]] Delete a part, or group of parts.
+  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.
+  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.
+  * [[gnucap:manual:commands:list]] List the circuit on the display.
+  * [[gnucap:manual:commands:alter|alter, modify]] Change a value, node, etc. For very simple changes.
+ 
+===== "Parameter" and "Measure" commands =====
+
+These commands work with parameters. 
+
+  * [[gnucap:manual:commands:parameter]] Set or view parameters.
+  * [[gnucap:manual:commands:measure]] Make (post) measurements on your circuit.
+  * [[gnucap:manual:commands:eval]] Evaluate parameters.
+
+===== "Probe" commands =====
+
+These commands set up probes for later use.
+
+  * [[gnucap:manual:commands:alarm]] Select points in the circuit to check against limits.
+  * [[gnucap:manual:commands:plot|plot, iplot]] Select points in the circuit (and their range) to plot.
+  * [[gnucap:manual:commands:print|print, iprint, probe]] Select points in the circuit to print as table.
+  * [[gnucap:manual:commands:store]] Select points in the circuit to store for post-processing.
+
+===== "File" commands =====
+
+  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.
+  * [[gnucap:manual:commands:lib]] Include parts of a library file.
+  * [[gnucap:manual:commands:load|load, unload]] Load a plugin.
+  * [[gnucap:manual:commands:get]] Get a circuit from a disk file. Deletes old one first for a fresh start. (deprecated)
+
+  * [[gnucap:manual:commands:save]] Save the circuit in a file.
+  * [[gnucap:manual:commands:log]] Create a log file.
+  * [[gnucap:manual:commands:outfile|>]] Send a copy of the screen output to a file.
+
+===== "Other" commands =====
+
+  * [[gnucap:manual:commands:end]] Perform analyses in queue. New circuit follows. (Implemented incorrectly.)
+  * [[gnucap:manual:commands:exit|exit, quit]] Exits the program.
+
+  * [[gnucap:manual:commands:options]] View and set system options. (Same as set.)
+  * [[gnucap:manual:commands:temp]] Set or view temperature.
+  * [[gnucap:manual:commands:width]] Set output width.
+
+  * [[gnucap:manual:commands:sweep]] Sweep a component. (Loop function.) (deprecated)
+  * [[gnucap:manual:commands:generator]] View and set the transient analysis function generator.
+  * [[gnucap:manual:commands:freeze|freeze, unfreeze]] Mark this time point, so transient analysis will restart here.
+
+  * [[gnucap:manual:commands:chdir]] Change current directory.
+  * [[gnucap:manual:commands:pause]] Wait for key hit in batch mode.
+  * [[gnucap:manual:commands:status]] Display resource usage, etc.
+  * [[gnucap:manual:commands:title]] View and create the heading line for printouts and files.

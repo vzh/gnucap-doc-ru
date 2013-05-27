@@ -1,0 +1,63 @@
+====== "op" command ======
+
+===== Purpose =====
+
+Performs a nonlinear DC steady state analysis, with no input. If a temperature range is given, it sweeps the temperature.  
+
+===== Syntax =====
+
+  op start stop stepsize {options ...} 
+
+===== Comments =====
+
+There are substantial extensions beyond the capabilities of the SPICE op command.
+
+If there are numeric arguments, they represent a temperature sweep. They are the start and stop temperatures in degrees Celsius, and the step size, in order. They are saved between commands, so no arguments will repeat the previous sweep.
+
+This command will use the op probe set, instead of automatically printing all nodes and source currents, so you must do "print op ...." before running op. We did it this way because we believe that printing everything all the time is usually unnecessary clutter. All of the information available from SPICE and more is available here. See the print command and the device descriptions for more details.
+
+A single parameter represents a single temperature. Two parameters instruct the computer to analyze for those two points only.
+
+This command also sets up the quiescent point for subsequent AC analysis. It is necessary to do this for nonlinear circuits. The last step in the sweep determines the quiescent point for the AC analysis.
+
+===== Options =====
+
+==== Sweep control ====
+|* //multiplier//      |Log sweep. Multiply the input by //multiplier// to get the next step. Do not pass zero volts!!  |
+|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step.  |
+|decade //steps//      |Log sweep. Use //steps// steps per decade.  |
+|times //multiplier//  |Log sweep. Multiply the input by multiplier to get the next step. Do not pass zero volts!!  |
+|continue              |Use the last step of a OP, DC or Transient analysis as the first guess.  |
+|loop                  |Repeat the sweep, backwards.  |
+|reverse               |Sweep in the opposite direction.  |
+
+==== Input / Output ====
+|> //file//   |Send results of analysis to file.  |
+|>> //file//  |Append results to file.  |
+|noplot       |Suppress plotting.  |
+|plot         |Graphic output, when plotting is normally off.  |
+|quiet        |Suppress console output.  |
+
+==== Other ====
+|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |
+|temperature //degrees//  |Temperature, degrees C.  |
+
+|trace off         |No extended trace information.  |
+|trace warnings    |Show extended warnings.  |
+|trace iterations  |Show every iteration.  |
+|trace verbose     |Show extended diagnostics.  |
+
+===== Examples =====
+
+  op 27
+Do a DC operating point simulation at temperature 27 degrees Celsius.
+  op -50 200 25
+Sweep the temperature from -50 to 200 in 25 degree steps. Do a DC operating point simulation at each step.
+  op
+With no parameters, it uses the same ones as the last time. In this case, from -50 to 200 in 25 degree steps.
+  op 200 -50 -25
+You can sweep downward, by asking for a negative increment.
+  op temperature=75
+ Simulate at 75 degrees, this time. This isn't remembered for next time.
+  op
+Since the last time used the temperature option, go back one more to find what the sweep parameters were. In this case, downward from 200 to -50 in 25 degree steps.

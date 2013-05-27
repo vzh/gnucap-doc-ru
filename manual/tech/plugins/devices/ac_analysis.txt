@@ -1,0 +1,37 @@
+====== Device plugins ======
+===== Implementation =====
+==== AC analysis ====
+
+The AC functions in Gnucap correspond to a combination of the AC and PZ functions in Spice.  Actually, they are more like the PZ functions, in the sense that frequency (SIM::jomega) is complex.
+
+== void ac_iwant_matrix() ==
+Notify the sparse matrix of what nodes this device uses.
+
+AC analysis uses a single matrix "acx", which serves as both the nodal admittance matrix and the LU factors.  This is likely to change in the future to two matrices like in transient analysis.
+
+This notification is done by invoking the matrix "iwant" call with node pairs that need allocating.
+This line:
+  acx.iwant(_n[0].m_(),_n[1].m_());
+requests allocation of space for an element stamp connecting _n[0] and _n[1].  This is usually four places in the matrix.
+
+Usually, this is not done directly, but calls another function:
+  * ac_iwant_matrix_passive(), for two-terminal elements like resistors, with a symmetric stamp
+  * ac_iwant_matrix_active(), for controlled sources, with an asymmetric stamp
+  * ac_iwant_matrix_extended(), the general case, allocates all combinations
+
+== void ac_begin() ==
+This is called at the beginning of every AC analysis.  It should call BASE::ac_begin() before doing anything else.  It sets the value of any AC variables that remain constant through a run.
+
+== void do_ac() ==
+In most cases, the do_ac functions do the real work, or call the ac_eval function to do it.
+
+If necessary, it evaluates the model. Calling this function more than once on an iteration is harmless, except for the waste of time.  Usually, it uses state variables from a previous DC or transient analysis to compute AC values.
+
+Unlike Spice, Gnucap does not actually load the matrix here.
+
+== void ac_load() ==
+This function gives the appearance of loading the admittance matrix and current vector with the values calculated in do_ac.
+
+The actual loading is done by one or more of a small group of general functions, depending on whether the element is active, passive, poly, or a source. Only certain patterns can be stamped. Complex devices use a combination of these patterns.
+
+WARNING to model developers: DO NOT stamp the matrix directly!

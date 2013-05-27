@@ -1,0 +1,91 @@
+====== Experimentally finding model parameters ======
+
+Sometimes you need to determine model parameters, based on having no real information.
+
+In this example, we find the parameter "IS" of a diode, based on its forward voltage.
+
+We would like to have a diode...
+
+  D2 (a k) 1n4004
+
+Now you need a model statement ...
+
+  .model 1n4004 d (a whole bunch of parameters)
+
+You could do a web search for a detailed model, but usually you
+can just do some experimenting..
+
+If you are at the stage where you are asking about this, the
+detail will only confuse you, most likely of the worst kind of
+confusion, where you don't realize it.
+
+Most of the time, the only parameter you need for a diode is
+saturation current, which of course isn't in the data sheet.
+
+ok .. so how do I figure that out??
+
+Well ...  Look at the specs, or measure it.  Let's say we found
+that the forward voltage at 1 amp is .7 volts.
+
+Use the simulator to build a test circuit ..
+
+  I1 (0 1) dc 1
+  D1 (1 0) my_diode
+
+You need a model statement ..
+  .model my_diode d (is=something)
+
+but I don't know what the value of something is.
+
+With gnucap .. try this.......
+
+  gnucap> build
+  >i1 (0 1) dc 1
+  >d1 (1 0) my_diode
+  >.model my_diode d is=something
+  >                   ******** blank line to exit build mode
+  gnucap> probe  op  v(1)
+  parameter something has no value
+  gnucap> op
+  #           v(1)
+   27.        0.83376                    **** using default IS
+  gnucap> param something=1u
+  gnucap> op
+  #           v(1)
+   27.        0.35733
+  gnucap> param something=1n
+  gnucap> op
+  #           v(1)
+   27.        0.53599
+  gnucap> param something=1p
+  gnucap> op
+  #           v(1)
+   27.        0.71465
+  gnucap> param something=2p
+  gnucap> op
+  #           v(1)
+   27.        0.69673
+  gnucap> param something=1.5p
+  gnucap> op
+  #           v(1)
+   27.        0.70417
+  gnucap> param something=1.8p
+  gnucap> op
+  #           v(1)
+   27.        0.69945
+  gnucap> param something=1.7p
+  gnucap> op
+  #           v(1)
+   27.        0.70093
+  gnucap> param something=1.75p
+  gnucap> op
+  #           v(1)
+   27.        0.70018
+  gnucap> exit
+
+
+There ..  close enough ,,,
+Now use the value 1.75p for IS.
+
+Here's your model statement:
+  .model my_diode d is=1.75p

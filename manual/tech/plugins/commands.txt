@@ -1,0 +1,35 @@
+====== Command plugins ======
+
+===== Framework =====
+
+Command plugins are called by a command interpreter, in a loop.
+
+Usually, the main loop reads from the standard input or a file, line by line.  Extension lines are combined when the file is read, so the command code doesn't see them.  The string is converted to a "command string", an object of type "CS", which is defined in "ap.h".  This command string contains the data, an index showing how far it has been read, and some status.
+
+The command string begins with the name of the command.  This is looked up in the "command_dispatcher" using the subscript operator.  The dispatcher returns a pointer to a static object that will interpret the command, or a NULL pointer if there is no match.
+
+Then, the method "do_it" is invoked on this object, passing first the command string, with the index advanced to the argument list, and the current "scope" so parameter expressions can be evaluated correctly.  If "do_it" returns, it is assumed to have correctly done what was requested.  If something is wrong, it may throw an exception.
+
+Each command defines a new class, derived from "CMD" which is defined in "c_comand.h".
+
+The header file "globals.h" is needed because it contains the declaration of the dispatcher.
+===== Implementation =====
+
+Plugins need to #include two files: "c_comand.h" and "globals.h".
+
+Only one method is needed for each command:  "''do_it(CS& Cmd, CARD_LIST* Scope)''".
+
+Declare one static object of this new type, and INSTALL it in the DISPATCHER.
+
+<code>
+#include "c_comand.h"
+#include "globals.h"
+
+class CMD_HELLO : public CMD {
+  void do_it(CS& Cmd, CARD_LIST* Scope)
+  {
+    // code goes here
+  }
+} so;
+DISPATCHER<CMD>::INSTALL d(&command_dispatcher, "hello", &so);
+</code>

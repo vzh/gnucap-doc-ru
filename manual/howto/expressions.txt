@@ -1,0 +1,73 @@
+====== Parameter expressions ======
+
+Gnucap supports expressions for almost all parameters.
+
+Ideally, the usual syntax is supported.  Actually, in some cases you must enclose the expression in quotes or curly braces.
+
+Expressions use late evaluation and dynamic scoping, like a functional language.
+
+The "eval" command evaluates and prints the present value of an expression.
+
+The "measure" command evaluates and assigns the present value of an expression.  For now, it only takes simple function calls used in measurements.
+
+===== Example =====
+
+  gnucap> param a=5
+  gnucap> param b=a+3
+  gnucap> eval a
+  a= 5.
+  gnucap> eval b
+  b= 8.
+
+Now change the value of "a".
+
+  gnucap> param a=9
+  gnucap> eval b
+  b= 12.
+
+Thanks to late evaluation, the value of "b" also changed.
+
+This is so you can do things like this:
+
+  r1 (in out) resistor r={rtotal*ratio}
+  r2 (out 0)  resistor r={rtotal*(1-ratio)}
+
+  param rtotal=100k
+  param ratio=.5
+
+r1 and r2 are both 50k.
+
+  param rtotal=10k
+
+r1 and r2 are both 5k.
+
+  param ratio = .3
+
+r1 is 3k.  r2 is 7k.
+
+===== Operators =====
+
+The usual binary operators (+ - * /) are supported in the usual way with the usual precedence.
+
+The usual comparison operators ( < > <''''= >= == != ) are supported.  The result is 1 if it evaluates to true, 0 if it evaluates to false.
+
+The binary operators (&& ||) are supported, and evaluate to 1 or 0.
+
+===== Functions =====
+
+These functions are included by default.  More functions can be added as plugins.
+
+|abs(x)    |Magnitude of x.  |
+|cos(x)    |Cosine of x.  |
+|cosh(x)   |Hyperbolic cosine of x.  |
+|eval(x)   |Evaluate x.  |
+|exp(x)    |e raised to the x power.  |
+|int(x)    |Integer part of x.  |
+|log(x)    |Natural log of x.  |
+|na(x)     |"Not available".  Returns "NA" regardless of its argument.  |
+|pow(x,y)  |x raised to the y power.  |
+|sin(x)    |Sine of x.  |
+|sinh(x)   |Hyperbolic sine of x.  |
+|sqrt(x)   |Square root of x.  |
+|tan(x)    |Tangent of x.  |
+|tanh(x)   |Hyperbolic tangent of x.  |

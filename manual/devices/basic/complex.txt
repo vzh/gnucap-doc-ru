@@ -1,0 +1,28 @@
+====== "complex" Complex value ======
+
+===== Syntax =====
+
+  complex ( realpart imaginarypart options )
+
+===== Purpose =====
+
+Complex component value, using a real and imaginary part.  AC only.
+
+===== Comments =====
+
+Strictly, this adds no functionality over the polar option on any
+function, except notational convenience.
+
+It is only meaningful in AC analysis.  Others take the real part and
+ignore the imaginary part.  No warning is issued.
+===== Step control =====
+
+This function does have any role in time step control.  The notion of complex values does not work in transient analysis.
+
+===== Example =====
+
+  V12 (2 0) complex(1,2)
+A voltage source with a value of 1 + j2 volts.
+
+  R12 (2 4) complex(50,-10)
+A "resistor" with a value of 50 - j10 ohms.

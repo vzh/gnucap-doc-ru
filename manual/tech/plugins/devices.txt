@@ -1,0 +1,33 @@
+====== Device plugins ======
+
+===== Framework =====
+
+Devices, model definitions, commands, and subcircuit definitions are all stored in a linked list, and are defined by classes derived from "CARD".  The container is a CARD_LIST.
+
+Device instances are derived from COMPONENT, which is derived from CARD.
+
+Model and paramset statements are derived from MODEL_CARD, which is derived from CARD.
+
+There are special classes of devices that are derived from COMPONENT.
+
+|COMPONENT   |e_compon.h |all devices, including those defined by subcircuit expansion. |
+|BASE_SUBCKT |e_subckt.h |devices that are defined in terms of other devices, as subcircuits, with an internal hierarchy. |
+|ELEMENT     |e_elemnt.h |devices that are not defined in terms of other devices. |
+|STORAGE     |e_storag.h |elements that store some historical information, such as previous states. |
+
+Devices do not contain any parsing or printing code, but do contain methods for setting and reading parameters.
+
+Some devices do contain parsing or printing code in methods with a name that includes "obsolete_callback".  That is not documented here, and will eventually be removed.
+
+One static object of every type is created at program startup or when a plugin is loaded.  A pointer to that static object is installed in a dispatcher, and later accessed by name or through that pointer.  This is the only interface.
+===== Implementation =====
+
+Device plugins need to include at least one file, defining its base class.  Often, that is the only include file needed.
+
+  * [[.:devices:query|Simple query functions]]
+  * [[.:devices:Ports]]
+  * [[.:devices:Parameters]]
+  * [[.:devices:Allocation and setup]]
+  * [[.:devices:DC and transient analysis]]
+  * [[.:devices:AC analysis]]
+  * [[.:devices:probes]]

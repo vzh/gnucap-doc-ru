@@ -1,0 +1,51 @@
+====== Transmission Line ======
+
+===== Syntax =====
+
+  Txxxxxxx (n1+ n1- n2+ n2-) args
+
+===== Purpose =====
+
+Lossless transmission line.
+
+===== Comments =====
+
+n1+ and n1- are the nodes at one end.  n2+ and n2- are the nodes at the other end.
+
+The parameters TD, Freq, and NL determine the length
+of the line.  Either {\tt TD} or {\tt Freq} and {\tt NL} must be
+specified.  If only {\tt Freq} is specified, {\tt NL} is assumed to be
+.25.  The other will be calculated based on the one you specify.  If
+you specify too many parameters, {\tt Freq} and {\tt NL} dominate, and
+a warning is issued.
+===== Element Parameters =====
+
+Many parameters are offered.  You should not specify them all.
+^Parameters that always work.  ^^
+|len  |Length multiplier.  (Default = 1) The effective length, regardless of its method of calculation is multiplied by this number.  |
+
+^Direct specification of electrical characteristics.  ^^
+|z0    |Characteristic impedance.  If not specified, it is calculated by sqrt(L/C).  If neither //z0// nor //L// and //C// are specified, the default value is 50 Ohms.  |
+|td    |Time delay.  If not specified, it will be calculated, either by nl/freq or by sqrt(L*C).  |
+|freq  |Frequency for //nl//.  |
+|nl    |Number of wavelengths at //freq//.  |
+
+^Physical parameters  ^^
+|L  |Inductance per unit length.  This value is used only if //z0// and //td// are both not specified.  |
+|C  |Capacitance per unit length.  This value is used only if //z0// and //td// are both not specified.  |
+
+===== Probes =====
+
+The standard probes for all basic elements are all available.
+
+===== Step control =====
+
+Transient time steps are limited to be no larger than the delay of the transmission line.  Aside from this, there is no attempt to synchronize, because synchronization would result in a significant run speed penalty.
+
+There is significant room for improvement, if there is demand for it.
+
+===== Convergence =====
+
+Transmission lines are linear devices, so it would seem they would not be a factor in convergence.
+
+Transmission lines can be used to decouple problem circuits.  If a circuit is having convergence problems, sometimes inserting a short transmission line in an appropriate place can solve the problem by adding a small delay.  Parts of circuits separated by transmission lines are considered to be separate circuits.  Convergence problems in one part do not influence the other part.

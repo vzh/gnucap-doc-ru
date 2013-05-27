@@ -1,0 +1,48 @@
+====== Device plugins ======
+===== Implementation =====
+==== Allocation and setup ====
+
+== default constructor ==
+A default constructor is required.  It is used to construct the static object that is registered with the dispatcher.  It should do what a default constructor usually does.
+
+== copy constructor ==
+A copy constructor is required.  Most objects are created by the copy constructor, as copies of the object registered with the dispatcher.  Usually, it should do a SHALLOW copy.  In particular, a COMMON should be linked and not copied.  A copy constructor must explicitly invoke the copy constructor of the base class.
+
+== destructor ==
+Usually a destructor is not required, but it is a good idea to provide one anyway even if it is empty.  It must deallocate any dynamic memory that is used.
+
+== CARD* clone()const ==
+Create a new object as a copy of this one, using the copy constructor with the argument "*this".
+
+== void expand() ==
+The expand function expands subcircuits and models, as needed.  Unlike Spice, it does not really flatten the circuit, but it allocate space for the additional storage, attaches models, and related tasks.  It is called once after reading the circuit, and possibly later when the topology of the circuit is changed.
+
+It is possible that it may be called more than once.  If it is called twice in succession, the result must be the same as if it were called once.  Either it frees then re-expands, or (preferably) it keeps what it can and checks to make sure it is correct.
+
+Most simple elements do not have expand functions. Most advanced components do.
+
+It is not expected to compute any values, but it is allowed to call "precalc" if needed in case the values affect topology.  It is preferred that the action of expand is the same regardless of parameter values.
+
+Expanding a subcircuit makes a copy of it, and remaps the nodes. Most components use a shallow copy. That is, if something is attached through a pointer, the value of the pointer is copied, not the attachment. Commons are never copied when the owner components are copied, but commons may be duplicated later if something changes.
+
+== void expand_first() ==
+The expand_first function is an expand function that is done first, before any plain expand functions.  Usually it is not needed, but sometimes there are order dependencies, so this provides a way to control the calling order.  As an example, for current controlled sources with a sense element, the controlled source can send a message to the controlling element that can result in a different expansion.
+
+== void expand_last() ==
+The expand_last function is an expand function that is done last, after any plain expand functions.  Usually it is not needed, but sometimes there are order dependencies, so this provides a way to control the calling order.  As an example, for current controlled sources with a sense element, the controlled source must be expanded after the sense element.
+
+== void precalc_first(), void precalc_last() ==
+The precalc functions attempt to pre-calculate anything that will remain constant during a simulation run. This includes size dependent transistor parameters and the stamp values for linear elements.  It also evaluates parameter expressions.
+
+It is possible that it may be called more than once.  It must not change its input data in any way.  If it is called twice in succession, the result must be the same as if it were called once.
+
+Some values must be calculated before determining structure.  These go in precalc_first.
+
+Some values must be calculated after structure is determined.  These go in precalc_last.
+
+Some values don't matter whether they are calculated before or after structure is determined.  It strictly doesn't matter
+whether they are in precalc_first or precalc_last.  By convention, evaluation of parameter expressions goes in
+precalc_first, calculation of other values that are done only once goes in precalc_last.
+
+== void map_nodes() ==
+Map the user node names to internal node numbers.  Almost always, the inherited function does what is needed, which is to loop over all nodes (both ports and internal) and call their "map" function, and recursively map subcircuits.

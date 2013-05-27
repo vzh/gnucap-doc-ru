@@ -1,0 +1,70 @@
+====== "dc" command ======
+
+===== Purpose =====
+
+Performs a nonlinear DC steady state analysis, and sweeps the signal input, or a component value. 
+
+===== Syntax =====
+
+  dc start stop stepsize {options ...}
+  dc label start stop stepsize {options ...} 
+
+===== Comments =====
+
+The nodes to look at must have been previously selected by the print or plot command.
+
+If there are numeric arguments, without a part label, they represent a ramp from the generator function. They are the start value, stop value and step size, in order. They are saved between commands, so no arguments will repeat the previous sweep.
+
+A single parameter represents a single input voltage. Two parameters instruct the computer to analyze for those two points only.
+
+In some cases, you will get one more step outside the specified range of inputs due to internal rounding errors. The last input may be beyond the end point.
+
+This command also sets up a movable operating point for subsequent AC analysis, which can be helpful in distortion analysis.
+
+The program will sweep any simple component, including resistors, capacitors, and controlled sources. SPICE sweeps only fixed sources (types V and I).
+ 
+This command will sweep up to 4 components, nested. 
+
+===== Options =====
+
+==== Sweep control ====
+|* //multiplier//      |Log sweep. Multiply the input by //multiplier// to get the next step. Do not pass zero volts!!  |
+|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step.  |
+|decade //steps//      |Log sweep. Use //steps// steps per decade.  |
+|times //multiplier//  |Log sweep. Multiply the input by multiplier to get the next step. Do not pass zero volts!!  |
+|continue              |Use the last step of a OP, DC or Transient analysis as the first guess.  |
+|loop                  |Repeat the sweep, backwards.  |
+|reverse               |Sweep in the opposite direction.  |
+
+==== Input / Output ====
+|> //file//   |Send results of analysis to file.  |
+|>> //file//  |Append results to file.  |
+|noplot       |Suppress plotting.  |
+|plot         |Graphic output, when plotting is normally off.  |
+|quiet        |Suppress console output.  |
+
+|trace off         |No extended trace information.  |
+|trace warnings    |Show extended warnings.  |
+|trace iterations  |Show every iteration.  |
+|trace verbose     |Show extended diagnostics.  |
+
+==== Other ====
+|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |
+|temperature //degrees//  |Temperature, degrees C.  |
+
+===== Examples =====
+
+  dc 1
+Do a single point DC signal simulation, with `1 volt' input.
+  dc -10 15 1
+Sweep the circuit input from -10 to +15 in steps of 1. (usually volts.) Do a DC transfer simulation at each step.
+  dc
+With no parameters, it uses the same ones as the last time. In this case, from -10 to 15 in 1 volt steps.
+  dc V13 -10 15 1
+Sweep the "value" of the component "V13" from -10 to +15 in steps of 1. Do a DC transfer simulation at each step.
+  dc 20 0 -2
+You can sweep downward, by asking for a negative increment. Sometimes, this will result in better convergence, or even different results! (For example, in the case of a bi-stable circuit.)
+  dc -2 2 .1 loop
+After the sweep, do it again in the opposite direction. In this case, the sweep is -2 to +2 in steps of .1. After it gets to +2, it will go back, and sweep from +2 to -2 in steps of -.1. The plot will be superimposed on the up sweep. This way, you can see hysteresis in the circuit.
+  dc temperature=75
+Simulate at 75 degrees, this time. Since we didn't specify new sweep parameters, do the same as last time. (Without the loop.)

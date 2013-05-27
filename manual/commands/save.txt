@@ -1,0 +1,28 @@
+====== "save" command ======
+
+===== Purpose =====
+
+Saves the circuit to a file.
+
+===== Syntax =====
+
+  save filename {options ...}
+
+===== Comments =====
+
+The file is in an ASCII format, so the list may be used as part of a report.
+
+The format used depends on the "language" option, which could use a plugin to provide any format.  "Spice", "Spectre" and "Verilog" formats are supported in the standard installation.
+
+You can save a part of a circuit. See the list command for more details.
+
+===== Examples =====
+
+  save works.ckt
+Save the circuit in the file works.ckt, in the current directory.
+  save
+Save the circuit. Since you did not specify a file name, it will ask for one.
+  save partof.ckt R*
+Save a partial circuit, just the resistors, to the file partof.ckt. (See the List command.)
+  save /client/sim/ckt/no33
+You can specify a path name.

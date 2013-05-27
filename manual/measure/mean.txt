@@ -1,0 +1,44 @@
+====== "mean", "integrate", "rms" measures ======
+
+===== Purpose =====
+
+| mean      |Find the mean or average value of a waveform.  |
+|integrate  |Find the integral of a waveform, the area under the curve.  |
+|rms        |Find the RMS (root mean square) value of a waveform.  |
+
+===== Syntax =====
+
+  mean(probe="p(d)"  begin=time  end=time)
+  integrate(probe="p(d)"  begin=time  end=time)
+  rms(probe="p(d)"  begin=time  end=time)
+
+===== Parameters =====
+
+^arg name  ^default  ^description  ^
+|probe     |required    |The name of a probe to measure.  |
+|begin     |- infinity  |Start averaging at this time or frequency.  |
+|end       |+ infinity  |Stop averaging at this time or frequency.  |
+
+===== Comments =====
+
+The "mean" measure gives you the true average or mean value.  The mean value of a sine over a full cycle is zero.
+
+The "integrate" measure gives you the integral, or area under the curve, signed.  The integral of a sine over a full cycle is zero.
+
+The "rms" measure gives you the RMS (root mean square) value.
+
+===== Examples =====
+
+  measure sample = mean(probe="v(out)" begin=4u end=6u)
+Find the mean value of v(out) between 4 microseconds and 6 microseconds.
+  measure sample = mean(probe="v(out)")
+Find the mean value of v(out) for an entire run.
+  measure sample = mean(probe="v(out)" begin=4u)
+Find the mean value of v(out) starting at 4 microseconds, to the end.
+
+  measure sample = integrate(probe="v(out)" begin=4u end=6u)
+Find the area under the curve of v(out) between 4 microseconds and 6 microseconds.
+  measure sample = integrate(probe="v(out)")
+Find the area under of v(out) for an entire run.
+  measure sample = integrate(probe="v(out)" begin=4u)
+Find the area under of v(out) starting at 4 microseconds, to the end.

@@ -1,0 +1,48 @@
+====== Capacitor, advanced ======
+
+===== Syntax: instance =====
+
+=== Spice format ===
+  Cxxxxxxx n+ n– value
+  Cxxxxxxx n+ n– expression
+  Cxxxxxxx n+ n– value {IC=initial-voltage}
+  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}
+
+=== Spectre format ===
+  Cxxxxxxx n+ n– capacitor C=value
+  Cxxxxxxx n+ n– capacitor expression
+  Cxxxxxxx n+ n– capacitor C=value {IC=initial-voltage}
+  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}
+
+=== Verilog format ===
+  capacitor #(.c(value))
+  Cxxxxxxx n+ n– value
+  Cxxxxxxx n+ n– expression
+  Cxxxxxxx n+ n– value {IC=initial-voltage}
+  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}
+
+
+
+
+  .capacitor label n+ n– expression
+Model (optional)
+.model mname C {args}
+ .model mname TABLE {args}
+
+===== Purpose =====
+
+Capacitor, or general charge storage element.
+===== Comments =====
+
+N+ and n– are the positive and negative element nodes, respectively. Value is the capacitance in Farads.
+
+The (optional) initial condition is the initial (time = 0) value of the capacitor voltage (in Volts). Note that the initial conditions (if any) apply only if the UIC option is specified on the transient command.
+
+You may specify the value in any of these forms:
+A simple value. This is the capacitance in Farads.
+
+An expression, as described in the behavioral modeling chapter. The expression can specify the charge as a function of voltage, or the capacitance as a function of time.
+
+A model, as described in the behavioral modeling chapter. The table model describes a table of charge vs. voltage.
+
+A model, which calculates the capacitance as a function of length and width, referencing a .model statement of type C. This is compatible with

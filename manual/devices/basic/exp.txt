@@ -1,0 +1,49 @@
+====== "exp" Exponential time dependent value ======
+
+===== Syntax =====
+
+  exp (args)
+  exp (iv pv td1 tau1 td2 tau2 period)
+
+===== Purpose =====
+
+The component value is an exponential function of time.
+===== Comments =====
+
+For voltage and current sources, this is the same as the Spice "exp" function, with some extensions.
+
+The shape of the waveform is described by the following algorithm:
+
+<code>
+ev = _iv;
+for (reltime=time; reltime>=0; reltime-=_period){
+  if (reltime > _td1){
+    ev += (_pv - _iv) * (1. - Exp(-(reltime-_td1)/_tau1));
+  }
+  if (reltime > _td2){
+    ev += (_iv - _pv) * (1. - Exp(-(reltime-_td2)/_tau2));
+  }
+}
+</code>
+
+For other components, it gives a time dependent value.
+
+As an extension beyond Spice, you may specify the parameters as
+name=value pairs in any order.
+===== Parameters =====
+
+|iv      |Initial value.  (required)             |
+|pv      |Pulsed value.  (required)              |
+|td1     |Rise time delay.  (Default = 0.)       |
+|tau1    |Rise time constant.  (Default = 0.)    |
+|td2     |Fall time delay.  (Default = 0.)       |
+|tau2    |Fall time constant.  (Default = 0.)    |
+|period  |Repeat period.  (Default = infinity.)  |
+
+===== Step control =====
+
+This function influences time step control through both smoothness control and analog events.
+
+The time step is limited by the active time constant, either tau1 or tau2, depending on whether it is rising or falling.
+
+The corners in as exp waveform are considered to be analog events.  The transient analysis will attempt to control timing accuracy of these analog events.  If it is reasonable, a time step should be scheduled at these times exactly.  In any case, there should be a time step within option::dtmin of these times.

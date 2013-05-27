@@ -1,0 +1,42 @@
+====== "cross" measure ======
+
+===== Purpose =====
+
+Find the time or frequency where a probed value crosses a reference.
+
+===== Syntax =====
+
+  cross(probe="p(d)" cross=value begin=time end=time rise fall last first)
+===== Parameters =====
+
+^arg name       ^default  ^description  ^
+|probe          |required   |The name of a probe to measure.  |
+|cross          |0          |The value it crosses.  |
+|begin\\ after  |-infinity  |The window begins at this time or frequency.  |
+|end\\ before   |+infinity  |The window ends at this time or frequency.  |
+|first          |true       |Find the first crossing in the window.  (Cancels last.)  |
+|last           |false      |Find the last crossing in the window.  (Cancels first.)  |
+|rise           |true       |Consider only rising crossings.  (Cancels fall.)  |
+|fall           |false      |Consider only falling crossings.  (Cancels rise.)  |
+===== Caveats =====
+
+For this function to detect a crossing, it must actually cross.
+  * A steady state at the cross value is not a crossing.
+  * Being at the cross value and leaving is not a crossing.
+  * Merely touching (becoming equal to) the cross value and leaving from the same side is not a crossing.
+
+===== Diagnostics =====
+
+If there is no crossing within the specified range, it returns "Inf" (infinity).
+
+If you didn't store the waveform (see store command), it throws a "no match" exception, which prints "no match".
+
+===== Examples =====
+
+  measure t2 = cross(probe="v(out)" cross=0 rise last)
+Find the last time that v(out) crosses 0, going up.
+  measure t1 = cross(probe="v(out)" cross=0 rise last before=t2)
+Find the last rising zero crossing before t2.
+  param period = {t2-t1}
+  param frequency = {1/period}
+Params are interpreted like a functional language so they will be updated whenever t1 or t2 changes.

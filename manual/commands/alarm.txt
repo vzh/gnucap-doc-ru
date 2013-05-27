@@ -1,0 +1,46 @@
+====== "alarm" command ======
+
+===== Purpose =====
+
+Select points in the circuit to check against user defined limits.
+
+===== Syntax =====
+  alarm
+  alarm mode points ... ...
+  alarm mode + points ... ...
+  alarm mode - points ... ...
+  alarm mode clear
+
+===== Comments =====
+
+The `alarm' command selects points in the circuit to check against limits. There is no output unless the limits are exceeded. If the limits are exceeded a the value is printed.
+
+There are separate lists of probe points for each type of analysis.
+
+To list the points, use the bare command `alarm'.
+
+Syntax for each point is:
+  parameter(node)(limits)
+  parameter(componentlabel)(limits)
+  parameter(index)(limits)
+
+Some require a dummy index.
+
+For more information on the data available see the print command.
+
+You can add to or delete from an existing list by prefixing with + or -. alarm ac + v(3) adds v(3) to the existing set of AC probes. alarm ac - q(c5) removes q(c5) from the list. You can use the wildcard characters * and ? when deleting.
+
+===== Examples =====
+
+  alarm ac vm(12)(0,5) vm(13)(-5,5)
+Check magnitude of the voltage at node 12 against a range of 0 to 5, and node 13 against a range of -5 to 5 for AC analysis. Print a warning when the limits are exceeded.
+  alarm op id(m*)(-100n,100n)
+Check current in all mosfets. In op analysis, print a warning for any that are outside the range of -100 to +100 nanoamps. The range goes both positive and negative so it is valid for both N and P channel fets.
+  alarm tran v(r83)(0,5) p(r83)(0,1u)
+Check the voltage and power of R83 in the next transient analysis. The voltage range is 0 to 5. The power range is 0 to 1 microwatt. Print a warning when the range is exceeded.
+  alarm
+List all the probes for all modes.
+  alarm dc
+Display the DC alarm list.
+  alarm ac clear
+Clear the AC list.

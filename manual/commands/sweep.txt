@@ -1,0 +1,69 @@
+====== "sweep" command ======
+
+===== Purpose =====
+
+Sweep a component (or group of components) over a range. Set up a loop for iteration.
+
+===== Syntax =====
+
+  sweep {stepcount} partlabel=range ...
+
+===== Comments =====
+
+This command is considered obsolete, but the replacement is not working yet.
+
+This command begins a loop which will sweep a component or group of components.
+
+When this command is given, the only apparent actions will be a change in the prompt from `gnucap>' to `>>>', and some disk action.
+
+The different prompt means that commands are not executed immediately, but are stored in a temporary file.
+
+The bare command will repeat the same command sequence as the last time sweep was run, and not prompt for anything else.
+
+Additional components can be swept at the same time by entering a `FAult' command at the `>>>' prompt. The `fault' behaves differently here: It accepts a range, which is the sweep limits.
+
+The `go' command will end the entry sequence, and make it all happen. After this, the values are restored. (Also, all faults are restored, as if by the `restore' command.)
+
+All commands can be used in this mode. Of course, some of them are not really useful (quit) because they work as usual.
+
+Only linear, ordinary parts can be swept. (No semiconductor devices, or elements using behavioral modeling.) The tolerance remains unchanged. If you attempt to sweep a nonlinear or otherwise strange part, it becomes ordinary and linear during the sweep.
+
+===== Example =====
+
+  gnucap> sweep  5   R14=1,100k   R15=100k,1
+  >>>list
+  >>>ac 500 2k oct
+  >>>go
+This sequence of commands says to simultaneously sweep R14 and R15 in 5 steps, in opposite directions, list the circuit and do an AC analysis for each step.
+
+Assuming the circuit was:
+  R14  1   0   50k
+  R15  2   0   50k
+The result of this sequence would be:
+  R14  1   0   1
+  R15  2   0   100k
+an AC analysis
+  R14  1   0   25.75k
+  R15  2   0   75.25k
+an AC analysis
+  R14  1   0   50.5k
+  R15  2   0   50.5k
+an AC analysis
+  R14  1   0   75.25k
+  R15  2   0   25.75k
+an AC analysis
+  R14  1   0   100k
+  R15  2   0   1
+an AC analysis
+
+After all this is done, the circuit is restored, so list would show:
+  R14  1   0   50k
+  R15  2   0   50k
+
+You could accomplish the same thing by entering fault commands at the `>>>' prompt.
+  gnucap>sweep  5
+  >>>fault  R14=1, 100k
+  >>>fault  R15=100k, 1
+  >>>list
+  >>>ac 500 2k oct
+  >>>go

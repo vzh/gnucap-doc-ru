@@ -1,0 +1,28 @@
+====== ">" command ======
+
+===== Purpose =====
+
+Saves a copy of all program output (except help) in a file.
+
+===== Syntax =====
+
+  > file
+  >> file
+  >
+
+===== Comments =====
+
+''>'' creates a new file for this output. If the file already exists, the old one is lost, and replaced by the new one.
+
+''>''''>'' appends to an existing file, if it exists, otherwise it creates one.
+
+A bare ''>'' closes the file.
+
+===== Examples =====
+
+  > run1
+Save everything in a file run1 in the current directory. If run1 already exists, the old one is gone.
+  >> allof
+Save everything in a file allof. If allof already exists, it is kept, and the new data is added to the end.
+  >
+Close the file. Stop saving.

@@ -1,0 +1,25 @@
+====== "alter", "modify" commands ======
+
+===== Purpose =====
+
+Quickly change a component value.
+
+===== Syntax =====
+
+  alter  partlabel=value ...
+  modify partlabel=value ...
+
+===== Comments =====
+
+This command quickly changes the value of a component. It is restricted to simply changing the value.
+
+If several components have the same label or if wildcard characters are used, all are changed.
+
+===== Example =====
+
+  modify R66=1k
+R66 now has a value of 1k, regardless of what it was before.
+  modify C12=220p L1=1u
+C12 is 220 pf and L1 is 1 uH.
+  modify R*=22k
+All resistors are now 22k.

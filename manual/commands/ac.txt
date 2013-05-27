@@ -1,0 +1,69 @@
+====== "ac" command ======
+
+===== Purpose =====
+
+Performs a small signal, steady state, AC analysis. Sweeps frequency.
+
+===== Syntax =====
+
+  ac {//options// ...} //start stop stepsize// {//options// ...} 
+
+===== Comments =====
+
+The "ac" command does a linear analysis about an operating point. It is absolutely necessary to do an "op" analysis first on any nonlinear circuit. Not doing this is the equivalent of testing it with the power off.
+
+Three parameters are normally needed for an AC analysis: start frequency, stop frequency and step size, in this order. If all of these are omitted, the values from the most recent AC analysis are used.
+
+If only one frequency is specified, a single point analysis will be done.
+
+If only a new step size is specified, the old start and stop are kept and only the step size is changed. This is indicated by a keyword: by, times, decade or octave, or a symbol: + or *.
+
+If the start frequency is zero, the program will still do an AC analysis. The actual frequency can be considered to be the limit as the frequency approaches zero. It is, therefore, still possible to have a non-zero phase angle, but delays are not shown because they may be infinite.
+
+The nodes to look at must have been previously selected by the print or plot command. This is different from Spice. 
+
+===== Options =====
+
+==== Sweep control ====
+|start //frequency//   |Sweep start //frequency//.  |
+|stop //frequency//    |Sweep stop //frequency//.  |
+|+ //stepsize//        |Linear sweep. Add //stepsize// to get the next step. Same as by.  |
+|* //multiplier//      |Log sweep. Multiply by //multiplier// to get the next step.  |
+|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step. Same as +.  |
+|decade //steps//      |Log sweep. Use //steps// steps per decade.  |
+|octave //steps//      |Log sweep. Use //steps// steps per octave.  |
+|times //multiplier//  |Log sweep. Multiply by //multiplier// to get the next step.  |
+
+==== Input / Output ====
+|> //file//   |Send results of analysis to file.  |
+|>> //file//  |Append results to file.  |
+|noplot       |Suppress plotting.  |
+|plot         |Graphic output, when plotting is normally off.  |
+|quiet        |Suppress console output.  |
+
+==== Other ====
+|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|
+|temperature //degrees//  |Temperature, degrees C. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|
+
+===== Examples =====
+
+  ac 10m
+A single point AC analysis at 10 mHz.
+  ac 1000 3000 100
+Sweep from 1000 Hz to 3000 Hz in 100 Hz steps.
+  ac start=1000 stop=3000 step=100
+Same as the last one.
+  ac 1000 3000 Octave
+Sweep from 1000 Hz to 3000 Hz in octave steps. Since the sweep cannot end at 3000 Hz, in this case, the last step will really be 4000 Hz.
+  ac by 250
+Keep the same limits as before, but use 250 Hz steps. In this case, it means to sweep from 1000 to 3000 Hz, because that it what it was the last time.
+  ac 5000 1000 -250
+You can sweep downward, if you want. Remember that the increment would be negative.
+  ac 20 20k *2
+Double the frequency to get the next step.
+  ac 20k 20 *.5
+You can do a log sweep downward, too. A multiplier of less than one moves it down.
+  ac
+Do the same AC sweep again.
+  ac >afile
+Save the results in the file ''afile''. The file will look just like the screen. It will have all probe points. It will be a plot, if plotting is enabled.

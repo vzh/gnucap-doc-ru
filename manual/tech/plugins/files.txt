@@ -1,0 +1,45 @@
+====== Plugins ======
+
+===== Concepts =====
+
+==== Files ====
+
+Gnucap plugins are standard "shared object" or "dynamic link" files, native to the environment.
+
+Plugins must be compiled for the particular system, like shared libraries.
+
+==== System Requirements ====
+
+The host system must be capable of dynamic linking, and support the POSIX.1-2001 system calls for loading and unloading dynamic libraries on demand.  In particular, the calls "dlopen", "dlclose", and "dlerror" are used.  The "dlsym" call is not used.
+
+If the system does not support these calls directly, but does have the functionality in a different form, a set of wrapper functions is needed.
+
+==== Interface ====
+
+Plugins are loaded by the "load" (or "attach") command, and unloaded by the "unload" (or "detach") command.  These commands are defined in the source file "c_attach.cc".
+
+As of when this is being written, the files must be compiled before loading.  In the future, there will be changes to enable the ability to compile plugins on demand.
+
+As per the specification of "dlopen", when a plugin is loaded, constructors for all of its static objects are run.  Normally, the linkage is through derived classes and a dispatcher, but other interfaces are possible by callbacks in the constructor.  Also, all callbacks are resolved at this time.  A plugin will fail to load if callbacks cannot be resolved.
+
+If it is desired to load a plugin in spite of unresolved callbacks, you can load with the "lazy" option.  If you do this, the plugin is likely to work partially but fail when it attempts to call the missing function.  This is not recommended for released code and likely to not work with non-POSIX systems.  It is provided as a debugging aid.
+
+Likewise, when a plugin is unloaded, destructors for the static objects are run.
+
+The "dlsym" function is not needed, because the interface is through derived classes.
+
+==== Microsoft-Windows Interface ====
+
+Microsoft-Windows does not support the needed POSIX system calls directly, so a set of wrapper functions is used.  The MS functions are "LoadLibrary", "FreeLibrary", and "GetLastError".  These wrapper functions are defined in "md.h".
+
+==== Namespaces ====
+
+Normally, each plugin has its own namespace, so its symbols are not visible to the main program or to other plugins.
+
+If it is desired to make the symbols visible outside, you can load with the "public" option.  This is not recommended for released code and likely to not work with non-POSIX systems.  It is provided as a debugging aid.
+
+==== Static linking ====
+
+In some cases it is desirable to static link code modules that are designed as plugins.  Usually, all that is needed is to add the file to the list.
+
+There may be a problem with name clashes, because static linked modules share the main program's namespace.  If a plugin has only one source file, you can enclose all of the code in an anonymous namespace to avoid name clashes.

@@ -1,0 +1,92 @@
+====== Device plugins ======
+===== Implementation =====
+==== DC and transient analysis ====
+
+== void tr_iwant_matrix() ==
+Notify the sparse matrix of what nodes this device uses.
+
+Two matrices are used, "aa" and "lu".  The matrix "aa" is the nodal admittance matrix.  The matrix "lu" is the LU factors of the admittance matrix.  Both need to be notified, and have identical patterns.
+
+This notification is done by invoking the matrix "iwant" call with node pairs that need allocating.
+This line:
+  aa.iwant(_n[0].m_(),_n[1].m_());
+  lu.iwant(_n[0].m_(),_n[1].m_());
+requests allocation of space for an element stamp connecting _n[0] and _n[1].  This is usually four places in the matrix.
+
+Usually, this is not done directly, but calls another function:
+  * tr_iwant_matrix_passive(), for two-terminal elements like resistors, with a symmetric stamp
+  * tr_iwant_matrix_active(), for controlled sources, with an asymmetric stamp
+  * tr_iwant_matrix_extended(), the general case, allocates all combinations
+
+== void tr_begin() ==
+This is called at the beginning of every DC or OP analysis, and transient analysis unless it is continuing a previous run.  It initializes all state variables, sets up the initial guess for nonlinear analysis, and fills in reasonable values for historical states.  It should call BASE::tr_begin() before doing anything else.
+
+== void tr_restore() ==
+This is called when continuing a transient analysis.  It must restore state variables and history to a consistent state if the previous analysis was stopped uncleanly.  It should call BASE::tr_restore() before doing anything else.
+
+== void dc_advance() ==
+This is called first when moving to a new DC sweep point.  It saves old values of state variables as needed, and advances local time.  It also sets up the initial values for iteration if needed.  It may do this by using old values, or by extrapolation.  It should call BASE::dc_advance() before doing anything else.
+
+== void tr_advance() ==
+This is called first when moving to a new time step.  It saves old values of state variables as needed, and advances local time.  It also sets up the initial values for iteration at the new time.  It may do this by using old values, or by extrapolation.  It should call BASE::tr_advance() before doing anything else.
+
+For delay elements like logic devices and transmission lines, this function does the real work. It takes previous results and applies them, generating data that will be later loaded into the matrix.
+
+== void tr_regress() ==
+This is called instead of tr_advance() when moving backwards in time.  The usual code throws away the most recent state variables, restores the values from the previous step, and backs up all of the stored state data.  It should call BASE::tr_regress() before doing anything else.
+
+== bool tr_needs_eval()const ==
+Return a judgment of whether or not this device is in need of evaluation at this time and this iteration.  In the simplest case, you can defer writing this function by just returning "true", but that leads to needless full evaluations.  The main purpose of this function is to wake up a latent device.  For a general example of this function, look in spice_wrapper.cc.
+
+== void tr_queue_eval() ==
+Conditionally queue this component for evaluation.  In most cases, you can omit this function and use the inherited version which does ''{if(tr_needs_eval()){q_eval();}}''.  The function "''q_eval()''" unconditionally queues this component for evaluation.
+
+== bool do_tr() ==
+In most cases, the do_tr functions do the real work, or call the tr_eval function to do it. It evaluates the model, checks convergence, and queues it for loading. Calling this function more than once on an iteration is harmless, except for the waste of time.
+
+Usually, it calculates the function and derivative. It may also do integration, interpolation, iteration, or whatever is required. The result is a set of values ready to stamp into the admittance matrix and current vector.
+
+There are several distinct steps within this function.
+
+  - The first step is to gather the information necessary to make the computations. Usually, this is the node voltages, but it could be currents, temperature, charge, or something else.
+  - The next step is to evaluate any attached function. This could be done in line, or by a call to tr_eval. The result of this evaluation is stored in _y0 (of type FPOLY1. The tr_eval function reads the value of x from _y0, and fills in the f0 with the result of function evaluation, and f1 with its derivative. The tr_eval function must also check for convergence by comparing the new _y0 with the old value, _y1. This attached function is generic in the sense that it is the same for all device types. This is the y = f(x) that is referred to in the behavioral modeling documentation.
+  - These values are stored for convergence checking and probing.
+  - After that, it must be converted to a current and admittance so it can be used in the system of nodal equations. This step is dependent on what type of device it is. For a conductance element, tr_eval directly returns the correct information, so nothing needs to be done here. For a capacitor, this step does numerical integration. Capacitors store this in _i0. Most other elements do not store this result directly.
+  - Then, it must be converted into CPOLY form to meet the requirements of the system of equations.
+  - The device is queued for loading. Unlike Spice, Gnucap does not actually load the matrix here.
+
+== bool do_tr_last() ==
+This is the same as do_tr, except that it is called last.  It is used when there is a dependency on a do_tr of another device when it the other device must be evaluated first, such as current controlled sources.  It is only called if it is queued.  Most devices don't have a do_tr_last.  For devices that do, the body of do_tr should be "''{SIM::late_evalq.push_back(this); return true;}''".
+
+== void tr_load() ==
+This function gives the appearance of loading the admittance matrix and current vector with the values calculated in do_tr.
+
+Actually, it does much more. In most cases, it actually loads a correction factor, assuming the old values are already loaded. To do this, it keeps track of what values are actually loaded. Whether it loads a correction or the actual value is determined first by the option incmode, then by status information about the solution. If it is suspected that correcting would cause too much roundoff error, it loads the actual value. The decision of whether to do a full load or an update is global.
+
+In addition, it may apply damping in hopes of improving convergence. This means to load a value somewhere between the new and old values, in effect taking a partial step. The decision to damp is semi-global. Groups of elements are adjusted together.
+
+The actual loading is done by one or more of a small group of general functions, depending on whether the element is active, passive, poly, or a source. Only certain patterns can be stamped. Complex devices use a combination of these patterns.
+
+WARNING to model developers: DO NOT stamp the matrix directly!
+
+== void tr_unload() ==
+This function removes the component from the matrix, possibly by subtracting off what was loaded. Usually, it sets the current values to 0 and calls tr_load.
+
+== TIME_PAIR tr_review() ==
+The tr_review function checks errors and signal conditions after a time step has converged. It returns two values of an approximate time that the element wants for the next step, and stores that information in the instance variable _time_by.
+
+"''_time_by._error_estimate''" is an estimate of the desired next time based on analog error estimate.  It is used to control truncation error, curve fitting error, and overall smoothness of the result.  The actual next time will probably be sooner than this number suggests, and is considered to be more accurate.  Usually you would set it indirectly by ''_time_by.min_error_estimate(suggested_next_time);''.
+
+"''_time_by._event''" is an estimate of the desired next time based on ambiguous events.  It is used to control accuracy of cross events and situations where clusters of time steps are needed for accuracy.  The actual time will try to match this as close as practical.  Shorter time steps do not improve accuracy.  Usually you would set it indirectly by ''_time_by.min_event(suggested_next_time);''.
+
+It is usually appropriate to call BASE::tr_review before doing anything else.  If not, you should call ''_time_by.reset()'' first.
+
+If there is a tr_accept function, and you want it to be called, you must queue it here by calling q_accept().
+
+== void tr_accept() ==
+
+This function is called after the solution at a time step has been accepted. For most devices, it does nothing. For devices having storage and delayed propagation, it evaluates what signal will be propagated. For a transmission line, it calculates and sends on the reflections.
+
+It is called only when queued, so either tr_review or do_tr must call q_accept() to queue it.
+
+Only tr_accept is allowed to add events to the event queue (SIM::new_event()).

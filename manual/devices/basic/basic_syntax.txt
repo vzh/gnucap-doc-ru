@@ -1,0 +1,90 @@
+====== Basic device syntax ======
+
+This page applies to the simple "Spice" basic devices, and some extended forms of them.
+==== Spice format ====
+
+The format for simple devices is:
+
+  label  (connections)  value
+
+Parentheses around the connections are optional.
+
+Examples:
+
+  Vin     (in 0)   10
+  Lseries (in out) .01
+  Cshunt  (out 0)  100u
+  Rload   (out 0)  100
+
+The first letter of the label determines the type:
+
+
+^2 terminal devices ^^^^
+^letter ^type                              ^value             ^syntax                        ^
+|C      |capacitor                         |capacitance q/v   |Cxxxx (p n) capacitance       |
+|L      |inductor                          |inductance flux/i |Lxxxx (p n) inductance        |
+|R      |resistor                          |resistance v/i    |Rxxxx (p n) resistance        |
+|Y      |admittance                        |admittance i/v    |Yxxxx (p n) admittance        |
+|V      |fixed voltage source              |DC voltage        |Vxxxx (p n) voltage           |
+|I      |fixed current source              |DC current        |Ixxxx (sink src) current      |
+
+^4 terminal devices ^^^^
+^letter ^type                              ^value             ^syntax                        ^
+|E      |voltage controlled voltage source |gain vout/vin     |Exxxx (p n ps ns) gain        |
+|G      |voltage controlled current source |gm   iout/vin     |Gxxxx (sink src ps ns) gm     |
+|H      |current controlled voltage source |rm   vout/iin     |Hxxxx (p n control) gain      |
+|F      |current controlled current source |gain iout/iin     |Fxxxx (sink src control) gain |
+
+^devices with special syntax ^^^^
+^letter ^type                              ^value             ^syntax                        ^
+|G      |voltage controlled resistor       |R/vc              |Gxxxx (p n ps ns) vcr value   |
+|G      |voltage controlled admittance     |Y/vc              |Gxxxx (p n ps ns) vcg value   |
+|G      |voltage controlled capacitor      |C/vc              |Gxxxx (p n ps ns) vccap value |
+|C      |trans-capacitor                   |Qout/vin          |Cxxxx (p n ps ns) tcap value  |
+
+^Port names ^^
+|p       |positive node or positive output        |
+|n       |negative node or negative output        |
+|sink    |current sink or current sink output     |
+|source  |current source or current source output |
+|ps      |positive input or control voltage node  |
+|ns      |negative input or control voltage node  |
+|control |current probe controlling element       |
+
+==== Spectre format ====
+
+The format for simple devices is:
+
+  label  (connections)  type  parameter=value
+
+Examples:
+
+  Vin     (in 0)   vsource   dc=10
+  Lseries (in out) inductor  l=.01
+  Cshunt  (out 0)  capacitor c=100u
+  Rload   (out 0)  resistor  r=100
+
+The device type is determined by the type field.  The first letter of the label doesn't matter.
+==== Verilog format ====
+
+The format for simple devices is:
+
+  type #(.parameter(value)) label (connections);
+or
+  type #(value) label (connections);
+
+Examples:
+
+  vsource   #(.dc(10))  Vin     (.p(in), .n(0));
+  inductor  #(.l(.01))  Lseries (.p(in), .n(out));
+  capacitor #(.c(100u)) Cshunt  (.p(out), .n(0));
+  resistor  #(.r(100))  Rload   (.p(out), .n(0));
+
+  vsource   #(.dc(10))  Vin     (in, 0);
+  inductor  #(.l(.01))  Lseries (in, out);
+  capacitor #(.c(100u)) Cshunt  (out, 0);
+  resistor  #(.r(100))  Rload   (out, 0);
+
+  vsource   #(10)   Vin     (in, 0);
+  inductor  #(.01)  Lseries (in, out);
+  capacitor #(100u) Cshunt  (out, 0);

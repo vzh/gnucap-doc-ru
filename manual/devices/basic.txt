@@ -1,0 +1,36 @@
+===== Basic passive devices =====
+
+Gnucap includes the usual basic Spice devices, and some others that are found in commercial versions of Spice.
+
+All of them are designed as plugins, but are included in the base distribution and loaded by default.
+
+All of them can be extended by simple behavioral expressions, in some cases beyond what is available in any Spice.
+
+All of them have extended probes, more than any Spice.
+
+==== The basic devices ====
+
+  * capacitor (C)
+  * inductor (L)
+  * resistor (R)
+  * fixed voltage source (V)
+  * fixed current source (I)
+  * voltage controlled voltage source (E)
+  * voltage controlled current source (G)
+  * current controlled voltage source (H)
+  * current controlled current source (F)
+==== Less common basic devices ====
+
+  * admittance (Y)
+  * voltage controlled resistor
+  * voltage controlled capacitor
+  * voltage controlled admittance
+  * trans-capacitor
+
+==== More info ====
+
+  * [[gnucap:manual:devices:basic:basic syntax]]
+  * [[gnucap:manual:devices:basic:inline behavioral modeling]]
+  * [[gnucap:manual:devices:basic:spice-style models]]
+  * [[gnucap:manual:devices:basic:probes]]
+  * [[gnucap:manual:devices:capacitor|.]]

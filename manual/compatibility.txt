@@ -1,0 +1,5 @@
+====== Compatibility ======
+
+This section documents compatibility issues, including syntax and feature differences compared to other simulators.  In some cases, a workaround is suggested.  In almost all cases, there are plans to provide exact compatibility in the future.
+
+  * [[.:compatibility:subcircuit with parameters|subcircuit with parameters, Pspice, LTspice]]

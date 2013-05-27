@@ -1,0 +1,37 @@
+====== "slope" measure ======
+
+===== Purpose =====
+
+Find the slope or slew rate of a waveform.
+
+===== Syntax =====
+
+  slope(probe="p(d)" initial=value final=value begin=time end=time expression)
+
+===== Parameters =====
+
+^arg name    ^default  ^description  ^
+|probe       |required   |The name of a probe to measure.  |
+|initial     |0          |The initial value.  |
+|final       |0          |The final value.  |
+|begin       |-infinity  |The window begins at this time or frequency.  |
+|end         |+infinity  |The window ends at this time or frequency.  |
+|first       |true       |Find the first crossing in the window.  (Cancels last.)  |
+|last        |false      |Find the last crossing in the window.  (Cancels first.)  |
+|expression  |false      |The result is an unreduced expression.  |
+
+===== Comments =====
+
+Ordinarily, the result is a number.  If the probe is a voltage probe the units would be volts per second.
+
+If the "expression" keyword is given the result is an unreduced expression.
+
+===== Examples =====
+
+  measure sr = slope(probe="v(out)" initial=-2 final=2 last)
+Find the slope (slew rate) for the last transition from -2 to 2, as a number.
+  sr= 30.15738K
+
+  measure sr = slope(probe="v(out)" initial=-2 final=2 last expression)
+Find the slope (slew rate) for the last transition from -2 to 2, as an unreduced expression.
+  sr={( 2.--2.)/( 0.001066319- 933.6812u)}

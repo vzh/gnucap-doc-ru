@@ -1,0 +1,8 @@
+====== Languages ======
+
+By use of plugins, Gnucap gives you a choice of simulation languages.  The following are the simulation languages supported in this release.
+
+[[gnucap:manual:languages:Verilog]]\\
+[[gnucap:manual:languages:Spectre]]\\
+[[gnucap:manual:languages:Spice]]\\
+[[gnucap:manual:languages:ACS]]

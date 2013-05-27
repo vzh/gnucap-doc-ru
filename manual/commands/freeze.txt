@@ -1,0 +1,35 @@
+====== "freeze, unfreeze" commands ======
+
+===== Purpose =====
+
+"Freeze" to a point in time.  Remember circuit voltages and currents.
+
+===== Syntax =====
+
+  freeze
+  unfreeze
+
+===== Comments =====
+
+After the freeze command, the transient and fourier analysis will continue from the values that were kept by the freeze command, instead of progressing every time.
+
+This allows reruns from the same starting point, which may be at any time, not necessarily 0.
+
+===== Examples =====
+
+  transient 0 1 .01
+A transient analysis starting at zero, running until 1 second, with step size .01 seconds. After this run, the clock is at 1 second.
+  freeze
+Remember the time, voltages, currents, etc.
+  transient
+Another transient analysis. It continues from 1 second, to 2 seconds. (It spans 1 second, as before.) This command was not affected by the freeze command.
+  transient
+This will do exactly the same as the last one. From 1 second to 2 seconds. If it were not for freeze, it would have started from 2 seconds.
+  transient 1.5 .001
+Try again with smaller steps. Again, it starts at 1 second.
+  unfreeze
+Release the effect of freeze.
+  transient
+Exactly the same as the last time, as if we didn't unfreeze. (1 to 1.5 seconds.)
+  transient
+This one continues from where the last one left off: at 1.5 seconds. From now on, time will move forward.

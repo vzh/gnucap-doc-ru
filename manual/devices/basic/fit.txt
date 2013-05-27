@@ -1,0 +1,83 @@
+====== "fit" Fit a curve   "pwl" Piece-wise linear ======
+===== Syntax =====
+
+  fit x1,y1 x2,y2 ... args
+  pwl x1,y1 x2,y2 ... args
+===== Purpose =====
+
+FIT fits a set of data using piecewise polynomials, or splines.
+
+PWL is a a special case of FIT, it defines a piecewise linear transfer function or time dependent value.
+===== Comments =====
+
+The "fit" function fits a set of piecewise polynomials to a set of data.
+
+The "pwl" function is a special case of "fit", forcing "order" to 1.  It is designed for Spice compatibility.
+
+For fixed sources, it defines voltage or current as a function of time.
+
+The meaning of the //x// and //y// values depends on the component type:
+
+^component          ^X        ^Y            ^
+|C (capacitor)      |voltage  |charge       |
+|E (VCVS)           |voltage  |voltage      |
+|F (CCCS)           |current  |current      |
+|G (VCCS)           |voltage  |current      |
+|H (CCVS)           |current  |voltage      |
+|I (current source) |time     |current      |
+|L (inductor)       |current  |flux         |
+|R (resistor)       |current  |voltage      |
+|V (voltage source) |time     |voltage      |
+|Y (admittance)     |voltage  |current      |
+|VCCAP              |voltage  |capacitance  |
+|VCG                |voltage  |conductance  |
+|VCR                |voltage  |resistance   |
+|trans-capacitor    |voltage  |charge       |
+
+
+The values of //x// must be in increasing order.
+
+For "fit" if //order// is 1, it is the same as "pwl".  If //order// is
+3, it will use cubic splines.  The result and its first two
+derivatives are continuous.
+
+Outside the specified range, it uses linear extrapolation.  The
+behavior depends on the parameters //below// and //above//.  The
+value of //below// or //above// is the derivative to use, which
+is a resistance for resistors, voltage gain for a VCVS, and so on.  If
+it is not specified, the value is automatically determined.
+
+===== Parameters =====
+
+These parameters apply to the "fit" function only, not "pwl".
+
+|order  |The order of the polynomial to fit, within the supplied data.  (Default = 3) Legal values are 0, 1, 2, and 3, only.  For "pwl" a value of 1 is assumed.  |
+|below  |The value of the derivative to use below or before the specified range.  |
+|above  |The value of the derivative to use above or after the specified range.  |
+
+For "fit" only, the properties are determined by the value of //order//.  For "pwl", order is assumed to be 1.
+
+If "above" or "below" are not specified, out of range behavior is determined as follows:
+
+|Order = 3\\ cubic_splines  |The default is to use "natural" splines, which sets the second derivative to zero at the boundary.  If a value of //below// or //above// is specified, "clamped" splines will be used.  In any case, there will be a smooth transition at the boundaries.  When using "clamped" splines, the second derivative may have a discontinuity at the boundaries.  |
+|Order = 2\\ quadratic_splines  |By default, the derivative at the upper end is determined by the slope of the last segment.  This is also the derivative above the range.  Below the range, the derivative determined at the lower bound is used.  It is recommended that only one of //below// and //above// be specified.  If both are specified, the splines are determined using //above//, and there will be a discontinuity in the derivative at the lower bound.  |
+|Order = 1\\ piecewise_linear  |For first order (linear) interpolation, the default slope outside the range is the extension of the slope in the end segments.  The parameters //below// and //above// have no effect inside the range.  |
+|Order = 0\\ piecewise_constant  |The resulting value is constant over the interval, and hasdiscontinuities at the specified points.  The parameters //below// and //above// are ignored.  The slope is always 0.  |
+
+===== Step control =====
+
+The "pwl" function participates in time step control only if the device is a fixed source.  In this case, the corners in are considered to be analog events.  The transient analysis will attempt to control timing accuracy of these analog events.  If it is reasonable, a time step should be scheduled at these times exactly.  In any case, there should be a time step within option::dtmin of these times.
+
+For devices that are not fixed sources, the fit or pwl describes a nonlinear transfer function.  Finding the corresponding times requires analysis of "cross" events, which is more difficult and not done yet.  This is considered to be a deficiency, and may be addressed in the future.
+
+===== Example =====
+
+  C1 (2 0) fit (-5,-5u 0,0 1,1u 4,2u 5,2u) order=1
+This "capacitor" stores 5 microcoulombs at -5 volts (negative,
+corresponding to the negative voltage, as expected).  The charge
+varies linearly to 0 at 0 volts, acting like a 1 microfarad capacitor.
+(C = dq/dv).  This continues to 1 volt.  The 0,0 point could have been
+left out.  The charge increases only to 2 microcoulombs at 4 volts,
+for an incremental capacitance of 1u/3 or .3333 microfarads.  The same
+charge at 5 volts indicates that it saturates at 2 microcoulombs.  For
+negative voltages, the slope continues.

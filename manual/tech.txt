@@ -1,0 +1,9 @@
+====== Tech notes ======
+
+This section describes technical aspects of Gnucap.
+
+Here, you will find information that will help you understand how it works and to extend it.
+
+  * [[gnucap:manual:tech:plugins]]
+  * [[http://gnucap.org/gnucap-man-html/gnucap-man105.html|adding models (old)]]
+  * [[http://gnucap.org/gnucap-man-html/gnucap-man107.html|old tech notes]]

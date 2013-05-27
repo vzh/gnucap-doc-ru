@@ -1,0 +1,27 @@
+====== "generator" Signal Generator time dependent value ======
+
+===== Syntax =====
+
+  generator  scale
+
+===== Purpose =====
+
+The component "value" is dependent on a "signal generator",
+manipulated by the "generator" command.
+
+===== Comments =====
+
+For transient analysis, the "value" is determined by a signal
+generator, which is considered to be external to the circuit and part
+of the test bench.  See the "generator" command for more
+information.
+
+For AC analysis, the value here is the amplitude.
+
+Strictly, all of the functionality and more is available through the
+Spice-like behavioral modeling functions, but this one provides a user
+interface closer to the function generator that an analog designer
+would use on a real bench.  It is mainly used for interactive operation.
+
+It also provides backward compatibility with predecessors to Gnucap,
+which used a different netlist format.

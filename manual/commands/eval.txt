@@ -1,0 +1,28 @@
+====== "eval" command ======
+
+===== Purpose =====
+
+Check and evaluate an expression.
+
+===== Syntax =====
+
+  eval expression
+
+===== Comments =====
+
+The eval command evaluates an expression and prints the result as a number.
+
+===== Examples =====
+
+  gnucap> param a={b+c+7}
+  gnucap> eval a
+  parameter b+c+7 has no value
+  parameter b+c+7 has no value
+  a= NA
+  gnucap> param b=c+3
+  gnucap> param c=4
+  gnucap> eval a
+  a= 18.
+  gnucap> eval b+c
+  (b + c)= 11.
+  gnucap>

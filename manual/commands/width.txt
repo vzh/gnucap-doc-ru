@@ -1,0 +1,13 @@
+====== "width" command ======
+
+===== Purpose =====
+
+Set input and output width.
+
+===== Syntax =====
+
+  width {IN=value} {OUT=value}
+
+===== Comments =====
+
+The `width' command is the same as the `options' command. It is provided for SPICE compatibility. SPICE uses width to set two parameters: in and out, which we set with the options command.

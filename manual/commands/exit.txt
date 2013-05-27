@@ -1,0 +1,15 @@
+====== "exit", "quit" commands ======
+
+
+===== Purpose =====
+
+ Terminates the program.
+
+===== Syntax =====
+
+  exit
+  quit
+
+===== Comments =====
+
+Be sure you have saved everything you want to!

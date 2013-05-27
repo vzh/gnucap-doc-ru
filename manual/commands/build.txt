@@ -1,0 +1,27 @@
+====== "build" command ======
+
+===== Purpose =====
+
+Builds a new circuit, with Spice syntax.
+
+===== Syntax =====
+
+  build
+
+===== Comments =====
+
+"Build" lets you enter the circuit from the keyboard. The prompt changes to > to show that the program is in the build mode.
+
+At this point, type in the circuit components in Spice netlist format.
+
+Component labels must be unique. If not, the old one is modified according to the new data, keeping old values where no new ones were specified.
+
+Components are added to the end of the list.
+
+Components being changed or replaced do not change their location in the list.
+
+If it is necessary to start over, "delete all" or "clear" will erase the entire circuit in memory.
+
+To exit this mode, enter a blank line.
+
+This command is deprecated, and may be removed in a future release.  You can use the command "spice" instead.

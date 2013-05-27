@@ -1,0 +1,13 @@
+====== Devices ======
+
+Gnucap devices are defined by plugins. This section defines all commands supplied in the main tarball, and also the optional "models" tarballs.
+
+Your installation may not have all of these, and may have others in addition to these. It depends on which plugins you have installed.
+
+The main tarball contains simple models, including most models that are included with Spice-2g6, and some that are in Spice-3.  This should be adequate for beginning academic work and most hobby work.  The other tarballs contain specific models from a variety of sources.  Some are exact industry standard models.  Some are from other simulators and are provided for compatibility.  Some are new research oriented models.  Some are of primarily historical interest.
+
+The Gnucap plugin system allows anyone to develop new models and add them, without recompiling or reinstalling the main simulator.  There are several options for doing this, including a model compiler and a wrapper that allows the use of unmodified Spice C models.
+
+  * [[.:devices:basic|Basic passive devices]]
+  * [[.:devices:other|Other "spice" devices]]
+  * [[.:devices:semi|Semiconductor devices]]

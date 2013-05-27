@@ -1,0 +1,15 @@
+====== Gnucap manual ======
+
+This is a draft of the manual for the development version of gnucap.
+
+It attempts to describe the latest development release.
+
+  * [[gnucap:manual:Introduction]]
+  * [[gnucap:manual:Commands]]
+  * [[gnucap:manual:Devices]]
+  * [[gnucap:manual:Languages]]
+  * [[gnucap:manual:Howto|How to]]
+  * [[gnucap:manual:Compatibility]]
+  * [[gnucap:manual:Tech|Tech notes]]
+  * [[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Building and Installation]]
+  * [[gnucap:manual:Examples]]

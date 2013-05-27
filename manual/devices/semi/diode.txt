@@ -1,0 +1,16 @@
+====== Semiconductor models ======
+
+===== Diodes =====
+
+==== Native models ====
+
+  * [[http://gnucap.org/gnucap-man-html/gnucap-man063.html|diode]]
+
+==== Spice models ====
+
+Several Spice diode models are available.  They are not documented here.
+
+^Gnucap tarball      ^Origin        ^Status           ^Comments  ^
+|models-spice3f5     |Spice 3f5     |+++++ supported  |The standard model  |
+|models-ngspice17    |NGspice-17    |+++++ supported  |Enhanced, with some additional parameters  |
+|models-jspice3-2.5  |Jspice 3-2.5  |+++++ supported  |The standard model  |

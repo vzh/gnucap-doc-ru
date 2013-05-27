@@ -1,0 +1,25 @@
+====== "pause" command ======
+
+===== Purpose =====
+
+Suspend batch mode. Wait for the user to hit a key.
+
+===== Syntax =====
+
+  pause comment
+
+===== Status =====
+
+This command does not work on all systems, due to buffering of console i/o.
+
+===== Comments =====
+
+Prints Continue? and waits for a key hit. Type `n', `N', escape or control-c to terminate the batch mode. Type anything else to continue.
+
+Any comment is ignored.
+
+===== Examples =====
+
+  pause Try more gain
+  pause
+These both work the same. Ask to continue, wait for a key hit, then go on.

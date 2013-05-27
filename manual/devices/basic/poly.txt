@@ -1,0 +1,35 @@
+====== "poly" Polynomial nonlinear transfer function ======
+
+===== Syntax =====
+
+  poly  c0 c1 c2 c3 ...
+  poly  c0 c1 c2 c3 ... args
+
+===== Purpose =====
+
+Defines a transfer function by a one dimensional polynomial.
+
+===== Comments =====
+
+For capacitors, this function defines //charge// as a function of
+voltage.  For inductors, it defines //flux// as a function of
+current.  If you have the coefficients defining capacitance or
+inductance, prepending a "0" to the list will turn it into the
+correct form for Gnucap.
+
+For fixed sources, it defines voltage or current as a polynomial
+function of time.
+
+The transfer function is defined by:
+
+  out = c0 + (c1*in) + (c2*in^2) + ....
+
+===== Parameters =====
+
+|min  |Minimum output value (clipping).  (Default = -infinity)  |
+|max  |Maximum output value (clipping).  (Default = infinity)  |
+|abs  |Absolute value, truth value.  (Default = false).  If set to true, the result will be always positive.  |
+
+===== Step control =====
+
+This function does not directly participate in time step control, except as the device would otherwise.

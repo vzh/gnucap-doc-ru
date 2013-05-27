@@ -1,0 +1,51 @@
+====== Device plugins ======
+===== Implementation =====
+==== Simple query functions ====
+
+=== Used by parser ===
+
+== int max_nodes()const ==
+Return the maximum number of ports, from the viewpoint of the parser, including both voltage ports and current ports.  Usually it returns a constant.
+
+== int min_nodes()const ==
+Return the minimum number of ports, from the viewpoint of the parser, including both voltage ports and current ports.  Usually it is the same as max_nodes.
+
+== int_num_current_ports()const ==
+Return the required number of current ports.  There are ports in a netlist that are really branch elements used as current probes.  If omitted, the inherited method returns zero.  If this function returns a non-zero value, the device may not work with all netlist formats.
+
+== int tail_size()const ==
+Return the minimum number of non-ports following the ports.  It is a hack to help the Spice format parser distinguish between a port name and the device type.  If omitted, the inherited method returns 0 or 1, but usually 1 is the correct value.
+
+=== Used by allocation functions and checking ===
+
+== int net_nodes()const ==
+Return the actual number of ports.  If max_nodes == min_nodes, the only valid value is the same, so it is permissible to return that number.  Otherwise, it is determined when the netlist is read.  If the syntax is correct it will always be between min_nodes and max_nodes.
+
+== int ext_nodes()const ==
+Return the number of external nodes.  If omitted, the inherited method returns max_nodes().
+
+== int int_nodes()const ==
+Return the number of internal nodes.  If omitted, the inherited method return 0.
+
+== int_matrix_nodes()const ==
+Return the number of nodes that stamp into the matrix.  The value is usually int_nodes() + ext_nodes().
+
+=== Special simple element property flags (usually not needed) ===
+
+== bool has_inode()const ==
+Return true if the device has a hidden node that can be used as a current probe.  If omitted, the inherited method returns false.
+
+== bool has_iv_probe()const ==
+Return true if the device can be used as a current probe for current controlled spice devices.  If omitted, the inherited method returns false.
+
+== bool is_device()const ==
+Return true if the device is a device.  In this context, the inherited method returns true, so it can always be omitted.  It is listed here because a netlist can also include non-device objects, and this function identifies the difference.
+
+== bool is_source()const ==
+Return true if the device is a fixed source.  If omitted, the inherited method returns false.
+
+== bool f_is_value()const ==
+Return true if the result of evaluating a behavioral function is the "value".  If omitted, the inherited method returns false.
+
+== bool_makes_own_scope()const ==
+Return true if the device makes its own scope for searching.  This is used for the header lines of subcircuits.  For normal devices, it can be omitted, which will return false.

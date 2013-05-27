@@ -1,0 +1,70 @@
+====== "measure" command ======
+
+===== Purpose =====
+
+Make measurements on a circuit, based on stored data.
+
+===== Syntax =====
+
+  measure param-name = measurefunction(args)
+===== Comments =====
+
+The "measure" command sets parameters, like the "parameter" command, but the value after a measure is a number.
+
+It is used to make measurements on a circuit, such as slew rate, crossings, or average value.
+
+Before using a "measure" command, you need to store the data for the probe points you might want to measure.  This is done with the [[gnucap:manual:commands:store]] command.  If you don't specify, no data is stored.
+
+Then you need to do some kind of analysis, such as [[gnucap:manual:commands:transient]] or [[gnucap:manual:commands:ac]].
+
+For better accuracy of measurements, it is best to specify the option "trace all" on a transient command.
+
+===== Diagnostics =====
+
+The message "no match" means that the probe you selected was not stored.
+
+
+
+===== Measurements =====
+
+"Point" here refers to time, frequency, or whatever is the independent "x" value.
+
+|[[gnucap:manual:measure:at]]     |The value of a wave at a point, or its derivative.  |
+|[[gnucap:manual:measure:mean|average]]\\ [[gnucap:manual:measure:mean]]              |Average or mean value.  |
+|[[gnucap:manual:measure:cross]]  |Find crossings.  |
+|[[gnucap:manual:measure:mean|integrate]]\\ [[gnucap:manual:measure:mean|area]]  |The area under the curve.  |
+|[[gnucap:manual:measure:minmax|max]]    |Maximum value, or its point.  |
+|[[gnucap:manual:measure:minmax|min]]    |Minimum value, or its point.  |
+|[[gnucap:manual:measure:mean|rms]]    |The RMS value.  |
+|[[gnucap:manual:measure:slope|slewrate]]\\ [[gnucap:manual:measure:slope]]\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |
+===== Examples =====
+
+Before making measurements, you need to store the data to measure:
+  gnucap> store tran v(*) id(m*) gm(m*)
+Then do the analysis
+  gnucap> transient 0 100u 1u trace all
+
+Now you are ready to measure:
+
+  gnucap> measure t2 = cross(probe="v(out)" cross=0 rise last)
+Find the last time that v(out) crosses 0, going up.
+  gnucap> measure t1 = cross(probe="v(out)" cross=0 rise last before=t2)
+Find the last rising zero crossing before t2.
+  gnucap> param period = {t2-t1}
+  gnucap> param frequency = {1/period}
+Params are interpreted like a functional language so they will be updated whenever t1 or t2 changes.
+
+  gnucap> measure meanvalue = mean(probe="v(out)" begin=t1 end=t2)
+Find the mean value of v(out) over one cycle.
+  gnucap> measure sample = mean(probe="v(out)")
+Find the mean value of v(out) for an entire run.
+
+  gnucap> measure area = integrate(probe="v(out)" begin=t1 end=t2)
+Find the area under the curve of v(out) over one cycle.  The area might be zero.
+
+  gnucap> measure rms = rms(probe="v(out)" begin=t1 end=t2)
+Find the RMS value of v(out) over one cycle.
+
+  gnucap> measure rmsin = rms(probe="bar(in)")
+  no match: bar(in)
+You didn't store the probe "bar(in)".

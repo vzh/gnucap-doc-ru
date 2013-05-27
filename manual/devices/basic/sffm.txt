@@ -1,0 +1,47 @@
+====== "sffm" Frequency Modulation time dependent value ======
+
+===== Syntax =====
+
+  sffm args
+  sffm offset amplitude carrier modindex signal
+
+===== Purpose =====
+
+The component value is a sinusoid, frequency modulated by another sinusoid.
+
+===== Comments =====
+
+For voltage and current sources, this is the same as the Spice SFFM function, with some extensions.
+
+The shape of the waveform is described by the following equations:
+
+  mod = (_modindex * sin(2*PI*_signal*time));
+  ev = _offset + _amplitude * sin(2*PI*_carrier*time + mod);
+
+For other components, it gives a time dependent value.
+
+As an extension beyond Spice, you may specify the parameters as name=value pairs in any order.
+
+The non-Spice parameters (samples, zero, peak) assist in time step control.  The defaults are usually appropriate.
+===== Parameters =====
+
+|offset     |Output offset.  (Default = 0.)  |
+|amplitude  |Amplitude.  (Default = 1.)  |
+|carrier    |Carrier frequency, Hz.  (required)  |
+|modindex   |Modulation index.  (required)  |
+|signal     |Signal frequency.  (required)  |
+|samples    |Minimum number of samples per cycle.  (Default = 4)  |
+|zero       |Flag: Synchronize internal time steps to zero crossings.  (Default = true)  |
+|peak       |Flag: Synchronize internal time steps to peaks.  (Default = true)  |
+
+===== Step control =====
+
+The ability to accurately determine instantaneous frequency is important, so SFFM plays a significant role in time step control.  When using SFFM, frequency is always changing, which can make step control difficult.
+
+By default, both zero crossings and peaks are considered to be analog events.  The transient analysis will attempt to control timing accuracy of these analog events.  If it is reasonable, a time step should be scheduled at these times exactly.  In any case, there should be a time step within option::dtmin of these times.  This means, by default, there will be at least 4 time steps per cycle, synchronized with zero crossings and peaks.
+
+There is also, a smoothness requirement, controlled by the parameter "samples".  By default, there will be at least 4 samples per cycle.  This is independent of the placement of samples at zeros and peaks, but usually does not add samples.
+
+If exact timing is not critical, you can often improve run speed by setting "zero" or "peak" or both to false.  Doing this allows the time stepping to be more consistent, which is usually faster even if the number of steps is not reduced.
+
+If you need improved waveform smoothness, you can do this by increasing "samples".

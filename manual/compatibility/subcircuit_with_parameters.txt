@@ -1,0 +1,53 @@
+====== Compatibility ======
+===== Subcircuit with parameters =====
+
+Some simulators (LTspice, Pspice) accept a syntax for subcircuits that is incompatible with gnucap.
+
+The Gnucap syntax is compatible with other simulators such as Hspice.
+==== Subcircuit instantiation syntax ====
+
+LTspice syntax:
+
+  Xv   v1r v1i      vri_slack params: ( vr=10  vi=1  on=1 vfactor=1.732 )
+  Ximp v1r v1i 0 0  impedance params: ( r=1 xl=10 xc=2 length=1 zfactor=1 )
+
+The key ''params:'' should be omitted.  Parentheses are optional.\\
+Gnucap syntax:
+
+  Xv   v1r v1i      vri_slack ( vr=10  vi=1  on=1 vfactor=1.732 )
+  Ximp v1r v1i 0 0  impedance ( r=1 xl=10 xc=2 length=1 zfactor=1 )
+
+  Xv   v1r v1i      vri_slack vr=10  vi=1  on=1 vfactor=1.732
+  Ximp v1r v1i 0 0  impedance r=1 xl=10 xc=2 length=1 zfactor=1
+==== Subcircuit declaration syntax ====
+
+LTspice syntax:
+
+  .subckt impedance v1r v1i v2r v2i params: on = 1 r = 100 xl = 0
+
+  .subckt impedance v1r v1i v2r v2i
+  + params:
+  + on = 1
+  + r = 100
+  + xl = 0
+
+The key params: should be omitted.  It is not necessary to declare parameters, but you may do it for documentation or to specify default values.  Parameters can be on the same line or in .param statements on following lines.\\
+Gnucap syntax:
+
+  .subckt impedance v1r v1i v2r v2i on = 1 r = 100 xl = 0
+
+  .subckt impedance v1r v1i v2r v2i
+  + on = 1
+  + r = 100
+  + xl = 0
+
+  .subckt impedance v1r v1i v2r v2i (on = 1 r = 100 xl = 0)
+
+  .subckt impedance v1r v1i v2r v2i
+  .param on = 1 r = 100 xl = 0
+
+  .subckt impedance v1r v1i v2r v2i
+  .param
+  + on = 1
+  + r = 100
+  + xl = 0

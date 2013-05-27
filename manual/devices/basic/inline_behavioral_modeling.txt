@@ -1,0 +1,142 @@
+====== Device behavioral expressions ======
+===== Basics =====
+
+All simple components can have a behavioral description, with syntax designed as an extension of the Spice time dependent sources.  They are not necessarily physically realizable, but provide useful modeling capability.  Some only work on particular types of analysis, or over a small range of values.  Some can be used together, some cannot.
+
+As of July 2009, these functions only work with Spice or ACS syntax.  They do not work with Verilog or Spectre syntax.
+
+All simple components are considered to have simple transformations.  A function returns one parameter as a function of one other, as an extension of their linear behavior.  For behavioral modeling or nonlinear values, replace the constant times input by an arbitrary function.
+
+^Type        ^Linear                              ^Nonlinear                            ^
+|Capacitor   |q = C v                             |q = f(v)                             |
+|Inductor    |Φ = L i                             |Φ = f(i)                             |
+|Resistor    |v = I r                             |v = f(i)                             |
+|Admittance  |i = Y v                             |i = f(v)                             |
+|VCVS        |v<sub>out</sub> = k v<sub>in</sub>  |v<sub>out</sub> = f(v<sub>in</sub>)  |
+|VCCS        |i<sub>out</sub> = k v<sub>in</sub>  |v<sub>out</sub> = f(v<sub>in</sub>)  |
+|CCVS        |v<sub>out</sub> = k i<sub>in</sub>  |v<sub>out</sub> = f(i<sub>in</sub>)  |
+|CCCS        |i<sub>out</sub> = k i<sub>in</sub>  |v<sub>out</sub> = f(i<sub>in</sub>)  |
+
+Gnucap also has some other simple components, which are compatible with some versions of Spice that also have them:
+
+|voltage controlled resistor    |R = k v<sub>c</sub>                 |R = f(v<sub>c</sub>)   |
+|voltage controlled capacitor   |C = k v<sub>c</sub>                 |C = f(v<sub>c</sub>)   |
+|voltage controlled admittance  |Y = k v<sub>c</sub>                 |Y = f(v<sub>c</sub>)   |
+|trans-capacitor                |q<sub>out</sub> = k v<sub>in</sub>  |q = f(v<sub>in</sub>)  |
+
+Sources are defined as functions of time:
+
+|Voltage source  |v = f(t)  |
+|Current source  |i = f(t)  |
+
+===== Verilog and Spectre syntax workaround =====
+
+These functions do not fit with the style of Verilog or Spectre, so they don't work with that syntax.  As a workaround, you can build a subcircuit with Spice syntax, then call it as a component in any syntax.
+
+<code>
+spice
+.subckt vsin (p n)
+Vsrc (p n) sin {offset} {amplitude} {frequency} {delay} {damping}
+.ends
+verilog
+
+vsin #(.frequency(1K)) vinput (in, 0);
+</code>
+
+
+===== Conditionals =====
+
+Gnucap behavioral modeling conditionals are an extension of the "AC" and "DC" Spice source parameters.
+
+The extensions ...
+  * There are more choices, including an "else".
+  * They apply to all elements (primitive components).
+  * Each section can contain functions and options.
+
+The following are available:
+
+|AC    |AC analysis only.         |
+|DC    |DC (steady state) value.  |
+|OP    |OP analysis.              |
+|TRAN  |Transient analysis.       |
+|FOUR  |Fourier analysis only.    |
+|ELSE  |Anything not listed.      |
+|ALL   |Anything not listed.      |
+
+A value or function with no conditional keyword is equivalent to "ALL".  For SPICE compatibility, use only "DC", "AC", or nothing.
+
+They are interpreted like a "switch" statement.  In case of a conflict, the last one applies.  A set of precedence rules applies when some keys are missing.  It is SPICE compatible to the extent the features overlap.
+
+The following table describes the precedence rules:
+
+|OP analysis                  |OP, DC, ALL, TRAN, 0        |
+|DC analysis                  |DC, ALL, OP, TRAN, 0        |
+|Transient analysis           |TRAN, ALL, DC, OP, 0        |
+|Fourier analysis             |FOUR, TRAN, ALL, DC, OP, 0  |
+|AC analysis, fixed sources   |AC, 0                       |
+|AC analysis, other elements  |AC, ALL, 0                  |
+
+==== Examples ====
+
+  V12 (1 0) AC 1 DC 3
+This voltage source has a value of 1 for AC analysis, 3 for DC.  OP, Transient, and Fourier inherit the DC value.
+
+  R44 (2 3) OP 1 ELSE 1g
+This resistor has a value of 1 ohm for the "OP" analysis, 1 gig-ohm for anything else.  This might be useful as the feedback resistor on an op-amp.  Set it to 1 ohm to set the operating point, then 1 gig to measure its open loop characteristics, hiding the fact that the op-amp would probably saturate if it was really left open loop.
+
+===== Functions =====
+
+Gnucap behavioral modeling functions are an extension of the Spice source time dependent values.
+==== The extensions ====
+
+  * They apply to all elements (primitive components).
+  * All accept either Spice compatible order dependent parameters, or easier keyword=value notation.
+  * The syntax is identical for all supported components.
+  * They work a little different, depending on the type of device:
+
+|Fixed sources  |Time dependent functions are voltage or current as a function of time. They are mostly Spice compatible, with extensions.\\ Nonlinear transfer functions use time as the independent variable.  Some may not make sense, but they are there anyway.  |
+|Capacitors and inductors  |Time dependent functions are capacitance or inductance as a function of time.  They are voltage/current conserving, not charge/flux conserving.\\ Nonlinear transfer functions are charge or flux as a function of input (voltage or current).  Charge and flux are conserved, and can be probed.  |
+|Resistors and conductances  |Time dependent functions are resistance or conductance as a function of time.\\ Nonlinear transfer functions are current or voltage as a function of input (voltage or current).  Resistors define voltage as a function of current.  Conductances define current as a function of voltage.  |
+|Controlled sources  |Time dependent functions are gain (v/v, transconductance, etc) function of time.\\ Nonlinear transfer functions are output (voltage or current) as a function of input (voltage or current).  |
+==== Available functions ====
+
+  * [[.:complex]]  Complex (re, im) value.
+  * [[.:exp]] Spice Exp source.  (time dependent value).
+  * [[.:fit]] Fit a curve with splines.
+  * [[.:generator]] Value from Generator command.
+  * [[.:poly]] Polynomial (Spice style).
+  * [[.:posy]] Posynomial (Like poly, non-integer powers).
+  * [[.:pulse]] Spice Pulse source.  (time dependent value).
+  * [[.:fit|pwl]] Piece-wise linear.
+  * [[.:sffm]] Spice Frequency Modulation (time dependent value).
+  * [[.:sin]] Spice Sin source.  (time dependent value).
+  * [[.:tanh]] Hyperbolic tangent transfer function.
+
+In addition, you may name a "function" defined by a ".model"
+statement.  The following ".model" types may be used here:
+
+  * [[.:table]] Fit a curve with splines.
+  * [[.:cap]] Spice semiconductor "capacitor" model.
+  * [[.:res]] Spice semiconductor "resistor" model.
+
+==== Parameters that apply to all functions ====
+
+These parameters are available with all functions.  Some may not make sense in some cases, but they are available anyway.
+
+|Bandwidth  |AC analysis bandwidth.  (Default = infinity.)  The transfer function is frequency dependent, with a 3 DB point at this frequency.  There is frequency dependent phase shift ranging from 0 degrees at low frequencies to 90 degrees at high frequencies.  The phase shift is 45 degrees at the specified frequency.  AC ANALYSIS ONLY.  |
+|Delay  |AC analysis delay.  (Default = 0.) The signal is delayed by x seconds, effectively by a frequency dependent phase shift.  AC ANALYSIS ONLY.  |
+|Phase  |AC analysis phase.  (Default = 0.)  A fixed phase shift is applied.  This is primarily intended for sources, but applies to all elements.  AC ANALYSIS ONLY.  |
+|IOffset  |Input offset.  (Default = 0.)  A DC offset is added to the "input" of the element, before evaluating the function.  |
+|OOffset  |Output offset.  (Default = 0.)  A DC offset is added to the "output" of the element, after evaluating the function.  |
+|Scale  |Transfer function scale factor.  (Default = 1.)  The transfer function is multiplied by a constant.  |
+|TNOM  |Nominal temperature.  (Default = .option TNOM) The nominal values apply at this temperature.  |
+|TEMP  |Actual temperature.  (Default = current global simulation temperature.  This is the actual device temperature.  |
+|DTEMP  |Temperature rise over ambient.  (Default = 0.)  The actual device temperature is the global simulation temperature plus "dtemp".  |
+|TC1  |First order temperature coefficient.  (Default = 0.)  |
+|TC2  |Second order temperature coefficient.  (Default = 0.)  |
+|IC   |Initial condition.  An initial value, to force at time=0.  The actual parameter applied depends on the component.  (Capacitor voltage, inductor current.  All others ignore it.)  You must use the "UIC" option for it to be used.  |
+
+
+Temperature adjustments and scaling use the following formula:
+
+  value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)

@@ -1,0 +1,50 @@
+====== "print" command ======
+
+===== Purpose =====
+
+Select points in the circuit for tabular output. Select tabular output.
+
+===== Syntax =====
+
+  print
+  print mode points ... ...
+  print mode + points ... ...
+  print mode - points ... ...
+  print mode CLEAR
+
+===== Comments =====
+
+The `print' command selects where to look at the circuit, or where to hook the voltmeter (ammeter, watt meter, ohm meter, etc.) probe.
+
+There are separate lists of probe points for each type of analysis.
+
+To list the probe points, use the bare command `print'.
+
+On start-up, probes are not set. You must do the command `print op v(nodes)' or put `.print op v(nodes)' in the circuit file to get any output from the op command.
+
+Syntax for each point is parameter(node), parameter(componentlabel), or parameter(index). Some require a dummy index.
+
+If the component does not exist, you will get an error message. If the component exists but the parameter is not valid for that type, there will be no error message but the value printed will be obviously bogus.
+
+The options plot and noplot on any analysis command turn plotting on and off a single run. The plot command turns plotting on and tabular output off. The print command turns plotting off and tabular output on.
+
+You can add to or delete from an existing list by prefixing with + or -. print ac + v(3) adds v(3) to the existing set of AC probes. print ac - q(c5) removes q(c5) from the list. You can use the wildcard characters * and ? when deleting.
+
+===== Examples =====
+
+  print ac v(12) v(13) v(14)
+The voltage at nodes 12, 13, and 14 for AC analysis.
+  print dc v(r26)
+The voltage across R26, for DC analysis.
+  print tran v(r83) p(r83)
+Voltage and power of R83, for transient analysis.
+  print dc i(c8) p(r5) z(r5)
+The current through C8, power dissipated in R5, and the impedance seen looking into the circuit across R5.
+  print op v(nodes)
+The voltage at all nodes for the op command.
+  print
+List all the probes, for all modes.
+  print op
+Display the OP probe list.
+  print ac clear
+Clear the AC list.

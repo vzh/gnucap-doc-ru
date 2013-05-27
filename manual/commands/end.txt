@@ -1,0 +1,7 @@
+"end" command
+
+When run in batch mode from the shell, the END command cleans up and exits the program.
+
+In script mode (< command) it ends the script and returns to the program prompt.
+
+In interactive mode it exits the program.

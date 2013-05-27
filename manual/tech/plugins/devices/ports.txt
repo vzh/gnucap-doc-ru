@@ -1,0 +1,25 @@
+====== Device plugins ======
+===== Implementation =====
+==== Ports ====
+
+== void set_port_by_name(std::string& name, std::string& value) ==
+Make a connection between a port and the rest of the circuit, by name as in Verilog.  Usually this is not needed because the inherited method will do the right thing.
+
+== void set_port_by_index(int index, std::string& value) ==
+Make a connection between a port and the rest of the circuit, by position as in Spice.  Usually this is not needed because the inherited method will do the right thing.
+
+== std::string port_name(int i)const ==
+Return the name of a port given its index.  This is required, because all devices have unique port names.
+
+=== Current ports ===
+
+Most devices do not have current ports, so these methods are usually not needed.
+
+== void set_current_port_by_index(int, const std::string&) ==
+Make a connection between a current port and the rest of the circuit, by position as in Spice.  This is required if the device has current ports.
+
+== const std::string current_port_value(int)const ==
+Return the name of the element that a current port is connected to.  This is required if the device has current ports.
+
+== std::string current_port_name(int)const ==
+Return the name of a current port given its index.  This is required if the device has current ports.

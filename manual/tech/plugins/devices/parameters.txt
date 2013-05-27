@@ -1,0 +1,33 @@
+====== Device plugins ======
+===== Implementation =====
+==== Parameters ====
+
+These methods provide all access to parameters.  Parameters are seen as strings in this context, because it is more flexible.  Usually parameters are accessed by index, as if in an array.  It is up to the implementer to decide what type of storage to actually use.
+
+Indexing starts at 0 in CARD, and counts up from there.  The indexing of parameters should be consecutive.  For example, if the base class has parameters numbered up to 16, you should start at 17.  The appropriate starting number can be obtained by calling BASE::param_count().  The preferred internal index method is to start at 0, and index from the value BASE::param_count-1-i where i is the external index.  If the result of BASE::param_count-1-i is out of range, call the matching BASE method, passing i through.  In this section BASE:: refers to the most immediate base class.  All of these methods are required, and will march through the class hierarchy until the request is satisfied.
+
+Some devices use another set of methods, "obsolete_callback".  This is not documented here and not recommended for any new work.  Support for "obsolete_callback" will be dropped at some time in the future.
+
+== int param_count()const ==
+Return (local_param_count + BASE::param_count()).
+
+== bool param_is_printable(int)const ==
+Return true if it is appropriate to print the value of this parameter in a netlist.  Some parameters should be printed regardless of their status, in which case this function can just return true for that index.  You can return false to always suppress the printing of a parameter and its value.  Sometimes you might want to do some kind of test to determine whether or not to print the parameter.  Usually, the function must determine a result for its own, and return BASE::param_is_printable for others.  If you want to suppress the printing of all base class parameters, return false for index out of range.
+
+== std::string param_name(int)const ==
+Return the preferred name of a parameter given an index.  The usual procedure for scanning down the base classes applies.  If you don't want to scan the base classes, return an empty string to indicate an index out of range.
+
+== std::string param_name(int i,int j)const ==
+Return an alternative name of a parameter given an index i, and an alternate index j.  When j == 0, it returns the preferred name.  When j > 0, it returns either an alternative name or an empty string.
+
+== std::string param_value(int)const ==
+Return the value of a parameter as a string given an index.  The usual procedure for scanning down the base classes applies.  If you don't want to scan the base classes, return an empty string to indicate an index out of range.
+
+== void set_param_by_name(std::string name, std::string value) ==
+Set the value of a parameter, by name.  Providing this method is optional.  If you don't provide it, the base class provides a version that looks up the index corresponding to the name and calls set_param_by_index.  It should throw "Exception_No_Match" if there is no parameter corresponding to the name.
+
+== void set_param_by_index(int i, std::string&, int offset) ==
+Set the value of a parameter, by index.  Providing this method is required if set_param_by_name is not provided, or if you want to be able to accept a list of unnamed parameters in an alternative syntax.  The usual procedure for scanning down the base classes applies.  If you don't want to scan the base classes, throw "Exception_Too_Many".
+
+== std::string value_name()const ==
+Return the name of the parameter to set when just a numeric value is given, as in most Spice primitives.  If you don't want to accept any unnamed parameters, return an empty string.

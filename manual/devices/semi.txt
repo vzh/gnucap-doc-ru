@@ -1,0 +1,13 @@
+====== Semiconductor devices ======
+
+Gnucap supports both native and industry standard semiconductor devices.
+
+Native models are optimized models compiled with the "gnucap-modelgen" model compiler.  A BJT, diode, and several MOSFET models are available as native models.
+
+C-models designed for Spice can also be used as plugins.  Several variants of spice models are supported, including 3e, 3f, NGspice, and Jspice.  Usually, the models can be used without any modifications.
+
+  * [[.:semi:diode]]
+  * [[.:semi:bjt]]
+  * [[.:semi:jfet]]
+  * [[.:semi:mosfet]]
+  * [[.:semi:mesfet]]

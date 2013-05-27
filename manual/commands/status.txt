@@ -1,0 +1,14 @@
+====== "status" command ======
+
+===== Purpose =====
+
+Shows information on how the system resources are being utilized.
+
+===== Syntax =====
+
+  status
+  status notime
+
+===== Comments =====
+
+The notime option omits times but prints everything else.

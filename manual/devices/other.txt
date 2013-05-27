@@ -1,0 +1,5 @@
+====== Other "spice" devices ======
+
+  * [[.:mutual inductance]]
+  * [[.:switches]]
+  * [[.:Lossless transmission line]]

@@ -1,0 +1,149 @@
+====== Parameter function and measurement plugins ======
+
+===== Framework =====
+
+The "measure" command and "parameter" commands work differently because of parsing problems.  This is will be fixed someday.
+
+One important difference is that the "measure" command fully evaluates the function call, and any expressions associated with it, at the time of the command, but the "parameter" command defers evaluation to when the parameter is actually used.
+
+==== "measure" command ====
+
+The "measure" command calls a single function for evaluation, and assigns its result to a parameter.  It also prints the result.  The parameter may be used in parameter expressions and as an argument to another measure command.
+
+The command takes the form of an assignment statement.  The target name is stashed.  The name of the function is looked up in the "function_dispatcher", using the subscript operator. The dispatcher returns a pointer to a static object, or a NULL pointer if there is no match.
+
+Then, the method "eval" is invoked on this object, passing first the command string, with the index advanced to the argument list, and the current “scope” so parameter expressions can be evaluated correctly. If "eval" returns, it is assumed to have correctly done what was requested. If something is wrong, it may throw an exception.  "eval" returns a //string// containing the result, which is a string representation of the numeric value.
+
+==== "parameter" command ====
+
+The "parameter" command simply reads and stores the arguments as a string.
+
+Later, when the parameter is used, the string is evaluated, resulting in a reduced version of the expression, also as a string.  Portions that cannot be evaluated are preserved as expressions.
+
+As with the "measure", the entire argument list is passed as a "CS".  The scope will be the scope in which the parameter is used (dynamic scoping).
+===== Implementation =====
+
+Usually, plugins need to include two files: "u_parameter.h" and "u_function.h".
+
+Only one method is needed for each command:  "''eval(CS& Cmd, CARD_LIST* Scope)''".
+
+Declare one static object of this new type, and INSTALL it in the DISPATCHER.
+
+Parameter functions use the "function_dispatcher".  Measure functions use the "measure_dispatcher".
+
+==== Parameter functions ====
+
+The argument list is usually a list of expressions separated by commas, similar to many programming languages.
+
+A simple function with one argument:
+<code>
+#include "u_parameter.h"
+#include "u_function.h"
+
+class abs : public FUNCTION {
+public:
+  std::string eval(CS& Cmd, CARD_LIST* Scope)const
+  {
+    PARAMETER<double> x;
+    Cmd >> x;
+    x.e_val(NOT_INPUT, Scope);
+    return to_string(std::abs(x));
+  }
+} p_abs;
+DISPATCHER<FUNCTION>::INSTALL d_abs(&function_dispatcher, "abs", &p_abs);
+</code>
+
+A function with two arguments:
+<code>
+class pow : public FUNCTION {
+public:
+  std::string eval(CS& Cmd, CARD_LIST* Scope)const
+  {
+    PARAMETER<double> x, y;
+    Cmd >> x >> y;
+    x.e_val(NOT_INPUT, Scope);
+    y.e_val(NOT_INPUT, Scope);
+    return to_string(std::pow(x,y));
+  }
+} p_pow;
+DISPATCHER<FUNCTION>::INSTALL d_pow(&function_dispatcher, "pow", &p_pow);
+</code>
+==== Measurement functions ====
+
+Measurement functions appear to be the same as parameter functions, but are not interchangeable.
+
+Usually, the following additional includes are needed:
+
+<code>
+#include "u_parameter.h"  // parameter expressions
+#include "s__.h"          // find the wave object
+#include "m_wave.h"       // the "wave" object, containing the data to measure
+#include "u_function.h"   // the base class
+</code>
+
+Parameters are usually given as optional name=value pairs, with expressions, in any order.
+
+<code>
+class MEASURE : public FUNCTION {
+public:
+  std::string eval(CS& Cmd, CARD_LIST* Scope)const
+  {
+    std::string probe_name;
+    PARAMETER<double> before(BIGBIG);
+    PARAMETER<double> after(-BIGBIG);
+    bool last = false;
+    bool arg = false;
+
+    unsigned here = Cmd.cursor();
+    Cmd >> probe_name;
+    WAVE* w = SIM::find_wave(probe_name);  // this is the wave to scan for the measurement
+                                           // specified first, without saying "probe="
+    if (!w) { // didn't find it
+      Cmd.reset(here);
+    }else{
+    }
+
+    here = Cmd.cursor();                   // scan for parameters
+    do {
+      ONE_OF
+	|| Get(Cmd, "probe",  &probe_name)
+	|| Get(Cmd, "before", &before)
+	|| Get(Cmd, "after",  &after)
+	|| Get(Cmd, "end",    &before)
+	|| Get(Cmd, "begin",  &after)
+	|| Set(Cmd, "arg",    &arg, true)
+	|| Set(Cmd, "last",   &last, true)
+	|| Set(Cmd, "first",  &last, false)
+	;
+    }while (Cmd.more() && !Cmd.stuck(&here));
+
+    if (!w) {                               // "probe=" .. the wave to scan
+      w = SIM::find_wave(probe_name);
+    }else{
+    }
+
+    if (w) {
+      before.e_val(BIGBIG, Scope);          // evaluate parameters
+      after.e_val(-BIGBIG, Scope);
+
+      // find the min.
+      double time = (last) ? -BIGBIG : BIGBIG;  // what to return if there's no min.
+      double m = BIGBIG;
+      WAVE::const_iterator begin = lower_bound(w->begin(), w->end(), DPAIR(after, -BIGBIG));
+      WAVE::const_iterator end   = upper_bound(w->begin(), w->end(), DPAIR(before, BIGBIG));
+      for (WAVE::const_iterator i = begin; i < end; ++i) {
+	double val = i->second;
+	if (val < m || (last && (val == m))) {
+	  time = i->first;
+	  m = val;
+	}else{
+	}
+      }
+      return to_string((arg) ? (time) : (m));
+    }else{
+      throw Exception_No_Match(probe_name);
+    }
+  }
+} p2;
+DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, "min", &p2);
+</code>

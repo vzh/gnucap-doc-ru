@@ -1,0 +1,15 @@
+====== Plugins ======
+
+This section describes the Gnucap plugin system, for programmers.
+
+===== Concepts =====
+
+  * [[gnucap:manual:tech:plugins:Files]]
+  * [[gnucap:manual:tech:plugins:Coding]]
+===== Plugin types =====
+
+  * [[gnucap:manual:tech:plugins:commands]]
+  * [[gnucap:manual:tech:plugins:devices]]
+  * [[gnucap:manual:tech:plugins:languages]]
+  * [[gnucap:manual:tech:plugins:behavioral functions]]
+  * [[gnucap:manual:tech:plugins:parameter functions and measurements]]

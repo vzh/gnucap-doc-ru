@@ -1,0 +1,23 @@
+====== "chdir" command ======
+
+===== Purpose =====
+
+Changes or displays the current directory name.
+
+===== Syntax =====
+
+  chdir {path}
+  cd {path}
+
+===== Comments =====
+
+Change the current directory to that specified by path. See your system manual for complete syntax.
+
+If no argument is given the current directory is displayed.
+
+===== Examples =====
+
+  cd ../ckt
+Change the current working directory to ../ckt.
+  cd
+Show the current working directory name.

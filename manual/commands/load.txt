@@ -1,0 +1,34 @@
+====== "load" and "unload" commands ======
+
+===== Purpose =====
+
+Load and unload plugins.
+
+===== Syntax =====
+
+  load public-model.so
+  load ./my-model.so
+  unload ./my-model.so
+
+===== Comments =====
+
+The load command loads a compiled plugin module.  Plugins can be used to arbitrarily extend gnucap.  You can add models, commands, functions, measurements, and anything else.
+
+Warning messages such as:
+  M: already installed, replacing
+  stashing as M:0
+are harmless, and only indicate that something that was already installed is hidden by loading the plugin.
+
+
+Plugins are shared-object files in a format that is determined by the system.  Plugins must be compiled with the same compiler and same headers that compiled the main executable.
+
+It is intended to maintain source compatibility between stable releases of gnucap, but no guarantee is made about binary compatibility.
+
+The load command must be available as a built-in command, because without it, you cannot load any plugins.  It is possible to override it with a plugin.
+
+===== Examples =====
+
+  load ./bsim463.so
+Load the plugin from the current directory.
+  load bsim463.so
+Load it from the public area, as defined by LD_LIBRARY_PATH.

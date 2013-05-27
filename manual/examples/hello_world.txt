@@ -1,0 +1,177 @@
+====== Hello world ======
+
+Copyright 1999 Telford Tendys (with mods by Albert Davis)
+
+This is not an alternative to reading the manual. The manual is
+very nicely presented in LaTeX and you should print it out and keep
+it handy when working. This document is organised starting
+from easy and working towards difficult and presumes that you have some
+idea of what electrical circuits are but don't know much about simulators.
+The manual is organised in alphabetical order and in groups of concepts
+and it presumes that you know SPICE already.
+
+===== The basic concept of a nodal analysis =====
+
+Using nodes is one way to describe a lumped element circuit.
+Lumped elements are used because there is no consideration of what is
+occurring inside a given component, only what is happening on the terminals
+of the component. For example, this analysis makes no attempt to find the
+voltage in the middle of a resistor, only at the ends of the resistor.
+
+The whole circuit model consists of "nodes" and "components".
+A node is (electrically speaking) a single point, it has exactly one voltage
+value at any given time value. A component will connect to two or more nodes
+(usually two) and represents some method by which the voltages at those nodes
+affect one another. Describing which components connect to which nodes will
+completely describe the structure of the circuit.
+
+One additional concept is a "branch". The current though a branch is the
+amount of current flowing from a node into a component that connects to that
+node. Some branch currents (such as the current through a voltage source)
+are explicitly calculated, others (such as the current through a resistor) are
+implicitly calculated as a result of calculating the node voltages.
+===== The basic concept of a circuit file =====
+
+Tradition has it that Gnucap input files have the extension "''.ckt''". The
+format is similar to that used by version 2 of the SPICE simulator; it
+is a line oriented format with items separated by whitespace. The overall
+file structure is:
+
+  * Header line (first line of the file) usually contains the name of the circuit.  It should be marked as a comment.
+  * blank lines do nothing
+  * comment lines are any line beginning with a star "''*''".  These can be anywhere in the file except the header line.
+  * component lines begin with a letter and represent some component that is in the circuit. The order that components are listed does not matter because the topology is described by the nodes that the components are connected to.
+  * continuation lines begin with a plus "''+''" and continue the previous line so that long lines can be written neatly.
+  * command lines begin with a dot "''.''" and are not considered to be part of the circuit, they cause the simulator to execute some analysis or change some options. They are also used to delimit special parts of the file such as subcircuits.
+
+===== Building a simple circuit =====
+
+The "build" command lets you enter a circuit from the keyboard.
+
+  gnucap> build
+  >Vsupply 0 2 10
+  >R1 0 2 1k
+  >
+  gnucap>
+
+A blank line exits the build mode.
+
+See what you have with the "list" command.
+
+  gnucap> list
+  Vsupply ( 0 2 )  DC  10.
+  R1 ( 0 2 )  1.K
+  gnucap>
+
+Do a quick check of the voltages:
+
+  gnucap> probe op v(nodes)
+  gnucap> op
+  #           v(2)
+   27.       -10.
+  gnucap>
+
+You can save it to a file now:
+
+  gnucap> save eg1.ckt
+  gnucap>
+===== The simplest possible circuit file =====
+
+  #RESISTOR DRIVEN BY VOLTAGE SOURCE
+  Vsupply 0 2 10
+  R1 0 2 1k
+
+This file defines a circuit containing two nodes and two components.
+The components have the names "Vsupply" and "R1", the first letter of
+the component name tells what that component is so "Vsupply" is a voltage
+source and "R1" is a resistor. Each component has a value, the voltage
+source is 10 volts and the resistor is 1000 ohms. The nodes have the
+numbers "0" and "2". Note that there is no node "1" but this doesn't
+matter, not every node number needs to be used.
+
+Run it interactively ...
+
+  $$$$$$$gnucap
+  Gnucap 2009.02.02 RCS 26.109
+  The Gnu Circuit Analysis Package
+  Never trust any version less than 1.0
+  Copyright 1982-2007, Albert Davis
+  Gnucap comes with ABSOLUTELY NO WARRANTY
+  This is free software, and you are welcome
+  to redistribute it under the terms of
+  the GNU General Public License, version 3 or later.
+  See the file "COPYING" for details.
+  gnucap> get eg1.ckt
+  '
+  gnucap>
+
+From the interactive mode it is possible to exercise the
+circuit model, firstly by putting a probe on the node that needs measuring
+(using the print statement) then by starting the simulation:
+
+  gnucap> print dc v(2)
+  gnucap> dc
+  #           v(2)
+   0.        -10.
+  gnucap>
+
+Needless to say, "dc" is a steady state direct current analysis and
+the "print" command used here is saying, "when you do a DC analysis,
+tell me the voltage at node 2". The result should be -10 volts. At
+first glance, it might seem like it should be 10 volts... but (same as SPICE)
+the voltage sources are listed with their positive terminal first, then
+their negative terminal. Node 0 is the ground node (or reference node) which
+is always 0 volts so node 2 is at -10 volts. Wiring "Vsupply" the other way
+around would change the answer to 10 volts. Things get trickier when dealing
+with current sources where the node at the tail end of the current source
+arrow is listed first (and called "+") and the pointy head end of the arrow
+is listed second (and called "-"). Although this convention may seem
+disorienting to someone who was brought up testing their circuits with
+batteries or a bench power supply and poking their meter probes into things,
+it is a well established SPICE convention and probably never going to change.
+
+However, the voltage of the node may not be the answer required. What about
+the current going through the source? We can move our probe to look at
+current instead:
+
+  gnucap> print dc i(R1) i(Vsupply)
+  gnucap> dc
+  #           i(R1)      i(Vsupply)
+   0.         0.01      -0.01
+  gnucap>
+
+Now we can see 10 milliamps going through both components, note the sign
+convention when probing current; once more this is something that you must
+simply learn, you might draw diagrams of the main components and mark the
+important conventions of [+] terminal, [-] terminal and current flow.
+You might also realise that this convention does have its own logical
+consistency which makes it easier to remember. For example, consider a
+resistor: the terminal called [+] is listed first and the internal current
+flow is positive when current flows into the [+] terminal, through the
+resistor and out of the [-] terminal. In the case of a resistor this sounds
+quite sensible because the [+] terminal WOULD be more positive when
+the current flows in this manner. The sources merely maintain the same
+convention as is applied to a resistor, what is important to remember is
+that [+] and [-] terminals are just names that provide a sign convention
+they don't insist that one terminal is a higher voltage than the other.
+
+This example should provide enough information for analysis of any network
+of voltage sources and resistors and for inspection of any current or voltage
+in such a circuit. The power and resistance of each component can be measured:
+
+  gnucap> print dc p(R1) p(Vsupply) r(R1) r(Vsupply)
+  gnucap> dc
+  #           p(R1)      p(Vsupply) r(R1)      r(Vsupply)
+   0.         0.1       -0.1        1.K        Inf
+  gnucap>
+
+Note that the supply shows negative power to it is putting power into
+the system while the resistor shows positive power meaning that it is
+taking power out of the system. Also notice that the resistance measurement
+will attempt to find the resistance of the source without error but the
+resulting value is huge (this seems wrong, I would expect it to be zero).
+
+All done, for now.
+
+  gnucap> quit
+  $$$$$$$

@@ -1,0 +1,60 @@
+====== Probes ======
+===== All basic elements =====
+
+Most two node elements (capacitors, inductors, resistors, sources) and four terminal elements (controlled sources) have at least the following parameters available. Others are available for some elements.
+
+Some of these probes do not work for all devices, or all analysis.  It will print "??" as the value when it doesn't work.
+
+|v<sub>n</sub>  |Voltage at a port.  v2(m2) is the voltage at the second port.  |
+|v\\ vout  |Branch voltage for two terminal devices, output voltage for four terminal devices. The first node in the net list is assumed positive.  |
+|vin       |Input voltage.  The voltage across the “input” terminals. For two terminal elements, input and output voltages are the same.  |
+|i         |Branch current. It flows into the first node in the net list, out of the second.  |
+|p         |Power. Positive power indicates dissipation. Negative power indicates that the part is supplying power. Its value is the same as (PD - PS). In AC analysis, it is the real part only.  |
+|pd        |Power dissipated. The power dissipated in the part. It is always positive and does not include power sourced.  |
+|ps        |Branch power sourced. The power sourced by the part. It is always positive and does not consider its own dissipation.  |
+|input     |The “input” of the device. It is the current through a resistor or inductor, the voltage across a capacitor or admittance, etc. It is the value used to evaluate nonlinearities.  |
+|f         |The result of evaluating the function related to the part. It is the voltage across a resistor, the charge stored in a capacitor, the flux in an inductor, etc.  |
+|df\\ ev   |The derivative of f with respect to input.  Usually this is also the effective value of the part, in its units. If the part is ordinary, it will just show its value, but if it is time variant or nonlinear, it shows what it is now.  |
+|nv        |Nominal value. In most cases, this is just the value which is constant, but it can vary for internal elements of complex devices.  |
+|eiv       |Equivalent input voltage.  The voltage on which the matrix stamp is based.  |
+|y         |Matrix stamp admittance.  |
+|istamp    |Matrix stamp current.  |
+|ipassive  |Passive part of matrix stamp current.  |
+|ioffset   |Offset part of matrix stamp current.  |
+|iloss     |Loss part of device current.  |
+|z         |Circuit impedance seen by this device, with this device not counted.  Prints a meaningless number in transient analysis.  |
+|zraw      |Circuit impedance looking across this device, including this device.  Prints a meaningless number in transient analysis.  |
+|dt        |Delta time.  Time step for this device.  |
+|dtr\\ dtrequired  |dt required.  Recommended dt for next step.  |
+|time      |Time at most recent actual calculation.  It is usually the present time.  |
+|timeold   |Time at the previous actual calculation.  |
+|errortime |Suggestion of next time point based on truncation or interpolation error.  |
+|eventtime |Suggestion of next time point based on movable events.  |
+|timefuture |Suggestion of next time point, the sooner of errortime and eventtime.  |
+
+AC power probes:\\
+In addition to those listed here, you can add a suffix (M, P, R, I and DB) for magnitude, phase, real part, imaginary part, and decibels, to any valid probe. Negative phase is capacitive. Positive phase is inductive.
+
+|p   |Real power.  Watts.  |
+|pi  |Reactive (imaginary) power, VAR.  |
+|pm  |Volt amps.  Complex power.  |
+|pp  |Power phase.  Angle between voltage and current.  |
+===== Capacitors =====
+
+|method |A number corresponding to what differentiation method is now being used for this device.\\ 0 = trapgear, 1 = Euler, 2 = trapezoidal, 3 = Gear, 4 = trapeuler |
+|q\\ qcap\\ charge |The charge stored in this capacitor, in Coulombs. |
+|c\\ capacitance |The effective capacitance of this device. For a fixed capacitor, it be its value. For a nonlinear capacitor, it is the effective capacitance at this time, or ∂q/∂v. |
+|dcdt |The time derivative of capacitance. For a linear capacitor it will be zero. |
+|dc |The change in capacitance compared to the previous sample. Its primary use is in debugging models and numerical problems. For a linear capacitor it will be zero. |
+|dqdt |The time derivative of charge. Hopefully this is the same as current, but it is calculated a different way and can be used as an accuracy check. |
+|dq |The change in charge compared to the previous sample. Its primary use is in debugging models and numerical problems. |
+
+===== Inductors =====
+
+|method |A number corresponding to what differentiation method is now being used for this device.\\ 0 = trapgear, 1 = Euler, 2 = trapezoidal, 3 = Gear, 4 = trapeuler |
+|flux |The flux linkages stored in this inductor, in Weber-turns. |
+|L\\ inductance |The effective inductance of this device. For a fixed inductor, it be its value. For a nonlinear inductor, it is the effective inductance at this time, or ∂ϕ/∂v. |
+|dldt |The time derivative of inductance. For a linear inductor it will be zero. |
+|dl |The change in inductance compared to the previous sample. Its primary use is in debugging models and numerical problems. For a linear inductor it will be zero. |
+|dfdt |The time derivative of flux. Hopefully this is the same as voltage, but it is calculated a different way and can be used as an accuracy check. |
+|dflux |The change in flux linkages compared to the previous sample. Its primary use is in debugging models and numerical problems. |

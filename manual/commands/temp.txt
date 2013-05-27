@@ -1,0 +1,18 @@
+====== "temperature" command ======
+
+===== Purpose =====
+
+Views and sets the temperature, with SPICE compatible syntax.
+
+===== Syntax =====
+
+  temperature
+  temperature value
+
+===== Comments =====
+
+With no value, it prints the temperature.
+
+With a value, it is equivalent to “.option temperature=value”.
+
+The real purpose of this command is Spice compatibility.

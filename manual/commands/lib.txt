@@ -1,0 +1,29 @@
+====== "lib" command ======
+
+===== Purpose =====
+
+Selective "library" include, and mark sections of a library.
+
+===== Syntax =====
+
+  lib section-name
+  lib file-name section-name
+
+===== Comments =====
+
+This command takes two forms:
+
+The first form is to mark a section of a file, with a name, so it can be selectively included.  The section ends with a line ".endl".
+
+  .lib high
+  R1 (1 2) 10k
+  R2 (2 0) 10k
+  .endl
+  .lib low
+  R1 (1 2) 1k
+  R2 (2 0) 1k
+  .endl
+
+The second form has two arguments.  It is a special case of "include", that only includes matching sections of the file.
+
+  .lib libfile high

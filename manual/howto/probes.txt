@@ -1,0 +1,93 @@
+====== Probes ======
+
+Gnucap offers a comprehensive set of probes.  This section lists system probes, node probes, and common element probes.
+
+Probes always have the syntax name_of_probe(device_or_node).  Example: vdd(m1).
+
+You can access components in subcircuits by connecting the names with dots. For example: Xone.X67.R56 is R56 in X67 in Xone. Some built-in elements, including diodes, transistors, and mosfets, contain subcircuits with internal elements. M12.Cgd is the gate to drain capacitor of mosfet M12.
+
+===== System probes =====
+
+For system probes, use the device name "0".
+
+|iter       |The number of iterations needed for convergence for this printed step including any hidden steps.  |
+|bypass     |Prints a code indicating whether model evaluation can be bypassed.\\  0=bypass turned off by user.\\  1=bypass enabled by user, but not active now.\\  11=bypass is possible.  |
+|control    |A number indicating why the simulator chose this time to simulate at.\\  1=The user requested it. One of the steps in a sweep.\\  2=A scheduled discrete event. An element required a solution at this time.\\  3=The effect of the “skip” parameter.\\  4=The iteration count exceeded ITL4 so the last step was rejected and is being redone at a smaller time step.\\  5=The iteration count exceeded ITL3 so the increase in time step is limited.\\  6=Determined by local truncation error or some other device dependent approximation in hopes of controlling accuracy.\\  7=Determined by a movable analog event. An element required a solution at this time.\\  8=The step size was limited due to iteration count.\\  9=This is an initial step. The size was arbitrarily set to 1/100 of the user step size.\\  10+x=The previous step was rejected.\\  20+x=A zero time step was replaced by mrt.\\  30+x=The required step size less than mrt, so it was replaced by mrt.  |
+|damp       |Newton damping factor.  |
+|generator  |The output of the “signal generator”. In a transient analysis, it shows the output of the signal generator, as set up by the generator command. In a DC analysis, it shows the DC input voltage (not the power supply). In an OP analysis, it shows the DC input, normally zero.  |
+|hidden     |The number of hidden steps.  |
+|temp       |The simulation temperature in degrees Celsius.  |
+|time       |The current time in a transient analysis. In AC analysis it shows the time at which the bias point was set, 0 if it was set in a DC or OP analysis, or -1 if it is the bias was not set (power off).  |
+
+===== Node probes =====
+
+All modes.
+
+|v    |Voltage.  |
+|z    |Impedance looking into the node.  |
+|mdy  |Matrix diagonal "y".  |
+|mdz  |Matrix diagonal "z".  (1/mdy)  |
+
+Transient, DC, OP, only.
+
+|logic  |A numeric interpretation of the logic value at the node. The value is displayed encoded in a number of the form a.bc where\\ \\ a is the logic state:\\ 0 = logic 0\\ 1 = rising\\ 2 = falling\\ 3 = logic 1\\ \\ b is an indication of the quality of the digital signal.\\ 0 is a fully valid logic signal.\\ Nonzero indicates it does not meet the criteria for logic simulation.\\ \\ c indicates how the node was calculated:\\ 0 indicates logic simulation.\\ 1 indicates analog simulation of a logic device.\\ 2 indicates analog simulation of analog devices.  |
+|lastchange  |The most recent time at which the logic state changed.  |
+|finaltime   |The scheduled time a pending logic state change will occur.  |
+|diter       |Iteration number for last digital update.  |
+|aiter       |Iteration number for last analog update.  |
+
+AC only.
+
+In addition to those listed here, you can add a suffix (M, P, R, I and db) for magnitude, phase, real part, imaginary part, and decibels, to any valid probe.
+
+===== Element probes =====
+
+Each element type has several parameters that can be probed. In general, the form is Parameter(element). Wild cards are allowed in element names to allow probing the same parameter of a group of elements.
+
+For components in a subcircuit, the names are connected with dots. For example X13.R12 is R12 in the subcircuit X13.
+
+Most two node elements (capacitors, inductors, resistors, sources) and four terminal elements (controlled sources) have at least the following parameters available. Others are available for some elements.
+
+Some of these probes do not work for all devices, or all analysis.  It will print "??" as the value when it doesn't work.
+
+All devices:
+
+|v<sub>n</sub>  |Voltage at a port.  v2(m2) is the voltage at the second port.  |
+|errortime      |Suggestion of next time point based on truncation or interpolation error.  |
+|eventtime      |Suggestion of next time point based on movable events.  |
+|timefuture     |Suggestion of next time point, the sooner of errortime and eventtime.  |
+
+Most elements,\\
+devices that do not have an internal subcircuit,\\
+devices that can be defined simply by y=f(x).
+
+|v\\ vout  |Branch voltage for two terminal devices, output voltage for four terminal devices. The first node in the net list is assumed positive.  |
+|vin       |Input voltage.  The voltage across the “input” terminals. For two terminal elements, input and output voltages are the same.  |
+|i         |Branch current. It flows into the first node in the net list, out of the second.  |
+|p         |Power. Positive power indicates dissipation. Negative power indicates that the part is supplying power. Its value is the same as (PD - PS). In AC analysis, it is the real part only.  |
+|pd        |Power dissipated. The power dissipated in the part. It is always positive and does not include power sourced.  |
+|ps        |Branch power sourced. The power sourced by the part. It is always positive and does not consider its own dissipation.  |
+|input     |The “input” of the device. It is the current through a resistor or inductor, the voltage across a capacitor or admittance, etc. It is the value used to evaluate nonlinearities.  |
+|f         |The result of evaluating the function related to the part. It is the voltage across a resistor, the charge stored in a capacitor, the flux in an inductor, etc.  |
+|df\\ ev   |The derivative of f with respect to input.  Usually this is also the effective value of the part, in its units. If the part is ordinary, it will just show its value, but if it is time variant or nonlinear, it shows what it is now.  |
+|nv        |Nominal value. In most cases, this is just the value which is constant, but it can vary for internal elements of complex devices.  |
+|eiv       |Equivalent input voltage.  The voltage on which the matrix stamp is based.  |
+|y         |Matrix stamp admittance.  |
+|istamp    |Matrix stamp current.  |
+|ipassive  |Passive part of matrix stamp current.  |
+|ioffset   |Offset part of matrix stamp current.  |
+|iloss     |Loss part of device current.  |
+|dt        |Delta time.  Time step for this device.  |
+|dtr\\ dtrequired  |dt required.  Recommended dt for next step.  |
+|time      |Time at most recent actual calculation.  It is usually the present time.  |
+|timeold   |Time at the previous actual calculation.  |
+|z         |Circuit impedance seen by this device, with this device not counted.  Prints a meaningless number in transient analysis.  |
+|zraw      |Circuit impedance looking across this device, including this device.  Prints a meaningless number in transient analysis.  |
+
+AC power probes:\\
+In addition to those listed here, you can add a suffix (M, P, R, I and DB) for magnitude, phase, real part, imaginary part, and decibels, to any valid probe. Negative phase is capacitive. Positive phase is inductive.
+
+|p   |Real power.  Watts.  |
+|pi  |Reactive (imaginary) power, VAR.  |
+|pm  |Volt amps.  Complex power.  |
+|pp  |Power phase.  Angle between voltage and current.  |

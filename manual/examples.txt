@@ -1,0 +1,17 @@
+====== Examples, tutorial ======
+===== Hosted here =====
+
+  * [[gnucap:manual:examples:Hello world]]
+  * [[gnucap:manual:examples:Resistors and sources]]
+  * [[gnucap:manual:examples:Things that can go wrong]]
+  * [[gnucap:manual:examples:Nonlinear devices -- diodes]]
+  * [[gnucap:manual:examples:Multiplying two voltages using diode nonlinearity]]
+  * [[gnucap:manual:examples:Using the generator in transient analysis]]
+  * [[gnucap:manual:examples:Experimentally finding model parameters]]
+  * [[gnucap:manual:examples:Simple Power supply]]
+  * [[gnucap:manual:examples:Phase shift oscillator]]
+  * [[gnucap:manual:examples:FM spectrum analysis]]
+===== Hosted elsewhere =====
+
+  * [[http://www.johannes-bauer.com/electronics/]] [[http://www.johannes-bauer.com/electronics/|gEDA and Gnucap, getting started, by Johannes Bauer]]
+  * [[http://geekwentfreak.wordpress.com/2009/12/11/spice-gschem-gnetlist-gnucap-gwave-gspiceui-linux/]]

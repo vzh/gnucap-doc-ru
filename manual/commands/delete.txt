@@ -1,0 +1,35 @@
+====== "delete" command ======
+
+===== Purpose =====
+
+Remove a line, or a group of lines, from the circuit description.
+
+===== Syntax =====
+
+  delete label ...
+  delete all
+
+  clear
+
+===== Comments =====
+
+To delete a part, by label, enter the label. (Example `DEL R15'.) Wildcards `*' and `?' are allowed, in which case, all that match are deleted.
+
+To delete the entire circuit, the entire word ALL must be entered. (Example `DEL ALL'.)
+
+After deleting anything, there is usually no way to get it back, but if a fault had been applied (see fault command) restore may have surprising results.
+
+"clear" is similar to, but a little more drastic than delete all.
+
+===== Examples =====
+
+  delete all
+Delete the entire circuit, but save the title.
+  delete R12
+Delete R12.
+  delete R12 C3
+Delete R12 and C3.
+  delete R*
+Delete all resistors. (Also, any models and subcircuits starting with R.)
+  clear
+Clear out everything to start over.

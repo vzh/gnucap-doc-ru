@@ -1,0 +1,115 @@
+====== Plugins ======
+
+===== Concepts =====
+
+==== Coding ====
+
+This section describes the internals of a plugin, including how it interfaces to the core simulator.
+
+==== Basics ====
+
+The interface to plugins is through C++ derived classes, virtual functions, and a dispatcher.
+
+There are several types of plugins.  The type is determined by the base class that is used.  When a plugin is loaded, a single static object is created, and registered with a dispatcher.  The dispatcher allows a lookup by name.
+
+Plugin types may include:
+  * devices and models
+  * commands
+  * measurements
+  * languages
+  * functions for use in expressions
+  * I/O interface
+  * compatibility
+
+It is intended that the entire interface, all models, and almost all functionality will determined by plugins.
+==== Example ====
+
+Most plugins will create new subtypes of something.  To explain how it works, I will use parameter functions as an example.
+
+We have a base class:
+
+<code>
+class FUNCTION {
+public:
+  virtual double eval(double arg)const = 0;
+};
+</code>
+
+This is in a header file "u_function.h"
+
+This base class is simple.  It has one member function, which a number as input, performs some operation on it, and returns the result.
+
+Let's make a function to take the absolute value of a numeric argument, as a plugin.
+You need to include the header:
+
+<code>
+#include "u_function.h"
+</code>
+
+Then make a derived class, and create one instance of it.
+
+<code>
+class abs : public FUNCTION {
+public:
+  std::string eval(double arg)const
+  {
+    return std::abs(arg);
+  }
+} p;
+</code>
+
+Now, register it with the dispatcher so we can find it:
+
+<code>
+DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, "abs", &p);
+</code>
+
+If you want to also access it by another name, you can do that too:
+
+<code>
+
+DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, "absolute_value", &p);
+</code>
+
+That's all.  The names of the class and instances don't matter because they are local to the plugin.  You find it through the dispatcher, with the name you use to INSTALL it.  In this case, either "abs" or "absolute_value" will find this plugin.
+
+If you want to also be able to static-link this plugin, enclose the class and dispatcher installs in an anonymous namespace.
+
+==== Another Example ====
+
+Here's an example of another one with the same base, all together so you can see it as a unit:
+
+<code>
+#include "fake_function.h"
+
+class square : public FAKE_FUNCTION {
+public:
+  std::string eval(double arg)const
+  {
+    return arg * arg;
+  }
+} p;
+DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, "square", &p);
+</code>
+
+That's all!
+
+==== Compiling it ====
+
+The procedure for compiling it is system dependent, and is usually set up when you install the main simulator.
+
+In general, you need to make a "shared object" or "dynamic link" module.
+
+On Linux, usually this works:
+
+<code>
+g++ -shared -fPIC -o outfile.so infile.cc
+</code>
+
+This take a source file "infile.cc", and generates a plugin file "outfile.so".
+
+Then you can load it:
+
+<code>
+gnucap> load ./outfile.so
+</code>

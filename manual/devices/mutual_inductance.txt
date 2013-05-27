@@ -1,0 +1,19 @@
+====== Coupled (Mutual) Inductors ======
+
+===== Syntax =====
+
+  Kxxxxxxx Lyyyyyyy Lzzzzzzz value
+
+===== Purpose =====
+
+Coupled mutual inductance.
+
+===== Comments =====
+
+K couples two inductors.  The value is the coefficient of coupling.  Using the dot convention, place a dot on the first node of each inductor.
+
+The coefficient of coupling is given by K = m[i][j] / sqrt(L[i] L[j]).  K is always positive and less than 1.
+
+===== Bugs =====
+
+This version of mutual inductance is only supported in Spice syntax, because the connections are inductors.  If you are using any other syntax, you can make a Spice subcircuit containing the entire transformer.

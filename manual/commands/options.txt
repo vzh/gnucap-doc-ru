@@ -1,0 +1,115 @@
+====== "options" command ======
+
+===== Purpose =====
+
+Sets options, iteration parameters, global data.
+
+===== Syntax =====
+  options
+  options option-name value ...
+
+===== Purpose =====
+
+Sets options, iteration parameters, global data.
+
+===== Comments =====
+
+Typical usage is the name of the item to set followed by the value.
+
+The bare command `options' displays the values.
+
+These options control the simulation by specifying how to handle marginal circumstances, how long to wait for convergence, etc.
+
+Most of the SPICE options are supported, more have been added.
+
+===== Parameters =====
+==== i/o ====
+^key          ^default  ^description  ^
+|acct         |false    |Turns on accounting. When enabled, print the CPU time used after each command, and a summary on exit in batch more.  |
+|list         |false    |Turns on echo input.  |
+|clobber      |true     |Allow clobber of files.  |
+|out          |9999     |Output width.  Sets the output print width for tables and character graphics.  |
+|ydivisions   |4.       |Y axis divisions. Sets the number of divisions on the Y axis for ASCII plotting.  |
+|phase        |degrees  |In AC analysis, print phase in "degrees", "+degrees", "-degrees" or "radians".\\  "degrees" wraps phase to the range of -180 to +180.\\  "+degrees" wraps phase to the range of 0 to +360.\\  "-degrees" wraps phase to the range of -360 to 0.  |
+|harmonics    |9        |Harmonics in Fourier analysis. The number of harmonics to display in a Fourier analysis, unless specified otherwise.  |
+|edit         |true     |Enable command line editing.  |
+|language     |acs      |Simulation language selection.  As supplied, the supported values are "acs", "spice", "spectre", and "verilog".  |
+|insensitive  |         |Case sensitivity.  Whether it is true or false by default depends on the language.  |
+|units        |spice    |Floating point units.  Supported values are "spice" and "si".  |
+|recursion    |20       |Limit recursion in expresion evaluation to x levels.  The purpose is to trap infinite recursion in user expressions.  |
+
+
+==== accuracy, i/o ====
+^key          ^default  ^description  ^
+|numdgt       |5        |Number of significant digits to print for analysis results.  It is silently limited to 3 to 20.  |
+|floor        |1.E-21   |Effective zero value.  Results values less than floor are shown as zero. Other small numbers are rounded to the nearest floor.  |
+|vfloor       |1.f      |Effective zero value for voltage probes.  Results values less than vfloor are shown as zero. Other small numbers are rounded to the nearest vfloor.  |
+|roundofftol  |100.f    |Numeric rounding tolerance.  Some internal calculations can result in cancellations, with a result near zero even though the operands are large. The number is converted to zero if it is less than roundofftol*theoperand.  |
+
+==== accuracy, tolerances ====
+^key         ^default  ^description  ^
+|gmin        |1.p      |Minimum conductance allowed by the program.  Every node must have a net minimum conductance of GMIN to ground. If effective open circuits are found during the solution process (leading to a singular matrix) a conductance of GMIN is forced to ground, after printing an "open circuit" error message.  |
+|short       |10.uΩ    |Resistance of voltage source or short. Sets the default resistance of voltage sources. In some cases, inductors are replaced by resistors, if so, this is the value. It is also the resistance used to replace short circuits anywhere they are not allowed and the program finds one.  |
+|reltol      |0.001    |Relative error tolerance allowed.  If the ratio of successive values in iteration are within RELTOL of one, this value is considered to have converged.  |
+|abstol      |1.p      |Absolute error tolerance allowed.  If successive values in iteration are within ABSTOL of each other, this value is considered to have converged.  |
+|vntol       |1.u      |Absolute voltage error required to force model re-evaluation.  If the voltage at the terminals of a model is within VNTOL of the previous iteration, the model is not re-evaluated. The old values are used directly.  |
+|trtol       |7.       |Transient error “tolerance”.  This parameter is an estimate of the factor by which the program overestimates the actual truncation error.  For critical applications, it should be set to 1.  |
+|chgtol      |10.f     |Charge tolerance.  It is used in step size control in transient analysis.  |
+|pivtol      |100.f    |Pivot tolerance.  Sets a threshold for printing an "open circuit" warning.  |
+|bypasstol   |0.1      |Tolerance multiplier for evaluation bypass checking.  |
+|loadtol     |0.1      |Tolerance multiplier for matrix load bypass checking.  |
+
+==== accuracy, algorithms ====
+^key           ^default  ^description  ^
+|method        |trap     |Differentiation method.  Incorrectly called “integration” method in SPICE. Possible values are euler, gear, and trap.  |
+|bypass        |true     |Bypass model evaluation if appropriate. If the last two iterations indicate that an element is converged or dormant, do not evaluate it but use its old values directly.  |
+|incmode       |true     |Incrementally update the matrix. Instead of rebuilding the matrix on every iteration, keep as much of the old matrix as possible and make incremental changes.  |
+|lcbypass      |true     |Bypass evaluation of linear inductors and capacitors when possible. When set, they are evaluated only on the first iteration of a time step.  |
+|lubypass      |true     |Bypass parts of LU decomposition if appropriate. If only a few elements of the matrix were changed solve only those parts of the LU matrix that depend on them.  |
+|fbbypass      |true     |Skip matrix solution the last iteration. In theory, it reduces accuracy slightly, but specified tolerances will still be met. Time saving can be significant.  |
+|traceload     |true     |Use a queue to only load changed elements to the matrix. This results in faster loading and has no known drawbacks.  |
+|order         |auto     |Equation ordering.  Determines how external node numbers are mapped to internal numbers. The values are forward, reverse, and auto.  |
+|mode          |mixed    |Simulation mode selection.  Values are analog, digital, and mixed. In analog mode, logic elements (type U) are replaced by their subcircuits as if they were type X. In digital mode, logic elements are simulated as digital regardless of whether the signals are proper or not, as in traditional mixed-mode simulation. In mixed mode, logic elements may be simulated as analog or digital depending on the signals present.  |
+|transits      |2        |Mixed mode transition count.  Sets the number of “good” transitions for a supposedly digital signal to be accepted as digital.  |
+|quitconvfail  |false    |Quit on convergence failure in transient analysis. Do not adjust time step, just stop.  |
+==== iteration limiting and heuristics ====
+^key           ^default  ^description  ^
+|itl1          |100      |DC iteration limit.  Sets the maximum number of iterations in a DC, OP, or initial transient analysis allowed before stopping and reporting that it did not converge.  |
+|itl2          |50       |DC transfer curve iteration limit.  SPICE option accepted but not implemented. Use itl1 instead.  |
+|itl3          |6        |Lower transient iteration limit.  If the number of iterations is more than itl3 the step size is limited by trstephold. Otherwise, it can grow by trstepgrow.  |
+|itl4          |20       |Upper transient iteration limit.  Sets the maximum number of iterations on a step in transient analysis. If the circuit fails to converge in this many iterations the step size is reduced (by option trstepshrink), time is backed up, and the calculation is repeated.  |
+|itl5          |0        |Transient analysis total iteration limit.  SPICE option accepted but not implemented. Actual behavior is the same as itl5 = 0, in SPICE, which omits this test.  |
+|itl6          |5000     |Homotopy iteration limit.  Sets the maximum number of iterations to allow for homotopy methods of recovering from a convergence failure.  Setting itl6 to 0 disables homotopy.  |
+|itl7          |1        |Worst case analysis iteration limit.  Sets the maximum number of iterations for the individual element trials in a DC or bias worst case analysis. If more iterations than this are necessary, the program silently goes on to the next step, as if nothing was wrong, which is usually the case.  |
+|itl8          |99       |Convergence diagnostic iteration threshold.  If the iteration count on a step exceeds itl8 diagnostic messages are printed in an attempt to aid the user in solving the convergence problem.  |
+|itermin       |1        |Number of extra iterations after convergence.  After convergence tolerances are met, do itermin extra iterations to be sure. This provides protection against false indication of convergence. Setting itermin = 0 is equivalent to SPICE, with improved simulation speed.  |
+|vmin          |-5.      |Initial negative node voltage limit.  All node voltages may be limited to −x to aid in convergence and prevent numeric overflow. This is intended as a convergence aid only. It may or may not help. This number is used as a starting point. It is adjusted as the simulation progresses.  |
+|vmax          |5.       |Initial positive node voltage limit.  All node voltages may be limited to +x to aid in convergence and prevent numeric overflow. This is intended as a convergence aid only. It may or may not help. This number is used as a starting point. It is adjusted as the simulation progresses.  |
+|dampmax       |1.       |Normal Newton damping factor.  Sets the damping factor for iteration by damped Newton's method, used when all is well. It must be between 0 and 1, as close to 1 as possible and still achieve convergence. The useful range is from .9 to 1. Setting dampmax too low will probably cause convergence to a nonsense result.  |
+|dampmin       |0.5      |Newton damping factor in problem cases.  Sets the damping factor for iteration by damped Newton's method, used when there are problems. It must be between 0 and 1, and is usually set somewhat less than dampmax. The useful range is from .5 to .9. Setting it lower than .5 may cause convergence to a nonsense result. Aside from that, a lower value (but less than dampmax) tends to improve robustness at the expense of convergence speed.  |
+|dampstrategy  |0        |Damping strategy.  The actual damping factor to use is determined by heuristics. Normally the damping factor is dampmax. It is reduced to dampmin when certain conditions occur, then it drifts back up on subsequent iterations.  The strategy used is determined by the sum of the following factors:\\  1: initial step: Use dampmin on the second iteration.\\  2: range:  Use dampmin if an iteration voltage would be out of range (vmin, vmax).\\  4: device limiting:  Use dampmin when device based voltage or current limiting limits.  (If supported by the device.)\\  10: device region:  Use dampmin when a device passes a region boundary (If supported by the device.)\\  20:  device reverse:  Use dampmin when a device is reversed.  (If supported by the device.)  |
+
+
+==== time step control ====
+^key           ^default     ^description  ^
+|dtmin         |1.p         |Minimum time step.  The smallest internal time step in transient analysis. The transient command dtmin option and the dtratio option override it if it is bigger.  |
+|dtratio       |1.G         |The ratio between minimum and maximum time step.  |
+|trstepgrow    |1.E+99      |The maximum internal step size growth in transient analysis. Default = 1e99, which allows arbitrary changes in step size.  |
+|trstephold    |1.E+99      |The maximum internal step size growth in transient analysis, when the iteration count exceeds itl3 but still converges.   |
+|trstepshrink  |2.          |The amount to decrease the transient step size by when convergence fails.  |
+|trreject      |0.5         |Transient error rejection threshold.  Controls how bad the truncation error must be to reject a time step. A value of .5 means that if the step reqested is smaller than .5 times the step size used, the current step will be rejected. If the new step is .8 times the old step size it will be adjusted but the step just calculated will not be rejected.  |
+|trsteporder   |3           |Control time steps according to "trsteporder" order interpolation.  Supported values are 1, 2, 3.  |
+|trstepcoef1   |0.25        |Coefficient used in order 1 step control  |
+|trstepcoef2   |0.04166667  |Coefficient used in order 2 step control  |
+|trstepcoef3   |0.00520833  |Coefficient used in order 3 step control  |
+
+==== circuit environment ====
+^key          ^default  ^description  ^
+|tnom         |27.      |Nominal temperature, Celsius.  All components have their nominal value at this temperature.  |
+|temperature  |27.      |Simulation temperature.  Sets the ambient temperature, in degrees Celsius. This is the temperature at which the simulation takes place, unless changed by some other command.  |
+|rstray       |true     |Include series resistance in device models. This creates internal nodes and results in a significant speed and memory penalty. It also makes convergence characteristics worse.  |
+|cstray       |true     |Include capacitance in device models. This may create internal nodes and result in a significant speed and memory penalty. It also may make convergence characteristics worse.  |
+|defl         |100.u    |MOSFET default channel length in meters.  |
+|defw         |100.u    |MOSFET default channel width in meters.  |
+|defad        |0.       |MOSFET default drain diffusion area in square meters.  |
+|defas        |0.       |MOSFET default source diffusion area in square meters.  |
