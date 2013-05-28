@@ -5,7 +5,7 @@ pofile := gnucap.ru.po
 inputs := $(shell grep "\[type: text\]" po4a.conf |awk '{print $$3}')
 
 # Output files
-outputs := start.txt \
+outputs := \
   $(shell grep "\[type: text\]" po4a.conf |awk '{print $$4}' |sed -e 's/^ru://')
 
 # Installation directory
