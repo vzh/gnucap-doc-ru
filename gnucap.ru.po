@@ -968,22 +968,22 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/dc.txt:25
-#, fuzzy
 msgid ""
 "The program will sweep any simple component, including resistors, "
 "capacitors, and controlled sources. SPICE sweeps only fixed sources (types V "
 "and I)."
 msgstr ""
-"Программа будет изменять любой простой компонент, включая резисторы, "
-"конденсаторы и управляемые источники. SPICE изменяет только фиксированные "
-"источники (типа V и I)."
+"Программа будет производить перестройку значения любого простого компонента, "
+"включая резисторы, конденсаторы и управляемые источники напряжения и тока. "
+"SPICE может перестраивать только значения независимых источников напряжения "
+"и тока (типа V и I)."
 
 #. type: Plain text
 #: manual/commands/dc.txt:27
-#, fuzzy
 msgid "This command will sweep up to 4 components, nested."
 msgstr ""
-"Эта команда будет изменять до 4 компонентов, вложено (вложенных?? nested)."
+"Этой командой производится перестройка значений до 4 компонентов "
+"одновременно."
 
 #. type: Plain text
 #: manual/commands/dc.txt:38 wiki/manual/commands/op.txt:33
