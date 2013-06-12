@@ -45,4 +45,4 @@ An expression, as described in the behavioral modeling chapter. The expression c
 
 A model, as described in the behavioral modeling chapter. The table model describes a table of charge vs. voltage.
 
-A model, which calculates the capacitance as a function of length and width, referencing a .model statement of type C. This is compatible with
+A model, which calculates the capacitance as a function of length and width, referencing a .model statement of type C. This is compatible with the Spice-3 “semiconductor capacitor”.
