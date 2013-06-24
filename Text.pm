@@ -140,6 +140,13 @@ Handle documents in the AsciiDoc format.
 =cut
 
 my $asciidoc = 0;
+=item B<dokuwiki>
+
+Handle documents in the DokuWiki format.
+
+=cut
+
+my $dokuwiki = 0;
 
 =back
 
@@ -153,6 +160,7 @@ sub initialize {
     $self->{options}{'breaks'} = 1;
     $self->{options}{'debianchangelog'} = 1;
     $self->{options}{'debug'} = 1;
+    $self->{options}{'dokuwiki'} = 1;
     $self->{options}{'fortunes'} = 1;
     $self->{options}{'markdown'} = 1;
     $self->{options}{'nobullets'} = 1;
@@ -191,6 +199,8 @@ sub initialize {
     }
 
     $asciidoc=1 if (defined $options{'asciidoc'});
+
+    $dokuwiki=1 if (defined $options{'dokuwiki'});
 }
 
 sub parse {
@@ -525,6 +535,27 @@ sub parse {
                 $self->{indent} = $indent;
                 $self->{bullet} = "";
             }
+        } elsif ($dokuwiki and
+                 ($line =~ m/^<(code|file)>.*$/)) {
+            do_paragraph($self,$paragraph,$wrapped_mode);
+            $paragraph = "$line\n";
+            $wrapped_mode = 0;
+        } elsif ($dokuwiki and
+                 ($line =~ m/^(={1,6})( +)(.*?)( +\1)?$/)) {
+            my $titlelevel1 = $1;
+            my $titlespaces = $2;
+            my $title = $3;
+            my $titlelevel2 = $4||"";
+            # Found title
+            do_paragraph($self,$paragraph,$wrapped_mode);
+            $wrapped_mode = 0;
+            $paragraph="";
+            my $t = $self->translate($title,
+                                     $self->{ref},
+                                     "Title $titlelevel1",
+                                     "wrap" => 0);
+            $self->pushline($titlelevel1.$titlespaces.$t.$titlelevel2."\n");
+            $wrapped_mode = 1;
         } elsif ($markdown and
                  (not defined($self->{verbatim})) and
                  ($line =~ m/^(={4,}|-{4,})$/) and
@@ -707,11 +738,19 @@ TEST_BULLET:
                 my $bullet_regex = quotemeta($indent1.$bullet);
                 $bullet_regex =~ s/[0-9]+/\\d\+/;
                 if ($para eq '' or $para =~ m/^$bullet_regex\S/s) {
-                    my $trans = $self->translate($text,
-                                                 $self->{ref},
-                                                 "Bullet: '$indent1$bullet'",
-                                                 "wrap" => 1,
-                                                 "wrapcol" => - (length $indent2));
+                    my $trans = '';
+                    if ($dokuwiki) {
+                        $trans = $self->translate($text,
+                                                     $self->{ref},
+                                                     "Bullet: '$indent1$bullet'",
+                                                     "wrap" => 0);
+                    } else {
+                        $trans = $self->translate($text,
+                                                     $self->{ref},
+                                                     "Bullet: '$indent1$bullet'",
+                                                     "wrap" => 1,
+                                                     "wrapcol" => - (length $indent2));
+                    }
                     $trans =~ s/^/$indent1$bullet/s;
                     $trans =~ s/\n(.)/\n$indent2$1/sg;
                     $self->pushline( $trans."\n" );
