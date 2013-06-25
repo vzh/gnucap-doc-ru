@@ -753,7 +753,11 @@ TEST_BULLET:
                     }
                     $trans =~ s/^/$indent1$bullet/s;
                     $trans =~ s/\n(.)/\n$indent2$1/sg;
-                    $self->pushline( $trans."\n" );
+                    if ($dokuwiki) {
+                        $self->pushline( $trans );
+                    } else {
+                        $self->pushline( $trans."\n" );
+                    }
                     if ($para eq '') {
                         return;
                     } else {
