@@ -114,10 +114,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/commands.txt:7
-#, fuzzy, no-wrap
-#| msgid "===== \"Simulation\" or \"analysis\" commands ====="
+#, no-wrap
 msgid "\"Simulation\" or \"analysis\" commands"
-msgstr "===== Команды «моделирования» или «анализа» ====="
+msgstr "Команды «моделирования» или «анализа»"
 
 #. type: Plain text
 #: manual/commands.txt:10
@@ -158,10 +157,9 @@ msgstr "[[gnucap:manual:commands:transient.ru|transient]] Нелинейный �
 
 #. type: Title =====
 #: manual/commands.txt:17
-#, fuzzy, no-wrap
-#| msgid "===== \"Data\" commands ====="
+#, no-wrap
 msgid "\"Data\" commands"
-msgstr "===== Команды «работы с данными» ====="
+msgstr "Команды «работы с данными»"
 
 #. type: Plain text
 #: manual/commands.txt:20
@@ -212,10 +210,9 @@ msgstr "[[gnucap:manual:commands:alter.ru |alter, modify]] Изменение з
 
 #. type: Title =====
 #: manual/commands.txt:29
-#, fuzzy, no-wrap
-#| msgid "===== \"Parameter\" and \"Measure\" commands ====="
+#, no-wrap
 msgid "\"Parameter\" and \"Measure\" commands"
-msgstr "===== Команды работы с «параметрами» и «измерениями» ====="
+msgstr "Команды работы с «параметрами» и «измерениями»"
 
 #. type: Plain text
 #: manual/commands.txt:32
@@ -242,10 +239,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/commands.txt:37
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"Probe\" commands"
-msgstr "====== Команда «end» ======"
+msgstr "Команды для «датчиков»"
 
 #. type: Plain text
 #: manual/commands.txt:40
@@ -280,10 +276,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/commands.txt:46
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"File\" commands"
-msgstr "====== Команда «end» ======"
+msgstr "Команды работы с «файлами»"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:52
@@ -329,10 +324,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/commands.txt:57
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"Other\" commands"
-msgstr "====== Команда «end» ======"
+msgstr "«Прочие» команды"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:61
@@ -1029,10 +1023,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/chdir.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"chdir\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «chdir»"
 
 #. type: Plain text
 #: manual/commands/chdir.txt:6
@@ -1079,10 +1072,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/dc.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"dc\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «dc»"
 
 #. type: Plain text
 #: manual/commands/dc.txt:6
@@ -1270,10 +1262,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/delete.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"delete\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «delete»"
 
 #. type: Plain text
 #: manual/commands/delete.txt:6
@@ -1360,10 +1351,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/edit.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"edit\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «edit»"
 
 #. type: Plain text
 #: manual/commands/edit.txt:6
@@ -1430,7 +1420,7 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/end.txt:2
 msgid "\"end\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «end»"
 
 #. type: Plain text
 #: manual/commands/end.txt:4
@@ -1461,10 +1451,9 @@ msgstr "В интерактивном режиме она приводит к в
 
 #. type: Title ======
 #: manual/commands/eval.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"eval\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «eval»"
 
 #. type: Plain text
 #: manual/commands/eval.txt:6
@@ -1515,10 +1504,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/exit.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"exit\", \"quit\" commands ======"
+#, no-wrap
 msgid "\"exit\", \"quit\" commands"
-msgstr "====== Команды «exit» и «quit» ======"
+msgstr "Команды «exit» и «quit»"
 
 #. type: Plain text
 #: manual/commands/exit.txt:7
@@ -1543,10 +1531,9 @@ msgstr "Убедитесь, что вы сохранили всё, что над
 
 #. type: Title ======
 #: manual/commands/fault.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"fault\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «fault»"
 
 #. type: Plain text
 #: manual/commands/fault.txt:6
@@ -1654,10 +1641,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/fourier.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"fourier\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «fourier»"
 
 #. type: Plain text
 #: manual/commands/fourier.txt:6
@@ -1821,20 +1807,13 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/fourier.txt:63
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Other ====\n"
-#| "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
-#| "|temperature //degrees//  |Temperature, degrees C.  |\n"
-#| "|cold                     |Zero initial conditions. Cold start from power-up.  |\n"
-#| "|uic                      |Use initial conditions. Do not do an initial DC analysis. Instead, use the values specified with the IC = options on the various elements, and set everything else to zero.  |\n"
+#, no-wrap
 msgid ""
 "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
 "|temperature //degrees//  |Temperature, degrees C.  |\n"
 "|cold                     |Zero initial conditions. Cold start from power-up.  |\n"
 "|uic                      |Use initial conditions. Do not do an initial DC analysis. Instead, use the values specified with the IC = options on the various elements, and set everything else to zero.  |\n"
 msgstr ""
-"==== Прочие ====\n"
 "|dtemp //градусы//        | Смещение температуры, °C. Это число добавляется к температуре из команды options.  |\n"
 "|temperature //градусы//  | Температура, °C  |\n"
 "|cold                     | Нулевые начальные условия. Холодный запуск с момента подачи питания  |\n"
@@ -1868,10 +1847,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/freeze.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"freeze, unfreeze\" commands ======"
+#, no-wrap
 msgid "\"freeze, unfreeze\" commands"
-msgstr "====== Команды «freeze», «unfreeze» ======"
+msgstr "Команды «freeze», «unfreeze»"
 
 #. type: Plain text
 #: manual/commands/freeze.txt:6
@@ -1948,10 +1926,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/generator.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"generator\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «generator»"
 
 #. type: Plain text
 #: manual/commands/generator.txt:6
@@ -2053,10 +2030,9 @@ msgstr ""
 #: manual/measure/at.txt:10 manual/measure/cross.txt:10
 #: manual/measure/mean.txt:15 manual/measure/minmax.txt:11
 #: manual/measure/slope.txt:11 manual/tech/plugins/devices/parameters.txt:3
-#, fuzzy, no-wrap
-#| msgid "===== Parameters ====="
+#, no-wrap
 msgid "Parameters"
-msgstr "===== Параметры ====="
+msgstr "Параметры"
 
 #. type: Plain text
 #: manual/commands/generator.txt:41
@@ -2110,10 +2086,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/get.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"get\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «get»"
 
 #. type: Plain text
 #: manual/commands/get.txt:7
@@ -2172,10 +2147,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/include.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"include\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «include»"
 
 #. type: Plain text
 #: manual/commands/include.txt:6
@@ -2223,10 +2197,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/lib.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"lib\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «lib»"
 
 #. type: Plain text
 #: manual/commands/lib.txt:6
@@ -2282,10 +2255,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/list.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"list\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «list»"
 
 #. type: Plain text
 #: manual/commands/list.txt:6
@@ -2339,10 +2311,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/load.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"load\" and \"unload\" commands ======"
+#, no-wrap
 msgid "\"load\" and \"unload\" commands"
-msgstr "====== Команды «load» и «unload» ======"
+msgstr "Команды «load» и «unload»"
 
 #. type: Plain text
 #: manual/commands/load.txt:6
@@ -2414,10 +2385,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/log.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"log\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «log»"
 
 #. type: Plain text
 #: manual/commands/log.txt:6
@@ -2487,10 +2457,9 @@ msgstr ""
 #. type: Title ====
 #: manual/commands/measure.txt:1
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:9
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"measure\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «measure»"
 
 #. type: Plain text
 #: manual/commands/measure.txt:6
@@ -2499,14 +2468,9 @@ msgstr "Выполнение измерений в схеме на основе 
 
 #. type: Plain text
 #: manual/commands/measure.txt:10
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  measure param-name = measurefunction(args)\n"
-#| "===== Comments =====\n"
+#, no-wrap
 msgid "  measure param-name = measurefunction(args)\n"
-msgstr ""
-"  measure имя_параметра = функция_измерения(аргументы)\n"
-"===== Описание =====\n"
+msgstr "  measure имя_параметра = функция_измерения(аргументы)\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:13
@@ -2557,10 +2521,9 @@ msgstr ""
 #. type: Title =====
 #: manual/commands/measure.txt:22 manual/measure/at.txt:16
 #: manual/measure/cross.txt:28
-#, fuzzy, no-wrap
-#| msgid "===== Diagnostics ====="
+#, no-wrap
 msgid "Diagnostics"
-msgstr "===== Диагностика ====="
+msgstr "Диагностика"
 
 #. type: Plain text
 #: manual/commands/measure.txt:25
@@ -2572,10 +2535,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/commands/measure.txt:28 manual/howto/measure.txt:1
-#, fuzzy, no-wrap
-#| msgid "===== Measurements ====="
+#, no-wrap
 msgid "Measurements"
-msgstr "===== Измерения ====="
+msgstr "Измерения"
 
 #. type: Plain text
 #: manual/commands/measure.txt:31 manual/howto/measure.txt:4
@@ -2779,10 +2741,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/options.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"options\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «options»"
 
 #. type: Plain text
 #: manual/commands/options.txt:6 manual/commands/options.txt:14
@@ -2791,16 +2752,11 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/options.txt:10
-#, fuzzy, no-wrap
-#| msgid ""
-#| "===== Syntax =====\n"
-#| "  options\n"
-#| "  options option-name value ...\n"
+#, no-wrap
 msgid ""
 "  options\n"
 "  options option-name value ...\n"
 msgstr ""
-"===== Синтаксис =====\n"
 "  options\n"
 "  options имя_опции значение ...\n"
 
@@ -2988,10 +2944,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/outfile.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\">\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «>»"
 
 #. type: Plain text
 #: manual/commands/outfile.txt:6
@@ -3043,10 +2998,9 @@ msgstr ""
 #. type: Title ====
 #: manual/commands/parameter.txt:1
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:17
-#, fuzzy, no-wrap
-#| msgid "==== \"parameter\" command ===="
+#, no-wrap
 msgid "\"parameter\" command"
-msgstr "==== Команда «parameter» ===="
+msgstr "Команда «parameter»"
 
 #. type: Plain text
 #: manual/commands/parameter.txt:6
@@ -3220,10 +3174,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/pause.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"pause\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «pause»"
 
 #. type: Plain text
 #: manual/commands/pause.txt:6
@@ -3283,10 +3236,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/plot.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"plot\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «plot»"
 
 #. type: Plain text
 #: manual/commands/plot.txt:6
@@ -3295,14 +3247,7 @@ msgstr "Выбор точек схемы для графического выв�
 
 #. type: Plain text
 #: manual/commands/plot.txt:13
-#, fuzzy, no-wrap
-#| msgid ""
-#| "===== Syntax =====\n"
-#| "  plot\n"
-#| "  plot mode points ... ...\n"
-#| "  plot mode + points ... ...\n"
-#| "  plot mode - points ... ...\n"
-#| "  plot mode CLEAR\n"
+#, no-wrap
 msgid ""
 "  plot\n"
 "  plot mode points ... ...\n"
@@ -3310,7 +3255,6 @@ msgid ""
 "  plot mode - points ... ...\n"
 "  plot mode CLEAR\n"
 msgstr ""
-"===== Синтаксис =====\n"
 "  plot\n"
 "  plot режим точки ... ...\n"
 "  plot режим + точки ... ...\n"
@@ -3404,10 +3348,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/print.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"print\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «print»"
 
 #. type: Plain text
 #: manual/commands/print.txt:6
@@ -3499,10 +3442,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/save.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"save\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «save»"
 
 #. type: Plain text
 #: manual/commands/save.txt:6
@@ -3551,10 +3493,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/status.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"status\" command ======"
+#, no-wrap
 msgid "\"status\" command"
-msgstr "====== Команда «status» ======"
+msgstr "Команда «status»"
 
 #. type: Plain text
 #: manual/commands/status.txt:6
@@ -3576,10 +3517,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/store.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"store\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «store»"
 
 #. type: Plain text
 #: manual/commands/store.txt:6
@@ -3657,10 +3597,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/sweep.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"sweep\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «sweep»"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:6
@@ -3808,10 +3747,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/temp.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"temperature\" command ======"
+#, no-wrap
 msgid "\"temperature\" command"
-msgstr "====== Команда «temperature» ======"
+msgstr "Команда «temperature»"
 
 #. type: Plain text
 #: manual/commands/temp.txt:6
@@ -3847,10 +3785,9 @@ msgstr "Подлинное назначение этой команды --- со
 
 #. type: Title ======
 #: manual/commands/title.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"title\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «title»"
 
 #. type: Plain text
 #: manual/commands/title.txt:6
@@ -4037,10 +3974,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/width.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"width\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «width»"
 
 #. type: Plain text
 #: manual/commands/width.txt:6
@@ -4064,10 +4000,9 @@ msgstr ""
 #. type: Title ======
 #: manual/compatibility.txt:1
 #: manual/compatibility/subcircuit_with_parameters.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Compatibility ======"
+#, no-wrap
 msgid "Compatibility"
-msgstr "====== Совместимость ======"
+msgstr "Совместимость"
 
 #. type: Plain text
 #: manual/compatibility.txt:4
@@ -4300,10 +4235,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/devices/basic.txt:1
-#, fuzzy, no-wrap
-#| msgid "===== Basic passive devices ====="
+#, no-wrap
 msgid "Basic passive devices"
-msgstr "===== Базовые пассивные приборы ====="
+msgstr "Базовые пассивные приборы"
 
 #. type: Plain text
 #: manual/devices/basic.txt:4
@@ -4339,8 +4273,7 @@ msgstr "Все они имеют расширенные точки измере�
 
 #. type: Title ====
 #: manual/devices/basic.txt:11
-#, fuzzy, no-wrap
-#| msgid "==== The basic devices ===="
+#, no-wrap
 msgid "The basic devices"
 msgstr "Базовые приборы"
 
@@ -4436,10 +4369,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/devices/basic.txt:30
-#, fuzzy, no-wrap
-#| msgid "==== More info ===="
+#, no-wrap
 msgid "More info"
-msgstr "==== Дополнительная информация ===="
+msgstr "Дополнительная информация"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:36
@@ -4473,32 +4405,24 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/basic/basic_syntax.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Basic device syntax ======"
+#, no-wrap
 msgid "Basic device syntax"
-msgstr "====== Синтаксис базовых устройств ======"
+msgstr "Синтаксис базовых устройств"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:4
-#, fuzzy
-#| msgid ""
-#| "This page applies to the simple \"Spice\" basic devices, and some "
-#| "extended forms of them.  ==== Spice format ===="
 msgid ""
 "This page applies to the simple \"Spice\" basic devices, and some extended "
 "forms of them."
 msgstr ""
-"На данной странице приводятся простые базовые устройства SPICE и\n"
-"несколько их расширенных форм.\n"
-"\n"
-"==== Формат SPICE ====\n"
+"На данной странице приводятся простые базовые устройства SPICE и несколько "
+"их расширенных форм."
 
 #. type: Title ===
 #: manual/devices/basic/basic_syntax.txt:4 manual/devices/capacitor.txt:5
-#, fuzzy, no-wrap
-#| msgid "==== Spectre format ===="
+#, no-wrap
 msgid "Spice format"
-msgstr "==== Формат Spectre ===="
+msgstr "Формат SPICE"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:7
@@ -4629,10 +4553,9 @@ msgstr ""
 
 #. type: Title ===
 #: manual/devices/basic/basic_syntax.txt:54 manual/devices/capacitor.txt:11
-#, fuzzy, no-wrap
-#| msgid "==== Spectre format ===="
+#, no-wrap
 msgid "Spectre format"
-msgstr "==== Формат Spectre ===="
+msgstr "Формат Spectre"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:59
@@ -4652,18 +4575,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:68
-#, fuzzy
-#| msgid ""
-#| "The device type is determined by the type field.  The first letter of the "
-#| "label doesn't matter.  ==== Verilog format ===="
 msgid ""
 "The device type is determined by the type field.  The first letter of the "
 "label doesn't matter."
 msgstr ""
-"Тип устройства определяется полем «тип».  Первая буква обозначения\n"
-"не несёт особого смысла.\n"
-"\n"
-"==== Формат Verilog ====\n"
+"Тип устройства определяется полем «тип».  Первая буква обозначения не несёт "
+"особого смысла."
 
 #. type: Title ===
 #: manual/devices/basic/basic_syntax.txt:68 manual/devices/capacitor.txt:17
@@ -4795,14 +4712,8 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:11
-#, fuzzy
-#| msgid ""
-#| "The component value is an exponential function of time.  ===== Comments "
-#| "====="
 msgid "The component value is an exponential function of time."
-msgstr ""
-"Значением компонента является функция экспоненты времени.\n"
-" ===== Комментарии ====="
+msgstr "Значением компонента является функция экспоненты времени."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:14
@@ -4894,18 +4805,13 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:6
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  fit x1,y1 x2,y2 ... args\n"
-#| "  pwl x1,y1 x2,y2 ... args\n"
-#| "===== Purpose =====\n"
+#, no-wrap
 msgid ""
 "  fit x1,y1 x2,y2 ... args\n"
 "  pwl x1,y1 x2,y2 ... args\n"
 msgstr ""
 "  fit x1,y1 x2,y2 ... args\n"
 "  pwl x1,y1 x2,y2 ... args\n"
-"===== Назначение =====\n"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:9
@@ -5348,10 +5254,9 @@ msgstr ""
 #. type: Title =====
 #: manual/devices/basic/inline_behavioral_modeling.txt:87
 #: manual/howto/expressions.txt:56
-#, fuzzy, no-wrap
-#| msgid "===== Functions ====="
+#, no-wrap
 msgid "Functions"
-msgstr "===== Функции ====="
+msgstr "Функции"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:90
@@ -6373,10 +6278,9 @@ msgstr ""
 #. type: Title =====
 #: manual/devices/lossless_transmission_line.txt:47
 #: manual/devices/switches.txt:82
-#, fuzzy, no-wrap
-#| msgid "===== Convergence ====="
+#, no-wrap
 msgid "Convergence"
-msgstr "===== Сходимость ====="
+msgstr "Сходимость"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:50
@@ -6443,10 +6347,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/other.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Other \"spice\" devices ======"
+#, no-wrap
 msgid "Other \"spice\" devices"
-msgstr "====== Прочие «spice»-устройства ======"
+msgstr "Прочие «spice»-устройства"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
@@ -6468,10 +6371,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/semi.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Semiconductor devices ======"
+#, no-wrap
 msgid "Semiconductor devices"
-msgstr "====== Полупроводниковые приборы ======"
+msgstr "Полупроводниковые устройства"
 
 #. type: Plain text
 #: manual/devices/semi.txt:4
@@ -6527,10 +6429,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/semi/bjt.txt:1 manual/devices/semi/diode.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Semiconductor devices ======"
+#, no-wrap
 msgid "Semiconductor models"
-msgstr "====== Полупроводниковые приборы ======"
+msgstr "Модели полупроводниковых устройств"
 
 #. type: Title =====
 #: manual/devices/semi/bjt.txt:3
@@ -6552,10 +6453,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/devices/semi/bjt.txt:8 manual/devices/semi/diode.txt:9
-#, fuzzy, no-wrap
-#| msgid "==== Spice models ===="
+#, no-wrap
 msgid "Spice models"
-msgstr "==== Модели SPICE ===="
+msgstr "Модели SPICE"
 
 #. type: Plain text
 #: manual/devices/semi/bjt.txt:11 manual/devices/semi/diode.txt:12
@@ -6661,7 +6561,7 @@ msgstr ""
 #, fuzzy, no-wrap
 #| msgid "===== Comments ======"
 msgid "Comments ======"
-msgstr "===== Описание ======"
+msgstr "Описание"
 
 #. type: Plain text
 #: manual/devices/switches.txt:32
@@ -6833,10 +6733,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
-#, fuzzy, no-wrap
-#| msgid "====== Experimentally finding model parameters ======"
+#, no-wrap
 msgid "[[gnucap:manual:examples:Experimentally finding model parameters]]\n"
-msgstr "====== Экспериментальное нахождение параметров модели ======"
+msgstr "[[gnucap:manual:examples:Experimentally finding model parameters.ru|Экспериментальное нахождение параметров модели]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -6879,10 +6778,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/examples/experimentally_finding_model_parameters.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Experimentally finding model parameters ======"
+#, no-wrap
 msgid "Experimentally finding model parameters"
-msgstr "====== Экспериментальное нахождение параметров модели ======"
+msgstr "Экспериментальное нахождение параметров модели"
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:4
@@ -7214,10 +7112,9 @@ msgstr "  gnucap> probe fourier v(1)\n"
 
 #. type: Title =====
 #: manual/examples/fm_spectrum_analysis.txt:35
-#, fuzzy, no-wrap
-#| msgid "===== The first run ====="
+#, no-wrap
 msgid "The first run"
-msgstr "===== Первый запуск ====="
+msgstr "Первый запуск"
 
 #. type: Plain text
 #: manual/examples/fm_spectrum_analysis.txt:38
@@ -7506,10 +7403,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/examples/hello_world.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Hello world ======"
+#, no-wrap
 msgid "Hello world"
-msgstr "====== Hello world ======"
+msgstr "Привет, мир"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:4
@@ -8622,10 +8518,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/examples/resistors_and_sources.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Resistors and sources ======"
+#, no-wrap
 msgid "Resistors and sources"
-msgstr "====== Резисторы и источники ======"
+msgstr "Резисторы и источники напряжения и тока"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:6
@@ -9359,10 +9254,9 @@ msgstr "Сопротивление r1 равно 3k,  r2 равно 7k."
 
 #. type: Title =====
 #: manual/howto/expressions.txt:48
-#, fuzzy, no-wrap
-#| msgid "===== Operators ====="
+#, no-wrap
 msgid "Operators"
-msgstr "===== Операторы ====="
+msgstr "Операторы"
 
 #. type: Plain text
 #: manual/howto/expressions.txt:51
@@ -12922,9 +12816,6 @@ msgstr ""
 #~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Сборка и установка]]\n"
 #~ "  * [[gnucap:manual:Examples.ru     |Примеры             ]]\n"
 
-#~ msgid "====== Commands ======"
-#~ msgstr "====== Команды ======"
-
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:dc]] Performs a nonlinear DC analysis, for determining transfer characteristics. Sweeps DC input or component values.\n"
 #~ "  * [[gnucap:manual:commands:fourier]] Transient analysis, with results in frequency domain.\n"
@@ -12954,9 +12845,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:measure.ru|measure]] Измерения (по окончании моделирования) в схеме.\n"
 #~ "  * [[gnucap:manual:commands:eval.ru|eval]] Оценка параметров.\n"
 
-#~ msgid "===== \"Probe\" commands ====="
-#~ msgstr "===== Команды для «точек измерений» ====="
-
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:plot|plot, iplot]] Select points in the circuit (and their range) to plot.\n"
 #~ "  * [[gnucap:manual:commands:print|print, iprint, probe]] Select points in the circuit to print as table.\n"
@@ -12965,9 +12853,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:plot.ru|plot, iplot]] Выбор точек схемы (и их диапазона) для вывода графика.\n"
 #~ "  * [[gnucap:manual:commands:print.ru|print, iprint, probe]] Выбор точек схемы для вывода таблицы значений.\n"
 #~ "  * [[gnucap:manual:commands:store.ru|store]] Выбор точек схемы для сохранения с целью дальнейшей пост-обработки.\n"
-
-#~ msgid "===== \"File\" commands ====="
-#~ msgstr "===== Команды работы с «файлами» ====="
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
@@ -12988,9 +12873,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:save.ru|save]] Сохранение описания схемы в файл.\n"
 #~ "  * [[gnucap:manual:commands:log.ru|log]] Создание файла журнала.\n"
 #~ "  * [[gnucap:manual:commands:outfile.ru|>]] Выдача копии экранного вывода в файл.\n"
-
-#~ msgid "===== \"Other\" commands ====="
-#~ msgstr "===== «Прочие» команды ====="
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
@@ -13019,131 +12901,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:status.ru|status]] Вывод использования ресурсов и т. п.\n"
 #~ "  * [[gnucap:manual:commands:title.ru|title]] Просмотр и создание строк заголовков для вывода на печать или в файл.\n"
 
-#~ msgid "===== Purpose ====="
-#~ msgstr "===== Назначение ====="
-
-#~ msgid "===== Syntax ====="
-#~ msgstr "===== Синтаксис ====="
-
-#~ msgid "===== Comments ====="
-#~ msgstr "===== Описание ====="
-
-#~ msgid "===== Options ====="
-#~ msgstr "===== Параметры ====="
-
-#~ msgid "===== Examples ====="
-#~ msgstr "===== Примеры ====="
-
-#~ msgid "===== Example ====="
-#~ msgstr "===== Пример ====="
-
-#~ msgid "====== \"chdir\" command ======"
-#~ msgstr "====== Команда «chdir» ======"
-
-#~ msgid "====== \"dc\" command ======"
-#~ msgstr "====== Команда «dc» ======"
-
-#~ msgid "====== \"delete\" command ======"
-#~ msgstr "====== Команда «delete» ======"
-
-#~ msgid "====== \"edit\" command ======"
-#~ msgstr "====== Команда «edit» ======"
-
-#~ msgid "====== \"eval\" command ======"
-#~ msgstr "====== Команда «eval» ======"
-
-#~ msgid "====== \"fault\" command ======"
-#~ msgstr "====== Команда «fault» ======"
-
-#~ msgid "====== \"fourier\" command ======"
-#~ msgstr "====== Команда «fourier» ======"
-
-#~ msgid "====== \"generator\" command ======"
-#~ msgstr "====== Команда «generator» ======"
-
-#~ msgid "====== \"get\" command ======"
-#~ msgstr "====== Команда «get» ======"
-
-#~ msgid "====== \"include\" command ======"
-#~ msgstr "====== Команда «include» ======"
-
-#~ msgid "====== \"lib\" command ======"
-#~ msgstr "====== Команда «lib» ======"
-
-#~ msgid "====== \"list\" command ======"
-#~ msgstr "====== Команда «list» ======"
-
-#~ msgid "====== \"log\" command ======"
-#~ msgstr "====== Команда «log» ======"
-
-#~ msgid "====== \"measure\" command ======"
-#~ msgstr "====== Команда «measure» ======"
-
-#~ msgid "====== \"options\" command ======"
-#~ msgstr "====== Команда «options» ======"
-
-#~ msgid "====== \">\" command ======\n"
-#~ msgstr "====== Команда «>» ======\n"
-
-#~ msgid "====== \"parameter\" command ======"
-#~ msgstr "====== Команда «parameter» ======"
-
-#~ msgid "====== \"pause\" command ======"
-#~ msgstr "====== Команда «pause» ======"
-
-#~ msgid "===== Status ====="
-#~ msgstr "===== Состояние ====="
-
-#~ msgid "====== \"plot\" command ======"
-#~ msgstr "====== Команда «plot» ======"
-
-#~ msgid "====== \"print\" command ======"
-#~ msgstr "====== Команда «print» ======"
-
-#~ msgid "====== \"save\" command ======"
-#~ msgstr "====== Команда «save» ======"
-
-#~ msgid "====== \"store\" command ======"
-#~ msgstr "====== Команда «store» ======"
-
-#~ msgid "====== \"sweep\" command ======"
-#~ msgstr "====== Команда «sweep» ======"
-
-#~ msgid "====== \"title\" command ======"
-#~ msgstr "====== Команда «title» ======"
-
-#~ msgid ""
-#~ "|trace off         |No extended trace information.  |\n"
-#~ "|trace warnings    |Show extended warnings.  |\n"
-#~ "|trace alltime     |Show all accepted internal time steps.  |\n"
-#~ "|trace rejected    |Show all internal time steps including rejected steps.  |\n"
-#~ "|trace iterations  |Show every iteration.  |\n"
-#~ "|trace verbose     |Show extended diagnostics.  |\n"
-#~ "==== Other ====\n"
-#~ "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
-#~ "|temperature //degrees//  |Temperature, degrees C.  |\n"
-#~ "|cold                     |Zero initial conditions. Cold start from power-up.  |\n"
-#~ "|uic                      |Use initial conditions. Do not do an initial DC analysis. Instead, use the values specified with the IC = options on the various elements, and set everything else to zero.  In most cases, UIC is not recommended.  Improper use of UIC causes more problems than it solves.  It is the way it is for Spice compatibility.  |\n"
-#~ msgstr ""
-#~ "|trace off         | Без вывода расширенной трассировочной информации                |\n"
-#~ "|trace warnings    | Отображение расширенных предупреждений                          |\n"
-#~ "|trace alltime     | Отображение всех разрешённых внутренних шагов времени           |\n"
-#~ "|trace rejected    | Отображение всех внутренних шагов времени, включая отброшенные  |\n"
-#~ "|trace iterations  | Отображение каждой итерации                                     |\n"
-#~ "|trace verbose     | Расширенные диагностические сообщения                           |\n"
-#~ "\n"
-#~ "==== Прочие ====\n"
-#~ "|dtemp //градусы//        | Смещение температуры, °C. Это число добавляется к температуре из команды options.  |\n"
-#~ "|temperature //градусы//  | Температура, °C  |\n"
-#~ "|cold                     | Нулевые начальные условия. Холодный запуск с момента подачи питания  |\n"
-#~ "|uic                      | Использовать начальные условия. Не проводить начальный статический анализ по постоянному току (DC). Вместо этого использовать данные, указанные в параметрах IC = разных элементов, а всё остальное устанавливать в ноль. В большинстве случаев UIC не рекомендуется. Неправильное использование UIC вносит больше проблем, чем решает. В таком виде, какой есть, параметр присутствует для совместимости со SPICE  |\n"
-
-#~ msgid "====== \"width\" command ======"
-#~ msgstr "====== Команда «width» ======"
-
-#~ msgid "====== Devices ======"
-#~ msgstr "====== Устройства ======"
-
 #~ msgid ""
 #~ "  * [[.:devices:basic|Basic passive devices]]\n"
 #~ "  * [[.:devices:other|Other \"spice\" devices]]\n"
@@ -13152,29 +12909,6 @@ msgstr ""
 #~ "  * [[.:devices:basic.ru|Базовые пассивные приборы ]]\n"
 #~ "  * [[.:devices:other.ru|Прочие «spice»-устройства ]]\n"
 #~ "  * [[.:devices:semi.ru |Полупроводниковые приборы ]]\n"
-
-#~ msgid ""
-#~ "  * capacitor (C)\n"
-#~ "  * inductor (L)\n"
-#~ "  * resistor (R)\n"
-#~ "  * fixed voltage source (V)\n"
-#~ "  * fixed current source (I)\n"
-#~ "  * voltage controlled voltage source (E)\n"
-#~ "  * voltage controlled current source (G)\n"
-#~ "  * current controlled voltage source (H)\n"
-#~ "  * current controlled current source (F)\n"
-#~ "==== Less common basic devices ====\n"
-#~ msgstr ""
-#~ "  * конденсатор (C)\n"
-#~ "  * катушка индуктивности (L)\n"
-#~ "  * резистор (R)\n"
-#~ "  * фиксированный источник напряжения (V)\n"
-#~ "  * фиксированный источник тока (I)\n"
-#~ "  * источник напряжения, управляемый напряжением (E)\n"
-#~ "  * источник тока, управляемый напряжением (G)\n"
-#~ "  * источник напряжения, управляемый током (H)\n"
-#~ "  * источник тока, управляемый током (F)\n"
-#~ "==== Менее общие базовые приборы ====\n"
 
 #~ msgid ""
 #~ "  * admittance (Y)\n"
@@ -13189,61 +12923,6 @@ msgstr ""
 #~ "  * проводимость, управляемая напряжением\n"
 #~ "  * проходная ёмкость\n"
 
-#~ msgid "==== Examples ===="
-#~ msgstr "==== Примеры ===="
-
-#~ msgid "===== Bugs ====="
-#~ msgstr "===== Программные ошибки ====="
-
-#~ msgid "===== Diodes ====="
-#~ msgstr "===== Диоды ====="
-
-#~ msgid "====== Examples, tutorial ====== ===== Hosted here ====="
-#~ msgstr ""
-#~ "====== Примеры, руководства ======\n"
-#~ "===== На этом сайте =====\n"
-
-#, fuzzy
-#~ msgid ""
-#~ "  * [[gnucap:manual:examples:Hello world]]\n"
-#~ "  * [[gnucap:manual:examples:Resistors and sources]]\n"
-#~ "  * [[gnucap:manual:examples:Things that can go wrong]]\n"
-#~ "  * [[gnucap:manual:examples:Nonlinear devices -- diodes]]\n"
-#~ "  * [[gnucap:manual:examples:Multiplying two voltages using diode nonlinearity]]\n"
-#~ "  * [[gnucap:manual:examples:Using the generator in transient analysis]]\n"
-#~ "  * [[gnucap:manual:examples:Experimentally finding model parameters]]\n"
-#~ "  * [[gnucap:manual:examples:Simple Power supply]]\n"
-#~ "  * [[gnucap:manual:examples:Phase shift oscillator]]\n"
-#~ "  * [[gnucap:manual:examples:FM spectrum analysis]]\n"
-#~ "===== Hosted elsewhere =====\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:examples:Hello world.ru|Привет, мир]]\n"
-#~ "  * [[gnucap:manual:examples:Resistors and sources.ru|Резисторы и источники]]\n"
-#~ "  * [[gnucap:manual:examples:Things that can go wrong.ru|Что-то, что может пойти не так]]\n"
-#~ "  * [[gnucap:manual:examples:Nonlinear devices -- diodes.ru|Нелинейные устройства -- диоды]]\n"
-#~ "  * [[gnucap:manual:examples:Multiplying two voltages using diode nonlinearity.ru|Умножение двух напряжений с помощью нелинейности диодов]]\n"
-#~ "  * [[gnucap:manual:examples:Using the generator in transient analysis.ru|Использование генератора во временном анализе]]\n"
-#~ "  * [[gnucap:manual:examples:Experimentally finding model parameters.ru|Экспериментальное нахождение параметров модели]]\n"
-#~ "  * [[gnucap:manual:examples:Simple Power supply.ru|Простой источник питания]]\n"
-#~ "  * [[gnucap:manual:examples:Phase shift oscillator.ru|Phase shift oscillator]]  FIXME: перевести название\n"
-#~ "  * [[gnucap:manual:examples:FM spectrum analysis.ru|FM spectrum analysis]]  FIXME: перевести название\n"
-#~ "\n"
-#~ "===== Где-то ещё =====\n"
-
-#~ msgid "==== Models ===="
-#~ msgstr "==== Модели ===="
-
-#~ msgid "====== How to ======"
-#~ msgstr "====== Как сделать ======"
-
-#~ msgid "====== Languages ======"
-#~ msgstr "====== Языки ======"
-
-#~ msgid "====== Components ======"
-#~ msgstr "====== Компоненты ======"
-
-#~ msgid "====== Tech notes ======"
-#~ msgstr "====== Заметки по техническим вопросам ======"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:tech:plugins]]\n"
