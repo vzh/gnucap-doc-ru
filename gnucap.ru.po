@@ -172,7 +172,7 @@ msgstr "Данные команды служат для работы со схе
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:build]] Build a new circuit or change an existing one.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:build.ru |build        ]] Построение новой схемы или изменение уже существующей.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
@@ -971,41 +971,37 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/build.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"build\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «build»"
 
 #. type: Plain text
 #: manual/commands/build.txt:6
 msgid "Builds a new circuit, with Spice syntax."
-msgstr "Построение новой схемы, используя синтаксис SPICE."
+msgstr "Построение новой схемы с использованием синтаксиса SPICE."
 
 #. type: Plain text
 #: manual/commands/build.txt:10
 #, no-wrap
 msgid "  build\n"
-msgstr "  build\n"
+msgstr "|''**build**''|\n"
 
 #. type: Plain text
 #: manual/commands/build.txt:14
-#, fuzzy
-#| msgid ""
-#| "\"Build\" lets you enter the circuit from the keyboard. The prompt "
-#| "changes to > to show that the program is in the build mode.\n"
 msgid ""
 "\"Build\" lets you enter the circuit from the keyboard. The prompt changes "
 "to > to show that the program is in the build mode."
 msgstr ""
-"«Build» позволяет ввести описание схемы с клавиатуры. Приглашение меняется "
-"на >, чтобы показать, что программа находится в режиме построения схемы."
+"Команда **build** позволяет ввести описание схемы с клавиатуры. Признаком "
+"перехода в режим построения схемы является изменение приглашения программы "
+"на ''>''."
 
 #. type: Plain text
 #: manual/commands/build.txt:16
 msgid "At this point, type in the circuit components in Spice netlist format."
 msgstr ""
-"В этот момент можно вводить компоненты схем в формате списка соединений "
-"SPICE."
+"В этот момент можно вводить компоненты схем в формате списка соединений [[..:"
+"languages:SPICE.ru|SPICE]]."
 
 #. type: Plain text
 #: manual/commands/build.txt:18
@@ -1013,9 +1009,10 @@ msgid ""
 "Component labels must be unique. If not, the old one is modified according "
 "to the new data, keeping old values where no new ones were specified."
 msgstr ""
-"Обозначения компонентов должны быть уникальными. В противном случае старый "
-"компонент с тем же именем изменяется в соответствии с новыми данными, "
-"сохраняя старые значения там, где не было указано новых."
+"Обозначения компонентов должны быть уникальными. В противном случае в "
+"качестве новых компонентов будут использоваться одноимённые старые, "
+"модифицированные в соответствии с новыми данными, и сохраняющие старые "
+"значения для тех параметров, для которых не было указано новых."
 
 #. type: Plain text
 #: manual/commands/build.txt:20
@@ -1038,7 +1035,7 @@ msgid ""
 "entire circuit in memory."
 msgstr ""
 "Если необходимо всё начать заново, полностью удалить схему из памяти можно "
-"командами «delete all» или «clear»."
+"командами [[delete.ru|delete all]] или [[delete.ru|clear]]."
 
 #. type: Plain text
 #: manual/commands/build.txt:26
@@ -1051,8 +1048,9 @@ msgid ""
 "This command is deprecated, and may be removed in a future release.  You can "
 "use the command \"spice\" instead."
 msgstr ""
-"Данную команду использовать не рекомендуется, она может быть удалена в одной "
-"из будущих версий программы. Вместо неё можно использовать команду «spice»."
+"Данную команду использовать не рекомендуется, в одной из будущих версий "
+"программы она может быть удалена. Вместо неё можно использовать команду "
+"[[spice.ru|spice]]."
 
 #. type: Title ======
 #: manual/commands/chdir.txt:1
@@ -12976,14 +12974,12 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:transient.ru|transient]] Нелинейный временной анализ (во временной области) при изменении времени.\n"
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:build]] Build a new circuit or change an existing one.\n"
 #~ "  * [[gnucap:manual:commands:delete|clear]] Delete the entire circuit, titles, etc.\n"
 #~ "  * [[gnucap:manual:commands:delete]] Delete a part, or group of parts.\n"
 #~ "  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
 #~ "  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
 #~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:build.ru |build        ]] Построение новой схемы или изменение уже существующей.\n"
 #~ "  * [[gnucap:manual:commands:delete.ru|clear        ]] Удаление схемы полностью, заголовков и т. д.\n"
 #~ "  * [[gnucap:manual:commands:delete.ru|delete       ]] Удаление компонента, группы компонентов.\n"
 #~ "  * [[gnucap:manual:commands:edit.ru  |edit         ]] Редактирование схемы в текстовом редакторе.\n"
@@ -13086,9 +13082,6 @@ msgstr ""
 
 #~ msgid "===== Example ====="
 #~ msgstr "===== Пример ====="
-
-#~ msgid "====== \"build\" command ======"
-#~ msgstr "====== Команда «build» ======"
 
 #~ msgid "====== \"chdir\" command ======"
 #~ msgstr "====== Команда «chdir» ======"
