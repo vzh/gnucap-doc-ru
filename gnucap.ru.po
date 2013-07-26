@@ -18,10 +18,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== Gnucap manual ======"
+#, no-wrap
 msgid "Gnucap manual"
-msgstr "====== Руководство по gnucap ======"
+msgstr "Руководство по gnucap"
 
 #. type: Plain text
 #: manual.txt:4
@@ -37,62 +36,62 @@ msgstr "Здесь мы пытаемся описать самую послед�
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Introduction]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Introduction.ru |Введение            ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Commands]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Commands.ru     |Команды             ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Devices]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Devices.ru      |Устройства          ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Languages]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Languages.ru    |Языки               ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Howto|How to]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Howto.ru        |Как сделать         ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Compatibility]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Compatibility.ru|Совместимость       ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Tech|Tech notes]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Tech.ru         |Технические заметки ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Building and Installation]]\n"
-msgstr ""
+msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Сборка и установка]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Examples]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:Examples.ru     |Примеры             ]]\n"
 
 #. type: Title ======
 #: manual/commands.txt:1 manual/languages/spectre.txt:94
 #: manual/languages/verilog.txt:120
 #, no-wrap
 msgid "Commands"
-msgstr ""
+msgstr "Команды"
 
 #. type: Plain text
 #: manual/commands.txt:4
