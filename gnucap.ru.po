@@ -379,7 +379,7 @@ msgstr ""
 #: manual/commands.txt:69
 #, no-wrap
 msgid "[[gnucap:manual:commands:freeze|freeze, unfreeze]] Mark this time point, so transient analysis will restart here.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:freeze.ru|freeze, unfreeze]] Отметка указанной точки времени для перезапуска в ней временного анализа.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:73
@@ -1850,7 +1850,7 @@ msgstr "Команды «freeze», «unfreeze»"
 #. type: Plain text
 #: manual/commands/freeze.txt:6
 msgid "\"Freeze\" to a point in time.  Remember circuit voltages and currents."
-msgstr "«Заморозка» в точке во времени. Запоминание напряжений и токов схемы."
+msgstr "«Заморозка» в точке времени. Запоминание напряжений и токов схемы."
 
 #. type: Plain text
 #: manual/commands/freeze.txt:11
@@ -1859,8 +1859,8 @@ msgid ""
 "  freeze\n"
 "  unfreeze\n"
 msgstr ""
-"  freeze\n"
-"  unfreeze\n"
+"|''**freeze  **''|\n"
+"|''**unfreeze**''|\n"
 
 #. type: Plain text
 #: manual/commands/freeze.txt:15
@@ -1869,9 +1869,9 @@ msgid ""
 "from the values that were kept by the freeze command, instead of progressing "
 "every time."
 msgstr ""
-"После команды freeze временной анализ и анализ Фурье продолжатся с тех "
-"значений, которые были запомнены этой командой, вместо продолжения каждый "
-"раз дальше."
+"После команды **freeze** [[transient.ru|временной анализ]] и [[fourier.ru|"
+"анализ Фурье]] продолжатся с тех значений, которые были запомнены этой "
+"командой, вместо продолжения каждый раз дальше."
 
 #. type: Plain text
 #: manual/commands/freeze.txt:17
@@ -1908,17 +1908,17 @@ msgstr ""
 "  freeze\n"
 "Запоминание времени, напряжений, токов и т. д.\n"
 "  transient\n"
-"Другой временной анализ. Он продолжается от 1 секунды до 2 секунд. (Его длительность, как и прежде, составляет 1 секунду.) На эту команду команда freeze не повлияла..\n"
+"Другой временной анализ. Он продолжается от 1 секунды до 2 секунд. (Его длительность, как и прежде, составляет 1 секунду.) На эту команду команда **freeze** не повлияла..\n"
 "  transient\n"
-"Эта команда делает точно то же самое, что и предыдущая команда. Работа от 1 секунды до 2 секунд. Если бы она не была после freeze, она бы стартовала с 2 секунд.\n"
+"Эта команда делает ровно то же самое, что и предыдущая команда. Работа от 1 секунды до 2 секунд. Если бы она не была после **freeze**, она бы стартовала с 2 секунд.\n"
 "  transient 1.5 .001\n"
-"Попробовать снова с меньшим шагом. Снова анализ начинается в момент времени 1 секунда.\n"
+"Попробовать ещё раз с меньшим шагом. Снова анализ начинается в момент времени 1 секунда.\n"
 "  unfreeze\n"
-"Отключить эффект заморозки от команды freeze.\n"
+"Отключить эффект заморозки от команды **freeze**.\n"
 "  transient\n"
-"Точно то же самое, что и в последний раз, как будто заморозка не отключена (от 1 до 1.5 секунд.)\n"
+"Ровно то же самое, что и в последний раз, как будто заморозка не отключена (от 1 до 1.5 секунд.)\n"
 "  transient\n"
-"Эта команда продолжает с того места, где была остановлена последняя: в 1.5 секунды. С этих пор время будет двигаться вперёд.\n"
+"Эта команда продолжает работу с того места, где была остановлена последняя: в 1.5 секунды. С этой поры время будет идти вперёд.\n"
 
 #. type: Title ======
 #: manual/commands/generator.txt:1
@@ -12880,11 +12880,9 @@ msgstr ""
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:sweep]] Sweep a component. (Loop function.) (deprecated)\n"
 #~ "  * [[gnucap:manual:commands:generator]] View and set the transient analysis function generator.\n"
-#~ "  * [[gnucap:manual:commands:freeze|freeze, unfreeze]] Mark this time point, so transient analysis will restart here.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:sweep.ru|sweep]] Смена компонента. (Функция цикла.) (Использовать не рекомендуется.)\n"
 #~ "  * [[gnucap:manual:commands:generator.ru|generator]] Просмотр и установка генератора функций временного анализа.\n"
-#~ "  * [[gnucap:manual:commands:freeze.ru|freeze, unfreeze]] Отметка указанной точки времени для перезапуска в ней временного анализа.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:chdir]] Change current directory.\n"
