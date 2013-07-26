@@ -414,10 +414,9 @@ msgstr "Просмотр и создание строки заголовка д�
 
 #. type: Title ======
 #: manual/commands/ac.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"ac\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «ac»"
 
 #. type: Title =====
 #: manual/commands/ac.txt:3 manual/commands/alarm.txt:3
@@ -591,8 +590,8 @@ msgid ""
 "The nodes to look at must have been previously selected by the print or plot "
 "command. This is different from Spice."
 msgstr ""
-"Точки контроля должны быть заранее выбраны командами [[print.ru|print]] или "
-"[[plot.ru|plot]]. Это отличие от SPICE."
+"Контролируемые узлы должны быть заранее выбраны командами [[print.ru|print]] "
+"или [[plot.ru|plot]]. Это отличие от SPICE."
 
 #. type: Title =====
 #: manual/commands/ac.txt:25 manual/commands/dc.txt:28
@@ -600,7 +599,7 @@ msgstr ""
 #: manual/commands/transient.txt:23
 #, no-wrap
 msgid "Options"
-msgstr ""
+msgstr "Параметры"
 
 #. type: Title ====
 #: manual/commands/ac.txt:27 manual/commands/dc.txt:30
@@ -608,21 +607,11 @@ msgstr ""
 #: manual/commands/transient.txt:25
 #, no-wrap
 msgid "Sweep control"
-msgstr ""
+msgstr "Настройка развёртки"
 
 #. type: Plain text
 #: manual/commands/ac.txt:36
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Sweep control ====\n"
-#| "|start //frequency//   |Sweep start //frequency//.  |\n"
-#| "|stop //frequency//    |Sweep stop //frequency//.  |\n"
-#| "|+ //stepsize//        |Linear sweep. Add //stepsize// to get the next step. Same as by.  |\n"
-#| "|* //multiplier//      |Log sweep. Multiply by //multiplier// to get the next step.  |\n"
-#| "|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step. Same as +.  |\n"
-#| "|decade //steps//      |Log sweep. Use //steps// steps per decade.  |\n"
-#| "|octave //steps//      |Log sweep. Use //steps// steps per octave.  |\n"
-#| "|times //multiplier//  |Log sweep. Multiply by //multiplier// to get the next step.  |\n"
+#, no-wrap
 msgid ""
 "|start //frequency//   |Sweep start //frequency//.  |\n"
 "|stop //frequency//    |Sweep stop //frequency//.  |\n"
@@ -633,15 +622,14 @@ msgid ""
 "|octave //steps//      |Log sweep. Use //steps// steps per octave.  |\n"
 "|times //multiplier//  |Log sweep. Multiply by //multiplier// to get the next step.  |\n"
 msgstr ""
-"==== Настройка диапазона ====\n"
-"|''start'' //частота//            |Начальная //частота// диапазона.  |\n"
-"|''stop'' //частота//             |Конечная //частота// диапазона.  |\n"
-"|''+'' //шаг//                    |Линейная развёртка. Для получения следующей частоты добавляется //шаг//. То же самое, что ''by''.  |\n"
-"|''*'' //множитель//              |Логарифмическая развёртка. Следующий шаг получается умножением предыдущего значения на //множитель//.  |\n"
-"|''by'' //шаг//                   |Линейная развёртка. Для получения следующей частоты добавляется //шаг//. То же самое, что ''+''.  |\n"
-"|''decade'' //количество_шагов//  |Логарифмическая развёртка. Используется заданное //количество_шагов// на декаду.  |\n"
-"|''octave'' //количество_шагов//  |Логарифмическая развёртка. Используется заданное //количество_шагов// на октаву.  |\n"
-"|''times'' //множитель//          |Логарифмическая развёртка. Следующий шаг получается умножением предыдущего значения на //множитель//.  |\n"
+"|''start //частота//            ''|Начальная ''//частота//'' диапазона.  |\n"
+"|''stop //частота//             ''|Конечная  ''//частота//'' диапазона.  |\n"
+"|''+ //шаг//                    ''|Линейная развёртка. Для получения следующей частоты добавляется ''//шаг//''. То же самое, что ''by''.  |\n"
+"|''* //множитель//              ''|Логарифмическая развёртка. Следующий шаг получается умножением предыдущего значения на ''//множитель//''.  |\n"
+"|''by //шаг//                   ''|Линейная развёртка. Для получения следующей частоты добавляется ''//шаг//''. То же самое, что ''+''.  |\n"
+"|''decade //количество_шагов//  ''|Логарифмическая развёртка. Используется заданное ''//количество_шагов//'' на декаду.  |\n"
+"|''octave //количество_шагов//  ''|Логарифмическая развёртка. Используется заданное ''//количество_шагов//'' на октаву.  |\n"
+"|''times //множитель//          ''|Логарифмическая развёртка. Следующий шаг получается умножением предыдущего значения на ''//множитель//''.  |\n"
 
 #. type: Title ====
 #: manual/commands/ac.txt:37 manual/commands/dc.txt:39
@@ -649,20 +637,13 @@ msgstr ""
 #: manual/commands/transient.txt:31
 #, no-wrap
 msgid "Input / Output"
-msgstr ""
+msgstr "Вход / Выход"
 
 #. type: Plain text
 #: manual/commands/ac.txt:43 manual/commands/dc.txt:45
 #: manual/commands/fourier.txt:50 manual/commands/op.txt:40
 #: manual/commands/transient.txt:37
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Input / Output ====\n"
-#| "|> //file//   |Send results of analysis to file.  |\n"
-#| "|>> //file//  |Append results to file.  |\n"
-#| "|noplot       |Suppress plotting.  |\n"
-#| "|plot         |Graphic output, when plotting is normally off.  |\n"
-#| "|quiet        |Suppress console output.  |\n"
+#, no-wrap
 msgid ""
 "|> //file//   |Send results of analysis to file.  |\n"
 "|>> //file//  |Append results to file.  |\n"
@@ -670,12 +651,11 @@ msgid ""
 "|plot         |Graphic output, when plotting is normally off.  |\n"
 "|quiet        |Suppress console output.  |\n"
 msgstr ""
-"==== Вход / Выход ====\n"
-"|''>'' //файл//       | Вывод результатов анализа в //файл//          |\n"
-"|''%%>>%%'' //файл//  | Добавление результатов в //файл//             |\n"
-"|''noplot''           | Запрет построения графиков                    |\n"
-"|''plot''             | Разрешение вывода графиков, если он запрещён  |\n"
-"|''quiet''            | Запрет вывода на консоль                      |\n"
+"|''> //файл//       ''| Вывод результатов анализа в ''//файл//''      |\n"
+"|''%%>>%% //файл//  ''| Добавление результатов в ''//файл//''         |\n"
+"|''noplot           ''| Запрет построения графиков                    |\n"
+"|''plot             ''| Разрешение вывода графиков, если он запрещён  |\n"
+"|''quiet            ''| Запрет вывода на консоль                      |\n"
 
 #. type: Title ====
 #: manual/commands/ac.txt:44 manual/commands/dc.txt:51
@@ -683,22 +663,17 @@ msgstr ""
 #: manual/commands/transient.txt:44
 #, no-wrap
 msgid "Other"
-msgstr ""
+msgstr "Прочие"
 
 #. type: Plain text
 #: manual/commands/ac.txt:47
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Other ====\n"
-#| "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|\n"
-#| "|temperature //degrees//  |Temperature, degrees C. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|\n"
+#, no-wrap
 msgid ""
 "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|\n"
 "|temperature //degrees//  |Temperature, degrees C. This does not apply to nonlinear components, which will inherit the temperature from the operating point analysis.|\n"
 msgstr ""
-"==== Прочие ====\n"
-"|''dtemp'' //градусы//        | Смещение температуры, °C. Это число добавляется к температуре из команды [[options.ru|options]]. Это не касается нелинейных компонентов, которые наследуют свою температуру из анализа [[op.ru|op]].|\n"
-"|''temperature'' //градусы//  | Температура, °C. Это не касается нелинейных компонентов, которые наследуют свою температуру из анализа [[op.ru|op]].|\n"
+"|''dtemp //градусы//        ''| Смещение температуры, °C. Это число добавляется к температуре из команды [[options.ru|options]]. Это не касается нелинейных компонентов, которые наследуют свою температуру из анализа [[op.ru|op]].|\n"
+"|''temperature //градусы//  ''| Температура, °C. Это не касается нелинейных компонентов, которые наследуют свою температуру из анализа [[op.ru|op]].|\n"
 
 #. type: Title =====
 #: manual/commands/ac.txt:48 manual/commands/alarm.txt:33
@@ -773,7 +748,7 @@ msgstr ""
 "Повторить тот же самый анализ.\n"
 "  ac >afile\n"
 "Сохранить результаты в файл ''afile''. Результаты в файле будут выглядеть\n"
-"точно так же, как и на экране. Там будут результаты для всех точек измерения.\n"
+"точно так же, как и на экране. Там будут результаты для всех датчиков.\n"
 "Если разрешено построение графика, там будет график.\n"
 
 #. type: Title ======
@@ -12961,13 +12936,11 @@ msgstr ""
 #~ msgstr "====== Команды ======"
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:ac]] Performs a small signal AC (frequency domain) analysis. Sweeps frequency.\n"
 #~ "  * [[gnucap:manual:commands:dc]] Performs a nonlinear DC analysis, for determining transfer characteristics. Sweeps DC input or component values.\n"
 #~ "  * [[gnucap:manual:commands:fourier]] Transient analysis, with results in frequency domain.\n"
 #~ "  * [[gnucap:manual:commands:op]] Performs a nonlinear DC analysis, for determining quiescent operating conditions. Sweeps temperature.\n"
 #~ "  * [[gnucap:manual:commands:transient]] Performs a nonlinear transient (time domain) analysis. Sweeps time.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:ac.ru|ac]] Малосигнальный частотный анализ (в частотной области) при изменении частоты.\n"
 #~ "  * [[gnucap:manual:commands:dc.ru|dc]] Нелинейный анализ (расчёт статического режима) по постоянному току для определения передаточной характеристики при изменении входа по постоянному току или значений компонентов.\n"
 #~ "  * [[gnucap:manual:commands:fourier.ru|fourier]] Временной анализ с результатами в частотной области.\n"
 #~ "  * [[gnucap:manual:commands:op.ru|op]] Нелинейный анализ (расчёт статического режима) по постоянному току для определения статических условий работы при изменении температуры.\n"
@@ -13061,9 +13034,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:pause.ru|pause]] Ожидания нажатия клавиши в пакетном режиме.\n"
 #~ "  * [[gnucap:manual:commands:status.ru|status]] Вывод использования ресурсов и т. п.\n"
 #~ "  * [[gnucap:manual:commands:title.ru|title]] Просмотр и создание строк заголовков для вывода на печать или в файл.\n"
-
-#~ msgid "====== \"ac\" command ======"
-#~ msgstr "====== Команда «ac» ======"
 
 #~ msgid "===== Purpose ====="
 #~ msgstr "===== Назначение ====="
