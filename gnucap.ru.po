@@ -1433,16 +1433,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/end.txt:6
-#, fuzzy
-#| msgid ""
-#| "In script mode (< command) it ends the script and returns to the program "
-#| "prompt.\n"
 msgid ""
 "In script mode (< command) it ends the script and returns to the program "
 "prompt."
 msgstr ""
 "В режиме скрипта (команда <) она завершает скрипт и возвращается к "
-"приглашению программы.\n"
+"приглашению программы."
 
 #. type: Plain text
 #: manual/commands/end.txt:7
