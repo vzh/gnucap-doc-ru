@@ -256,10 +256,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:45
-#, fuzzy, no-wrap
-#| msgid "Select points in the circuit to check against user defined limits."
+#, no-wrap
 msgid "[[gnucap:manual:commands:alarm]] Select points in the circuit to check against limits.\n"
-msgstr "Выбор точек схемы для проверки на превышение установленных пользователем пределов."
+msgstr "[[gnucap:manual:commands:alarm.ru|alarm]] Выбор точек схемы для проверки на превышение пределов.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:45
@@ -492,7 +491,7 @@ msgstr ""
 #: manual/measure/slope.txt:7
 #, no-wrap
 msgid "Syntax"
-msgstr ""
+msgstr "Синтаксис"
 
 #. type: Plain text
 #: manual/commands/ac.txt:10
@@ -530,7 +529,7 @@ msgstr "| ''**ac** {//параметры// ...} //начало конец раз
 #: manual/measure/slope.txt:23
 #, no-wrap
 msgid "Comments"
-msgstr ""
+msgstr "Описание"
 
 #. type: Plain text
 #: manual/commands/ac.txt:14
@@ -719,10 +718,9 @@ msgstr ""
 #: manual/measure/at.txt:22 manual/measure/cross.txt:34
 #: manual/measure/mean.txt:30 manual/measure/minmax.txt:21
 #: manual/measure/slope.txt:29
-#, fuzzy, no-wrap
-#| msgid "Examples:"
+#, no-wrap
 msgid "Examples"
-msgstr "Примеры:"
+msgstr "Примеры"
 
 #. type: Plain text
 #: manual/commands/ac.txt:69
@@ -780,10 +778,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/alarm.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"alarm\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «alarm»"
 
 #. type: Plain text
 #: manual/commands/alarm.txt:6
@@ -794,14 +791,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/alarm.txt:13
-#, fuzzy, no-wrap
-#| msgid ""
-#| "===== Syntax =====\n"
-#| "  alarm\n"
-#| "  alarm mode points ... ...\n"
-#| "  alarm mode + points ... ...\n"
-#| "  alarm mode - points ... ...\n"
-#| "  alarm mode clear\n"
+#, no-wrap
 msgid ""
 "  alarm\n"
 "  alarm mode points ... ...\n"
@@ -809,12 +799,11 @@ msgid ""
 "  alarm mode - points ... ...\n"
 "  alarm mode clear\n"
 msgstr ""
-"===== Синтаксис =====\n"
-"  alarm\n"
-"  alarm режим точки ... ...\n"
-"  alarm режим + точки ... ...\n"
-"  alarm режим - точки ... ...\n"
-"  alarm режим clear\n"
+"| ''**alarm**                              ''|\n"
+"| ''**alarm** //режим       точки ... ...//''|\n"
+"| ''**alarm** //режим// + //точки ... ...//''|\n"
+"| ''**alarm** //режим// - //точки ... ...//''|\n"
+"| ''**alarm** //режим//     clear          ''|\n"
 
 #. type: Plain text
 #: manual/commands/alarm.txt:17
@@ -823,21 +812,23 @@ msgid ""
 "There is no output unless the limits are exceeded. If the limits are "
 "exceeded a the value is printed."
 msgstr ""
-"Командой «alarm» выбираются точки схемы для проверки на превышение пределов. "
-"Она ничего не выводит, пока пределы не превышены. Если пределы превышены, "
-"выводится значение."
+"Командой **alarm** выбираются точки схемы для проверки на превышение "
+"пределов. Она ничего не выводит, пока пределы не превышены. При превышении "
+"пределов выводится значение."
 
 #. type: Plain text
 #: manual/commands/alarm.txt:19 manual/commands/plot.txt:23
 #: manual/commands/print.txt:20
 msgid "There are separate lists of probe points for each type of analysis."
-msgstr "Для каждого вида анализа имеются отдельные списки точек измерения."
+msgstr ""
+"Для каждого вида анализа имеются отдельные списки [[..:howto:probes.ru|"
+"датчиков]]."
 
 #. type: Plain text
 #: manual/commands/alarm.txt:21
 msgid "To list the points, use the bare command `alarm'."
 msgstr ""
-"Для вывода перечня точек измерения используйте команду ''alarm'' без "
+"Для вывода перечня точек измерения используйте команду **''alarm''** без "
 "параметров."
 
 #. type: Plain text
@@ -857,12 +848,14 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/alarm.txt:28 manual/commands/plot.txt:32
 msgid "Some require a dummy index."
-msgstr "Для некоторых требуется фиктивный индекс."
+msgstr "Для некоторых параметров требуется фиктивный индекс."
 
 #. type: Plain text
 #: manual/commands/alarm.txt:30 manual/commands/plot.txt:34
 msgid "For more information on the data available see the print command."
-msgstr "Более подробную информацию о доступных данных см. в команде print."
+msgstr ""
+"Более подробную информацию о доступных данных см. в [[print.ru|описании "
+"команды print]]."
 
 #. type: Plain text
 #: manual/commands/alarm.txt:32
@@ -872,10 +865,11 @@ msgid ""
 "removes q(c5) from the list. You can use the wildcard characters * and ? "
 "when deleting."
 msgstr ""
-"Указывая перед параметрами + или -, их можно добавлять в существующий список "
-"или удалять из него. alarm ac + v(3) добавит v(3) в существующий набор точек "
-"измерения AC. alarm ac - q(c5) удалит q(c5) из списка. При удалении можно "
-"использовать метасимволы * и ?."
+"Указывая перед параметрами «''+''» или «''-''», их можно добавлять в "
+"существующий список или удалять из него. **''alarm ac + v(3)''** добавит ''v"
+"(3)'' в существующий набор датчиков для анализа [[ac.ru|ac]]. **''alarm ac - "
+"q(c5)''** удалит ''q(c5)'' из списка. При удалении можно использовать "
+"метасимволы «''*''» и «''?''»."
 
 #. type: Plain text
 #: manual/commands/alarm.txt:46
@@ -895,17 +889,17 @@ msgid ""
 "Clear the AC list.\n"
 msgstr ""
 "  alarm ac vm(12)(0,5) vm(13)(-5,5)\n"
-"Проверить соответствие амплитуды напряжения на узле 12 диапазону от 0 до 5, а на узле 13 − диапазону от -5 до 5 для анализа AC. При превышении пределов вывести предупреждение.\n"
+"Проверять соответствие амплитуды напряжения узла 12 диапазону 0 ... 5, а узла 13 − диапазону -5 ... 5 для анализа [[ac.ru|ac]]. При превышении пределов выводить предупреждения.\n"
 "  alarm op id(m*)(-100n,100n)\n"
-"Проверить ток для всех полевых транзисторов. В анализе op вывести предупреждение для любого, ток которого вне диапазона от -100 до +100 наноампер.  Диапазон распространяется и в положительную, и в отрицательную стороны, поэтому это будет работать для транзисторов как с N-, так и с P-каналом.\n"
+"Проверять ток всех полевых транзисторов. При выполнении анализа [[op.ru|op]] выводить предупреждения для любого из них, ток которого вне диапазона -100 ... +100 наноампер.  Диапазон распространяется и в положительную, и в отрицательную сторону, поэтому это подходит как для транзисторов с n-, так и с p-каналом.\n"
 "  alarm tran v(r83)(0,5) p(r83)(0,1u)\n"
-"Проверить напряжение и мощность R83 в следующем временном анализе. Диапазон напряжения 0 − 5. Диапазон мощности 0 − 1 микроватт. При превышении диапазона вывести предупреждение.\n"
+"Проверять напряжение и мощность R83 в следующем [[transient.ru|временном анализе]]. Диапазон напряжения 0 ... 5. Диапазон мощности 0 ... 1 микроватт. При превышении диапазона вывести предупреждение.\n"
 "  alarm\n"
-"Вывести все точки измерения для всех режимов.\n"
+"Вывести все датчики для всех режимов.\n"
 "  alarm dc\n"
-"Показать список alarm для DC.\n"
+"Показать список точек сигнализации для [[dc.ru|dc]].\n"
 "  alarm ac clear\n"
-"Очистить список для AC.\n"
+"Очистить список точек для [[ac.ru|ac]].\n"
 
 #. type: Title ======
 #: manual/commands/alter.txt:1
@@ -9227,6 +9221,11 @@ msgid ""
 "\tdc\n"
 "\tquit\n"
 msgstr ""
+"\tacs\n"
+"\tget eg5.ckt\n"
+"\talarm dc v(*)(-1e3,1e3)\n"
+"\tdc\n"
+"\tquit\n"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:93
@@ -13008,12 +13007,10 @@ msgstr ""
 #~ msgstr "===== Команды для «точек измерений» ====="
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:alarm]] Select points in the circuit to check against limits.\n"
 #~ "  * [[gnucap:manual:commands:plot|plot, iplot]] Select points in the circuit (and their range) to plot.\n"
 #~ "  * [[gnucap:manual:commands:print|print, iprint, probe]] Select points in the circuit to print as table.\n"
 #~ "  * [[gnucap:manual:commands:store]] Select points in the circuit to store for post-processing.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:alarm.ru|alarm]] Выбор точек схемы для сравнения с пределами.\n"
 #~ "  * [[gnucap:manual:commands:plot.ru|plot, iplot]] Выбор точек схемы (и их диапазона) для вывода графика.\n"
 #~ "  * [[gnucap:manual:commands:print.ru|print, iprint, probe]] Выбор точек схемы для вывода таблицы значений.\n"
 #~ "  * [[gnucap:manual:commands:store.ru|store]] Выбор точек схемы для сохранения с целью дальнейшей пост-обработки.\n"
@@ -13090,9 +13087,6 @@ msgstr ""
 
 #~ msgid "===== Examples ====="
 #~ msgstr "===== Примеры ====="
-
-#~ msgid "====== \"alarm\" command ======"
-#~ msgstr "====== Команда «alarm» ======"
 
 #~ msgid "===== Example ====="
 #~ msgstr "===== Пример ====="
