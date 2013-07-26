@@ -1804,24 +1804,17 @@ msgstr "См. также: [[gnucap:manual:commands:transient.ru|Команда t
 
 #. type: Plain text
 #: manual/commands/fourier.txt:43 manual/commands/transient.txt:30
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Sweep control ====\n"
-#| "|dtmax time      |The maximum internal time step.  (Default = stepsize/skip)  |\n"
-#| "|dtmin time      |The minimum internal time step. (Default = option dtmin) Time cannot be resolved closer than this.  |\n"
-#| "|dtratio number  |The minimum internal time step, as a ratio. (Default = option dtratio) This is the maximum number of internal time steps for every requested step.  |\n"
-#| "|skip count      |Force at least count internal transient time steps for each one displayed. If the output is a table or ASCII plot, the extra steps are hidden, unless the trace option specifies to print them.  |\n"
+#, no-wrap
 msgid ""
 "|dtmax time      |The maximum internal time step.  (Default = stepsize/skip)  |\n"
 "|dtmin time      |The minimum internal time step. (Default = option dtmin) Time cannot be resolved closer than this.  |\n"
 "|dtratio number  |The minimum internal time step, as a ratio. (Default = option dtratio) This is the maximum number of internal time steps for every requested step.  |\n"
 "|skip count      |Force at least count internal transient time steps for each one displayed. If the output is a table or ASCII plot, the extra steps are hidden, unless the trace option specifies to print them.  |\n"
 msgstr ""
-"==== Настройка диапазона ====\n"
-"|dtmax время     | Максимальный внутренний шаг времени. (Значение по умолчанию = размер_шага/skip)  |\n"
-"|dtmin время     | Минимальный внутренний шаг времени. (Значение по умолчанию = option dtmin.) Разрешение времени не может быть точнее указанного  |\n"
-"|dtratio число   | Минимальный внутренний шаг времени в виде отношения. (Значение по умолчанию = option dtratio) Это максимальное количество внутренних шагов времени на каждый запрошенный шаг.  |\n"
-"|skip количество | Использовать по меньшей мере указанное количество внутренних шагов времени на каждый отображаемый шаг. Дополнительные шаги не отображаются при выводе в виде таблицы или ASCII-графика, если только их вывод не будет задан параметром trace.  |\n"
+"|''dtmax //время//      ''| Максимальный внутренний шаг времени. (Значение по умолчанию равно ''//размер_шага//''/''skip'')  |\n"
+"|''dtmin //время//      ''| Минимальный внутренний шаг времени. (Значение по умолчанию равно [[options.ru|опции]] ''dtmin'') Разрешение времени не может быть точнее указанного  |\n"
+"|''dtratio //число//    ''| Минимальный внутренний шаг времени в виде отношения. (Значение по умолчанию равно [[options.ru|опции]] ''dtratio''.) Это максимальное количество внутренних шагов времени на каждый запрошенный шаг.  |\n"
+"|''skip //количество//  ''| Использовать по меньшей мере указанное ''//количество//'' внутренних шагов времени на каждый отображаемый шаг. Дополнительные шаги не отображаются при выводе в виде таблицы или ASCII-графика, если только их вывод не будет задан параметром ''trace''  |\n"
 
 #. type: Plain text
 #: manual/commands/fourier.txt:57 manual/commands/transient.txt:44
@@ -1834,12 +1827,12 @@ msgid ""
 "|trace iterations  |Show every iteration.  |\n"
 "|trace verbose     |Show extended diagnostics.  |\n"
 msgstr ""
-"|trace off         | Без вывода расширенной трассировочной информации                |\n"
-"|trace warnings    | Отображение расширенных предупреждений                          |\n"
-"|trace alltime     | Отображение всех разрешённых внутренних шагов времени           |\n"
-"|trace rejected    | Отображение всех внутренних шагов времени, включая отброшенные  |\n"
-"|trace iterations  | Отображение каждой итерации                                     |\n"
-"|trace verbose     | Расширенные диагностические сообщения                           |\n"
+"|''trace off         ''| Без вывода расширенной трассировочной информации                |\n"
+"|''trace warnings    ''| Отображение расширенных предупреждений                          |\n"
+"|''trace alltime     ''| Отображение всех разрешённых внутренних шагов времени           |\n"
+"|''trace rejected    ''| Отображение всех внутренних шагов времени, включая отброшенные  |\n"
+"|''trace iterations  ''| Отображение каждой итерации                                     |\n"
+"|''trace verbose     ''| Расширенные диагностические сообщения                           |\n"
 
 #. type: Plain text
 #: manual/commands/fourier.txt:63
@@ -3898,10 +3891,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/transient.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"transient\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «transient»"
 
 #. type: Plain text
 #: manual/commands/transient.txt:6
@@ -3911,19 +3903,13 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/transient.txt:11
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  transient start stop stepsize {options ...}\n"
-#| "  transient stepsize stop start {options ...} \n"
-#| "===== Comments =====\n"
+#, no-wrap
 msgid ""
 "  transient start stop stepsize {options ...}\n"
 "  transient stepsize stop start {options ...} \n"
 msgstr ""
-"  transient начало конец размер_шага {параметры ...}\n"
-"  transient размер_шага конец начало {параметры ...}\n"
-"\n"
-"===== Описание =====\n"
+"|''**transient** //начало конец размер_шага// {//параметры ...//}''|\n"
+"|''**transient** //размер_шага конец начало// {//параметры ...//}''|\n"
 
 #. type: Plain text
 #: manual/commands/transient.txt:14
@@ -3931,7 +3917,8 @@ msgid ""
 "The probes to look at must have been previously selected by the print or "
 "plot command."
 msgstr ""
-"Точки контроля должны быть заранее выбраны командами ''print'' или ''plot''."
+"Датчики, значения которых нужно посмотреть, должны быть заранее выбраны "
+"командами [[print.ru|print]] или [[plot.ru|plot]]."
 
 #. type: Plain text
 #: manual/commands/transient.txt:16
@@ -3942,8 +3929,8 @@ msgid ""
 "internal time step."
 msgstr ""
 "Для временного анализа обычно нужно три параметра: начальное время, конечное "
-"время и размер шага, в указанном порядке. Обратный порядок как в SPICE "
-"(размер шага, конец, начало) тоже приемлем. Дополнительным четвёртым "
+"время и размер шага, в указанном порядке. Обратный порядок, как в SPICE "
+"(размер шага, конец, начало), тоже приемлем. Дополнительным четвёртым "
 "параметром задаётся максимальный внутренний шаг времени."
 
 #. type: Plain text
@@ -3966,10 +3953,10 @@ msgid "Do not use a step size too large as this will result in errors in the res
 msgstr ""
 "Не используйте слишком большой размер шага, так как это приведёт к\n"
 "ошибкам в результатах. Если вы подозреваете, что результаты\n"
-"неточны, попробуйте задать больший аргумент для skip. Это приведёт\n"
+"неточны, попробуйте задать больший аргумент для ''skip''. Это приведёт\n"
 "к установке меньшего размера внутреннего шага. Если результаты\n"
 "близки к тем же самым, им можно верить. Если нет, пробуйте ещё\n"
-"больший аргумент для skip и продолжайте до тех пор, пока последние\n"
+"больший аргумент для ''skip'' и продолжайте до тех пор, пока последние\n"
 "результаты не будут выглядеть достаточно близко совпадающими друг\n"
 "с другом.\n"
 
@@ -3981,33 +3968,26 @@ msgid ""
 "in the circuit. This frequency can be very high, when you use the default "
 "step function as input. The signal generator does not have any filtering."
 msgstr ""
-"Наиболее очевидной ошибкой этого типа является ступенчатость графиков. "
-"Частоту дискретизации необходимо выбирать по крайней мере вдвое выше "
-"наибольшей частоты сигнала, присутствующего в любом месте схемы. При "
-"использовании в качестве входного сигнала стандартной ступенчатой функции "
-"эта частота может быть очень высокой. Генератор сигнала не производит "
-"никакой фильтрации."
+"Наиболее очевидной ошибкой этого типа является алиасинг (наложение спектров "
+"дискретизованного сигнала). Частоту дискретизации необходимо выбирать по "
+"крайней мере вдвое выше наибольшей частоты сигнала, присутствующего в любом "
+"месте схемы. При использовании в качестве входного сигнала стандартной "
+"ступенчатой функции эта частота может быть очень высокой. [[generator.ru|"
+"Генератор сигналов]] не производит никакой фильтрации."
 
 #. type: Plain text
 #: manual/commands/transient.txt:49
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Other ====\n"
-#| "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
-#| "|temperature //degrees//  |Temperature, degrees C.  |\n"
-#| "|cold                     |Zero initial conditions. Cold start from power-up.  |\n"
-#| "|uic                      |Use initial conditions. Do not do an initial DC analysis. Instead, use the values specified with the IC = options on the various elements, and set everything else to zero.  |\n"
+#, no-wrap
 msgid ""
 "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
 "|temperature //degrees//  |Temperature, degrees C.  |\n"
 "|cold                     |Zero initial conditions. Cold start from power-up.  |\n"
 "|uic                      |Use initial conditions. Do not do an initial DC analysis. Instead, use the values specified with the IC = options on the various elements, and set everything else to zero.  In most cases, UIC is not recommended.  Improper use of UIC causes more problems than it solves.  It is the way it is for Spice compatibility.  |\n"
 msgstr ""
-"==== Прочие ====\n"
-"|dtemp //градусы//        | Смещение температуры, °C. Это число добавляется к температуре из команды options.  |\n"
-"|temperature //градусы//  | Температура, °C  |\n"
-"|cold                     | Нулевые начальные условия. Холодный запуск с момента подачи питания  |\n"
-"|uic                      | Использовать начальные условия. Не проводить начальный статический анализ по постоянному току (DC). Вместо этого использовать данные, указанные в параметрах IC = разных элементов, а всё остальное устанавливать в ноль  |\n"
+"|''dtemp //градусы//        ''| Смещение температуры, °C. Это число добавляется к температуре из команды [[options.ru|options]].  |\n"
+"|''temperature //градусы//  ''| Температура, °C  |\n"
+"|''cold                     ''| Нулевые начальные условия. Холодный запуск с момента подачи питания  |\n"
+"|''uic                      ''| Использовать начальные условия. Не проводить начальный статический анализ по постоянному току [[dc.ru|dc]]. Вместо этого использовать данные, указанные в параметрах ''IC'' разных элементов, а всё остальное устанавливать в ноль. В большинстве случаев ''uic'' не рекомендуется. Неправильное использование ''uic'' вносит больше проблем, чем решает. В таком виде, в каком он представлен сейчас, этот параметр присутствует для совместимости со SPICE  |\n"
 
 #. type: Plain text
 #: manual/commands/transient.txt:61
@@ -4040,10 +4020,10 @@ msgstr ""
 "производится в табличной форме, дополнительные шаги не\n"
 "отображаются.\n"
 "  transient 0\n"
-"Запустить снова во время, равное 0. Сохранить тот же размер шага и\n"
+"Запустить снова во время равное 0. Сохранить тот же размер шага и\n"
 "длительность выполнения.\n"
 "  transient >arun\n"
-"При этом запуске сохранить результаты в файл «arun».\n"
+"При этом запуске сохранить результаты в файл ''arun''.\n"
 
 #. type: Title ======
 #: manual/commands/width.txt:1
