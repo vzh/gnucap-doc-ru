@@ -208,7 +208,7 @@ msgstr ""
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:alter|alter, modify]] Change a value, node, etc. For very simple changes.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:alter.ru |alter, modify]] Изменение значения компонента, узла и т. д. Для очень простых изменений.\n"
 
 #. type: Title =====
 #: manual/commands.txt:29
@@ -451,7 +451,7 @@ msgstr "====== Команда «end» ======"
 #: manual/measure/slope.txt:3
 #, no-wrap
 msgid "Purpose"
-msgstr ""
+msgstr "Назначение"
 
 #. type: Plain text
 #: manual/commands/ac.txt:6
@@ -903,10 +903,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/alter.txt:1
-#, fuzzy, no-wrap
-#| msgid "====== \"alter\", \"modify\" commands ======"
+#, no-wrap
 msgid "\"alter\", \"modify\" commands"
-msgstr "====== Команды «alter», «modify» ======"
+msgstr "Команды «alter», «modify»"
 
 #. type: Plain text
 #: manual/commands/alter.txt:6
@@ -920,8 +919,8 @@ msgid ""
 "  alter  partlabel=value ...\n"
 "  modify partlabel=value ...\n"
 msgstr ""
-"  alter  обозначение_компонента=значение ...\n"
-"  modify обозначение_компонента=значение ...\n"
+"|''**alter**  //обозначение_компонента=значение// ...''|\n"
+"|''**modify** //обозначение_компонента=значение// ...''|\n"
 
 #. type: Plain text
 #: manual/commands/alter.txt:15
@@ -929,8 +928,8 @@ msgid ""
 "This command quickly changes the value of a component. It is restricted to "
 "simply changing the value."
 msgstr ""
-"Эта команда быстро меняет значение компонента. Её действие ограничивается "
-"только изменением значения."
+"Эта команда позволяет быстро изменить значение компонента. Её действие "
+"ограничено только этим."
 
 #. type: Plain text
 #: manual/commands/alter.txt:17
@@ -939,8 +938,8 @@ msgid ""
 "used, all are changed."
 msgstr ""
 "Если обозначения нескольких компонентов одинаковы, а также при использовании "
-"метасимволов, будут изменены значения всех компонентов, чьи обозначения "
-"соответствуют заданному выражению."
+"метасимволов, изменяются значения всех компонентов, соответствующих "
+"заданному выражению."
 
 #. type: Title ====
 #: manual/commands/alter.txt:18 manual/commands/fault.txt:24
@@ -948,10 +947,9 @@ msgstr ""
 #: manual/devices/basic/fit.txt:73 manual/devices/basic/posy.txt:48
 #: manual/devices/basic/tanh.txt:36 manual/howto/expressions.txt:13
 #: manual/tech/plugins/coding.txt:25
-#, fuzzy, no-wrap
-#| msgid "Examples:"
+#, no-wrap
 msgid "Example"
-msgstr "Примеры:"
+msgstr "Пример"
 
 #. type: Plain text
 #: manual/commands/alter.txt:25
@@ -965,9 +963,9 @@ msgid ""
 "All resistors are now 22k.\n"
 msgstr ""
 "  modify R66=1k\n"
-"R66 имеет теперь значение 1 кОм, несмотря на то, каким оно было до того.\n"
+"R66 имеет теперь значение 1 кОм, независимо от того, каким оно было до того.\n"
 "  modify C12=220p L1=1u\n"
-"C12 теперь равно 220 пФ, а L1 − 1 мкГн.\n"
+"C12 теперь равно 220 пФ, а L1 --- 1 мкГн.\n"
 "  modify R*=22k\n"
 "Все резисторы теперь по 22 кОм.\n"
 
@@ -12984,7 +12982,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
 #~ "  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
 #~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
-#~ "  * [[gnucap:manual:commands:alter|alter, modify]] Change a value, node, etc. For very simple changes.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:build.ru |build        ]] Построение новой схемы или изменение уже существующей.\n"
 #~ "  * [[gnucap:manual:commands:delete.ru|clear        ]] Удаление схемы полностью, заголовков и т. д.\n"
@@ -12992,7 +12989,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:edit.ru  |edit         ]] Редактирование схемы в текстовом редакторе.\n"
 #~ "  * [[gnucap:manual:commands:fault.ru |fault,unfault]] Временное изменение значения компонента.\n"
 #~ "  * [[gnucap:manual:commands:list.ru  |list         ]] Вывод описания схемы на экран.\n"
-#~ "  * [[gnucap:manual:commands:alter.ru |alter, modify]] Изменение значения компонента, узла и т. д. Для очень простых изменений.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:parameter]] Set or view parameters.\n"
