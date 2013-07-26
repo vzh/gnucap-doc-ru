@@ -148,7 +148,7 @@ msgstr "Выполнение нелинейного анализа во врем
 #: manual/commands.txt:16
 #, no-wrap
 msgid "[[gnucap:manual:commands:op]] Performs a nonlinear DC analysis, for determining quiescent operating conditions. Sweeps temperature.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:op.ru|op]] Нелинейный анализ (расчёт статического режима) по постоянному току для определения статических условий работы при изменении температуры.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:16
@@ -1176,16 +1176,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/dc.txt:38 manual/commands/op.txt:33
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Sweep control ====\n"
-#| "|* //multiplier//      |Log sweep. Multiply the input by //multiplier// to get the next step. Do not pass zero volts!!  |\n"
-#| "|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step.  |\n"
-#| "|decade //steps//      |Log sweep. Use //steps// steps per decade.  |\n"
-#| "|times //multiplier//  |Log sweep. Multiply the input by multiplier to get the next step. Do not pass zero volts!!  |\n"
-#| "|continue              |Use the last step of a OP, DC or Transient analysis as the first guess.  |\n"
-#| "|loop                  |Repeat the sweep, backwards.  |\n"
-#| "|reverse               |Sweep in the opposite direction.  |\n"
+#, no-wrap
 msgid ""
 "|* //multiplier//      |Log sweep. Multiply the input by //multiplier// to get the next step. Do not pass zero volts!!  |\n"
 "|by //stepsize//       |Linear sweep. Add //stepsize// to get the next step.  |\n"
@@ -1195,14 +1186,13 @@ msgid ""
 "|loop                  |Repeat the sweep, backwards.  |\n"
 "|reverse               |Sweep in the opposite direction.  |\n"
 msgstr ""
-"==== Настройка развёртки ====\n"
-"|* //множитель//       | Логарифмическая развёртка. Умножать входное значение на //множитель// для получения следующего шага. Не передавайте 0 вольт!  |\n"
-"|by //размер_шага//    | Линейная развёртка. Добавлять //размер_шага// для получения следующего шага.  |\n"
-"|decade //число_шагов//| Логарифмическая развёртка. Использовать //число_шагов// на декаду.  |\n"
-"|times //множитель//   | Логарифмическая развёртка. Умножать входное значение на //множитель// для получения следующего шага. Не передавайте 0 вольт!  |\n"
-"|continue              | Использовать последний шаг анализа OP, DC или Transient как первое приближение.  |\n"
-"|loop                  | Повторить развёртку в обратном направлении.  |\n"
-"|reverse               | Развёртка в обратном направлении.  |\n"
+"|''* //множитель//         ''| Логарифмическая развёртка. Умножать входное значение на ''//множитель//'' для получения следующего шага. Не задавайте 0 вольт!  |\n"
+"|''by //размер_шага//      ''| Линейная развёртка. Добавлять ''//размер_шага//'' для получения следующего шага.  |\n"
+"|''decade //число_шагов//  ''| Логарифмическая развёртка. Использовать ''//число_шагов//'' на декаду.  |\n"
+"|''times //множитель//     ''| Логарифмическая развёртка. Умножать входное значение на ''//множитель//'' для получения следующего шага. Не задавайте 0 вольт!  |\n"
+"|''continue                ''| Использовать как первое приближение последний шаг анализа [[op.ru|op]], [[dc.ru|dc]] или [[transient.ru|transient]].  |\n"
+"|''loop                    ''| Повторить развёртку в обратном направлении.  |\n"
+"|''reverse                 ''| Развёртка в обратном направлении.  |\n"
 
 #. type: Plain text
 #: manual/commands/dc.txt:50 manual/commands/op.txt:49
@@ -1213,25 +1203,20 @@ msgid ""
 "|trace iterations  |Show every iteration.  |\n"
 "|trace verbose     |Show extended diagnostics.  |\n"
 msgstr ""
-"|trace off         | Без вывода расширенной трассировочной информации                |\n"
-"|trace warnings    | Отображение расширенных предупреждений                          |\n"
-"|trace iterations  | Отображение каждой итерации                                     |\n"
-"|trace verbose     | Расширенные диагностические сообщения                           |\n"
+"|''trace off         ''| Без вывода расширенной трассировочной информации  |\n"
+"|''trace warnings    ''| Отображение расширенных предупреждений            |\n"
+"|''trace iterations  ''| Отображение каждой итерации                       |\n"
+"|''trace verbose     ''| Расширенные диагностические сообщения             |\n"
 
 #. type: Plain text
 #: manual/commands/dc.txt:54 manual/commands/op.txt:44
-#, fuzzy, no-wrap
-#| msgid ""
-#| "==== Other ====\n"
-#| "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
-#| "|temperature //degrees//  |Temperature, degrees C.  |\n"
+#, no-wrap
 msgid ""
 "|dtemp //degrees//        |Temperature offset, degrees C. Add this number to the temperature from the options command.  |\n"
 "|temperature //degrees//  |Temperature, degrees C.  |\n"
 msgstr ""
-"==== Прочие ====\n"
-"|dtemp //градусы//        | Смещение температуры, °C. Это число добавляется к температуре из команды options.  |\n"
-"|temperature //градусы//  | Температура, °C  |\n"
+"|''dtemp //градусы//        ''| Смещение температуры, °C. Это число добавляется к температуре из команды [[options.ru|options]].  |\n"
+"|''temperature //градусы//  ''| Температура, °C  |\n"
 
 #. type: Plain text
 #: manual/commands/dc.txt:70
@@ -2682,30 +2667,25 @@ msgstr ""
 
 #. type: Title ======
 #: manual/commands/op.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"end\" command"
+#, no-wrap
 msgid "\"op\" command"
-msgstr "====== Команда «end» ======"
+msgstr "Команда «op»"
 
 #. type: Plain text
 #: manual/commands/op.txt:6
-#, fuzzy
-#| msgid ""
-#| "Performs a nonlinear DC steady state analysis, with no input. If a "
-#| "temperature range is given, it sweeps the temperature.  \n"
 msgid ""
 "Performs a nonlinear DC steady state analysis, with no input. If a "
 "temperature range is given, it sweeps the temperature."
 msgstr ""
 "Выполнение нелинейного расчёта статического режима по постоянному току при "
 "отсутствии входного сигнала. При задании температуры расчёт производится с "
-"изменением температуры.\n"
+"изменением температуры."
 
 #. type: Plain text
 #: manual/commands/op.txt:10
 #, no-wrap
 msgid "  op start stop stepsize {options ...} \n"
-msgstr "  op начало конец размер_шага {параметры ...}\n"
+msgstr "|''**op** //начало конец размер_шага// {//параметры ...//}''|\n"
 
 #. type: Plain text
 #: manual/commands/op.txt:14
@@ -2713,6 +2693,8 @@ msgid ""
 "There are substantial extensions beyond the capabilities of the SPICE op "
 "command."
 msgstr ""
+"Возможности команды **op** существенно расширены по сравнению с аналогичной "
+"командой в SPICE."
 
 #. type: Plain text
 #: manual/commands/op.txt:16
@@ -2722,6 +2704,10 @@ msgid ""
 "order. They are saved between commands, so no arguments will repeat the "
 "previous sweep."
 msgstr ""
+"Если заданы числовые аргументы, они представляют собой диапазон развёртки "
+"температуры. Это начальная и конечная температура в градусах Цельсия, и "
+"размер шага, в указанном порядке. Они сохраняются между командами, поэтому "
+"ни при каких аргументах предыдущая развёртка повторяться не будет."
 
 #. type: Plain text
 #: manual/commands/op.txt:18
@@ -2733,6 +2719,13 @@ msgid ""
 "available from SPICE and more is available here. See the print command and "
 "the device descriptions for more details."
 msgstr ""
+"Вместо автоматического вывода всех узлов и токов источников для этой команды "
+"будет использоваться набор датчиков **op**, поэтому до запуска команды "
+"**op** вам необходимо задать **''print op ...''**. В таком виде это сделано "
+"из-за того, что нам кажется, что постоянный вывод всех данных приводит "
+"обычно лишь к ненужному беспорядку. Вся информация, доступная в SPICE, и "
+"даже сверх того, доступна и здесь. Подробности см. в описании команды "
+"[[print.ru|print]] и в [[..:devices.ru|описаниях устройств]]."
 
 #. type: Plain text
 #: manual/commands/op.txt:20
@@ -2740,6 +2733,8 @@ msgid ""
 "A single parameter represents a single temperature. Two parameters instruct "
 "the computer to analyze for those two points only."
 msgstr ""
+"Одним параметром задаётся одна температура. Двумя параметрами компьютеру "
+"даётся приказ анализировать только указанные две точки."
 
 #. type: Plain text
 #: manual/commands/op.txt:22
@@ -2748,6 +2743,9 @@ msgid ""
 "is necessary to do this for nonlinear circuits. The last step in the sweep "
 "determines the quiescent point for the AC analysis."
 msgstr ""
+"Этой командой также настраивается статическая точка для последующего анализа "
+"[[ac.ru|ac]]. Это необходимо для анализа нелинейных схем. Статическая точка "
+"для анализа [[ac.ru|ac]] определяется последним шагом в диапазоне."
 
 #. type: Plain text
 #: manual/commands/op.txt:63
@@ -2766,6 +2764,18 @@ msgid ""
 "  op\n"
 "Since the last time used the temperature option, go back one more to find what the sweep parameters were. In this case, downward from 200 to -50 in 25 degree steps.\n"
 msgstr ""
+"  op 27\n"
+"Произвести статический расчёт рабочей точки по постоянному току при температуре 27 градусов Цельсия.\n"
+"  op -50 200 25\n"
+"Изменять температуру от -50 до 200 с шагом в 25 градусов. Для каждого шага производить статический расчёт рабочей точки по постоянному току.\n"
+"  op\n"
+"Если параметры не указаны, будут использоваться те же самые параметры, что были заданы последний раз. В данном случае моделирование от -50 до 200 с шагом 25 градусов.\n"
+"  op 200 -50 -25\n"
+"Можно произвести развёртку в обратную сторону, запросив отрицательное приращение.\n"
+"  op temperature=75\n"
+"В этот раз произвести моделирование для 75 градусов. Параметр запоминаться не будет, и не будет использоваться для следующего моделирования.\n"
+"  op\n"
+"Так как последний раз использовалась опция ''temperature'', вернуться ещё на одну команду назад, чтобы узнать параметры развёртки. В данном случае это развёртка от 200 вниз до -50 с шагом 25 градусов.\n"
 
 #. type: Title ======
 #: manual/commands/options.txt:1
@@ -12918,12 +12928,10 @@ msgstr ""
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:dc]] Performs a nonlinear DC analysis, for determining transfer characteristics. Sweeps DC input or component values.\n"
 #~ "  * [[gnucap:manual:commands:fourier]] Transient analysis, with results in frequency domain.\n"
-#~ "  * [[gnucap:manual:commands:op]] Performs a nonlinear DC analysis, for determining quiescent operating conditions. Sweeps temperature.\n"
 #~ "  * [[gnucap:manual:commands:transient]] Performs a nonlinear transient (time domain) analysis. Sweeps time.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:dc.ru|dc]] Нелинейный анализ (расчёт статического режима) по постоянному току для определения передаточной характеристики при изменении входа по постоянному току или значений компонентов.\n"
 #~ "  * [[gnucap:manual:commands:fourier.ru|fourier]] Временной анализ с результатами в частотной области.\n"
-#~ "  * [[gnucap:manual:commands:op.ru|op]] Нелинейный анализ (расчёт статического режима) по постоянному току для определения статических условий работы при изменении температуры.\n"
 #~ "  * [[gnucap:manual:commands:transient.ru|transient]] Нелинейный временной анализ (во временной области) при изменении времени.\n"
 
 #~ msgid ""
@@ -12987,11 +12995,9 @@ msgstr ""
 #~ msgstr "===== «Прочие» команды ====="
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:options]] View and set system options. (Same as set.)\n"
 #~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
 #~ "  * [[gnucap:manual:commands:width]] Set output width.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:options.ru|options]] Просмотр и установка системных опций. (То же самое, что и set.)\n"
 #~ "  * [[gnucap:manual:commands:temp.ru|temp]] Установка или просмотр температуры.\n"
 #~ "  * [[gnucap:manual:commands:width.ru|width]] Установка ширины вывода.\n"
 
@@ -13074,9 +13080,6 @@ msgstr ""
 
 #~ msgid "====== \"measure\" command ======"
 #~ msgstr "====== Команда «measure» ======"
-
-#~ msgid "====== \"op\" command ======"
-#~ msgstr "====== Команда «op» ======"
 
 #~ msgid "====== \"options\" command ======"
 #~ msgstr "====== Команда «options» ======"
