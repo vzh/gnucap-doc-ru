@@ -116,7 +116,7 @@ msgstr ""
 #: manual/commands.txt:7
 #, no-wrap
 msgid "\"Simulation\" or \"analysis\" commands"
-msgstr "Команды «моделирования» или «анализа»"
+msgstr "Команды для моделирования или анализа"
 
 #. type: Plain text
 #: manual/commands.txt:10
@@ -158,7 +158,7 @@ msgstr "[[gnucap:manual:commands:transient.ru|transient]] Нелинейный �
 #: manual/commands.txt:17
 #, no-wrap
 msgid "\"Data\" commands"
-msgstr "Команды «работы с данными»"
+msgstr "Команды для работы с данными"
 
 #. type: Plain text
 #: manual/commands.txt:20
@@ -211,7 +211,7 @@ msgstr "[[gnucap:manual:commands:alter.ru |alter, modify]] Изменение з
 #: manual/commands.txt:29
 #, no-wrap
 msgid "\"Parameter\" and \"Measure\" commands"
-msgstr "Команды работы с «параметрами» и «измерениями»"
+msgstr "Команды для работы с параметрами и измерениями"
 
 #. type: Plain text
 #: manual/commands.txt:32
@@ -240,13 +240,13 @@ msgstr ""
 #: manual/commands.txt:37
 #, no-wrap
 msgid "\"Probe\" commands"
-msgstr "Команды для «датчиков»"
+msgstr "Команды для датчиков"
 
 #. type: Plain text
 #: manual/commands.txt:40
 msgid "These commands set up probes for later use."
 msgstr ""
-"Данные команды предназначены для настройки «точек измерений» для дальнейшего "
+"Данные команды предназначены для настройки «датчиков» для дальнейшего "
 "использования."
 
 #. type: Bullet: '  * '
@@ -277,7 +277,7 @@ msgstr ""
 #: manual/commands.txt:46
 #, no-wrap
 msgid "\"File\" commands"
-msgstr "Команды работы с «файлами»"
+msgstr "Команды для работы с файлами"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:52
@@ -325,7 +325,7 @@ msgstr ""
 #: manual/commands.txt:57
 #, no-wrap
 msgid "\"Other\" commands"
-msgstr "«Прочие» команды"
+msgstr "Прочие команды"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:61
