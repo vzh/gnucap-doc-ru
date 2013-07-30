@@ -384,7 +384,7 @@ msgstr "[[gnucap:manual:commands:freeze.ru|freeze, unfreeze]] Отметка у�
 #: manual/commands.txt:73
 #, no-wrap
 msgid "[[gnucap:manual:commands:chdir]] Change current directory.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:chdir.ru|chdir]] Смена текущего каталога.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:73
@@ -1038,8 +1038,8 @@ msgid ""
 "  chdir {path}\n"
 "  cd {path}\n"
 msgstr ""
-"  chdir {путь}\n"
-"  cd {путь}\n"
+"|''**chdir** {//путь//}''|\n"
+"|''**cd   ** {//путь//}''|\n"
 
 #. type: Plain text
 #: manual/commands/chdir.txt:15
@@ -1053,7 +1053,7 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/chdir.txt:17
 msgid "If no argument is given the current directory is displayed."
-msgstr "Если аргумента не задано, отображается текущий каталог."
+msgstr "Если аргумент не указан, выводится имя текущего каталога."
 
 #. type: Plain text
 #: manual/commands/chdir.txt:23
@@ -1065,7 +1065,7 @@ msgid ""
 "Show the current working directory name.\n"
 msgstr ""
 "  cd ../ckt\n"
-"Смена текущего рабочего каталога на ../ckt.\n"
+"Смена текущего рабочего каталога на ''../ckt''.\n"
 "  cd\n"
 "Показать имя текущего рабочего каталога.\n"
 
