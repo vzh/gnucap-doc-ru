@@ -174,13 +174,13 @@ msgstr "[[gnucap:manual:commands:build.ru |build        ]] Построение 
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:delete|clear]] Delete the entire circuit, titles, etc.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:delete.ru|clear        ]] Удаление схемы полностью, заголовков и т. д.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:delete]] Delete a part, or group of parts.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:delete.ru|delete       ]] Удаление компонента, группы компонентов.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
@@ -1267,7 +1267,7 @@ msgstr "Команда «delete»"
 #. type: Plain text
 #: manual/commands/delete.txt:6
 msgid "Remove a line, or a group of lines, from the circuit description."
-msgstr "Удалить строку или группу строк из описания схемы."
+msgstr "Удаление строки или группы строк из описания схемы."
 
 #. type: Plain text
 #: manual/commands/delete.txt:11
@@ -1276,14 +1276,14 @@ msgid ""
 "  delete label ...\n"
 "  delete all\n"
 msgstr ""
-"  delete обозначение_компонента ...\n"
-"  delete all\n"
+"|''**delete** //обозначение_компонента// ...''|\n"
+"|''**delete** all                           ''|\n"
 
 #. type: Plain text
 #: manual/commands/delete.txt:13
 #, no-wrap
 msgid "  clear\n"
-msgstr "  clear\n"
+msgstr "|''**clear**''|\n"
 
 #. type: Plain text
 #: manual/commands/delete.txt:17
@@ -1291,9 +1291,9 @@ msgid ""
 "To delete a part, by label, enter the label. (Example `DEL R15'.) Wildcards "
 "`*' and `?' are allowed, in which case, all that match are deleted."
 msgstr ""
-"Для удаления компонента по обозначению введите обозначение. (Пример: ''DEL "
-"R15''.) Разрешается использование метасимволов ''*'' и ''?'', в этом случае "
-"удаляются любые совпадения."
+"Для удаления компонента по обозначению введите обозначение. (Пример: **''DEL "
+"R15''**.) Разрешается использование метасимволов ''*'' и ''?'', в этом "
+"случае удаляются любые совпадения."
 
 #. type: Plain text
 #: manual/commands/delete.txt:19
@@ -1301,8 +1301,8 @@ msgid ""
 "To delete the entire circuit, the entire word ALL must be entered. (Example "
 "`DEL ALL'.)"
 msgstr ""
-"Для удаления схемы целиком нужно ввести полностью слово ALL. (Пример: ''DEL "
-"ALL''.)"
+"Для удаления схемы целиком нужно ввести полностью слово ''ALL''. (Пример: "
+"**''DEL ALL''**.)"
 
 #. type: Plain text
 #: manual/commands/delete.txt:21
@@ -1311,14 +1311,16 @@ msgid ""
 "fault had been applied (see fault command) restore may have surprising "
 "results."
 msgstr ""
-"После удаления всего обычно нет способа вернуть его обратно, но если "
-"использовалась команда fault (см. команда fault), восстановление может "
-"привести с неожиданным результатам."
+"Обычно после удаления всей схемы нет способа вернуть её обратно, но если до "
+"того использовалась команда **''fault''** (см. [[fault.ru|описание команды "
+"fault]]), попытка восстановления может привести с неожиданным результатам."
 
 #. type: Plain text
 #: manual/commands/delete.txt:23
 msgid "\"clear\" is similar to, but a little more drastic than delete all."
-msgstr "Команда «clear» похожа, но немного более радикальная, чем delete all."
+msgstr ""
+"Команда **''clear''** подобна команде **''delete all''**, но действует "
+"несколько более радикально."
 
 #. type: Plain text
 #: manual/commands/delete.txt:35
@@ -1343,9 +1345,9 @@ msgstr ""
 "Удалить R12 и C3.\n"
 "  delete R*\n"
 "Удалить все резисторы. (А также все модели и подсхемы, имена\n"
-"которых начинаются с R.)\n"
+"которых начинаются на R.)\n"
 "  clear\n"
-"Очистить всё, чтобы начать с начала.\n"
+"Очистить всё, чтобы начать всё с начала.\n"
 
 #. type: Title ======
 #: manual/commands/edit.txt:1
@@ -12809,14 +12811,10 @@ msgstr ""
 #~ "  * [[gnucap:manual:Examples.ru     |Примеры             ]]\n"
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:delete|clear]] Delete the entire circuit, titles, etc.\n"
-#~ "  * [[gnucap:manual:commands:delete]] Delete a part, or group of parts.\n"
 #~ "  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
 #~ "  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
 #~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:delete.ru|clear        ]] Удаление схемы полностью, заголовков и т. д.\n"
-#~ "  * [[gnucap:manual:commands:delete.ru|delete       ]] Удаление компонента, группы компонентов.\n"
 #~ "  * [[gnucap:manual:commands:edit.ru  |edit         ]] Редактирование схемы в текстовом редакторе.\n"
 #~ "  * [[gnucap:manual:commands:fault.ru |fault,unfault]] Временное изменение значения компонента.\n"
 #~ "  * [[gnucap:manual:commands:list.ru  |list         ]] Вывод описания схемы на экран.\n"
