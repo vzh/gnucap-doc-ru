@@ -125,10 +125,9 @@ msgstr "Здесь представлены основные команды мо
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:16
-#, fuzzy, no-wrap
-#| msgid "Performs a small signal, steady state, AC analysis. Sweeps frequency."
+#, no-wrap
 msgid "[[gnucap:manual:commands:ac]] Performs a small signal AC (frequency domain) analysis. Sweeps frequency.\n"
-msgstr "Выполнение малосигнального частотного анализа в установившемся режиме при изменении частоты."
+msgstr "[[gnucap:manual:commands:ac.ru|ac]] Малосигнальный частотный анализ (в частотной области) при изменении частоты.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:16
