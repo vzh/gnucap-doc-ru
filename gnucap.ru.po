@@ -6693,7 +6693,7 @@ msgstr ""
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Hello world]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Hello world.ru|Привет, мир]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -7404,7 +7404,7 @@ msgstr "Привет, мир"
 #. type: Plain text
 #: manual/examples/hello_world.txt:4
 msgid "Copyright 1999 Telford Tendys (with mods by Albert Davis)"
-msgstr ""
+msgstr "Copyright 1999 Telford Tendys (с изменениями от Albert Davis)"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:12
@@ -7417,12 +7417,20 @@ msgid ""
 "alphabetical order and in groups of concepts and it presumes that you know "
 "SPICE already."
 msgstr ""
+"Чтение настоящего документа не заменит чтения руководства. Руководство, со "
+"вкусом свёрстанное в LaTeX, желательно распечатать и в процессе работы "
+"держать под рукой. Настоящий документ построен на постепенном переходе от "
+"простого к сложному, и здесь предполагается, что вы имеете некоторое "
+"представление о том, что такое электрические схемы, но недостаточно "
+"разбираетесь в программах схемотехнического моделирования. Руководство "
+"построено в алфавитном порядке и организовано по группам понятий, исходя из "
+"предположения, что вы уже знакомы с программой SPICE."
 
 #. type: Title =====
 #: manual/examples/hello_world.txt:13
 #, no-wrap
 msgid "The basic concept of a nodal analysis"
-msgstr ""
+msgstr "Основные понятия анализа цепей методом узловых потенциалов"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:20
@@ -7433,6 +7441,13 @@ msgid ""
 "component. For example, this analysis makes no attempt to find the voltage "
 "in the middle of a resistor, only at the ends of the resistor."
 msgstr ""
+"Использование узлов --- это один из способов описания цепей из элементов с "
+"сосредоточенными параметрами (дискретных элементов). Использование "
+"дискретных элементов обусловлено тем, что здесь не ставится задача "
+"рассмотрения процессов, идущих внутри заданных компонентов, но "
+"рассматривается только то, что происходит на их выводах. К примеру, в этом "
+"анализе даже не рассматривается поиск напряжения в середине резистора, "
+"ищутся напряжения только на его концах."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:27
@@ -7444,6 +7459,13 @@ msgid ""
 "one another. Describing which components connect to which nodes will "
 "completely describe the structure of the circuit."
 msgstr ""
+"Полная модель схемы состоит из «узлов» и «компонентов». Узел (с "
+"электрической точки зрения) представляет собой одну точку, которая имеет "
+"одно единственное значение величины напряжения для любого конкретного "
+"значения времени. Компонент обычно соединяется с двумя или более узлами "
+"(обычно с двумя) и является представлением некоторого метода взаимовлияния "
+"напряжений указанных узлов друг на друга. Описание того, какие компоненты "
+"присоединяются к каким узлам, будет полным описанием структуры схемы."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:33
@@ -7454,12 +7476,17 @@ msgid ""
 "are explicitly calculated, others (such as the current through a resistor) "
 "are implicitly calculated as a result of calculating the node voltages."
 msgstr ""
+"Одним из вспомогательных понятий является «ветвь». Током ветви называется "
+"величина тока, текущего из узла в компонент, присоединённый к этому узлу. "
+"Токи некоторых ветвей (такие как токи через источники напряжения) "
+"рассчитываются явно, другие (такие как токи через резисторы) рассчитываются "
+"косвенно как результат расчёта напряжений узлов."
 
 #. type: Title =====
 #: manual/examples/hello_world.txt:33
 #, no-wrap
 msgid "The basic concept of a circuit file"
-msgstr ""
+msgstr "Общее представление о файлах схем"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:39
@@ -7469,53 +7496,58 @@ msgid ""
 "is a line oriented format with items separated by whitespace. The overall "
 "file structure is:"
 msgstr ""
+"Традиционно входные файлы gnucap имеют расширение «''.ckt''». Формат сродни "
+"тому, что используется в версии 2 программы моделирования SPICE; это строчно-"
+"ориентированный формат, в котором элементы разделяются пробельными "
+"символами. Общая структура файла выглядит так:"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "Header line (first line of the file) usually contains the name of the circuit.  It should be marked as a comment.\n"
-msgstr ""
+msgstr "Строка заголовка (первая строка файла) обычно содержит название схемы. Она должна быть помечена как комментарий.\n"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "blank lines do nothing\n"
-msgstr ""
+msgstr "Пустые строки ни на что не влияют.\n"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "comment lines are any line beginning with a star \"''*''\".  These can be anywhere in the file except the header line.\n"
-msgstr ""
+msgstr "К комментариям относятся только строки, начинающиеся со звёздочки «''*''».  Они могут находиться где угодно в файле, за исключением строки заголовка.\n"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "component lines begin with a letter and represent some component that is in the circuit. The order that components are listed does not matter because the topology is described by the nodes that the components are connected to.\n"
-msgstr ""
+msgstr "Строки компонентов начинаются с буквы и являются представлением каких-нибудь компонентов в схеме. Порядок перечисления компонентов роли не играет, потому что топология схемы описывается узлами, к которым эти компоненты присоединены.\n"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "continuation lines begin with a plus \"''+''\" and continue the previous line so that long lines can be written neatly.\n"
-msgstr ""
+msgstr "Строки-расширения начинаются со знака плюс «''+''» и служат продолжением предшествующих строк, позволяя более аккуратную запись длинных строк.\n"
 
 #. type: Bullet: '  * '
 #: manual/examples/hello_world.txt:46
 #, no-wrap
 msgid "command lines begin with a dot \"''.''\" and are not considered to be part of the circuit, they cause the simulator to execute some analysis or change some options. They are also used to delimit special parts of the file such as subcircuits.\n"
-msgstr ""
+msgstr "Строки команд начинаются с точек «''.''» и частью схемы не считаются, они заставляют программу моделирования выполнить какой-либо анализ или изменить какие-нибудь параметры. Кроме того, они используются для определения границ особых частей файла, таких как подсхемы.\n"
 
 #. type: Title =====
 #: manual/examples/hello_world.txt:47
 #, no-wrap
 msgid "Building a simple circuit"
-msgstr ""
+msgstr "Построение простой схемы"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:50
 msgid "The \"build\" command lets you enter a circuit from the keyboard."
 msgstr ""
+"Команда [[..:commands:build.ru|build]] позволяет ввести схему с клавиатуры."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:56
@@ -7527,16 +7559,21 @@ msgid ""
 "  >\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> build\n"
+"  >Vsupply 0 2 10\n"
+"  >R1 0 2 1k\n"
+"  >\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:58
 msgid "A blank line exits the build mode."
-msgstr ""
+msgstr "Ввод пустой строки приводит к выходу из режима построения схемы."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:60
 msgid "See what you have with the \"list\" command."
-msgstr ""
+msgstr "Посмотрим, что у нас есть, командой [[..:commands:list.ru|list]]."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:65
@@ -7547,11 +7584,15 @@ msgid ""
 "  R1 ( 0 2 )  1.K\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> list\n"
+"  Vsupply ( 0 2 )  DC  10.\n"
+"  R1 ( 0 2 )  1.K\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:67
 msgid "Do a quick check of the voltages:"
-msgstr ""
+msgstr "Быстрая проверка напряжений:"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:73
@@ -7563,11 +7604,16 @@ msgid ""
 "   27.       -10.\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> probe op v(nodes)\n"
+"  gnucap> op\n"
+"  #           v(2)\n"
+"   27.       -10.\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:75
 msgid "You can save it to a file now:"
-msgstr ""
+msgstr "Теперь схему можно сохранить в файл:"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:78
@@ -7576,12 +7622,14 @@ msgid ""
 "  gnucap> save eg1.ckt\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> save eg1.ckt\n"
+"  gnucap>\n"
 
 #. type: Title =====
 #: manual/examples/hello_world.txt:78
 #, no-wrap
 msgid "The simplest possible circuit file"
-msgstr ""
+msgstr "Файл самой простой возможной схемы"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:83
@@ -7591,6 +7639,9 @@ msgid ""
 "  Vsupply 0 2 10\n"
 "  R1 0 2 1k\n"
 msgstr ""
+"  #РЕЗИСТОР, ПОДКЛЮЧЕННЫЙ К ИСТОЧНИКУ НАПРЯЖЕНИЯ\n"
+"  Vsupply 0 2 10\n"
+"  R1 0 2 1k\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:91
@@ -7603,12 +7654,20 @@ msgid ""
 "\"0\" and \"2\". Note that there is no node \"1\" but this doesn't matter, "
 "not every node number needs to be used."
 msgstr ""
+"В этом файле определена электрическая цепь, содержащая два компонента. Эти "
+"компоненты называются \"Vsupply\" и \"R1\", первая буква имени компонента "
+"определяет тип компонента, поэтому \"Vsupply\" является источником "
+"напряжения («**V**oltage source»), а \"R1\" --- это резистор "
+"(«**R**esistor»). Для каждого компонента указано значение, для источника "
+"напряжения 10 вольт, а для резистора 1000 ом. Узлы имеют номера \"0\" и "
+"\"2\". Заметьте, что узла \"1\" здесь нет, но это не важно, для номеров "
+"узлов не обязательно использовать последовательную нумерацию."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:93
 #: manual/examples/phase_shift_oscillator.txt:59
 msgid "Run it interactively ..."
-msgstr ""
+msgstr "Запустим это в интерактивном режиме..."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:107
@@ -7628,6 +7687,19 @@ msgid ""
 "  '\n"
 "  gnucap>\n"
 msgstr ""
+"  $$$$$$$gnucap\n"
+"  Gnucap 2009.02.02 RCS 26.109\n"
+"  The Gnu Circuit Analysis Package\n"
+"  Never trust any version less than 1.0\n"
+"  Copyright 1982-2007, Albert Davis\n"
+"  Gnucap comes with ABSOLUTELY NO WARRANTY\n"
+"  This is free software, and you are welcome\n"
+"  to redistribute it under the terms of\n"
+"  the GNU General Public License, version 3 or later.\n"
+"  See the file \"COPYING\" for details.\n"
+"  gnucap> get eg1.ckt\n"
+"  '\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:111
@@ -7636,6 +7708,9 @@ msgid ""
 "firstly by putting a probe on the node that needs measuring (using the print "
 "statement) then by starting the simulation:"
 msgstr ""
+"В интерактивном режиме можно поупражняться с моделью схемы, сначала задав "
+"датчик для узла, для которого нужно произвести измерение (с помощью "
+"оператора [[..:commands:print.ru|print]]), затем, запустив моделирование:"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:117
@@ -7647,6 +7722,11 @@ msgid ""
 "   0.        -10.\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> print dc v(2)\n"
+"  gnucap> dc\n"
+"  #           v(2)\n"
+"   0.        -10.\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:132
@@ -7666,6 +7746,23 @@ msgid ""
 "batteries or a bench power supply and poking their meter probes into things, "
 "it is a well established SPICE convention and probably never going to change."
 msgstr ""
+"Излишне говорить, что [[..:commands:dc.ru|dc]] --- это расчёт статического "
+"режима по постоянному току, и используемая здесь команда [[..:commands:print."
+"ru|print]] говорит: «когда произведёшь расчёт статического режима, скажи мне "
+"напряжение узла 2». В результате должно быть -10 вольт. На первый взгляд "
+"могло показаться, будто должно было быть +10 вольт... но (так же, как и в "
+"SPICE) для источников напряжения первым указывается их положительный зажим, "
+"а затем уже отрицательный. Узел 0 является узлом земли (или опорным узлом), "
+"потенциал которого всегда равен 0 вольт, поэтому напряжение узла 2 "
+"составляет -10 вольт. При обратном подключении ''Vsupply'' результат "
+"изменился бы на +10 вольт. Всё становится ещё сложнее при работе с "
+"источниками тока, где узел со стороны хвоста стрелки источника тока "
+"считается первым (и называется «''+''»), а узел с той стороны, куда стрелка "
+"указывает, считается вторым (и называется «''-''»). Хотя это соглашение и "
+"может показаться сбивающим с толку для кого-то, кто возмужал и заматерел, "
+"исследуя свои схемы с питанием от батарей или от стендового источника "
+"питания и тыкая щупами в разные точки, это хорошо устоявшееся соглашение "
+"SPICE, и поэтому, наверно, оно никогда не изменится."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:136
@@ -7674,6 +7771,9 @@ msgid ""
 "the current going through the source? We can move our probe to look at "
 "current instead:"
 msgstr ""
+"Однако, напряжение узла может и не быть искомым решением. Как насчёт тока, "
+"протекающего через источник? Мы можем выбрать другой датчик и взглянуть "
+"вместо напряжения на ток:"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:142
@@ -7685,6 +7785,11 @@ msgid ""
 "   0.         0.01      -0.01\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> print dc i(R1) i(Vsupply)\n"
+"  gnucap> dc\n"
+"  #           i(R1)      i(Vsupply)\n"
+"   0.         0.01      -0.01\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:157
@@ -7704,6 +7809,20 @@ msgid ""
 "that [+] and [-] terminals are just names that provide a sign convention "
 "they don't insist that one terminal is a higher voltage than the other."
 msgstr ""
+"Теперь мы можем видеть 10 миллиампер, текущие через оба компонента, с учётом "
+"соглашения о знаке при контроле тока. Ещё раз, это то, что вы просто должны "
+"выучить, можете даже нарисовать диаграммы основных компонентов и отметить "
+"для них эти важные соглашения, связывающие обозначения выводов «+» и «-» и "
+"направление тока. Вы также сможете понять, что это соглашение имеет свою "
+"логику, позволяющую легче его запомнить. Например, рассмотрим резистор: "
+"вывод под названием «+» считается первым, и внутреннее направление тока "
+"положительно, когда ток течёт через резистор от вывода «+» к выводу «-». В "
+"случае резистора это звучит вполне разумно, так как вывод «+» БУДЕТ более "
+"положительным, когда ток течёт таким образом. Для источников напряжения и "
+"тока просто поддерживается то же самое соглашение, которое применяется к "
+"резистору, и что важно запомнить, так это то, что «+» и «-» --- это просто "
+"обозначения выводов, обеспечивающие лишь поддержку соглашения о знаке, и не "
+"требующие, чтобы один вывод имел большее напряжение, чем другой."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:161
@@ -7713,6 +7832,10 @@ msgid ""
 "voltage in such a circuit. The power and resistance of each component can be "
 "measured:"
 msgstr ""
+"Данный пример должен был дать вам достаточно информации для анализа любых "
+"цепей, состоящих из источников напряжения и резисторов, и для контроля любых "
+"токов или напряжений в подобного рода схемах. Для каждого из компонентов "
+"можно измерить их мощность и сопротивление:"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:167
@@ -7724,6 +7847,11 @@ msgid ""
 "   0.         0.1       -0.1        1.K        Inf\n"
 "  gnucap>\n"
 msgstr ""
+"  gnucap> print dc p(R1) p(Vsupply) r(R1) r(Vsupply)\n"
+"  gnucap> dc\n"
+"  #           p(R1)      p(Vsupply) r(R1)      r(Vsupply)\n"
+"   0.         0.1       -0.1        1.K        Inf\n"
+"  gnucap>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:173
@@ -7734,11 +7862,18 @@ msgid ""
 "attempt to find the resistance of the source without error but the resulting "
 "value is huge (this seems wrong, I would expect it to be zero)."
 msgstr ""
+"Обратите внимание, что источник питания, величина мощности которого "
+"отрицательна, выдаёт мощность в систему, в то время как мощность, "
+"рассчитанная для резистора, положительна, а это значит, что он потребляет "
+"мощность из системы. Также заметьте, что при измерении сопротивления "
+"программа попытается найти сопротивление источника напряжения без ошибок, но "
+"результирующее значение огромно (это кажется неправильным, я бы ожидал, что "
+"оно должно быть нулевым)."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:175
 msgid "All done, for now."
-msgstr ""
+msgstr "Вот и всё на этот раз."
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:177
@@ -7747,6 +7882,8 @@ msgid ""
 "  gnucap> quit\n"
 "  $$$$$$$\n"
 msgstr ""
+"  gnucap> quit\n"
+"  $$$$$$$\n"
 
 #. type: Title ======
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:1
