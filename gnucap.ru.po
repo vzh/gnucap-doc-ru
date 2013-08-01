@@ -328,14 +328,9 @@ msgstr "Прочие команды"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:61
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  * [[gnucap:manual:commands:end]] Perform analyses in queue. New circuit follows. (Implemented incorrectly.)\n"
-#| "  * [[gnucap:manual:commands:exit|exit, quit]] Exits the program.\n"
+#, no-wrap
 msgid "[[gnucap:manual:commands:end]] Perform analyses in queue. New circuit follows. (Implemented incorrectly.)\n"
-msgstr ""
-"  * [[gnucap:manual:commands:end.ru|end]] Выполнение анализов по очереди. Далее следует описание новой схемы. (Реализовано неправильно.)\n"
-"  * [[gnucap:manual:commands:exit.ru|exit, quit]] Выход из программы.\n"
+msgstr "[[gnucap:manual:commands:end.ru|end]] Выполнение анализов по очереди. Далее следует описание новой схемы. (Реализовано неправильно.)\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:61
@@ -1420,7 +1415,7 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/end.txt:2
 msgid "\"end\" command"
-msgstr "Команда «end»"
+msgstr "====== Команда «end» ======"
 
 #. type: Plain text
 #: manual/commands/end.txt:4
@@ -1428,7 +1423,7 @@ msgid ""
 "When run in batch mode from the shell, the END command cleans up and exits "
 "the program."
 msgstr ""
-"При запуске в пакетном режиме из shell команда END приводит к завершению "
+"При запуске в пакетном режиме из shell команда **end** приводит к завершению "
 "работы и выходу из программы."
 
 #. type: Plain text
@@ -1437,13 +1432,13 @@ msgid ""
 "In script mode (< command) it ends the script and returns to the program "
 "prompt."
 msgstr ""
-"В режиме скрипта (команда <) она завершает скрипт и возвращается к "
-"приглашению программы."
+"В режиме скрипта (при выполнении файла, открытого командой [[in.ru|<]]) она "
+"завершает скрипт и возвращается к приглашению программы."
 
 #. type: Plain text
 #: manual/commands/end.txt:7
 msgid "In interactive mode it exits the program."
-msgstr "В интерактивном режиме она приводит к выходу из программы."
+msgstr "В интерактивном режиме команда служит для выхода из программы."
 
 #. type: Title ======
 #: manual/commands/eval.txt:1
