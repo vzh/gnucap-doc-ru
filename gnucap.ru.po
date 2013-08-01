@@ -72,7 +72,7 @@ msgstr "[[gnucap:manual:Compatibility.ru|Совместимость       ]]\n"
 #: manual.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:Tech|Tech notes]]\n"
-msgstr "[[gnucap:manual:Tech.ru         |Технические заметки ]]\n"
+msgstr "[[gnucap:manual:Tech.ru         |Техническая информация ]]\n"
 
 #. type: Bullet: '  * '
 #: manual.txt:15
@@ -5083,7 +5083,7 @@ msgstr "  eval выражение\n"
 #: manual/tech/plugins/coding.txt:9
 #, no-wrap
 msgid "Basics"
-msgstr ""
+msgstr "Основы"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:5
@@ -10674,86 +10674,88 @@ msgstr ""
 #: manual/tech.txt:9
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins.ru|Плагины]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech.txt:9
 #, no-wrap
 msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man105.html|adding models (old)]]\n"
-msgstr ""
+msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man105.html|Добавление моделей (старая версия)]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech.txt:9
 #, no-wrap
 msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man107.html|old tech notes]]\n"
-msgstr ""
+msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man107.html|Старые технические заметки]]\n"
 
 #. type: Title ======
 #: manual/tech/plugins.txt:1 manual/tech/plugins/coding.txt:1
 #: manual/tech/plugins/files.txt:1
 #, no-wrap
 msgid "Plugins"
-msgstr ""
+msgstr "Плагины"
 
 #. type: Plain text
 #: manual/tech/plugins.txt:4
 msgid "This section describes the Gnucap plugin system, for programmers."
 msgstr ""
+"В настоящем разделе приводится описание системы плагинов gnucap для "
+"программистов."
 
 #. type: Title =====
 #: manual/tech/plugins.txt:5 manual/tech/plugins/coding.txt:3
 #: manual/tech/plugins/files.txt:3
 #, no-wrap
 msgid "Concepts"
-msgstr ""
+msgstr "Понятия"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:9
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:Files]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:Files.ru|Файлы]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:9
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:Coding]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:Coding.ru|Программирование]]\n"
 
 #. type: Title =====
 #: manual/tech/plugins.txt:9
 #, no-wrap
 msgid "Plugin types"
-msgstr ""
+msgstr "Типы плагинов "
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:commands]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:commands.ru|команды]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:devices]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:devices.ru|устройства]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:languages]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:languages.ru|языки]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:behavioral functions]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:behavioral functions.ru|поведенческие функции]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:parameter functions and measurements]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:tech:plugins:parameter functions and measurements.ru|параметрические функции и измерения]]\n"
 
 #. type: Title ======
 #: manual/tech/plugins/devices.txt:1
@@ -10766,7 +10768,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:1
 #, no-wrap
 msgid "Device plugins"
-msgstr ""
+msgstr "Плагины устройств"
 
 #. type: Title =====
 #: manual/tech/plugins/devices.txt:3 manual/tech/plugins/commands.txt:3
@@ -10902,7 +10904,7 @@ msgstr ""
 #: manual/tech/plugins/coding.txt:5
 #, no-wrap
 msgid "Coding"
-msgstr ""
+msgstr "Программирование"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:8
@@ -10910,6 +10912,8 @@ msgid ""
 "This section describes the internals of a plugin, including how it "
 "interfaces to the core simulator."
 msgstr ""
+"В настоящем разделе приводится описание внутренностей плагина, в том числе "
+"описание его интерфейса к ядру программы моделирования."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:12
@@ -10917,6 +10921,8 @@ msgid ""
 "The interface to plugins is through C++ derived classes, virtual functions, "
 "and a dispatcher."
 msgstr ""
+"Интерфейс к плагинам осуществляется через классы-потомки C++, виртуальные "
+"функции и диспетчер."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:14
@@ -10926,6 +10932,10 @@ msgid ""
 "created, and registered with a dispatcher.  The dispatcher allows a lookup "
 "by name."
 msgstr ""
+"Существует несколько типов плагинов. Тип определяется используемым базовым "
+"классом. При загрузке плагина создаётся одиночный статический объект и "
+"регистрируется диспетчером. Диспетчер позволяет производить поиск плагинов "
+"по имени."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:23
@@ -10940,6 +10950,14 @@ msgid ""
 "  * I/O interface\n"
 "  * compatibility\n"
 msgstr ""
+"Могут быть плагины следующих типов:\n"
+"  * устройства и модели\n"
+"  * команды\n"
+"  * измерения\n"
+"  * языки\n"
+"  * функции для использования в выражениях\n"
+"  * интерфейс ввода-вывода\n"
+"  * совместимость\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:25
@@ -10947,6 +10965,8 @@ msgid ""
 "It is intended that the entire interface, all models, and almost all "
 "functionality will determined by plugins."
 msgstr ""
+"То, что весь интерфейс, все модели, и почти вся функциональность "
+"определяются плагинами, сделано намеренно."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:28
@@ -10954,11 +10974,14 @@ msgid ""
 "Most plugins will create new subtypes of something.  To explain how it "
 "works, I will use parameter functions as an example."
 msgstr ""
+"Для большинства плагинов создаются новые подтипы чего-нибудь. Чтобы "
+"объяснить, как это работает, в качестве примера я буду использовать "
+"параметрические функции."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:30
 msgid "We have a base class:"
-msgstr ""
+msgstr "У нас есть базовый класс:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:37
@@ -10971,11 +10994,17 @@ msgid ""
 "};\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"class FUNCTION {\n"
+"public:\n"
+"  virtual double eval(double arg)const = 0;\n"
+"};\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:39
 msgid "This is in a header file \"u_function.h\""
-msgstr ""
+msgstr "Это в заголовочном файле \"u_function.h\""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:41
@@ -10983,6 +11012,9 @@ msgid ""
 "This base class is simple.  It has one member function, which a number as "
 "input, performs some operation on it, and returns the result."
 msgstr ""
+"Этот базовый класс прост. Его членом является одна функция, которая "
+"принимает на входе число, выполняет над ним некоторые операции и возвращает "
+"результат."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:44
@@ -10990,6 +11022,8 @@ msgid ""
 "Let's make a function to take the absolute value of a numeric argument, as a "
 "plugin.  You need to include the header:"
 msgstr ""
+"Давайте сделаем функцию, получающую абсолютное значение числового аргумента, "
+"в виде плагина. Вам нужно включить заголовочный файл:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:48
@@ -10999,11 +11033,14 @@ msgid ""
 "#include \"u_function.h\"\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"#include \"u_function.h\"\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:50
 msgid "Then make a derived class, and create one instance of it."
-msgstr ""
+msgstr "Затем сделаем класс-потомок и создадим один его экземпляр."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:60
@@ -11019,11 +11056,21 @@ msgid ""
 "} p;\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"class abs : public FUNCTION {\n"
+"public:\n"
+"  std::string eval(double arg)const\n"
+"  {\n"
+"    return std::abs(arg);\n"
+"  }\n"
+"} p;\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:62
 msgid "Now, register it with the dispatcher so we can find it:"
 msgstr ""
+"Теперь, чтобы его можно было найти, зарегистрируем с помощью диспетчера:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:66
@@ -11033,17 +11080,21 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"abs\", &p);\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"abs\", &p);\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:68
 msgid "If you want to also access it by another name, you can do that too:"
 msgstr ""
+"Если нужен ещё доступ к нему под другим именем, это тоже можно сделать:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:70
 #, no-wrap
 msgid "<code>\n"
-msgstr ""
+msgstr "<code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:73
@@ -11051,6 +11102,9 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, \"absolute_value\", "
 "&p); </code>"
 msgstr ""
+"DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, \"absolute_value\", "
+"&p);\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:75
@@ -11060,6 +11114,10 @@ msgid ""
 "you use to INSTALL it.  In this case, either \"abs\" or \"absolute_value\" "
 "will find this plugin."
 msgstr ""
+"Вот и всё. Имена класса и экземпляров не имеют значения, потому что они "
+"являются локальными для плагина. Найти его можно через диспетчер по имени, "
+"которое использовалось для его установки (INSTALL).  В данном случае плагин "
+"можно найти по имени \"abs\" или \"absolute_value\"."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:77
@@ -11067,12 +11125,14 @@ msgid ""
 "If you want to also be able to static-link this plugin, enclose the class "
 "and dispatcher installs in an anonymous namespace."
 msgstr ""
+"Если для этого плагина нужна ещё возможность статического связывания, "
+"заключите установку класса и диспетчера в анонимное пространство имён."
 
 #. type: Title ====
 #: manual/tech/plugins/coding.txt:78
 #, no-wrap
 msgid "Another Example"
-msgstr ""
+msgstr "Ещё один пример"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:81
@@ -11080,6 +11140,8 @@ msgid ""
 "Here's an example of another one with the same base, all together so you can "
 "see it as a unit:"
 msgstr ""
+"Вот пример ещё одного плагина с такой же основой, где всё в одном месте, "
+"поэтому он представлен здесь в виде одного блока:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:84
@@ -11088,6 +11150,8 @@ msgid ""
 "<code>\n"
 "#include \"fake_function.h\"\n"
 msgstr ""
+"<code>\n"
+"#include \"fake_function.h\"\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:94
@@ -11103,17 +11167,26 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"square\", &p);\n"
 "</code>\n"
 msgstr ""
+"class square : public FAKE_FUNCTION {\n"
+"public:\n"
+"  std::string eval(double arg)const\n"
+"  {\n"
+"    return arg * arg;\n"
+"  }\n"
+"} p;\n"
+"DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"square\", &p);\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:96
 msgid "That's all!"
-msgstr ""
+msgstr "Вот и всё!"
 
 #. type: Title ====
 #: manual/tech/plugins/coding.txt:97
 #, no-wrap
 msgid "Compiling it"
-msgstr ""
+msgstr "Компиляция"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:100
@@ -11121,17 +11194,21 @@ msgid ""
 "The procedure for compiling it is system dependent, and is usually set up "
 "when you install the main simulator."
 msgstr ""
+"Процедура компиляции плагина зависит от системы, и обычно настраивается при "
+"установки основной программы моделирования."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:102
 msgid ""
 "In general, you need to make a \"shared object\" or \"dynamic link\" module."
 msgstr ""
+"В целом нужно сделать «разделяемый объектный» модуль или модуль "
+"«динамического связывания»."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:104
 msgid "On Linux, usually this works:"
-msgstr ""
+msgstr "В Linux обычно работает такая команда:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:108
@@ -11141,6 +11218,9 @@ msgid ""
 "g++ -shared -fPIC -o outfile.so infile.cc\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"g++ -shared -fPIC -o outfile.so infile.cc\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:110
@@ -11148,11 +11228,13 @@ msgid ""
 "This take a source file \"infile.cc\", and generates a plugin file \"outfile."
 "so\"."
 msgstr ""
+"Здесь берётся исходный файл \"infile.cc\" и генерируется файл плагина "
+"\"outfile.so\"."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:112
 msgid "Then you can load it:"
-msgstr ""
+msgstr "Затем его можно загрузить:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:115
@@ -11162,6 +11244,9 @@ msgid ""
 "gnucap> load ./outfile.so\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"gnucap> load ./outfile.so\n"
+"</code>\n"
 
 #. type: Title ======
 #: manual/tech/plugins/commands.txt:1
@@ -12961,27 +13046,6 @@ msgid ""
 msgstr ""
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:Introduction]]\n"
-#~ "  * [[gnucap:manual:Commands]]\n"
-#~ "  * [[gnucap:manual:Devices]]\n"
-#~ "  * [[gnucap:manual:Languages]]\n"
-#~ "  * [[gnucap:manual:Howto|How to]]\n"
-#~ "  * [[gnucap:manual:Compatibility]]\n"
-#~ "  * [[gnucap:manual:Tech|Tech notes]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Building and Installation]]\n"
-#~ "  * [[gnucap:manual:Examples]]\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:Introduction.ru |Введение            ]]\n"
-#~ "  * [[gnucap:manual:Commands.ru     |Команды             ]]\n"
-#~ "  * [[gnucap:manual:Devices.ru      |Устройства          ]]\n"
-#~ "  * [[gnucap:manual:Languages.ru    |Языки               ]]\n"
-#~ "  * [[gnucap:manual:Howto.ru        |Как сделать         ]]\n"
-#~ "  * [[gnucap:manual:Compatibility.ru|Совместимость       ]]\n"
-#~ "  * [[gnucap:manual:Tech.ru         |Технические заметки ]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man100.html|Сборка и установка]]\n"
-#~ "  * [[gnucap:manual:Examples.ru     |Примеры             ]]\n"
-
-#~ msgid ""
 #~ "  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
 #~ "  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
 #~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
@@ -13072,13 +13136,3 @@ msgstr ""
 #~ "  * конденсатор, управляемый напряжением\n"
 #~ "  * проводимость, управляемая напряжением\n"
 #~ "  * проходная ёмкость\n"
-
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:tech:plugins]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man105.html|adding models (old)]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man107.html|old tech notes]]\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:tech:plugins.ru|Плагины]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man105.html|Добавление моделей (старая версия)]]\n"
-#~ "  * [[http://gnucap.org/gnucap-man-html/gnucap-man107.html|Старые технические заметки]]\n"
