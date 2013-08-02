@@ -10754,7 +10754,7 @@ msgstr ""
 #: manual/tech.txt:1
 #, no-wrap
 msgid "Tech notes"
-msgstr ""
+msgstr "Техническая информация"
 
 #. type: Plain text
 #: manual/tech.txt:4
