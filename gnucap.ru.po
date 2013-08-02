@@ -258,19 +258,19 @@ msgstr "[[gnucap:manual:commands:alarm.ru|alarm]] Выбор точек схем
 #: manual/commands.txt:45
 #, no-wrap
 msgid "[[gnucap:manual:commands:plot|plot, iplot]] Select points in the circuit (and their range) to plot.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:plot.ru|plot, iplot]] Выбор точек схемы (и их диапазона) для вывода графика.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:45
 #, no-wrap
 msgid "[[gnucap:manual:commands:print|print, iprint, probe]] Select points in the circuit to print as table.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:print.ru|print, iprint, probe]] Выбор точек схемы для вывода таблицы значений.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:45
 #, no-wrap
 msgid "[[gnucap:manual:commands:store]] Select points in the circuit to store for post-processing.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:store.ru|store]] Выбор точек схемы, данные которых должны сохраняться для дальнейшей обработки.\n"
 
 #. type: Title =====
 #: manual/commands.txt:46
@@ -3237,7 +3237,7 @@ msgstr "  pause комментарий\n"
 #: manual/languages/spectre.txt:120 manual/languages/verilog.txt:132
 #, no-wrap
 msgid "Status"
-msgstr ""
+msgstr "Состояние"
 
 #. type: Plain text
 #: manual/commands/pause.txt:14
@@ -3296,11 +3296,11 @@ msgid ""
 "  plot mode - points ... ...\n"
 "  plot mode CLEAR\n"
 msgstr ""
-"  plot\n"
-"  plot режим точки ... ...\n"
-"  plot режим + точки ... ...\n"
-"  plot режим - точки ... ...\n"
-"  plot режим CLEAR\n"
+"|''**plot**                              ''|\n"
+"|''**plot** //режим точки       ... ...//''|\n"
+"|''**plot** //режим// + //точки ... ...//''|\n"
+"|''**plot** //режим// - //точки ... ...//''|\n"
+"|''**plot** //режим// clear              ''|\n"
 
 #. type: Plain text
 #: manual/commands/plot.txt:17
@@ -3308,8 +3308,9 @@ msgid ""
 "The plotting leaves something to be desired. Only two signals can be plotted "
 "at a time. The output file is corrupt when plotting is on."
 msgstr ""
-"Вывод графиков оставляет желать лучшего. Только два сигнала можно печатать "
-"за раз. Выходной файл портится, когда включено построение графиков."
+"Вывод графиков оставляет желать лучшего. За раз можно вывести только два "
+"сигнала. При включенном построении графиков искажается [[outfile.ru|выходной "
+"файл]]."
 
 #. type: Plain text
 #: manual/commands/plot.txt:21
@@ -3317,15 +3318,14 @@ msgid ""
 "The `plot' command selects where to look at the circuit, or where to hook "
 "the oscilloscope probe."
 msgstr ""
-"Команда `plot' выбирает, на что смотреть в схеме, или куда подцепить щуп "
+"Командой **plot** выбирается, что смотреть в схеме, или куда подцепить щуп "
 "осциллографа."
 
 #. type: Plain text
 #: manual/commands/plot.txt:25
 msgid "To list the probe points, use the bare command `plot'."
 msgstr ""
-"Для вывода перечня точек измерения используйте команду ''plot'' без "
-"параметров."
+"Для вывода перечня датчиков используйте команду **''plot''** без параметров."
 
 #. type: Plain text
 #: manual/commands/plot.txt:36
@@ -3335,6 +3335,12 @@ msgid ""
 "so the necessary information is not available yet. Spice can auto-scale only "
 "because it waits for the simulation to complete before producing any output."
 msgstr ""
+"Вы должны настроить масштабирование. Если этого не сделать, по умолчанию "
+"будет использоваться фиксированный диапазон от -5 до 5. gnucap не может "
+"подобрать масштаб автоматически, потому что график генерируется после "
+"моделирования, и необходимая информация ещё не доступна. SPICE может "
+"производить автоматическое масштабирование, потому что эта программа ждёт "
+"завершения моделирование, прежде чем выводить любые выходные данные."
 
 #. type: Plain text
 #: manual/commands/plot.txt:38
@@ -3342,6 +3348,9 @@ msgid ""
 "Plot uses the same variables as print. See the print command for a list of "
 "what is available."
 msgstr ""
+"Для **plot** используются те же самые переменные, что и для **print**. "
+"Список того, что можно использовать, см. в [[print.ru|описании команды "
+"print]]."
 
 #. type: Plain text
 #: manual/commands/plot.txt:40 manual/commands/print.txt:30
@@ -3350,6 +3359,11 @@ msgid ""
 "a single run. The plot command turns plotting on and tabular output off. The "
 "print command turns plotting off and tabular output on."
 msgstr ""
+"Указание в строке команды любого анализа параметра ''plot'' или ''noplot'' "
+"позволяет включить или отключить вывод графиков на один запуск. Команда "
+"[[plot.ru|plot]] включает вывод графиков и отключает табличный вывод данных. "
+"Команда [[print.ru|print]] отключает вывод графиков и включает табличный "
+"вывод данных."
 
 #. type: Plain text
 #: manual/commands/plot.txt:42
@@ -3359,15 +3373,16 @@ msgid ""
 "removes q(c5) from the list. You can use the wildcard characters * and ? "
 "when deleting."
 msgstr ""
-"Указывая перед параметрами + или -, их можно добавлять в существующий список "
-"или удалять из него. plot ac + v(3) добавит v(3) в существующий набор точек "
-"измерения AC. plot ac - q(c5) удалит q(c5) из списка. При удалении можно "
-"использовать метасимволы * и ?."
+"Указывая перед параметрами «''+''» или «''-''», их можно добавлять в "
+"существующий список или удалять из него. **''plot ac + v(3)''** добавит ''v"
+"(3)'' в существующий набор датчиков анализа [[ac.ru|ac]]. **''plot ac - q"
+"(c5)''** удалит ''q(c5)'' из списка. При удалении можно использовать "
+"метасимволы «''*''» и «''?''»."
 
 #. type: Plain text
 #: manual/commands/plot.txt:44
 msgid "Plotting is limited to 2 items."
-msgstr ""
+msgstr "Вывод графиков ограничен двумя элементами данных."
 
 #. type: Plain text
 #: manual/commands/plot.txt:58
@@ -3386,6 +3401,18 @@ msgid ""
 "  plot ac clear\n"
 "Clear the AC list.\n"
 msgstr ""
+"  plot ac vm(12)(0,5) vm(13)(-5,5)\n"
+"Величина напряжения на узле 12 в диапазоне от 0 до 5, и на узле 13 в диапазоне от -5 до 5 для [[ac.ru|частотного анализа]].\n"
+"  plot dc v(r26)\n"
+"Напряжение на R26 для [[DC.ru|расчёта статического режима по постоянному току]]. Так как диапазон не указан, будут использоваться значения по умолчанию.\n"
+"  plot tran v(r83)(0,5) p(r83)(0,1u)\n"
+"Вывести график напряжения и мощности для R83 в следующем [[transient.ru|временном анализе]]. Масштаб напряжения от 0 до 5. Масштаб мощности от 0 до 1 микроватта.\n"
+"  plot\n"
+"Вывести перечень всех датчиков для всех режимов.\n"
+"  plot dc\n"
+"Показать список графиков для анализа [[dc.ru|статического режима]].\n"
+"  plot ac clear\n"
+"Очистить список для [[ac.ru|частотного анализа]].\n"
 
 #. type: Title ======
 #: manual/commands/print.txt:1
@@ -3397,6 +3424,8 @@ msgstr "Команда «print»"
 #: manual/commands/print.txt:6
 msgid "Select points in the circuit for tabular output. Select tabular output."
 msgstr ""
+"Выбор точек в схеме для табличного вывода данных. Выбор табличного вывода "
+"данных."
 
 #. type: Plain text
 #: manual/commands/print.txt:14
@@ -3408,6 +3437,11 @@ msgid ""
 "  print mode - points ... ...\n"
 "  print mode CLEAR\n"
 msgstr ""
+"|''**print**                              ''|\n"
+"|''**print** //режим точки       ... ...//''|\n"
+"|''**print** //режим// + //точки ... ...//''|\n"
+"|''**print** //режим// - //точки ... ...//''|\n"
+"|''**print** //режим// clear              ''|\n"
 
 #. type: Plain text
 #: manual/commands/print.txt:18
@@ -3415,13 +3449,14 @@ msgid ""
 "The `print' command selects where to look at the circuit, or where to hook "
 "the voltmeter (ammeter, watt meter, ohm meter, etc.) probe."
 msgstr ""
+"Командой **print** выбирается, что смотреть в схеме или куда подцепить щуп "
+"вольтметра (амперметра, ваттметра, омметра и т. д.)."
 
 #. type: Plain text
 #: manual/commands/print.txt:22
 msgid "To list the probe points, use the bare command `print'."
 msgstr ""
-"Для вывода перечня точек измерения используйте команду ''print'' без "
-"параметров."
+"Для вывода перечня датчиков используйте команду **''print''** без параметров."
 
 #. type: Plain text
 #: manual/commands/print.txt:24
@@ -3430,6 +3465,9 @@ msgid ""
 "or put `.print op v(nodes)' in the circuit file to get any output from the "
 "op command."
 msgstr ""
+"При запуске программы датчики не заданы. Для получения какого-нибудь вывода "
+"команды [[op.ru|op]] необходимо задать команду **''print op v(nodes)''** или "
+"добавить ''.print op v(nodes)'' в файл схемы."
 
 #. type: Plain text
 #: manual/commands/print.txt:26
@@ -3437,6 +3475,9 @@ msgid ""
 "Syntax for each point is parameter(node), parameter(componentlabel), or "
 "parameter(index). Some require a dummy index."
 msgstr ""
+"Синтаксис для каждой точки это ''параметр(узел)'', ''параметр"
+"(обозначение_компонента)'', или ''параметр(индекс)''. Для некоторых "
+"параметров требуется фиктивный индекс."
 
 #. type: Plain text
 #: manual/commands/print.txt:28
@@ -3445,6 +3486,10 @@ msgid ""
 "component exists but the parameter is not valid for that type, there will be "
 "no error message but the value printed will be obviously bogus."
 msgstr ""
+"Если указанный компонент не существует, вы получите сообщение об ошибке. "
+"Если компонент существует, но параметр недопустим для данного типа, "
+"сообщения об ошибке не будет, но выведенное значение будет, очевидно, "
+"фиктивным."
 
 #. type: Plain text
 #: manual/commands/print.txt:32
@@ -3454,10 +3499,11 @@ msgid ""
 "removes q(c5) from the list. You can use the wildcard characters * and ? "
 "when deleting."
 msgstr ""
-"Указывая перед параметрами + или -, их можно добавлять в существующий список "
-"или удалять из него. print ac + v(3) добавит v(3) в существующий набор точек "
-"измерения AC. print ac - q(c5) удалит q(c5) из списка. При удалении можно "
-"использовать метасимволы * и ?."
+"Указывая перед параметрами «''+''» или «''-''», их можно добавлять в "
+"существующий список или удалять из него. **''print ac + v(3)''** добавит ''v"
+"(3)'' в существующий набор датчиков анализа [[ac.ru|ac]]. **''print ac - q"
+"(c5)''** удалит ''q(c5)'' из списка. При удалении можно использовать "
+"метасимволы «''*''» и «''?''»."
 
 #. type: Plain text
 #: manual/commands/print.txt:50
@@ -3480,6 +3526,22 @@ msgid ""
 "  print ac clear\n"
 "Clear the AC list.\n"
 msgstr ""
+"  print ac v(12) v(13) v(14)\n"
+"Напряжения узлов 12, 13 и 14 для [[ac.ru|частотного анализа]].\n"
+"  print dc v(r26)\n"
+"Напряжение на R26 для [[dc.ru|анализа статического режима по постоянному току]].\n"
+"  print tran v(r83) p(r83)\n"
+"Напряжение и мощность для R83 для [[transient.ru|временного анализа]].\n"
+"  print dc i(c8) p(r5) z(r5)\n"
+"Ток через C8, мощность, рассеиваемая на R5, и импеданс, наблюдаемый при исследовании схемы на выводах R5.\n"
+"  print op v(nodes)\n"
+"Напряжения всех узлов для команды [[op.ru|op]].\n"
+"  print\n"
+"Вывести список всех датчиков для всех режимов.\n"
+"  print op\n"
+"Показать список датчиков для [[op.ru|op]].\n"
+"  print ac clear\n"
+"Очистить список для [[ac.ru|ac]].\n"
 
 #. type: Title ======
 #: manual/commands/save.txt:1
@@ -3566,6 +3628,8 @@ msgstr "Команда «store»"
 #: manual/commands/store.txt:6
 msgid "Select points in the circuit to store for postprocessing."
 msgstr ""
+"Выбор точек схемы, данные которых должны сохраняться для дальнейшей "
+"обработки."
 
 #. type: Plain text
 #: manual/commands/store.txt:14
@@ -3577,6 +3641,11 @@ msgid ""
 "  store mode - points ... ...\n"
 "  store mode CLEAR\n"
 msgstr ""
+"|''**store**                              ''|\n"
+"|''**store** //режим точки       ... ...//''|\n"
+"|''**store** //режим// + //точки ... ...//''|\n"
+"|''**store** //режим// - //точки ... ...//''|\n"
+"|''**store** //режим// clear              ''|\n"
 
 #. type: Plain text
 #: manual/commands/store.txt:18
@@ -3584,18 +3653,20 @@ msgid ""
 "The \"store\" command selects probes to store for postprocessing, such as "
 "measures."
 msgstr ""
+"Команда **store** служит для выбора [[..:howto:probes.ru|датчиков]], которые "
+"следует сохранять для последующей обработки, такой как, например, [[measure."
+"ru|измерения]]."
 
 #. type: Plain text
 #: manual/commands/store.txt:20
 msgid "There are separate lists of points for each type of analysis."
-msgstr ""
+msgstr "Для каждого вида анализа имеется отдельный список точек."
 
 #. type: Plain text
 #: manual/commands/store.txt:22
 msgid "To list the points, use the bare command \"store\"."
 msgstr ""
-"Для вывода перечня точек измерения используйте команду ''store'' без "
-"параметров."
+"Для вывода перечня точек используется команда **''store''** без параметров."
 
 #. type: Plain text
 #: manual/commands/store.txt:24
@@ -3604,6 +3675,9 @@ msgid ""
 "(nodes)\", \"store tran v(nodes)\" or whatever you want, to store any data "
 "for post-processing."
 msgstr ""
+"При запуске датчики не заданы. Для сохранения каких-либо данных для "
+"последующей обработки необходимо выполнить команду **''store op v"
+"(nodes)''**, **''store tran v(nodes)''** или какую-нибудь ещё."
 
 #. type: Plain text
 #: manual/commands/store.txt:26
@@ -3613,10 +3687,11 @@ msgid ""
 "removes q(c5) from the list. You can use the wildcard characters * and ? "
 "when deleting."
 msgstr ""
-"Указывая перед параметрами + или -, их можно добавлять в существующий список "
-"или удалять из него. store ac + v(3) добавит v(3) в существующий набор точек "
-"измерения AC. store ac - q(c5) удалит q(c5) из списка. При удалении можно "
-"использовать метасимволы * и ?."
+"Указывая перед параметрами «''+''» или «''-''», их можно добавлять в "
+"существующий список или удалять из него. **''store ac + v(3)''** добавит ''v"
+"(3)'' в существующий набор датчиков анализа [[ac.ru|ac]]. **''store ac - q"
+"(c5)''** удалит ''q(c5)'' из списка. При удалении можно использовать "
+"метасимволы «''*''» и «''?''»."
 
 #. type: Plain text
 #: manual/commands/store.txt:40
@@ -3635,6 +3710,18 @@ msgid ""
 "  store ac clear\n"
 "Clear the AC list.\n"
 msgstr ""
+"  store ac v(nodes)\n"
+"Напряжения всех узлов для [[ac.ru|частотного анализа]].\n"
+"  store dc v(nodes) id(M*)\n"
+"Напряжения всех узлов и параметр ''id'' всех устройств, обозначения которых начинаются на «M», для анализа [[dc.ru|dc]].\n"
+"  store tran v(*) p(*)\n"
+"Все параметры с названием «v», что, вероятно, подразумевает выбор напряжений всех узлов и наиболее общих напряжений всех устройств. Все параметры «p», обычно обозначающие мощность.\n"
+"  store\n"
+"Вывести список всех датчиков, сохранённых для всех режимов.\n"
+"  store op\n"
+"Отобразить список сохранённых точек для [[op.ru|op]].\n"
+"  store ac clear\n"
+"Очистить список для [[ac.ru|ac]].\n"
 
 #. type: Title ======
 #: manual/commands/sweep.txt:1
@@ -13075,15 +13162,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:parameter.ru|parameter]] Установка или просмотр параметров.\n"
 #~ "  * [[gnucap:manual:commands:measure.ru|measure]] Измерения (по окончании моделирования) в схеме.\n"
 #~ "  * [[gnucap:manual:commands:eval.ru|eval]] Оценка параметров.\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:plot|plot, iplot]] Select points in the circuit (and their range) to plot.\n"
-#~ "  * [[gnucap:manual:commands:print|print, iprint, probe]] Select points in the circuit to print as table.\n"
-#~ "  * [[gnucap:manual:commands:store]] Select points in the circuit to store for post-processing.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:plot.ru|plot, iplot]] Выбор точек схемы (и их диапазона) для вывода графика.\n"
-#~ "  * [[gnucap:manual:commands:print.ru|print, iprint, probe]] Выбор точек схемы для вывода таблицы значений.\n"
-#~ "  * [[gnucap:manual:commands:store.ru|store]] Выбор точек схемы для сохранения с целью дальнейшей пост-обработки.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
