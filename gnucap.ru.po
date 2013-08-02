@@ -227,7 +227,7 @@ msgstr ""
 #: manual/commands.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:commands:measure]] Make (post) measurements on your circuit.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:measure.ru|measure]] Измерения (по окончании моделирования) в схеме.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:36
@@ -2498,7 +2498,7 @@ msgstr "Выполнение измерений в схеме на основе 
 #: manual/commands/measure.txt:10
 #, no-wrap
 msgid "  measure param-name = measurefunction(args)\n"
-msgstr "  measure имя_параметра = функция_измерения(аргументы)\n"
+msgstr "|''**measure** //имя_параметра// = //функция_измерения//(//аргументы//)''|\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:13
@@ -2506,8 +2506,8 @@ msgid ""
 "The \"measure\" command sets parameters, like the \"parameter\" command, but "
 "the value after a measure is a number."
 msgstr ""
-"Команда «measure» подобно команде «parameter» устанавливает параметры, но "
-"значением после измерений является число."
+"В команде **measure**, как и в команде [[parameter.ru|parameter]], задаются "
+"параметры, но результатом измерений является число."
 
 #. type: Plain text
 #: manual/commands/measure.txt:15
@@ -2515,6 +2515,9 @@ msgid ""
 "It is used to make measurements on a circuit, such as slew rate, crossings, "
 "or average value."
 msgstr ""
+"Команда используется для проведения измерений в схеме, таких как определение "
+"[[..:measure:slope.ru|скорости нарастания сигнала]], [[..:measure:cross.ru|"
+"пересечений]] или [[..:measure:mean.ru|средних значений]]."
 
 #. type: Plain text
 #: manual/commands/measure.txt:17
@@ -2523,10 +2526,10 @@ msgid ""
 "points you might want to measure.  This is done with the [[gnucap:manual:"
 "commands:store]] command.  If you don't specify, no data is stored."
 msgstr ""
-"Перед использованием команды «measure» необходимо сохранить те данные для "
-"точек измерения, которые вам хотелось бы измерить. Это производится командой "
-"[[gnucap:manual:commands:store.ru|store]].  Если вы её не укажете, никакие "
-"данные сохранены не будут."
+"Перед использованием команды **measure** необходимо сохранить данные для "
+"[[..:howto:probes.ru|датчиков]], которые хотелось бы измерить. Для "
+"этого используется команда [[gnucap:manual:commands:store.ru|store]]. Если её не "
+"задать, никакие данные сохранены не будут."
 
 #. type: Plain text
 #: manual/commands/measure.txt:19
@@ -2534,7 +2537,7 @@ msgid ""
 "Then you need to do some kind of analysis, such as [[gnucap:manual:commands:"
 "transient]] or [[gnucap:manual:commands:ac]]."
 msgstr ""
-"Затем нужно сделать какой-то из анализов, такой как [[gnucap:manual:commands:"
+"Затем нужно выполнить какой-нибудь анализ, например [[gnucap:manual:commands:"
 "transient.ru|transient]] или [[gnucap:manual:commands:ac.ru|ac]]."
 
 #. type: Plain text
@@ -2543,8 +2546,8 @@ msgid ""
 "For better accuracy of measurements, it is best to specify the option "
 "\"trace all\" on a transient command."
 msgstr ""
-"Для большей точности измерений лучше всего указать параметр «trace all» для "
-"команды transient."
+"Для увеличения точности измерений команду "
+"[[transient.ru|transient]] лучше всего задавать с параметром ''trace all''."
 
 #. type: Title =====
 #: manual/commands/measure.txt:22 manual/measure/at.txt:16
@@ -2558,8 +2561,7 @@ msgstr "Диагностика"
 msgid ""
 "The message \"no match\" means that the probe you selected was not stored."
 msgstr ""
-"Сообщение «no match» означает, что данные для точки измерения, которую вы "
-"выбрали, не были сохранены."
+"Сообщение «no match» означает, что данные выбранного датчика не сохранялись."
 
 #. type: Title =====
 #: manual/commands/measure.txt:28 manual/howto/measure.txt:1
@@ -2573,6 +2575,8 @@ msgid ""
 "\"Point\" here refers to time, frequency, or whatever is the independent \"x"
 "\" value."
 msgstr ""
+"«Точкой» здесь называется время, частота или что-либо ещё, что "
+"представляет собой независимое значение по оси «X»."
 
 #. type: Plain text
 #: manual/commands/measure.txt:40 manual/howto/measure.txt:12
@@ -2587,6 +2591,14 @@ msgid ""
 "|[[gnucap:manual:measure:mean|rms]]    |The RMS value.  |\n"
 "|[[gnucap:manual:measure:slope|slewrate]]\\\\ [[gnucap:manual:measure:slope]]\\\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |\n"
 msgstr ""
+"|[[gnucap:manual:measure:at.ru|at]]     | Значение сигнала в какой-нибудь точке или его производная  |\n"
+"|[[gnucap:manual:measure:mean.ru|average]]\\\\ [[gnucap:manual:measure:mean.ru|mean]]              |Среднее значение  |\n"
+"|[[gnucap:manual:measure:cross.ru|cross]]  |Нахождение пересечений  |\n"
+"|[[gnucap:manual:measure:mean.ru|integrate]]\\\\ [[gnucap:manual:measure:mean.ru|area]]  | Размер области под кривой  |\n"
+"|[[gnucap:manual:measure:minmax.ru|max]]  |Значение максимума или точка, в которой он находится  |\n"
+"|[[gnucap:manual:measure:minmax.ru|min]]  |Значение минимума  или точка, в которой он находится  |\n"
+"|[[gnucap:manual:measure:mean.ru|rms]]    |Среднеквадратичное значение  |\n"
+"|[[gnucap:manual:measure:slope.ru|slewrate]]\\\\ [[gnucap:manual:measure:slope.ru|slope]]\\\\ [[gnucap:manual:measure:slope.ru|ddt]]  | Скорость нарастания сигнала или крутизна характеристики |\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:46
@@ -2597,7 +2609,7 @@ msgid ""
 "Then do the analysis\n"
 "  gnucap> transient 0 100u 1u trace all\n"
 msgstr ""
-"Перед измерениями необходимо сохранить данные для измерений:\n"
+"До проведения измерений необходимо сохранить данные для них:\n"
 "  gnucap> store tran v(*) id(m*) gm(m*)\n"
 "Затем выполнить анализ:\n"
 "  gnucap> transient 0 100u 1u trace all\n"
@@ -2605,7 +2617,7 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/measure.txt:48
 msgid "Now you are ready to measure:"
-msgstr "Теперь вы готовы измерять:"
+msgstr "Теперь всё готово для измерений:"
 
 #. type: Plain text
 #: manual/commands/measure.txt:56
@@ -2619,6 +2631,13 @@ msgid ""
 "  gnucap> param frequency = {1/period}\n"
 "Params are interpreted like a functional language so they will be updated whenever t1 or t2 changes.\n"
 msgstr ""
+"  gnucap> measure t2 = cross(probe=\"v(out)\" cross=0 rise last)\n"
+"Найти последнее время, когда напряжение v(out) пересекло 0 снизу вверх.\n"
+"  gnucap> measure t1 = cross(probe=\"v(out)\" cross=0 rise last before=t2)\n"
+"Найти последнее пересечение нуля при возрастании напряжения до момента времени t2.\n"
+"  gnucap> param period = {t2-t1}\n"
+"  gnucap> param frequency = {1/period}\n"
+"Параметры интерпретируются как в функциональном языке, поэтому их обновление будет производиться при любом изменении t1 или t2.\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:61
@@ -2629,6 +2648,10 @@ msgid ""
 "  gnucap> measure sample = mean(probe=\"v(out)\")\n"
 "Find the mean value of v(out) for an entire run.\n"
 msgstr ""
+"  gnucap> measure meanvalue = mean(probe=\"v(out)\" begin=t1 end=t2)\n"
+"Найти среднее значение v(out) за один период.\n"
+"  gnucap> measure sample = mean(probe=\"v(out)\")\n"
+"Найти среднее значение v(out) за всё время работы.\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:64
@@ -2637,6 +2660,8 @@ msgid ""
 "  gnucap> measure area = integrate(probe=\"v(out)\" begin=t1 end=t2)\n"
 "Find the area under the curve of v(out) over one cycle.  The area might be zero.\n"
 msgstr ""
+"  gnucap> measure area = integrate(probe=\"v(out)\" begin=t1 end=t2)\n"
+"Найти размер области под кривой v(out) за один период. Эта область может быть нулевой.\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:67
@@ -2645,6 +2670,8 @@ msgid ""
 "  gnucap> measure rms = rms(probe=\"v(out)\" begin=t1 end=t2)\n"
 "Find the RMS value of v(out) over one cycle.\n"
 msgstr ""
+"  gnucap> measure rms = rms(probe=\"v(out)\" begin=t1 end=t2)\n"
+"Найти среднеквадратичное значение для v(out) за один период.\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:70
@@ -2654,6 +2681,9 @@ msgid ""
 "  no match: bar(in)\n"
 "You didn't store the probe \"bar(in)\".\n"
 msgstr ""
+"  gnucap> measure rmsin = rms(probe=\"bar(in)\")\n"
+"  no match: bar(in)\n"
+"Данные для датчика «bar(in)» не были сохранены.\n"
 
 #. type: Title ======
 #: manual/commands/op.txt:1
@@ -13156,11 +13186,9 @@ msgstr ""
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:parameter]] Set or view parameters.\n"
-#~ "  * [[gnucap:manual:commands:measure]] Make (post) measurements on your circuit.\n"
 #~ "  * [[gnucap:manual:commands:eval]] Evaluate parameters.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:parameter.ru|parameter]] Установка или просмотр параметров.\n"
-#~ "  * [[gnucap:manual:commands:measure.ru|measure]] Измерения (по окончании моделирования) в схеме.\n"
 #~ "  * [[gnucap:manual:commands:eval.ru|eval]] Оценка параметров.\n"
 
 #~ msgid ""
