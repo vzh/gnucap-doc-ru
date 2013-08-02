@@ -318,7 +318,7 @@ msgstr ""
 #: manual/commands.txt:56
 #, no-wrap
 msgid "[[gnucap:manual:commands:outfile|>]] Send a copy of the screen output to a file.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:outfile.ru|>]] Выдача копии экранного вывода в файл.\n"
 
 #. type: Title =====
 #: manual/commands.txt:57
@@ -2980,6 +2980,7 @@ msgstr "Команда «>»"
 #: manual/commands/outfile.txt:6
 msgid "Saves a copy of all program output (except help) in a file."
 msgstr ""
+"Сохранение копии всего вывода программы (за исключением справки) в файл."
 
 #. type: Plain text
 #: manual/commands/outfile.txt:12
@@ -2989,6 +2990,9 @@ msgid ""
 "  >> file\n"
 "  >\n"
 msgstr ""
+"|''**>**      //файл//''|\n"
+"|''**%%>>%%** //файл//''|\n"
+"|''**>**              ''|\n"
 
 #. type: Plain text
 #: manual/commands/outfile.txt:16
@@ -2996,6 +3000,8 @@ msgid ""
 "''>'' creates a new file for this output. If the file already exists, the "
 "old one is lost, and replaced by the new one."
 msgstr ""
+"Командой **>** создаётся новый файл для вывода данных. Если такой файл уже "
+"существует, старый файл с тем же именем будет утрачен и заменён новым."
 
 #. type: Plain text
 #: manual/commands/outfile.txt:18
@@ -3003,13 +3009,14 @@ msgid ""
 "''>''''>'' appends to an existing file, if it exists, otherwise it creates "
 "one."
 msgstr ""
+"По команде **%%>>%%**, если указанный файл уже существует, данные будут "
+"добавляться в него, иначе будет создан новый файл."
 
 #. type: Plain text
 #: manual/commands/outfile.txt:20
-#, fuzzy
-#| msgid "A bare ''>'' closes the file.\n"
 msgid "A bare ''>'' closes the file."
-msgstr "Команда ''>'' без параметров закрывает файл.\n"
+msgstr ""
+"Команда **>** без параметров приводит к закрытию ранее открытого файла."
 
 #. type: Plain text
 #: manual/commands/outfile.txt:28
@@ -3022,6 +3029,12 @@ msgid ""
 "  >\n"
 "Close the file. Stop saving.\n"
 msgstr ""
+"  > run1\n"
+"Сохранять весь вывод в файл ''run1'' в текущем каталоге. Если ''run1'' уже существует, старый файл уничтожается.\n"
+"  >> allof\n"
+"Сохранять весь вывод в файл ''allof''. Если ''allof'' уже существует, он сохраняется, а новые данные добавляются в его конец.\n"
+"  >\n"
+"Закрыть файл. Прекратить сохранение.\n"
 
 #. type: Title ====
 #: manual/commands/parameter.txt:1
@@ -13086,11 +13099,9 @@ msgstr ""
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:save]] Save the circuit in a file.\n"
 #~ "  * [[gnucap:manual:commands:log]] Create a log file.\n"
-#~ "  * [[gnucap:manual:commands:outfile|>]] Send a copy of the screen output to a file.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:save.ru|save]] Сохранение описания схемы в файл.\n"
 #~ "  * [[gnucap:manual:commands:log.ru|log]] Создание файла журнала.\n"
-#~ "  * [[gnucap:manual:commands:outfile.ru|>]] Выдача копии экранного вывода в файл.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
