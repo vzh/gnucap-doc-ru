@@ -6925,7 +6925,7 @@ msgid ""
 "In this example, we find the parameter \"IS\" of a diode, based on its "
 "forward voltage."
 msgstr ""
-"В данном примере мы найдём параметр «IS» диода, взяв за основу прямое "
+"В данном примере мы найдём параметр «''IS''» диода, взяв за основу прямое "
 "падение напряжения на нём."
 
 #. type: Plain text
@@ -6942,7 +6942,7 @@ msgstr "  D2 (a k) 1n4004\n"
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:12
 msgid "Now you need a model statement ..."
-msgstr "Теперь нужен оператор для модели ..."
+msgstr "Теперь нужен оператор ''model'' ..."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:14
@@ -6966,9 +6966,9 @@ msgid ""
 "only confuse you, most likely of the worst kind of confusion, where you "
 "don't realize it."
 msgstr ""
-"Если вы на том этапе, когда интересуетесь об этом, эта деталь лишь собьёт "
-"вас с толку, и скорее всего очень сильно, там, где вы это себе не "
-"представляете."
+"Если вы находитесь на том этапе, когда об этом спрашиваете, то вы лишь "
+"запутаетесь, и скорее всего весьма основательно, в тех подробностях, которые "
+"вам не ясны."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:24
@@ -6976,13 +6976,13 @@ msgid ""
 "Most of the time, the only parameter you need for a diode is saturation "
 "current, which of course isn't in the data sheet."
 msgstr ""
-"Чаще всего единственный параметр, который вам нужен для диода, это ток "
+"Чаще всего единственный параметр, который нужно знать для диода, это ток "
 "насыщения, которого, конечно, в спецификации нет."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:26
 msgid "ok .. so how do I figure that out??"
-msgstr "Хорошо .. итак, как же мне его выяснить??"
+msgstr "Хорошо... итак, как же его найти??"
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:29
@@ -6990,8 +6990,8 @@ msgid ""
 "Well ...  Look at the specs, or measure it.  Let's say we found that the "
 "forward voltage at 1 amp is .7 volts."
 msgstr ""
-"Ну ...  глянуть в спецификацию, или измерить его. Допустим, мы нашли, что "
-"прямое напряжение при токе 1 А составляет 0.7 В."
+"Ну...  Посмотреть характеристики, или измерить их. Допустим, мы нашли, что "
+"прямое напряжение при токе 1 А составляет 0,7 В."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:31
@@ -7015,18 +7015,18 @@ msgid ""
 "You need a model statement ..\n"
 "  .model my_diode d (is=something)\n"
 msgstr ""
-"Нам нужно выражение для модели ..\n"
+"Нам нужно выражение для модели...\n"
 "  .model my_diode d (is=something)\n"
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:39
 msgid "but I don't know what the value of something is."
-msgstr "но я не знаю, чему это сколько-то (something) равно."
+msgstr "...но я не знаю, чему это ''something'' равно."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:41
 msgid "With gnucap .. try this......."
-msgstr "Берём gnucap .. и пробуем так......."
+msgstr "Берём gnucap... и пробуем так:"
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:85
@@ -7085,7 +7085,7 @@ msgstr ""
 "  parameter something has no value\n"
 "  gnucap> op\n"
 "  #           v(1)\n"
-"   27.        0.83376     **** используется значение IS по умолчанию\n"
+"   27.        0.83376        **** используется значение IS по умолчанию\n"
 "  gnucap> param something=1u\n"
 "  gnucap> op\n"
 "  #           v(1)\n"
@@ -7124,7 +7124,7 @@ msgstr ""
 #: manual/examples/experimentally_finding_model_parameters.txt:89
 msgid "There ..  close enough ,,, Now use the value 1.75p for IS."
 msgstr ""
-"Ну вот ..  довольно близко ,,, Теперь для IS используем значение 1.75p."
+"Ну вот...  довольно близко. Теперь для ''IS'' используем значение 1.75p."
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:91
