@@ -300,7 +300,7 @@ msgstr ""
 #: manual/commands.txt:52
 #, no-wrap
 msgid "[[gnucap:manual:commands:get]] Get a circuit from a disk file. Deletes old one first for a fresh start. (deprecated)\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:get.ru|get]] Считывание описания схемы из файла на диске. Сначала удаляется старый, чтобы начать всё заново. (Использовать не рекомендуется.)\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:56
@@ -2125,12 +2125,15 @@ msgid ""
 "Gets an existing circuit file, but does not run it, after clearing memory. "
 "Start over.  Set up for interactive operation."
 msgstr ""
+"Чтение существующего файла схемы после очистки памяти без запуска "
+"моделирования. Начало работы заново. Настройка программы для интерактивной "
+"работы."
 
 #. type: Plain text
 #: manual/commands/get.txt:11
 #, no-wrap
 msgid "  get filename\n"
-msgstr ""
+msgstr "|''**get** //имя_файла//''|\n"
 
 #. type: Plain text
 #: manual/commands/get.txt:15
@@ -2138,6 +2141,8 @@ msgid ""
 "The first comment line of the file being read is taken as the `title'. See "
 "the title command."
 msgstr ""
+"Первая строка-комментарий считываемого файла считается строкой заголовка. "
+"См. [[title.ru|описание команды title]]."
 
 #. type: Plain text
 #: manual/commands/get.txt:17
@@ -2145,6 +2150,8 @@ msgid ""
 "Comments in the circuit file are stored, unless they start with *+ in which "
 "case they are thrown away."
 msgstr ""
+"Все комментарии в файле схемы сохраняются, кроме тех, что начинаются с ''*"
+"+'', такие комментарии отбрасываются."
 
 #. type: Plain text
 #: manual/commands/get.txt:19
@@ -2155,12 +2162,20 @@ msgid ""
 "variables. The ac card is not performed, but its parameters are stored, so "
 "that a plain ac command will perform the analysis specified in the file."
 msgstr ""
+"«Счётные карточки» настраиваются, но не выполняются. Это значит, что "
+"переменные и опции меняются, но команды моделирования на самом деле не "
+"выполняются. Для примера, команда [[options.ru|options]] на самом деле "
+"выполняется, так как она лишь настраивает переменные. «Карточка» **ac** не "
+"выполняется, но её параметры сохраняются, с тем чтобы определённый в этом "
+"файле анализ можно было выполнить явной командой [[ac.ru|ac]]."
 
 #. type: Plain text
 #: manual/commands/get.txt:21
 msgid ""
 "Any circuit already in memory will be erased before loading the new circuit."
 msgstr ""
+"Любая схема, уже имеющаяся в памяти, будет удалена перед загрузкой новой "
+"схемы."
 
 #. type: Plain text
 #: manual/commands/get.txt:29
@@ -2173,6 +2188,12 @@ msgid ""
 "  get npn.mod\n"
 "Get the file npn.mod.\n"
 msgstr ""
+"  get amp.ckt\n"
+"Считать файл схемы ''amp.ckt'' из текущего каталога.\n"
+"  get /usr/foo/ckt/amp.ckt\n"
+"Считать файл ''amp.ckt'' из каталога ''/usr/foo/ckt''.\n"
+"  get npn.mod\n"
+"Считать файл ''npn.mod''.\n"
 
 #. type: Title ======
 #: manual/commands/include.txt:1
@@ -13204,12 +13225,10 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
 #~ "  * [[gnucap:manual:commands:lib]] Include parts of a library file.\n"
 #~ "  * [[gnucap:manual:commands:load|load, unload]] Load a plugin.\n"
-#~ "  * [[gnucap:manual:commands:get]] Get a circuit from a disk file. Deletes old one first for a fresh start. (deprecated)\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:include.ru|include]] Включение файла с диска. Добавление его к тому, что уже имеется в памяти.\n"
 #~ "  * [[gnucap:manual:commands:lib.ru|lib]] Включение частей библиотечных файлов.\n"
 #~ "  * [[gnucap:manual:commands:load.ru|load, unload]] Загрузка плагина.\n"
-#~ "  * [[gnucap:manual:commands:get.ru|get]] Получение описания схемы из файла на диске. Сначала удаляется старый для свежего запуска. (Использовать не рекомендуется.)\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:save]] Save the circuit in a file.\n"
