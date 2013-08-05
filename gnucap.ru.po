@@ -186,13 +186,13 @@ msgstr "[[gnucap:manual:commands:delete.ru|delete       ]] Удаление ко
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:edit.ru  |edit         ]] Редактирование схемы во внешнем редакторе.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:fault.ru |fault,unfault]] Временное изменение значения компонента.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
@@ -233,7 +233,7 @@ msgstr "[[gnucap:manual:commands:measure.ru|measure]] Измерения (по �
 #: manual/commands.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:commands:eval]] Evaluate parameters.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:eval.ru|eval]] Оценка параметров.\n"
 
 #. type: Title =====
 #: manual/commands.txt:37
@@ -336,7 +336,7 @@ msgstr "[[gnucap:manual:commands:end.ru|end]] Выполнение анализ�
 #: manual/commands.txt:61
 #, no-wrap
 msgid "[[gnucap:manual:commands:exit|exit, quit]] Exits the program.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:exit.ru|exit, quit]] Выход из программы.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:65
@@ -1353,7 +1353,7 @@ msgstr "Команда «edit»"
 #. type: Plain text
 #: manual/commands/edit.txt:6
 msgid "Use your editor to change the circuit."
-msgstr "Использование редактора для изменения схемы."
+msgstr "Редактирование схемы во внешнем редакторе."
 
 #. type: Plain text
 #: manual/commands/edit.txt:11
@@ -1362,8 +1362,8 @@ msgid ""
 "  edit\n"
 "  edit file\n"
 msgstr ""
-"  edit\n"
-"  edit файл\n"
+"|''**edit**              ''|\n"
+"|''**edit** //имя_файла//''|\n"
 
 #. type: Plain text
 #: manual/commands/edit.txt:15
@@ -1371,13 +1371,13 @@ msgid ""
 "The edit command runs your editor on a copy of the circuit in memory, then "
 "reloads it."
 msgstr ""
-"Команда edit открывает в редакторе копию схемы из памяти, затем загружает её "
-"обратно."
+"По команде **edit** копия схемы, находящейся в памяти, открывается во "
+"внешнем редакторе, а затем загружается обратно."
 
 #. type: Plain text
 #: manual/commands/edit.txt:17
 msgid "Edit file runs your editor on the specified file."
-msgstr "Если указан файл, он открывается в редакторе."
+msgstr "Если задано ''//имя_файла//'', в редакторе открывается указанный файл."
 
 #. type: Plain text
 #: manual/commands/edit.txt:19
@@ -1385,8 +1385,8 @@ msgid ""
 "If you are only changing a component value, the modify command may be easier "
 "to use."
 msgstr ""
-"Для изменения только значения компонента может быть легче использовать "
-"команду modify."
+"Если необходимо изменить лишь значение какого-либо компонента, может быть "
+"проще воспользоваться командой [[alter.ru|modify]]."
 
 #. type: Plain text
 #: manual/commands/edit.txt:21
@@ -1394,8 +1394,8 @@ msgid ""
 "The program uses the EDITOR environment variable to find the editor to use. "
 "The command fails if there is no EDITOR defined."
 msgstr ""
-"Для определения открываемого редактора программа использует переменную "
-"окружения EDITOR.  Если эта переменная окружения не определена, команда "
+"Для определения имени открываемого редактора программа использует значение "
+"переменной окружения ''EDITOR''.  Если эта переменная не определена, команда "
 "работать не будет."
 
 #. type: Plain text
@@ -1408,9 +1408,9 @@ msgid ""
 "Edits the file foo in your current directory.\n"
 msgstr ""
 "  edit\n"
-"Открывает схему в вашем редакторе.\n"
+"Открыть схему во внешнем редакторе.\n"
 "  edit foo\n"
-"Открывает для редактирования файл foo в текущем каталоге.\n"
+"Редактирование файла ''foo'' в текущем каталоге.\n"
 
 #. type: Plain text
 #: manual/commands/end.txt:2
@@ -1455,13 +1455,15 @@ msgstr "Проверка и оценка выражения."
 #: manual/commands/eval.txt:10
 #, no-wrap
 msgid "  eval expression\n"
-msgstr "  eval выражение\n"
+msgstr "|''**eval** //выражение//''|\n"
 
 #. type: Plain text
 #: manual/commands/eval.txt:14
 msgid ""
 "The eval command evaluates an expression and prints the result as a number."
-msgstr "Команда eval оценивает выражение и выводит результат в виде числа."
+msgstr ""
+"Команда **eval** служит для оценки выражения и вывода результата в виде "
+"числа."
 
 #. type: Plain text
 #: manual/commands/eval.txt:28
@@ -1512,13 +1514,13 @@ msgid ""
 "  exit\n"
 "  quit\n"
 msgstr ""
-"  exit\n"
-"  quit\n"
+"|''**exit**''|\n"
+"|''**quit**''|\n"
 
 #. type: Plain text
 #: manual/commands/exit.txt:15
 msgid "Be sure you have saved everything you want to!"
-msgstr "Убедитесь, что вы сохранили всё, что надо!"
+msgstr "Не забудьте сохранить всё, что надо!"
 
 #. type: Title ======
 #: manual/commands/fault.txt:1
@@ -1538,8 +1540,8 @@ msgid ""
 "  fault partlabel=value ...\n"
 "  unfault\n"
 msgstr ""
-"  fault обозначение_компонента=значение ...\n"
-"  unfault\n"
+"|''**fault** //обозначение_компонента//=//значение ...//''|\n"
+"|''**unfault**                                          ''|\n"
 
 #. type: Plain text
 #: manual/commands/fault.txt:15
@@ -1547,8 +1549,8 @@ msgid ""
 "This command quickly changes the value of a component, usually with the "
 "intention that you will not want to save it."
 msgstr ""
-"Эта команда служит для быстрого изменения значения, обычно если вы не "
-"намереваетесь его сохранять."
+"Эта команда служит для быстрого изменения значения компонента и обычно "
+"используется в тех случаях, когда сохранять его не нужно."
 
 #. type: Plain text
 #: manual/commands/fault.txt:17
@@ -1556,15 +1558,14 @@ msgid ""
 "If you apply this command to a nonlinear or otherwise strange part, it "
 "becomes ordinary and linear until the fault is removed."
 msgstr ""
-"Если вы применяете эту команду к нелинейному или иным образом странному "
-"компоненту, он становится обычным и линейным, пока этот сбой (fault) не "
-"будет удалён."
+"Если данная команда применяется к нелинейным или другим необычным "
+"компонентам, они становятся обычными и линейными, до тех пор пока действие "
+"**fault** не будет прекращено."
 
 #. type: Plain text
 #: manual/commands/fault.txt:19
 msgid "It is an error to fault a model call."
-msgstr ""
-"Ошибочно использовать создавать сбой с помощью fault для вызова модели."
+msgstr "Ошибочно использовать **fault** для вызова модели."
 
 #. type: Plain text
 #: manual/commands/fault.txt:21
@@ -1572,13 +1573,13 @@ msgid ""
 "If several components have the same label, the fault value applies to all of "
 "them. (They will all have the same value.)"
 msgstr ""
-"Если несколько компонентов имеют одинаковое обозначение, значение fault "
-"применяется к ним всем. (Они все будут иметь одинаковое значение.)"
+"Если несколько компонентов имеют одинаковое обозначение, значение **fault** "
+"применяется к ним всем. (У них всех будет одинаковое значение.)"
 
 #. type: Plain text
 #: manual/commands/fault.txt:23
 msgid "The unfault command restores the old values."
-msgstr "Команда unfault восстанавливает старое значение."
+msgstr "Команда **unfault** восстанавливает старое значение."
 
 #. type: Plain text
 #: manual/commands/fault.txt:30
@@ -1592,7 +1593,7 @@ msgstr ""
 "  fault R66=1k\n"
 "R66 теперь имеет значение 1 кОм, независимо от того, каким оно было раньше.\n"
 "  unfault\n"
-"Очищает все fault. В данном случае R66 снова получает своё старое значение.\n"
+"Убрать все **fault**. В данном случае R66 снова получит своё старое значение.\n"
 
 #. type: Plain text
 #: manual/commands/fault.txt:35
@@ -1603,7 +1604,7 @@ msgid ""
 "  C3   1   2    1u\n"
 "  R4   2   0    10k\n"
 msgstr ""
-"unfault может выдавать сюрпризы. Рассмотрим следующую последовательность ...\n"
+"Использование **unfault** может приводить к сюрпризам. Рассмотрим следующую последовательность...\n"
 "  V1   1   0    ac  1\n"
 "  C3   1   2    1u\n"
 "  R4   2   0    10k\n"
@@ -1624,11 +1625,11 @@ msgstr ""
 "  fault C3=100p\n"
 "C3 теперь равно 100 пикофарадам.\n"
 "  modify C3=220p\n"
-"Значение C3 теперь равно 220 пФ. Оно будет восстановлено.\n"
+"Значение C3 теперь равно 220 пФ. Старое значение будет восстановлено.\n"
 "  modify R4=1k\n"
-"Значение R4 равно 1 кОм. Оно не будет восстановлено.\n"
+"Значение R4 равно 1 кОм. Старое значение восстановлено не будет.\n"
 "  unfault\n"
-"C3 возвращается в 1 мкФ, но значение R4 всё ещё равно 1 кОм.\n"
+"C3 снова равно 1 мкФ, но значение R4 так и останется равным 1 кОм.\n"
 
 #. type: Title ======
 #: manual/commands/fourier.txt:1
@@ -13190,20 +13191,14 @@ msgid ""
 msgstr ""
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:edit]] Edit the circuit description using your editor.\n"
-#~ "  * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.\n"
 #~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:edit.ru  |edit         ]] Редактирование схемы в текстовом редакторе.\n"
-#~ "  * [[gnucap:manual:commands:fault.ru |fault,unfault]] Временное изменение значения компонента.\n"
 #~ "  * [[gnucap:manual:commands:list.ru  |list         ]] Вывод описания схемы на экран.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:parameter]] Set or view parameters.\n"
-#~ "  * [[gnucap:manual:commands:eval]] Evaluate parameters.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:parameter.ru|parameter]] Установка или просмотр параметров.\n"
-#~ "  * [[gnucap:manual:commands:eval.ru|eval]] Оценка параметров.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
