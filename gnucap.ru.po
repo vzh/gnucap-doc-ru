@@ -4367,35 +4367,35 @@ msgid ""
 "options for doing this, including a model compiler and a wrapper that allows "
 "the use of unmodified Spice C models."
 msgstr ""
-"Система плагинов gnucap позволяет любому разрабатывать новые модели и "
-"добавлять их без перекомпиляции или переустановки основной программы "
-"моделирования. Для этого существует несколько возможностей, в то числе "
-"компилятор моделей и оболочка, позволяющая использовать C-модели Spice без "
-"модификации."
+"Система плагинов gnucap позволяет любому пользователю разрабатывать новые "
+"модели и добавлять их без перекомпиляции или переустановки основной "
+"программы моделирования. Для этого существуют разные средства, в том числе "
+"компилятор моделей и оболочка, позволяющая использовать модели SPICE, "
+"написанные на C, без модификации."
 
 #. type: Bullet: '  * '
 #: manual/devices.txt:13
 #, no-wrap
 msgid "[[.:devices:basic|Basic passive devices]]\n"
-msgstr ""
+msgstr "[[.:devices:basic.ru|Базовые пассивные устройства]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices.txt:13
 #, no-wrap
 msgid "[[.:devices:other|Other \"spice\" devices]]\n"
-msgstr ""
+msgstr "[[.:devices:other.ru|Прочие «SPICE»-устройства]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices.txt:13
 #, no-wrap
 msgid "[[.:devices:semi|Semiconductor devices]]\n"
-msgstr ""
+msgstr "[[.:devices:semi.ru |Полупроводниковые устройства]]\n"
 
 #. type: Title =====
 #: manual/devices/basic.txt:1
 #, no-wrap
 msgid "Basic passive devices"
-msgstr "Базовые пассивные приборы"
+msgstr "Базовые пассивные устройства"
 
 #. type: Plain text
 #: manual/devices/basic.txt:4
@@ -4403,8 +4403,8 @@ msgid ""
 "Gnucap includes the usual basic Spice devices, and some others that are "
 "found in commercial versions of Spice."
 msgstr ""
-"Gnucap включает обычные базовые устройства Spice и несколько других, "
-"найденных в коммерческих версиях Spice."
+"В gnucap входят как обычные базовые устройства SPICE, так и несколько "
+"других, найденных в коммерческих версиях SPICE."
 
 #. type: Plain text
 #: manual/devices/basic.txt:6
@@ -4412,7 +4412,7 @@ msgid ""
 "All of them are designed as plugins, but are included in the base "
 "distribution and loaded by default."
 msgstr ""
-"Все они реализованы в виде плагинов, но включаются в основной дистрибутив и "
+"Все они реализованы в виде плагинов, но входят в основной дистрибутив и "
 "загружаются по умолчанию."
 
 #. type: Plain text
@@ -4421,109 +4421,111 @@ msgid ""
 "All of them can be extended by simple behavioral expressions, in some cases "
 "beyond what is available in any Spice."
 msgstr ""
-"Все они могут быть расширены с помощью простых поведенческих выражений, в "
-"некоторых случаях сверх того, что доступно в любой из версий Spice."
+"Все они могут быть расширены с помощью простых поведенческих выражений, и в "
+"некоторых случаях сверх того, что доступно в любой из версий SPICE."
 
 #. type: Plain text
 #: manual/devices/basic.txt:10
 msgid "All of them have extended probes, more than any Spice."
-msgstr "Все они имеют расширенные точки измерения, больше чем в любом Spice."
+msgstr ""
+"Все они имеют усовершенствованные датчики, которых больше, чем в любой из "
+"версий SPICE."
 
 #. type: Title ====
 #: manual/devices/basic.txt:11
 #, no-wrap
 msgid "The basic devices"
-msgstr "Базовые приборы"
+msgstr "Базовые устройства"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "capacitor (C)\n"
-msgstr ""
+msgstr "конденсатор (C)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "inductor (L)\n"
-msgstr ""
+msgstr "катушка индуктивности (L)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "resistor (R)\n"
-msgstr ""
+msgstr "резистор (R)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "fixed voltage source (V)\n"
-msgstr ""
+msgstr "независимый источник напряжения (V)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "fixed current source (I)\n"
-msgstr ""
+msgstr "независимый источник тока (I)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "voltage controlled voltage source (E)\n"
-msgstr ""
+msgstr "источник напряжения, управляемый напряжением (E)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "voltage controlled current source (G)\n"
-msgstr ""
+msgstr "источник тока, управляемый напряжением (G)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "current controlled voltage source (H)\n"
-msgstr ""
+msgstr "источник напряжения, управляемый током (H)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "current controlled current source (F)\n"
-msgstr ""
+msgstr "источник тока, управляемый током (F)\n"
 
 #. type: Title ====
 #: manual/devices/basic.txt:22
 #, no-wrap
 msgid "Less common basic devices"
-msgstr ""
+msgstr "Менее распространённые базовые устройства"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:29
 #, no-wrap
 msgid "admittance (Y)\n"
-msgstr ""
+msgstr "проводимость (Y)\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:29
 #, no-wrap
 msgid "voltage controlled resistor\n"
-msgstr ""
+msgstr "сопротивление, управляемое напряжением\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:29
 #, no-wrap
 msgid "voltage controlled capacitor\n"
-msgstr ""
+msgstr "ёмкость, управляемая напряжением\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:29
 #, no-wrap
 msgid "voltage controlled admittance\n"
-msgstr ""
+msgstr "проводимость, управляемая напряжением\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:29
 #, no-wrap
 msgid "trans-capacitor\n"
-msgstr ""
+msgstr "проходная ёмкость\n"
 
 #. type: Title ====
 #: manual/devices/basic.txt:30
@@ -4535,31 +4537,31 @@ msgstr "Дополнительная информация"
 #: manual/devices/basic.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:devices:basic:basic syntax]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:devices:basic:basic syntax.ru|Синтаксис базовых устройств]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:devices:basic:inline behavioral modeling]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:devices:basic:inline behavioral modeling.ru|Встроенное поведенческое моделирование]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:devices:basic:spice-style models]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:devices:basic:spice-style models.ru|Модели в стиле SPICE]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:devices:basic:probes]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:devices:basic:probes.ru|Датчики]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic.txt:36
 #, no-wrap
 msgid "[[gnucap:manual:devices:capacitor|.]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:devices:capacitor.ru|Конденсаторы]]\n"
 
 #. type: Title ======
 #: manual/devices/basic/basic_syntax.txt:1
@@ -4573,8 +4575,8 @@ msgid ""
 "This page applies to the simple \"Spice\" basic devices, and some extended "
 "forms of them."
 msgstr ""
-"На данной странице приводятся простые базовые устройства SPICE и несколько "
-"их расширенных форм."
+"На данной странице приводится описание простых базовых устройств SPICE и их "
+"расширенных вариантов."
 
 #. type: Title ===
 #: manual/devices/basic/basic_syntax.txt:4 manual/devices/capacitor.txt:5
@@ -4624,11 +4626,11 @@ msgstr ""
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:20
 msgid "The first letter of the label determines the type:"
-msgstr "Первая буква обозначения определяет тип:"
+msgstr "Первая буква обозначения определяет тип устройства:"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:30
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "^2 terminal devices ^^^^\n"
 "^letter ^type                              ^value             ^syntax                        ^\n"
@@ -4645,12 +4647,12 @@ msgstr ""
 "| L     | катушка индуктивности             | индуктивность Ф/I     |Lxxxx (p n) индуктивность     |\n"
 "| R     | резистор                          | сопротивление U/I     |Rxxxx (p n) сопротивление     |\n"
 "| Y     | проводимость                      | проводимость  I/U     |Yxxxx (p n) проводимость      |\n"
-"| V     | fixed voltage source (FIXME:)     | постоянное напряжение |Vxxxx (p n) напряжение        |\n"
-"| I     | fixed current source (FIXME:)     | постоянный ток        |Ixxxx (sink src) ток          |\n"
+"| V     | независимый источник напряжения   | постоянное напряжение |Vxxxx (p n) напряжение        |\n"
+"| I     | независимый источник тока         | постоянный ток        |Ixxxx (sink source) ток       |\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:37
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "^4 terminal devices ^^^^\n"
 "^letter ^type                              ^value             ^syntax                        ^\n"
@@ -4660,15 +4662,15 @@ msgid ""
 "|F      |current controlled current source |gain iout/iin     |Fxxxx (sink src control) gain |\n"
 msgstr ""
 "^ Устройства с 4 выводами ^^^^\n"
-"^ Буква ^ Тип                                          ^ Значение                                      ^ Синтаксис                              ^\n"
-"| E     | источник напряжения, управляемый напряжением | K<sub>U</sub> U<sub>вых</sub>/U<sub>вх</sub>  | Exxxx (p n ps ns) K<sub>U</sub>        |\n"
-"| G     | источник тока,       управляемый напряжением | gm   I<sub>вых</sub>/U<sub>вх</sub> (FIXME: добавить русское обозначение физ. величины)    |Gxxxx (sink src ps ns) gm     |\n"
-"| H     | источник напряжения, управляемый током       | rm   U<sub>вых</sub>/I<sub>вх</sub> (FIXME: добавить русское обозначение физ. величины)    |Hxxxx (p n control) gain (FIXME: добавить замечание, что здесь должно быть rm, а не gain)    |\n"
-"| F     | источник тока,       управляемый током       | K<sub>I</sub> I<sub>вых</sub>/I<sub>вх</sub>  | Fxxxx (sink src control) K<sub>I</sub> |\n"
+"^ Буква ^ Тип                                          ^ Значение                                      ^ Синтаксис                                 ^\n"
+"| E     | источник напряжения, управляемый напряжением | K<sub>U</sub> U<sub>вых</sub>/U<sub>вх</sub>  | Exxxx (p n ps ns) K<sub>U</sub>           |\n"
+"| G     | источник тока,       управляемый напряжением | gm   I<sub>вых</sub>/U<sub>вх</sub>           | Gxxxx (sink source ps ns) gm              |\n"
+"| H     | источник напряжения, управляемый током       | rm   U<sub>вых</sub>/I<sub>вх</sub>           | Hxxxx (p n control) rm                    |\n"
+"| F     | источник тока,       управляемый током       | K<sub>I</sub> I<sub>вых</sub>/I<sub>вх</sub>  | Fxxxx (sink source control) K<sub>I</sub> |\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:44
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "^devices with special syntax ^^^^\n"
 "^letter ^type                              ^value             ^syntax                        ^\n"
@@ -4679,14 +4681,14 @@ msgid ""
 msgstr ""
 "^ Устройства с особым синтаксисом ^^^^\n"
 "^ Буква ^ Тип                              ^ Значение                       ^ Синтаксис                       ^\n"
-"|G      |voltage controlled resistor   FIXME: в словарь  |R/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcr   значение |\n"
-"|G      |voltage controlled admittance FIXME: в словарь  |Y/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcg   значение |\n"
-"|G      |voltage controlled capacitor  FIXME: в словарь  |C/U<sub>у</sub>                 |Gxxxx (p n ps ns) vccap значение |\n"
-"|C      |проходная ёмкость             |Q<sub>вых</sub>/U<sub>вх</sub>  |Cxxxx (p n ps ns) tcap  значение |\n"
+"|G      |сопротивление, управляемое напряжением  |R/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcr   значение |\n"
+"|G      |проводимость,  управляемая напряжением  |Y/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcg   значение |\n"
+"|G      |ёмкость,       управляемая напряжением  |C/U<sub>у</sub>                 |Gxxxx (p n ps ns) vccap значение |\n"
+"|C      |проходная ёмкость                       |Q<sub>вых</sub>/U<sub>вх</sub>  |Cxxxx (p n ps ns) tcap  значение |\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:53
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "^Port names ^^\n"
 "|p       |positive node or positive output        |\n"
@@ -4698,16 +4700,13 @@ msgid ""
 "|control |current probe controlling element       |\n"
 msgstr ""
 "^ Имена портов ^^\n"
-"|p       | положительный узел или положительный выход          |\n"
-"|n       | отрицательный узел или отрицательный выход          |\n"
-"|sink    |current sink or current sink output     FIXME: добавить перевод для (current) sink |\n"
-"|source  |current source or current source output FIXME: добавить перевод для (current) source |\n"
+"|p       | положительный узел или выход                        |\n"
+"|n       | отрицательный узел или выход                        |\n"
+"|sink    | источник втекающего тока или его выход              |\n"
+"|source  | источник вытекающего тока или его выход             |\n"
 "|ps      | положительный вход или узел управляющего напряжения |\n"
 "|ns      | отрицательный вход или узел управляющего напряжения |\n"
-"|control |current probe controlling element  FIXME: добавить перевод для current probe      |\n"
-"FIXME: в этой таблице и выше по тексту привести обозначения\n"
-"source-src к общему знаменателю --- выбрать один и применить\n"
-"везде, также добавить замечание на страницу замечаний\n"
+"|control | управляющий элемент датчика тока                    |\n"
 
 #. type: Title ===
 #: manual/devices/basic/basic_syntax.txt:54 manual/devices/capacitor.txt:11
@@ -4730,6 +4729,10 @@ msgid ""
 "  Cshunt  (out 0)  capacitor c=100u\n"
 "  Rload   (out 0)  resistor  r=100\n"
 msgstr ""
+"  Vin     (in 0)   vsource   dc=10\n"
+"  Lseries (in out) inductor  l=.01\n"
+"  Cshunt  (out 0)  capacitor c=100u\n"
+"  Rload   (out 0)  resistor  r=100\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:68
@@ -4744,7 +4747,7 @@ msgstr ""
 #: manual/devices/basic/basic_syntax.txt:68 manual/devices/capacitor.txt:17
 #, no-wrap
 msgid "Verilog format"
-msgstr ""
+msgstr "Формат Verilog"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:75
@@ -4767,6 +4770,10 @@ msgid ""
 "  capacitor #(.c(100u)) Cshunt  (.p(out), .n(0));\n"
 "  resistor  #(.r(100))  Rload   (.p(out), .n(0));\n"
 msgstr ""
+"  vsource   #(.dc(10))  Vin     (.p(in), .n(0));\n"
+"  inductor  #(.l(.01))  Lseries (.p(in), .n(out));\n"
+"  capacitor #(.c(100u)) Cshunt  (.p(out), .n(0));\n"
+"  resistor  #(.r(100))  Rload   (.p(out), .n(0));\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:87
@@ -4777,6 +4784,10 @@ msgid ""
 "  capacitor #(.c(100u)) Cshunt  (out, 0);\n"
 "  resistor  #(.r(100))  Rload   (out, 0);\n"
 msgstr ""
+"  vsource   #(.dc(10))  Vin     (in, 0);\n"
+"  inductor  #(.l(.01))  Lseries (in, out);\n"
+"  capacitor #(.c(100u)) Cshunt  (out, 0);\n"
+"  resistor  #(.r(100))  Rload   (out, 0);\n"
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:90
@@ -4786,6 +4797,9 @@ msgid ""
 "  inductor  #(.01)  Lseries (in, out);\n"
 "  capacitor #(100u) Cshunt  (out, 0);\n"
 msgstr ""
+"  vsource   #(10)   Vin     (in, 0);\n"
+"  inductor  #(.01)  Lseries (in, out);\n"
+"  capacitor #(100u) Cshunt  (out, 0);\n"
 
 #. type: Title ======
 #: manual/devices/basic/complex.txt:1
@@ -13231,15 +13245,6 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:pause.ru|pause]] Ожидания нажатия клавиши в пакетном режиме.\n"
 #~ "  * [[gnucap:manual:commands:status.ru|status]] Вывод использования ресурсов и т. п.\n"
 #~ "  * [[gnucap:manual:commands:title.ru|title]] Просмотр и создание строк заголовков для вывода на печать или в файл.\n"
-
-#~ msgid ""
-#~ "  * [[.:devices:basic|Basic passive devices]]\n"
-#~ "  * [[.:devices:other|Other \"spice\" devices]]\n"
-#~ "  * [[.:devices:semi|Semiconductor devices]]\n"
-#~ msgstr ""
-#~ "  * [[.:devices:basic.ru|Базовые пассивные приборы ]]\n"
-#~ "  * [[.:devices:other.ru|Прочие «spice»-устройства ]]\n"
-#~ "  * [[.:devices:semi.ru |Полупроводниковые приборы ]]\n"
 
 #~ msgid ""
 #~ "  * admittance (Y)\n"
