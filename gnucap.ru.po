@@ -282,13 +282,13 @@ msgstr "Команды для работы с файлами"
 #: manual/commands.txt:52
 #, no-wrap
 msgid "[[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:include.ru|include]] Включение содержимого файла с диска. Добавление его к тому, что уже имеется в памяти.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:52
 #, no-wrap
 msgid "[[gnucap:manual:commands:lib]] Include parts of a library file.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:lib.ru|lib]] Включение частей библиотечных файлов.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:52
@@ -2204,13 +2204,13 @@ msgstr "Команда «include»"
 #. type: Plain text
 #: manual/commands/include.txt:6
 msgid "Include a file, directly, as is."
-msgstr "Включение файла непосредственно как есть."
+msgstr "Включение данных файла непосредственно, как есть."
 
 #. type: Plain text
 #: manual/commands/include.txt:10
 #, no-wrap
 msgid "  include filename\n"
-msgstr "  include имя_файла\n"
+msgstr "|''**include** //имя_файла//''|\n"
 
 #. type: Plain text
 #: manual/commands/include.txt:14
@@ -2222,8 +2222,8 @@ msgstr "Файл включается как есть."
 msgid ""
 "If you are running interactive, it is as if you typed in what is in the file."
 msgstr ""
-"При интерактивной работе это тождественно тому, как будто бы вы набрали на "
-"клавиатуре то, что находится в файле."
+"В интерактивном режиме работы это тождественно тому, как если бы то, что "
+"находится в файле, было введено с клавиатуры."
 
 #. type: Plain text
 #: manual/commands/include.txt:18
@@ -2232,8 +2232,8 @@ msgid ""
 "it is as if you did a copy and paste into that file."
 msgstr ""
 "При запуске в пакетном режиме или при включении файла из другого файла это "
-"тождественно тому, как будто бы вы скопировали и вставили содержимое в этот "
-"файл."
+"равносильно тому, как будто бы содержимое включаемого файла было скопировано "
+"и вставлено в тот файл."
 
 #. type: Plain text
 #: manual/commands/include.txt:22
@@ -2243,7 +2243,7 @@ msgid ""
 "Include the file npn.mod.\n"
 msgstr ""
 "  include npn.mod\n"
-"Вставка файла npn.mod.\n"
+"Вставка содержимого файла ''npn.mod''.\n"
 
 #. type: Title ======
 #: manual/commands/lib.txt:1
@@ -2254,7 +2254,7 @@ msgstr "Команда «lib»"
 #. type: Plain text
 #: manual/commands/lib.txt:6
 msgid "Selective \"library\" include, and mark sections of a library."
-msgstr ""
+msgstr "Избирательное включение «библиотек» и именование разделов библиотеки."
 
 #. type: Plain text
 #: manual/commands/lib.txt:11
@@ -2263,11 +2263,13 @@ msgid ""
 "  lib section-name\n"
 "  lib file-name section-name\n"
 msgstr ""
+"|''**lib** //название_раздела//          ''|\n"
+"|''**lib** //имя_файла название_раздела//''|\n"
 
 #. type: Plain text
 #: manual/commands/lib.txt:15
 msgid "This command takes two forms:"
-msgstr ""
+msgstr "Эта команда имеет две формы."
 
 #. type: Plain text
 #: manual/commands/lib.txt:17
@@ -2275,6 +2277,8 @@ msgid ""
 "The first form is to mark a section of a file, with a name, so it can be "
 "selectively included.  The section ends with a line \".endl\"."
 msgstr ""
+"Первая форма служит для обозначения раздела файла, чтобы его содержимое "
+"можно было включить отдельно. Конец раздела обозначается строкой ''.endl''."
 
 #. type: Plain text
 #: manual/commands/lib.txt:26
@@ -2289,6 +2293,14 @@ msgid ""
 "  R2 (2 0) 1k\n"
 "  .endl\n"
 msgstr ""
+"  .lib high\n"
+"  R1 (1 2) 10k\n"
+"  R2 (2 0) 10k\n"
+"  .endl\n"
+"  .lib low\n"
+"  R1 (1 2) 1k\n"
+"  R2 (2 0) 1k\n"
+"  .endl\n"
 
 #. type: Plain text
 #: manual/commands/lib.txt:28
@@ -2296,12 +2308,15 @@ msgid ""
 "The second form has two arguments.  It is a special case of \"include\", "
 "that only includes matching sections of the file."
 msgstr ""
+"Вторая форма --- вызов с двумя аргументами. Это особый вид команды [[include."
+"ru|include]], позволяющий включение только соответствующих разделов "
+"указанного файла."
 
 #. type: Plain text
 #: manual/commands/lib.txt:29
 #, no-wrap
 msgid "  .lib libfile high\n"
-msgstr ""
+msgstr "  .lib libfile high\n"
 
 #. type: Title ======
 #: manual/commands/list.txt:1
@@ -13222,12 +13237,8 @@ msgstr ""
 #~ "  * [[gnucap:manual:commands:parameter.ru|parameter]] Установка или просмотр параметров.\n"
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:include]] Include a file from disk. Add it the what is already in memory.\n"
-#~ "  * [[gnucap:manual:commands:lib]] Include parts of a library file.\n"
 #~ "  * [[gnucap:manual:commands:load|load, unload]] Load a plugin.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:include.ru|include]] Включение файла с диска. Добавление его к тому, что уже имеется в памяти.\n"
-#~ "  * [[gnucap:manual:commands:lib.ru|lib]] Включение частей библиотечных файлов.\n"
 #~ "  * [[gnucap:manual:commands:load.ru|load, unload]] Загрузка плагина.\n"
 
 #~ msgid ""
