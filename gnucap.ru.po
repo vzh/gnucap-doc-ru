@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
-"POT-Creation-Date: 2013-07-26 12:43+0400\n"
-"PO-Revision-Date: 2013-08-05 14:46+0400\n"
+"POT-Creation-Date: 2013-06-25 11:14+0400\n"
+"PO-Revision-Date: 2013-08-06 14:18+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -198,7 +198,7 @@ msgstr "[[gnucap:manual:commands:fault.ru |fault,unfault]] Временное и
 #: manual/commands.txt:28
 #, no-wrap
 msgid "[[gnucap:manual:commands:list]] List the circuit on the display.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:list.ru  |list         ]] Вывод описания схемы на экран.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:28
@@ -294,7 +294,7 @@ msgstr "[[gnucap:manual:commands:lib.ru|lib]] Включение частей б
 #: manual/commands.txt:52
 #, no-wrap
 msgid "[[gnucap:manual:commands:load|load, unload]] Load a plugin.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:load.ru|load, unload]] Загрузка плагинов.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:52
@@ -2327,7 +2327,7 @@ msgstr "Команда «list»"
 #. type: Plain text
 #: manual/commands/list.txt:6
 msgid "Lists the circuit in memory."
-msgstr ""
+msgstr "Вывод описания схемы, сохранённой в памяти программы."
 
 #. type: Plain text
 #: manual/commands/list.txt:11
@@ -2336,11 +2336,14 @@ msgid ""
 "  list {label ...}\n"
 "  list {label - label}\n"
 msgstr ""
+"|''**list** {//обозначение ...//}              ''|\n"
+"|''**list** {//обозначение// - //обозначение//}''|\n"
 
 #. type: Plain text
 #: manual/commands/list.txt:15
 msgid "Plain list will list the whole circuit on the console."
 msgstr ""
+"Команда **''list''** без параметров служит для вывода на консоль всей схемы."
 
 #. type: Plain text
 #: manual/commands/list.txt:17
@@ -2349,16 +2352,21 @@ msgid ""
 "supported: ? matches any character, once. * matches zero or more of any "
 "character."
 msgstr ""
+"При задании одного обозначения компонента запрашивается вывод только "
+"указанного компонента. Поддерживаются метасимволы: «''?''» соответствует "
+"одному любому символу. «''*''» соответствует любому количеству любых "
+"символов, в том числе ни одному."
 
 #. type: Plain text
 #: manual/commands/list.txt:19
 msgid "For several components, list them."
-msgstr ""
+msgstr "При задании нескольких компонентов выводятся они все."
 
 #. type: Plain text
 #: manual/commands/list.txt:21
 msgid "For a range, specify two labels separated by a dash."
 msgstr ""
+"Для задания диапазона следует указать два обозначения, разделённые дефисом."
 
 #. type: Plain text
 #: manual/commands/list.txt:31
@@ -2373,6 +2381,14 @@ msgid ""
 "  list D* C*\n"
 "List all diodes and capacitors.\n"
 msgstr ""
+"  list\n"
+"Вывести на консоль всю схему.\n"
+"  list R11\n"
+"Показать компонент R11.\n"
+"  list D12 - C5\n"
+"Вывести часть списка соединений от D12 до C5 включительно. В выводимом перечне D12 должно быть до C5.\n"
+"  list D* C*\n"
+"Вывести все диоды и конденсаторы.\n"
 
 #. type: Title ======
 #: manual/commands/load.txt:1
@@ -2393,9 +2409,9 @@ msgid ""
 "  load ./my-model.so\n"
 "  unload ./my-model.so\n"
 msgstr ""
-"  load public-model.so\n"
-"  load ./my-model.so\n"
-"  unload ./my-model.so\n"
+"|''**load**   //общая_модель.so//''|\n"
+"|''**load**   //./моя_модель.so//''|\n"
+"|''**unload** //./моя_модель.so//''|\n"
 
 #. type: Plain text
 #: manual/commands/load.txt:16
@@ -2404,6 +2420,9 @@ msgid ""
 "arbitrarily extend gnucap.  You can add models, commands, functions, "
 "measurements, and anything else."
 msgstr ""
+"Командой **load** загружается скомпилированный модуль плагина. Плагины могут "
+"использоваться для любых расширений gnucap. С их помощью можно добавлять "
+"модели, команды, функции, виды измерений и тому подобное."
 
 #. type: Plain text
 #: manual/commands/load.txt:21
@@ -2414,6 +2433,10 @@ msgid ""
 "  stashing as M:0\n"
 "are harmless, and only indicate that something that was already installed is hidden by loading the plugin.\n"
 msgstr ""
+"Предупреждения вида:\n"
+"  M: already installed, replacing\n"
+"  stashing as M:0\n"
+"безвредны, и только показывают, что что-то другое, установленное ранее, становится скрытым при загрузке этого плагина.\n"
 
 #. type: Plain text
 #: manual/commands/load.txt:24
@@ -2422,6 +2445,10 @@ msgid ""
 "system.  Plugins must be compiled with the same compiler and same headers "
 "that compiled the main executable."
 msgstr ""
+"Плагины --- разделяемые объектные файлы, формат которых определяется "
+"системой. Плагины должны компилироваться тем же самым компилятором и с теми "
+"же самыми заголовочными файлами, что использовались для компиляции основной "
+"исполняемой программы."
 
 #. type: Plain text
 #: manual/commands/load.txt:26
@@ -2429,6 +2456,9 @@ msgid ""
 "It is intended to maintain source compatibility between stable releases of "
 "gnucap, but no guarantee is made about binary compatibility."
 msgstr ""
+"Подразумевается, что совместимость исходного кода между стабильными "
+"выпусками gnucap будет сохраняться, но в отношении двоичной совместимости "
+"такой гарантии нет."
 
 #. type: Plain text
 #: manual/commands/load.txt:28
@@ -2437,6 +2467,9 @@ msgid ""
 "it, you cannot load any plugins.  It is possible to override it with a "
 "plugin."
 msgstr ""
+"Команда **load** должна быть обязательно доступна в виде встроенной команды, "
+"так как без неё невозможно загрузить ни один плагин. Есть возможность "
+"переопределить её с помощью плагина."
 
 #. type: Plain text
 #: manual/commands/load.txt:34
@@ -2447,6 +2480,10 @@ msgid ""
 "  load bsim463.so\n"
 "Load it from the public area, as defined by LD_LIBRARY_PATH.\n"
 msgstr ""
+"  load ./bsim463.so\n"
+"Загрузить плагин из текущего каталога.\n"
+"  load bsim463.so\n"
+"Загрузить его из общедоступной области, что определена переменной ''LD_LIBRARY_PATH''.\n"
 
 #. type: Title ======
 #: manual/commands/log.txt:1
@@ -13227,19 +13264,9 @@ msgid ""
 msgstr ""
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:list]] List the circuit on the display.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:list.ru  |list         ]] Вывод описания схемы на экран.\n"
-
-#~ msgid ""
 #~ "  * [[gnucap:manual:commands:parameter]] Set or view parameters.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:parameter.ru|parameter]] Установка или просмотр параметров.\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:load|load, unload]] Load a plugin.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:load.ru|load, unload]] Загрузка плагина.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:save]] Save the circuit in a file.\n"
