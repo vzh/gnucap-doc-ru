@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-06 14:18+0400\n"
+"PO-Revision-Date: 2013-08-06 16:48+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -312,7 +312,7 @@ msgstr ""
 #: manual/commands.txt:56
 #, no-wrap
 msgid "[[gnucap:manual:commands:log]] Create a log file.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:log.ru|log]] Создание файла журнала.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:56
@@ -2494,7 +2494,7 @@ msgstr "Команда «log»"
 #. type: Plain text
 #: manual/commands/log.txt:6
 msgid "Saves a copy of your keyboard entries in a file."
-msgstr ""
+msgstr "Сохранение копии ввода с клавиатуры в файл."
 
 #. type: Plain text
 #: manual/commands/log.txt:12
@@ -2504,6 +2504,9 @@ msgid ""
 "  log >> file\n"
 "  log\n"
 msgstr ""
+"|''**log**        //файл//''|\n"
+"|''**log** %%>>%% //файл//''|\n"
+"|''**log**                ''|\n"
 
 #. type: Plain text
 #: manual/commands/log.txt:16
@@ -2511,6 +2514,8 @@ msgid ""
 "The `>>' option appends to an existing file, if it exists, otherwise it "
 "creates one."
 msgstr ""
+"При использовании с опцией ''%%>>%%'', если указанный файл уже существует, "
+"данные будут добавляться в него, иначе будет создан новый файл."
 
 #. type: Plain text
 #: manual/commands/log.txt:18
@@ -2518,6 +2523,9 @@ msgid ""
 "Files can be nested. If you open one while another is already open, both "
 "will contain all the information."
 msgstr ""
+"Файлы могут использоваться рекурсивно. Если в то время, как уже открыт один "
+"файл, открыть ещё один, вся вновь вводимая информация будет содержаться в "
+"обоих."
 
 #. type: Plain text
 #: manual/commands/log.txt:20
@@ -2528,11 +2536,17 @@ msgid ""
 "more than one log file is open, they will be closed in the reverse of the "
 "order in which they were opened, maintaining nesting."
 msgstr ""
+"Командой **''log''** без параметров файл закрывается. Из-за этого последней "
+"строкой закрытого файла всегда будет ''log''. Обычно это не имеет никакого "
+"значения, но если такой файл используется как входной для ввода команд, "
+"когда файл журнала открыт, эта команда его закроет.  Если открыто более "
+"одного файла журнала, они будут закрываться в порядке, обратном тому, в "
+"котором открывались, сохраняя порядок рекурсивной вложенности."
 
 #. type: Plain text
 #: manual/commands/log.txt:22
 msgid "See also: `>' and `<' commands."
-msgstr ""
+msgstr "См. также команды [[outfile.ru|>]] и [[infile.ru|<]]."
 
 #. type: Plain text
 #: manual/commands/log.txt:24
@@ -2541,6 +2555,10 @@ msgid ""
 "<file from the shell. It is NOT suitable for the < command in gnucap or the "
 "Spice-like mode gnucap file without <."
 msgstr ""
+"Файл журнала представляет собой точную копию ввода с клавиатуры, поэтому он "
+"подходит для запуска командой **''gnucap <файл''** из shell. Он НЕ подходит "
+"для команды [[infile.ru|<]] в интерактивном режиме gnucap или для команды "
+"**''gnucap файл''** в SPICE-образной форме без ''<''."
 
 #. type: Plain text
 #: manual/commands/log.txt:34
@@ -2555,6 +2573,14 @@ msgid ""
 "  log\n"
 "Close the file. Stop saving.\n"
 msgstr ""
+"  log today\n"
+"Сохранять команды в файл ''today'' в текущем каталоге. Если ''today'' уже существует, старый файл с таким же именем будет утрачен.\n"
+"  log >> doit\n"
+"Сохранять команды в файл ''doit''. Если ''doit'' уже существует, он сохраняется, и новые данные добавляются к концу.\n"
+"  log runit.bat\n"
+"Использовать файл ''runit.bat''.\n"
+"  log\n"
+"Закрыть файл. Прекратить сохранение.\n"
 
 #. type: Title ====
 #: manual/commands/measure.txt:1
@@ -13270,10 +13296,8 @@ msgstr ""
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:save]] Save the circuit in a file.\n"
-#~ "  * [[gnucap:manual:commands:log]] Create a log file.\n"
 #~ msgstr ""
 #~ "  * [[gnucap:manual:commands:save.ru|save]] Сохранение описания схемы в файл.\n"
-#~ "  * [[gnucap:manual:commands:log.ru|log]] Создание файла журнала.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
