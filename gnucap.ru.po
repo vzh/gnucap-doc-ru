@@ -2661,7 +2661,8 @@ msgstr "Диагностика"
 msgid ""
 "The message \"no match\" means that the probe you selected was not stored."
 msgstr ""
-"Сообщение «no match» означает, что данные выбранного датчика не сохранялись."
+"Сообщение «''no match''» означает, что данные выбранного датчика не "
+"сохранялись."
 
 #. type: Title =====
 #: manual/commands/measure.txt:28 manual/howto/measure.txt:1
@@ -2675,8 +2676,8 @@ msgid ""
 "\"Point\" here refers to time, frequency, or whatever is the independent \"x"
 "\" value."
 msgstr ""
-"«Точкой» здесь называется время, частота или что-либо ещё, что "
-"представляет собой независимое значение по оси «X»."
+"«Точкой» здесь называется время, частота или какая-то другая величина, "
+"являющаяся независимым значением по оси «X»."
 
 #. type: Plain text
 #: manual/commands/measure.txt:40 manual/howto/measure.txt:12
@@ -2854,7 +2855,7 @@ msgid ""
 "the computer to analyze for those two points only."
 msgstr ""
 "Одним параметром задаётся одна температура. Двумя параметрами компьютеру "
-"даётся приказ анализировать только указанные две точки."
+"даётся приказ произвести расчёт только для двух указанных точек."
 
 #. type: Plain text
 #: manual/commands/op.txt:22
@@ -3249,8 +3250,8 @@ msgid ""
 "Parameter expressions use late evaluation and dynamic scoping, like a "
 "functional language."
 msgstr ""
-"В выражениях параметров используются отложенные вычисления и динамический "
-"контекст, как в функциональных языках программирования."
+"В выражениях с параметрами используются отложенные вычисления и динамический "
+"контекст, как и в функциональных языках программирования."
 
 #. type: Plain text
 #: manual/commands/parameter.txt:29
@@ -4450,7 +4451,7 @@ msgid ""
 "primarily historical interest."
 msgstr ""
 "В основном tar-архиве содержатся простые модели, включая большинство "
-"моделей, входящих в Spice-2g6, и некоторые из имеющихся в Spice-3. Этого "
+"моделей, входящих в SPICE-2g6, и некоторые из имеющихся в SPICE-3. Этого "
 "должно быть достаточно для начала учебной работы и большей части "
 "любительской практики. В других tar-архивах содержатся специфические модели "
 "из множества источников. Некоторые из них представляют собой точные "
@@ -6621,7 +6622,7 @@ msgstr ""
 #: manual/devices/other.txt:1
 #, no-wrap
 msgid "Other \"spice\" devices"
-msgstr "Прочие «spice»-устройства"
+msgstr "Прочие «SPICE»-устройства"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
@@ -9559,8 +9560,8 @@ msgstr ""
 msgid ""
 "The \"eval\" command evaluates and prints the present value of an expression."
 msgstr ""
-"Команда [[..:commands:eval.ru|eval]] оценивает и выводит текущее значение "
-"выражения."
+"Команда [[..:commands:eval.ru|eval]] служит для вычисления и вывода текущего "
+"значения выражения."
 
 #. type: Plain text
 #: manual/howto/expressions.txt:12
@@ -9569,9 +9570,9 @@ msgid ""
 "expression.  For now, it only takes simple function calls used in "
 "measurements."
 msgstr ""
-"Команда [[measure.ru|measure]] оценивает и присваивает текущее значение "
-"выражения. На данный момент она принимает только простые вызовы функций, "
-"используемые в измерениях."
+"Команда [[..:commands:measure.ru|measure]] служит для вычисления текущих "
+"значений выражений и присваивания их параметрам. В настоящее время она "
+"принимает лишь вызовы простых функций, используемых в измерениях."
 
 #. type: Plain text
 #: manual/howto/expressions.txt:21
@@ -9903,10 +9904,9 @@ msgid ""
 "[[gnucap:manual:languages:Verilog]]\\\\ [[gnucap:manual:languages:Spectre]]\\"
 "\\ [[gnucap:manual:languages:Spice]]\\\\ [[gnucap:manual:languages:ACS]]"
 msgstr ""
-"[[gnucap:manual:languages:Verilog.ru|Verilog]]\\\n"
-"[[gnucap:manual:languages:Spectre.ru|Spectre]]\\\n"
-"[[gnucap:manual:languages:Spice.ru|Spice]]\\\n"
-"[[gnucap:manual:languages:ACS.ru|ACS]]\n"
+"[[gnucap:manual:languages:Verilog.ru|Verilog]]\\\\ [[gnucap:manual:languages:"
+"Spectre.ru|Spectre]]\\\\ [[gnucap:manual:languages:Spice.ru|SPICE]]\\\\ "
+"[[gnucap:manual:languages:ACS.ru|ACS]]"
 
 #. type: Title ======
 #: manual/languages/spectre.txt:1
@@ -11472,8 +11472,8 @@ msgid ""
 "This take a source file \"infile.cc\", and generates a plugin file \"outfile."
 "so\"."
 msgstr ""
-"Здесь берётся исходный файл \"infile.cc\" и генерируется файл плагина "
-"\"outfile.so\"."
+"Здесь берётся исходный файл ''infile.cc'' и генерируется файл плагина "
+"''outfile.so''."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:112
