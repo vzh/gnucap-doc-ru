@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-06 16:48+0400\n"
+"PO-Revision-Date: 2013-08-08 16:30+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -11019,7 +11019,7 @@ msgstr "Плагины устройств"
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:3
 #, no-wrap
 msgid "Framework"
-msgstr ""
+msgstr "Инфраструктура"
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:6
@@ -11093,7 +11093,7 @@ msgstr ""
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:24
 #, no-wrap
 msgid "Implementation"
-msgstr ""
+msgstr "Реализация "
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:26
@@ -11566,6 +11566,8 @@ msgstr ""
 msgid ""
 "Declare one static object of this new type, and INSTALL it in the DISPATCHER."
 msgstr ""
+"Объявите один статический объект данного нового типа и установите (с помощью "
+"INSTALL) его в диспетчере (DISPATCHER)."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:27
@@ -12998,7 +13000,7 @@ msgstr ""
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:1
 #, no-wrap
 msgid "Parameter function and measurement plugins"
-msgstr ""
+msgstr "Плагины функции «parameter» и измерений"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:6
@@ -13006,6 +13008,9 @@ msgid ""
 "The \"measure\" command and \"parameter\" commands work differently because "
 "of parsing problems.  This is will be fixed someday."
 msgstr ""
+"Команды [[gnucap:manual:commands:measure.ru|measure]] и [[gnucap:manual:"
+"commands:parameter.ru|parameter]] работают по-разному из-за проблем "
+"синтаксического анализа. Когда-нибудь это будет исправлено."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:8
@@ -13015,6 +13020,12 @@ msgid ""
 "command, but the \"parameter\" command defers evaluation to when the "
 "parameter is actually used."
 msgstr ""
+"Одно важное различие состоит в том, что команда [[gnucap:manual:commands:"
+"measure.ru|measure]] производит полную оценку вызова функции и любых "
+"относящихся к нему выражений в момент появления этой команды, в то время как "
+"команда [[gnucap:manual:commands:parameter.ru|parameter]] откладывает "
+"вычисления до того момента, когда параметр будет использоваться на самом "
+"деле."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:12
@@ -13023,6 +13034,12 @@ msgid ""
 "its result to a parameter.  It also prints the result.  The parameter may be "
 "used in parameter expressions and as an argument to another measure command."
 msgstr ""
+"Команда измерения [[gnucap:manual:commands:measure.ru|measure]] вызывает "
+"одиночную функцию для вычисления значения выражения и присваивает её "
+"результат параметру, а также выводит результат на экран. Указанный параметр "
+"может использоваться в [[gnucap:manual:howto:expressions.ru|выражениях с "
+"параметрами]] и как аргумент для другой команды [[gnucap:manual:commands:"
+"measure.ru|measure]]."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:14
@@ -13032,6 +13049,11 @@ msgid ""
 "\", using the subscript operator. The dispatcher returns a pointer to a "
 "static object, or a NULL pointer if there is no match."
 msgstr ""
+"Эта команда принимает форму выражения присваивания. Целевое имя сохраняется "
+"для будущего использования. Имя функции ищется с помощью операции "
+"индексирования в диспетчере функций (\"function_dispatcher\"). Диспетчер "
+"возвращает указатель на статический объект или NULL, если соответствия не "
+"найдено."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:16
@@ -13044,12 +13066,21 @@ msgid ""
 "string// containing the result, which is a string representation of the "
 "numeric value."
 msgstr ""
+"Затем для этого объекта вызывается метод «eval», передающий сначала строку "
+"команды с индексом, перенесённым на список аргументов, и текущим "
+"«контекстом» («scope»), поэтому значения выражений параметров могут быть "
+"правильно вычислены. Если метод «eval» возвращает значение, считается, что "
+"он правильно выполнил запрошенное действие. Если что-то пойдёт не так, он "
+"может выдать сигнал исключения. «eval» возвращает результат, представляющий "
+"числовое значение в строковом виде (//string//)."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:20
 msgid ""
 "The \"parameter\" command simply reads and stores the arguments as a string."
 msgstr ""
+"Команда [[gnucap:manual:commands:parameter.ru|parameter]] просто читает и "
+"сохраняет аргументы в виде строки."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:22
@@ -13058,6 +13089,10 @@ msgid ""
 "reduced version of the expression, also as a string.  Portions that cannot "
 "be evaluated are preserved as expressions."
 msgstr ""
+"Позже, когда указанный параметр используется, производится вычисление "
+"значения этой строки, что в итоге даёт уменьшенную версию выражения, также в "
+"строковом представлении. Части, которые невозможно вычислить, сохраняются в "
+"виде выражений."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:24
@@ -13065,6 +13100,9 @@ msgid ""
 "As with the \"measure\", the entire argument list is passed as a \"CS\".  "
 "The scope will be the scope in which the parameter is used (dynamic scoping)."
 msgstr ""
+"Как и для [[gnucap:manual:commands:measure.ru|measure]], весь список "
+"аргументов передаётся как объект «[[commands.ru|CS]]». Контекст будет тот, в "
+"котором этот параметр используется (динамический контекст)."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:27
@@ -13072,6 +13110,8 @@ msgid ""
 "Usually, plugins need to include two files: \"u_parameter.h\" and "
 "\"u_function.h\"."
 msgstr ""
+"Обычно, плагины должны подключать два файла: \"u_parameter.h\" и "
+"\"u_function.h\"."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:29
@@ -13079,6 +13119,8 @@ msgid ""
 "Only one method is needed for each command: \"''eval(CS& Cmd, CARD_LIST* "
 "Scope)''\"."
 msgstr ""
+"Только один метод нужен для каждой команды: «''eval(CS& Cmd, CARD_LIST* "
+"Scope)''»."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:33
@@ -13086,12 +13128,15 @@ msgid ""
 "Parameter functions use the \"function_dispatcher\".  Measure functions use "
 "the \"measure_dispatcher\"."
 msgstr ""
+"Функции команды [[gnucap:manual:commands:parameter.ru|parameter]] используют "
+"«function_dispatcher».  Функции [[gnucap:manual:commands:measure.ru|"
+"измерений]] используют «measure_dispatcher»."
 
 #. type: Title ====
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:34
 #, no-wrap
 msgid "Parameter functions"
-msgstr ""
+msgstr "Функции команды «parameter»"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:37
@@ -13099,11 +13144,13 @@ msgid ""
 "The argument list is usually a list of expressions separated by commas, "
 "similar to many programming languages."
 msgstr ""
+"Список аргументов это обычно список выражений, разделённых запятыми, как во "
+"многих языках программирования."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:39
 msgid "A simple function with one argument:"
-msgstr ""
+msgstr "Простая функция с одним аргументом:"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:42
@@ -13113,6 +13160,9 @@ msgid ""
 "#include \"u_parameter.h\"\n"
 "#include \"u_function.h\"\n"
 msgstr ""
+"<code>\n"
+"#include \"u_parameter.h\"\n"
+"#include \"u_function.h\"\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:55
@@ -13131,11 +13181,23 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d_abs(&function_dispatcher, \"abs\", &p_abs);\n"
 "</code>\n"
 msgstr ""
+"class abs : public FUNCTION {\n"
+"public:\n"
+"  std::string eval(CS& Cmd, CARD_LIST* Scope)const\n"
+"  {\n"
+"    PARAMETER<double> x;\n"
+"    Cmd >> x;\n"
+"    x.e_val(NOT_INPUT, Scope);\n"
+"    return to_string(std::abs(x));\n"
+"  }\n"
+"} p_abs;\n"
+"DISPATCHER<FUNCTION>::INSTALL d_abs(&function_dispatcher, \"abs\", &p_abs);\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:57
 msgid "A function with two arguments:"
-msgstr ""
+msgstr "Функция с двумя аргументами:"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:71
@@ -13156,12 +13218,26 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d_pow(&function_dispatcher, \"pow\", &p_pow);\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"class pow : public FUNCTION {\n"
+"public:\n"
+"  std::string eval(CS& Cmd, CARD_LIST* Scope)const\n"
+"  {\n"
+"    PARAMETER<double> x, y;\n"
+"    Cmd >> x >> y;\n"
+"    x.e_val(NOT_INPUT, Scope);\n"
+"    y.e_val(NOT_INPUT, Scope);\n"
+"    return to_string(std::pow(x,y));\n"
+"  }\n"
+"} p_pow;\n"
+"DISPATCHER<FUNCTION>::INSTALL d_pow(&function_dispatcher, \"pow\", &p_pow);\n"
+"</code>\n"
 
 #. type: Title ====
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:71
 #, no-wrap
 msgid "Measurement functions"
-msgstr ""
+msgstr "Функции измерений"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:74
@@ -13169,11 +13245,14 @@ msgid ""
 "Measurement functions appear to be the same as parameter functions, but are "
 "not interchangeable."
 msgstr ""
+"Функции [[gnucap:manual:commands:measure.ru|измерений]] и функции команды "
+"[[gnucap:manual:commands:parameter.ru|parameter]] кажутся одинаковыми, но "
+"они не взаимозаменяемы."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:76
 msgid "Usually, the following additional includes are needed:"
-msgstr ""
+msgstr "Обычно необходимы следующие дополнительные «include»:"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:83
@@ -13186,6 +13265,12 @@ msgid ""
 "#include \"u_function.h\"   // the base class\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"#include \"u_parameter.h\"  // выражения с параметрами\n"
+"#include \"s__.h\"          // найти объект «сигнал»\n"
+"#include \"m_wave.h\"       // объект «сигнал» содержащий данные, которые требуется измерить\n"
+"#include \"u_function.h\"   // основной класс\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:85
@@ -13193,6 +13278,8 @@ msgid ""
 "Parameters are usually given as optional name=value pairs, with expressions, "
 "in any order."
 msgstr ""
+"Параметры обычно задаются в виде необязательных пар «имя=значение» с "
+"произвольным порядком выражений."
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:96
@@ -13209,6 +13296,16 @@ msgid ""
 "    bool last = false;\n"
 "    bool arg = false;\n"
 msgstr ""
+"<code>\n"
+"class MEASURE : public FUNCTION {\n"
+"public:\n"
+"  std::string eval(CS& Cmd, CARD_LIST* Scope)const\n"
+"  {\n"
+"    std::string probe_name;\n"
+"    PARAMETER<double> before(BIGBIG);\n"
+"    PARAMETER<double> after(-BIGBIG);\n"
+"    bool last = false;\n"
+"    bool arg = false;\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:105
@@ -13223,6 +13320,14 @@ msgid ""
 "    }else{\n"
 "    }\n"
 msgstr ""
+"    unsigned here = Cmd.cursor();\n"
+"    Cmd >> probe_name;\n"
+"    WAVE* w = SIM::find_wave(probe_name);  // это сигнал, который должен сканироваться для измерения,\n"
+"                                           // указанного первым, без задания \"probe=\"\n"
+"    if (!w) { // не нашёл его\n"
+"      Cmd.reset(here);\n"
+"    }else{\n"
+"    }\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:119
@@ -13242,6 +13347,19 @@ msgid ""
 "\t;\n"
 "    }while (Cmd.more() && !Cmd.stuck(&here));\n"
 msgstr ""
+"    here = Cmd.cursor();                   // сканирование параметров\n"
+"    do {\n"
+"      ONE_OF\n"
+"\t|| Get(Cmd, \"probe\",  &probe_name)\n"
+"\t|| Get(Cmd, \"before\", &before)\n"
+"\t|| Get(Cmd, \"after\",  &after)\n"
+"\t|| Get(Cmd, \"end\",    &before)\n"
+"\t|| Get(Cmd, \"begin\",  &after)\n"
+"\t|| Set(Cmd, \"arg\",    &arg, true)\n"
+"\t|| Set(Cmd, \"last\",   &last, true)\n"
+"\t|| Set(Cmd, \"first\",  &last, false)\n"
+"\t;\n"
+"    }while (Cmd.more() && !Cmd.stuck(&here));\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:124
@@ -13252,6 +13370,10 @@ msgid ""
 "    }else{\n"
 "    }\n"
 msgstr ""
+"    if (!w) {                               // \"probe=\" - сигнал для сканирования\n"
+"      w = SIM::find_wave(probe_name);\n"
+"    }else{\n"
+"    }\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:128
@@ -13261,6 +13383,9 @@ msgid ""
 "      before.e_val(BIGBIG, Scope);          // evaluate parameters\n"
 "      after.e_val(-BIGBIG, Scope);\n"
 msgstr ""
+"    if (w) {\n"
+"      before.e_val(BIGBIG, Scope);          // вычисление значений параметров\n"
+"      after.e_val(-BIGBIG, Scope);\n"
 
 #. type: Plain text
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:149
@@ -13288,6 +13413,27 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
 "</code>\n"
 msgstr ""
+"      // нахождение минимума.\n"
+"      double time = (last) ? -BIGBIG : BIGBIG;  // что возвратить, если минимума нет.\n"
+"      double m = BIGBIG;\n"
+"      WAVE::const_iterator begin = lower_bound(w->begin(), w->end(), DPAIR(after, -BIGBIG));\n"
+"      WAVE::const_iterator end   = upper_bound(w->begin(), w->end(), DPAIR(before, BIGBIG));\n"
+"      for (WAVE::const_iterator i = begin; i < end; ++i) {\n"
+"\tdouble val = i->second;\n"
+"\tif (val < m || (last && (val == m))) {\n"
+"\t  time = i->first;\n"
+"\t  m = val;\n"
+"\t}else{\n"
+"\t}\n"
+"      }\n"
+"      return to_string((arg) ? (time) : (m));\n"
+"    }else{\n"
+"      throw Exception_No_Match(probe_name);\n"
+"    }\n"
+"  }\n"
+"} p2;\n"
+"DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
+"</code>\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:parameter]] Set or view parameters.\n"
