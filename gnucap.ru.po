@@ -11610,7 +11610,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:7
 #, no-wrap
 msgid "void ac_iwant_matrix()"
-msgstr ""
+msgstr "void ac_iwant_matrix()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:9
@@ -11650,7 +11650,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:22
 #, no-wrap
 msgid "void ac_begin()"
-msgstr ""
+msgstr "void ac_begin()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:24
@@ -11664,7 +11664,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:25
 #, no-wrap
 msgid "void do_ac()"
-msgstr ""
+msgstr "void do_ac()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:27
@@ -11691,7 +11691,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:32
 #, no-wrap
 msgid "void ac_load()"
-msgstr ""
+msgstr "void ac_load()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:34
@@ -11783,7 +11783,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:17
 #, no-wrap
 msgid "void expand()"
-msgstr ""
+msgstr "void expand()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:19
@@ -11833,7 +11833,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:28
 #, no-wrap
 msgid "void expand_first()"
-msgstr ""
+msgstr "void expand_first()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:30
@@ -11850,7 +11850,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:31
 #, no-wrap
 msgid "void expand_last()"
-msgstr ""
+msgstr "void expand_last()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:33
@@ -11866,7 +11866,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:34
 #, no-wrap
 msgid "void precalc_first(), void precalc_last()"
-msgstr ""
+msgstr "void precalc_first(), void precalc_last()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:36
@@ -11913,7 +11913,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:47
 #, no-wrap
 msgid "void map_nodes()"
-msgstr ""
+msgstr "void map_nodes()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:48
@@ -11934,7 +11934,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:5
 #, no-wrap
 msgid "void tr_iwant_matrix()"
-msgstr ""
+msgstr "void tr_iwant_matrix()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:9
@@ -11969,7 +11969,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:21
 #, no-wrap
 msgid "void tr_begin()"
-msgstr ""
+msgstr "void tr_begin()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:23
@@ -11985,7 +11985,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:24
 #, no-wrap
 msgid "void tr_restore()"
-msgstr ""
+msgstr "void tr_restore()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:26
@@ -12000,7 +12000,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:27
 #, no-wrap
 msgid "void dc_advance()"
-msgstr ""
+msgstr "void dc_advance()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:29
@@ -12016,7 +12016,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:30
 #, no-wrap
 msgid "void tr_advance()"
-msgstr ""
+msgstr "void tr_advance()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:32
@@ -12040,7 +12040,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:35
 #, no-wrap
 msgid "void tr_regress()"
-msgstr ""
+msgstr "void tr_regress()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:37
@@ -12071,7 +12071,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:41
 #, no-wrap
 msgid "void tr_queue_eval()"
-msgstr ""
+msgstr "void tr_queue_eval()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:43
@@ -12168,7 +12168,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:61
 #, no-wrap
 msgid "void tr_load()"
-msgstr ""
+msgstr "void tr_load()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:63
@@ -12202,7 +12202,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:72
 #, no-wrap
 msgid "void tr_unload()"
-msgstr ""
+msgstr "void tr_unload()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:74
@@ -12267,7 +12267,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:86
 #, no-wrap
 msgid "void tr_accept()"
-msgstr ""
+msgstr "void tr_accept()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:89
@@ -12403,7 +12403,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:26
 #, no-wrap
 msgid "void set_param_by_name(std::string name, std::string value)"
-msgstr ""
+msgstr "void set_param_by_name(std::string name, std::string value)"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:28
@@ -12419,7 +12419,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:29
 #, no-wrap
 msgid "void set_param_by_index(int i, std::string&, int offset)"
-msgstr ""
+msgstr "void set_param_by_index(int i, std::string&, int offset)"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:31
@@ -12455,7 +12455,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:5
 #, no-wrap
 msgid "void set_port_by_name(std::string& name, std::string& value)"
-msgstr ""
+msgstr "void set_port_by_name(std::string& name, std::string& value)"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:7
@@ -12469,7 +12469,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:8
 #, no-wrap
 msgid "void set_port_by_index(int index, std::string& value)"
-msgstr ""
+msgstr "void set_port_by_index(int index, std::string& value)"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:10
@@ -12509,7 +12509,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:18
 #, no-wrap
 msgid "void set_current_port_by_index(int, const std::string&)"
-msgstr ""
+msgstr "void set_current_port_by_index(int, const std::string&)"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:20
