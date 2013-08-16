@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-16 15:42+0400\n"
+"PO-Revision-Date: 2013-08-16 16:57+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7150,7 +7150,7 @@ msgstr ""
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Nonlinear devices -- diodes]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Nonlinear devices -- diodes.ru|Нелинейные устройства -- диоды]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -8443,7 +8443,7 @@ msgstr ""
 #: manual/examples/nonlinear_devices_--_diodes.txt:1
 #, no-wrap
 msgid "Nonlinear Devices -- Diodes"
-msgstr ""
+msgstr "Нелинейные устройства -- диоды"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:11
@@ -8457,6 +8457,14 @@ msgid ""
 "because all the node voltages will merely be double those of the first "
 "solution. Try it yourself if you disbelieve."
 msgstr ""
+"Все предыдущие схемы были линейными. То есть, иными словами, все устройства "
+"(источники напряжения, источники тока, зависимые источники и резисторы) "
+"являются линейными устройствами, и при пропорциональном изменении значений в "
+"системе в большую или меньшую сторону «общий вид» проблемы не меняется. "
+"Если, например, схема решена однажды, то после удвоения напряжений всех "
+"источников напряжения в схеме ещё одного решения не потребуется, потому что "
+"напряжения всех узлов просто удвоятся по сравнению с теми, что были найдены "
+"при решении в первый раз. Попробуйте это сами, если не верите."
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:18
@@ -8468,6 +8476,12 @@ msgid ""
 "in linear circuits and you can try working through the textbook examples on "
 "the simulator using what has been explained so far."
 msgstr ""
+"Линейные схемы также подчиняются принципу «суперпозиции», то есть схему "
+"можно решить для каждого источника в отдельности, а затем все эти решения "
+"сложить, чтобы получить решение для схемы, содержащей много источников. "
+"Учебник по теоретическим основам электротехники объяснит суперпозицию в "
+"линейных схемах и вы можете попробовать проработать примеры учебника в "
+"программе моделирования, используя то, что объяснялось до сих пор."
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:22
@@ -8476,11 +8490,14 @@ msgid ""
 "superposition and do NOT scale. The most elementary nonlinear component is a "
 "diode."
 msgstr ""
+"В этой точке мы делаем шаг в мир нелинейных цепей, НЕ подчиняющихся принципу "
+"суперпозиции и НЕ имеющих возможность пропорционального масштабирования. "
+"Самым элементарным нелинейным компонентом является диод."
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:24
 msgid "eg6.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:27
@@ -8489,11 +8506,13 @@ msgid ""
 "<code>\n"
 "DIODE CASCADE\n"
 msgstr ""
+"<file spice eg6.ckt>\n"
+"ДИОДНЫЙ КАСКАД\n"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:29
 msgid ".model 1N414 D IS=2e-14"
-msgstr ""
+msgstr ".model 1N414 D IS=2e-14"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:37
@@ -8507,16 +8526,27 @@ msgid ""
 "Rd2 20   0   1k\n"
 "Rd3 30   0   1k\n"
 msgstr ""
+"Vcc  1   0   5\n"
+"Dx   1  10   1N414\n"
+"Dy  10  20   1N414\n"
+"Dz  20  30   1N414\n"
+"Rd1 10   0   1k\n"
+"Rd2 20   0   1k\n"
+"Rd3 30   0   1k\n"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:42
 msgid ".print dc v(10) v(20) v(30)  .dc Vcc 0 5 0.5 >eg6.dat .end </code>"
 msgstr ""
+".print dc v(10) v(20) v(30)\n"
+".dc Vcc 0 5 0.5 >eg6.dat\n"
+".end </file>"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:45
 msgid "You can run this example and look at the results like so:"
 msgstr ""
+"Вы можете запустить данный пример и посмотреть результаты примерно так:"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:51
@@ -8528,6 +8558,11 @@ msgid ""
 "\tplot 'eg6.dat' using 1:2, 'eg6.dat' using 1:3, 'eg6.dat' using 1:4\n"
 "\texit\n"
 msgstr ""
+"\tgnucap -b eg6.ckt\n"
+"\tgnuplot\n"
+"\tset style data lines\n"
+"\tplot 'eg6.dat' using 1:2, 'eg6.dat' using 1:3, 'eg6.dat' using 1:4\n"
+"\texit\n"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:61
@@ -8542,6 +8577,18 @@ msgid ""
 "option provided also guarantees you get a nice, portable data file in "
 "standard exponential notation."
 msgstr ""
+"Может быть вам не нравится gnuplot и вы предпочитаете другую программу "
+"вывода графиков, такую как, например, gwave или gle. Вывод gnucap может "
+"использоваться большинством программ черчения графиков тем же способом, что "
+"указан выше, то есть путём использования стрелки перенаправления в строке "
+"запускающей моделирование команды (в данном случае [[gnucap:manual:commands:"
+"dc.ru|dc]]).  Обратите внимание, что обычно перенаправление нормального "
+"вывода в файл с помощью командной оболочки, а затем вырезка и вставка "
+"полученных данных в программу вывода графиков работать не будут, потому что "
+"при обычном выводе стандартная научная нотация не используется, "
+"использование же данной специально предусмотренной внутренней опции "
+"перенаправления гарантирует также, что вы получите аккуратный файл с "
+"машинонезависимыми данными в стандартной экспоненциальной нотации."
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:69
@@ -8555,6 +8602,15 @@ msgid ""
 "choose to assign to your diodes. (By the way, I have no idea what the true "
 "measured parameters are for a real 1N414)."
 msgstr ""
+"Если вышеуказанные команды сработали, вы должны были получить возможность "
+"увидеть напряжения узлов в функции питающего напряжения и посмотреть, как "
+"диоды один за другим переходят в зону своей проводимости. И увидеть "
+"традиционное падение 0.7 вольт на каждом диоде. Однако, различные диоды "
+"ведут себя по-разному, поэтому программе gnucap нужно знать, какого типа "
+"диоды используются у вас. Это то, что делает для вас команда «''.model''», "
+"--- она привязывает параметры модели диода к тому имени, которым вы решили "
+"свои диоды обозвать. (Я, кстати, не имею представления, какие фактические "
+"измеренные параметры должны быть у настоящего 1N414)."
 
 #. type: Title ======
 #: manual/examples/phase_shift_oscillator.txt:1
