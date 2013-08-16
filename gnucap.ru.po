@@ -4449,10 +4449,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/compatibility/subcircuit_with_parameters.txt:2
-#, fuzzy, no-wrap
-#| msgid "Set and view parameters."
+#, no-wrap
 msgid "Subcircuit with parameters"
-msgstr "Установка и просмотр параметров."
+msgstr ""
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:5
@@ -5139,10 +5138,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/basic/exp.txt:1
-#, fuzzy, no-wrap
-#| msgid "For other components, it gives a time dependent value."
+#, no-wrap
 msgid "\"exp\" Exponential time dependent value"
-msgstr "Для прочих компонентов она задаёт значение, зависимое от времени."
+msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:7
@@ -5487,10 +5485,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/devices/basic/inline_behavioral_modeling.txt:1
-#, fuzzy, no-wrap
-#| msgid "  eval expression\n"
+#, no-wrap
 msgid "Device behavioral expressions"
-msgstr "  eval выражение\n"
+msgstr ""
 
 #. type: Title ====
 #: manual/devices/basic/inline_behavioral_modeling.txt:2
@@ -5549,17 +5546,13 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:26
-#, fuzzy, no-wrap
+#, no-wrap
 msgid ""
 "|voltage controlled resistor    |R = k v<sub>c</sub>                 |R = f(v<sub>c</sub>)   |\n"
 "|voltage controlled capacitor   |C = k v<sub>c</sub>                 |C = f(v<sub>c</sub>)   |\n"
 "|voltage controlled admittance  |Y = k v<sub>c</sub>                 |Y = f(v<sub>c</sub>)   |\n"
 "|trans-capacitor                |q<sub>out</sub> = k v<sub>in</sub>  |q = f(v<sub>in</sub>)  |\n"
 msgstr ""
-"|voltage controlled resistor    |R = k v<sub>c</sub>                 |R = f(v<sub>c</sub>)   |\n"
-"|voltage controlled capacitor   |C = k v<sub>c</sub>                 |C = f(v<sub>c</sub>)   |\n"
-"|voltage controlled admittance  |Y = k v<sub>c</sub>                 |Y = f(v<sub>c</sub>)   |\n"
-"| проходная ёмкость             | Q<sub>вых</sub> = k U<sub>вх</sub> |Q = f(U<sub>вх</sub>)  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:28
@@ -7000,8 +6993,7 @@ msgstr ""
 
 #. type: Title =====
 #: manual/devices/switches.txt:29
-#, fuzzy, no-wrap
-#| msgid "===== Comments ======"
+#, no-wrap
 msgid "Comments ======"
 msgstr "Описание"
 
@@ -7059,10 +7051,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/devices/switches.txt:52
-#, fuzzy, no-wrap
-#| msgid "Set and view parameters."
+#, no-wrap
 msgid "Model Parameters"
-msgstr "Установка и просмотр параметров."
+msgstr ""
 
 #. type: Plain text
 #: manual/devices/switches.txt:61
@@ -7205,12 +7196,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:17
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "[[http://www.johannes-bauer.com/electronics/]] [[http://www.johannes-bauer.com/electronics/|gEDA and Gnucap, getting started, by Johannes Bauer]]\n"
-msgstr ""
-"  * [[http://www.johannes-bauer.com/electronics/]] [[http://www.johannes-bauer.com/electronics/|gEDA and Gnucap, getting started, by Johannes Bauer]]\n"
-"  * [[http://geekwentfreak.wordpress.com/2009/12/11/spice-gschem-gnetlist-gnucap-gwave-gspiceui-linux/]]\n"
-"FIXME: добавить ссылку на свой перевод\n"
+msgstr "[[http://www.johannes-bauer.com/electronics/]] [[http://www.johannes-bauer.com/electronics/|gEDA and Gnucap, getting started, by Johannes Bauer]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:17
@@ -8398,31 +8386,14 @@ msgstr ""
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:52
-#, fuzzy
-#| msgid ""
-#| ".options vmin=-1e5 vmax=1e5\n"
-#| ".print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1.E3)\n"
-#| ".!rm eg7_1.dat eg7_2.dat eg7_3.dat\n"
-#| ".dc v1 0 1 0.01 > eg7_1.dat\n"
-#| ".modify V2=100\n"
-#| ".dc v1 0 1 0.01 > eg7_2.dat\n"
-#| ".dc v1 0 1000 1 > eg7_3.dat\n"
-#| ".end\n"
-#| "</code>\n"
 msgid ""
 ".options vmin=-1e5 vmax=1e5 .print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1."
 "E3)  .!rm eg7_1.dat eg7_2.dat eg7_3.dat .dc v1 0 1 0.01 > eg7_1.dat .modify "
 "V2=100 .dc v1 0 1 0.01 > eg7_2.dat .dc v1 0 1000 1 > eg7_3.dat .end </code>"
 msgstr ""
-".options vmin=-1e5 vmax=1e5\n"
-".print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1.E3)\n"
-".!rm eg7_1.dat eg7_2.dat eg7_3.dat\n"
-".dc v1 0 1 0.01 > eg7_1.dat\n"
-".modify V2=100\n"
-".dc v1 0 1 0.01 > eg7_2.dat\n"
-".dc v1 0 1000 1 > eg7_3.dat\n"
-".end\n"
-"</code>\n"
+".options vmin=-1e5 vmax=1e5 .print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1."
+"E3)  .!rm eg7_1.dat eg7_2.dat eg7_3.dat .dc v1 0 1 0.01 > eg7_1.dat .modify "
+"V2=100 .dc v1 0 1 0.01 > eg7_2.dat .dc v1 0 1000 1 > eg7_3.dat .end </code>"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:60
@@ -10294,10 +10265,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69
-#, fuzzy, no-wrap
-#| msgid "Now you need a model statement ..."
+#, no-wrap
 msgid "**model** : Keyword identifies a model statement.\n"
-msgstr "Теперь нужен оператор для модели ..."
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69 manual/languages/verilog.txt:75
@@ -10455,10 +10425,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:127
-#, fuzzy, no-wrap
-#| msgid "Builds a new circuit, with Spice syntax."
+#, no-wrap
 msgid "There is an interactive mode, with spectre syntax.\n"
-msgstr "Построение новой схемы, используя синтаксис SPICE."
+msgstr ""
 
 #. type: Title ======
 #: manual/languages/verilog.txt:1
@@ -11693,10 +11662,9 @@ msgstr ""
 
 #. type: Title ======
 #: manual/tech/plugins/commands.txt:1
-#, fuzzy, no-wrap
-#| msgid "Load and unload plugins."
+#, no-wrap
 msgid "Command plugins"
-msgstr "Загрузка и выгрузка плагинов."
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:6
