@@ -348,7 +348,7 @@ msgstr "[[gnucap:manual:commands:options.ru|options]] Просмотр и уст
 #: manual/commands.txt:65
 #, no-wrap
 msgid "[[gnucap:manual:commands:temp]] Set or view temperature.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:temp.ru|temp]] Установка или просмотр температуры.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:65
@@ -4113,7 +4113,8 @@ msgstr "Команда «temperature»"
 #: manual/commands/temp.txt:6
 msgid "Views and sets the temperature, with SPICE compatible syntax."
 msgstr ""
-"Просмотр и установка температуры, используя SPICE-совместимый синтаксис."
+"Просмотр и установка температуры с использованием SPICE-совместимого "
+"синтаксиса."
 
 #. type: Plain text
 #: manual/commands/temp.txt:11
@@ -4122,8 +4123,8 @@ msgid ""
 "  temperature\n"
 "  temperature value\n"
 msgstr ""
-"  temperature\n"
-"  temperature значение\n"
+"|''**temperature**             ''|\n"
+"|''**temperature** //значение//''|\n"
 
 #. type: Plain text
 #: manual/commands/temp.txt:15
@@ -4134,8 +4135,8 @@ msgstr "При задании без указания значения кома�
 #: manual/commands/temp.txt:17
 msgid "With a value, it is equivalent to “.option temperature=value”."
 msgstr ""
-"При задании значения это эквивалентно заданию «''.option "
-"temperature=value''»."
+"Указание значения эквивалентно заданию «''.option temperature=//"
+"значение//''»."
 
 #. type: Plain text
 #: manual/commands/temp.txt:18
@@ -13566,10 +13567,8 @@ msgstr ""
 "</code>\n"
 
 #~ msgid ""
-#~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
 #~ "  * [[gnucap:manual:commands:width]] Set output width.\n"
 #~ msgstr ""
-#~ "  * [[gnucap:manual:commands:temp.ru|temp]] Установка или просмотр температуры.\n"
 #~ "  * [[gnucap:manual:commands:width.ru|width]] Установка ширины вывода.\n"
 
 #~ msgid ""
