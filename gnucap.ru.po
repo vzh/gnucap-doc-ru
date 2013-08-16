@@ -360,7 +360,7 @@ msgstr "[[gnucap:manual:commands:width.ru|width]] Установка ширин�
 #: manual/commands.txt:69
 #, no-wrap
 msgid "[[gnucap:manual:commands:sweep]] Sweep a component. (Loop function.) (deprecated)\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:sweep.ru|sweep]] Изменение значения компонента. (Функция цикла.) (Использовать не рекомендуется.)\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:69
@@ -3965,18 +3965,20 @@ msgid ""
 "Sweep a component (or group of components) over a range. Set up a loop for "
 "iteration."
 msgstr ""
+"Изменение значения компонента (или значений группы компонентов) в некотором "
+"диапазоне. Настройка цикла для итерации."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:10
 #, no-wrap
 msgid "  sweep {stepcount} partlabel=range ...\n"
-msgstr "  sweep {количество_шагов} обозначение_компонента=диапазон ...\n"
+msgstr "|''**sweep** {//количество_шагов//} //обозначение_компонента//=//диапазон ...//''|\n"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:14
 msgid ""
 "This command is considered obsolete, but the replacement is not working yet."
-msgstr ""
+msgstr "Данная команда считается устаревшей, но её замена пока не работает."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:16
@@ -3984,6 +3986,8 @@ msgid ""
 "This command begins a loop which will sweep a component or group of "
 "components."
 msgstr ""
+"Данной командой запускается цикл, в котором будут меняться значения одного "
+"или нескольких компонентов."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:18
@@ -3991,6 +3995,9 @@ msgid ""
 "When this command is given, the only apparent actions will be a change in "
 "the prompt from `gnucap>' to `>>>', and some disk action."
 msgstr ""
+"При задании этой команды её единственными очевидными проявлениями будут "
+"изменение приглашения с ''gnucap>'' на ''%%>>>%%'' и некоторое действие "
+"диска."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:20
@@ -3998,6 +4005,8 @@ msgid ""
 "The different prompt means that commands are not executed immediately, but "
 "are stored in a temporary file."
 msgstr ""
+"Другой вид приглашения означает, что в этом режиме команды не исполняются "
+"сразу, но сохраняются во временный файл."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:22
@@ -4005,6 +4014,9 @@ msgid ""
 "The bare command will repeat the same command sequence as the last time "
 "sweep was run, and not prompt for anything else."
 msgstr ""
+"При указании команды без параметров будет повторяться та же самая "
+"последовательность команд, что выполнялась при последнем запуске **sweep**, "
+"и не будет выводиться никакого приглашения ни для чего больше."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:24
@@ -4013,6 +4025,10 @@ msgid ""
 "command at the `>>>' prompt. The `fault' behaves differently here: It "
 "accepts a range, which is the sweep limits."
 msgstr ""
+"В то же самое время при вводе команды [[fault.ru|fault]] после приглашения "
+"''%%>>>%%'' могут изменяться значения дополнительных компонентов. [[fault.ru|"
+"fault]] ведёт себя здесь по-другому: в качестве параметров команда принимает "
+"диапазон, который представляет собой пределы изменения значений."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:26
@@ -4021,6 +4037,10 @@ msgid ""
 "this, the values are restored. (Also, all faults are restored, as if by the "
 "`restore' command.)"
 msgstr ""
+"Команда **go** завершит ввод записей, и заставит всё это заработать. После "
+"этого значения восстанавливаются. (Кроме того, все ошибочные значения, "
+"организованные с помощью [[fault.ru|fault]], восстанавливаются, как после "
+"команды [[fault.ru|restore]].)"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:28
@@ -4028,6 +4048,9 @@ msgid ""
 "All commands can be used in this mode. Of course, some of them are not "
 "really useful (quit) because they work as usual."
 msgstr ""
+"В этом режиме можно пользоваться всеми командами. Разумеется, некоторые из "
+"них (например, [[exit.ru|quit]]) на самом деле не очень здесь полезны, "
+"потому что работают как обычно."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:30
@@ -4037,6 +4060,13 @@ msgid ""
 "attempt to sweep a nonlinear or otherwise strange part, it becomes ordinary "
 "and linear during the sweep."
 msgstr ""
+"Значения могут меняться только для линейных, обычных приборов (никаких "
+"[[gnucap:manual:devices:semi.ru|полупроводниковых устройств]] или элементов, "
+"использующих [[gnucap:manual:devices:basic:inline_behavioral_modeling.ru|"
+"поведенческое моделирование]].) [[options.ru|Допуски]] останутся "
+"неизменными. Если попытаться работать в диапазоне изменения значений "
+"нелинейных или других необычных приборов, они при этом станут обычными и "
+"линейными."
 
 #. type: Plain text
 #: manual/commands/sweep.txt:38
@@ -4048,6 +4078,11 @@ msgid ""
 "  >>>go\n"
 "This sequence of commands says to simultaneously sweep R14 and R15 in 5 steps, in opposite directions, list the circuit and do an AC analysis for each step.\n"
 msgstr ""
+"  gnucap> sweep  5   R14=1,100k   R15=100k,1\n"
+"  >>>list\n"
+"  >>>ac 500 2k oct\n"
+"  >>>go\n"
+"Эта последовательность команд говорит одновременно менять R14 и R15 за 5 шагов в противоположных направлениях, для каждого шага вывести схему и сделать анализ [[ac.ru|ac]].\n"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:58
@@ -4073,6 +4108,25 @@ msgid ""
 "  R15  2   0   1\n"
 "an AC analysis\n"
 msgstr ""
+"Предположим, в схеме было:\n"
+"  R14  1   0   50k\n"
+"  R15  2   0   50k\n"
+"Результатом ввода этого набора команд стало бы следующее:\n"
+"  R14  1   0   1\n"
+"  R15  2   0   100k\n"
+"анализ [[ac.ru|ac]] ...\n"
+"  R14  1   0   25.75k\n"
+"  R15  2   0   75.25k\n"
+"анализ [[ac.ru|ac]] ...\n"
+"  R14  1   0   50.5k\n"
+"  R15  2   0   50.5k\n"
+"анализ [[ac.ru|ac]] ...\n"
+"  R14  1   0   75.25k\n"
+"  R15  2   0   25.75k\n"
+"анализ [[ac.ru|ac]] ...\n"
+"  R14  1   0   100k\n"
+"  R15  2   0   1\n"
+"анализ [[ac.ru|ac]] ...\n"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:62
@@ -4082,6 +4136,9 @@ msgid ""
 "  R14  1   0   50k\n"
 "  R15  2   0   50k\n"
 msgstr ""
+"После того, как всё это было сделано, схема восстанавливается, поэтому команда [[list.ru|list]] показала бы:\n"
+"  R14  1   0   50k\n"
+"  R15  2   0   50k\n"
 
 #. type: Plain text
 #: manual/commands/sweep.txt:69
@@ -4095,7 +4152,7 @@ msgid ""
 "  >>>ac 500 2k oct\n"
 "  >>>go\n"
 msgstr ""
-"Того же самого вы могли бы достичь вводом команд fault после приглашения ''>>>''.\n"
+"Того же самого можно было бы добиться, введя после приглашения ''%%>>>%%'' две команды [[fault.ru|fault]]:\n"
 "  gnucap>sweep  5\n"
 "  >>>fault  R14=1, 100k\n"
 "  >>>fault  R15=100k, 1\n"
@@ -13569,11 +13626,6 @@ msgstr ""
 "} p2;\n"
 "DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
 "</code>\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:sweep]] Sweep a component. (Loop function.) (deprecated)\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:sweep.ru|sweep]] Смена компонента. (Функция цикла.) (Использовать не рекомендуется.)\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:pause]] Wait for key hit in batch mode.\n"
