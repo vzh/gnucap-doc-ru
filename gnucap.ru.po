@@ -354,7 +354,7 @@ msgstr "[[gnucap:manual:commands:temp.ru|temp]] Установка или про
 #: manual/commands.txt:65
 #, no-wrap
 msgid "[[gnucap:manual:commands:width]] Set output width.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:width.ru|width]] Установка ширины вывода.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:69
@@ -4341,13 +4341,13 @@ msgstr "Команда «width»"
 #. type: Plain text
 #: manual/commands/width.txt:6
 msgid "Set input and output width."
-msgstr ""
+msgstr "Установка ширины ввода и вывода."
 
 #. type: Plain text
 #: manual/commands/width.txt:10
 #, no-wrap
 msgid "  width {IN=value} {OUT=value}\n"
-msgstr ""
+msgstr "|''**width** {IN=//значение//} {OUT=//значение//}''|\n"
 
 #. type: Plain text
 #: manual/commands/width.txt:13
@@ -4356,6 +4356,10 @@ msgid ""
 "SPICE compatibility. SPICE uses width to set two parameters: in and out, "
 "which we set with the options command."
 msgstr ""
+"Команда **width** служит для того же, что и команда [[options.ru|options]]. "
+"Она предоставляется для совместимости со SPICE. В SPICE команда **width** "
+"используется для установки двух параметров: ''in'' и ''out'', которые здесь "
+"устанавливаются командой [[options.ru|options]]."
 
 #. type: Title ======
 #: manual/compatibility.txt:1
@@ -13565,11 +13569,6 @@ msgstr ""
 "} p2;\n"
 "DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
 "</code>\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:width]] Set output width.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:width.ru|width]] Установка ширины вывода.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:sweep]] Sweep a component. (Loop function.) (deprecated)\n"
