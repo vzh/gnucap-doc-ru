@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-16 14:40+0400\n"
+"PO-Revision-Date: 2013-08-16 15:42+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7120,13 +7120,13 @@ msgstr ""
 #: manual/examples.txt:1
 #, no-wrap
 msgid "Examples, tutorial"
-msgstr ""
+msgstr "Примеры, руководства"
 
 #. type: Title =====
 #: manual/examples.txt:2
 #, no-wrap
 msgid "Hosted here"
-msgstr ""
+msgstr "На этом сайте"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -7192,7 +7192,7 @@ msgstr ""
 #: manual/examples.txt:14
 #, no-wrap
 msgid "Hosted elsewhere"
-msgstr ""
+msgstr "Где-то ещё"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:17
