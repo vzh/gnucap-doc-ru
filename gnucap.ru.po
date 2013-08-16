@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-16 11:23+0400\n"
+"PO-Revision-Date: 2013-08-16 14:40+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -306,7 +306,7 @@ msgstr "[[gnucap:manual:commands:get.ru|get]] Считывание описан�
 #: manual/commands.txt:56
 #, no-wrap
 msgid "[[gnucap:manual:commands:save]] Save the circuit in a file.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:save.ru|save]] Сохранение описания схемы в файл.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:56
@@ -1520,7 +1520,7 @@ msgstr ""
 #. type: Plain text
 #: manual/commands/exit.txt:15
 msgid "Be sure you have saved everything you want to!"
-msgstr "Не забудьте сохранить всё, что надо!"
+msgstr "Не забудьте [[save.ru|сохранить]] всё, что надо!"
 
 #. type: Title ======
 #: manual/commands/fault.txt:1
@@ -3765,19 +3765,21 @@ msgstr "Команда «save»"
 #. type: Plain text
 #: manual/commands/save.txt:6
 msgid "Saves the circuit to a file."
-msgstr ""
+msgstr "Сохранение схемы в файл."
 
 #. type: Plain text
 #: manual/commands/save.txt:10
 #, no-wrap
 msgid "  save filename {options ...}\n"
-msgstr ""
+msgstr "|''**save** //имя_файла// {//опции ...//}''|\n"
 
 #. type: Plain text
 #: manual/commands/save.txt:14
 msgid ""
 "The file is in an ASCII format, so the list may be used as part of a report."
 msgstr ""
+"Файл выводится в формате ASCII, поэтому этот список может использоваться как "
+"часть отчёта."
 
 #. type: Plain text
 #: manual/commands/save.txt:16
@@ -3786,12 +3788,19 @@ msgid ""
 "to provide any format.  \"Spice\", \"Spectre\" and \"Verilog\" formats are "
 "supported in the standard installation."
 msgstr ""
+"Формат списка соединений зависит от [[options.ru|опции]] ''language'', "
+"вместе с которой можно было бы использовать плагины для реализации вывода в "
+"любом формате. Форматы «[[gnucap:manual:languages:spice.ru|spice]]», "
+"«[[gnucap:manual:languages:spectre.ru|spectre]]» и «[[gnucap:manual:"
+"languages:verilog.ru|verilog]]» поддерживаются в стандартной установке."
 
 #. type: Plain text
 #: manual/commands/save.txt:18
 msgid ""
 "You can save a part of a circuit. See the list command for more details."
 msgstr ""
+"Имеется возможность сохранения части схемы. Подробности см. в [[list.ru|"
+"описании команды list]]."
 
 #. type: Plain text
 #: manual/commands/save.txt:28
@@ -3806,6 +3815,14 @@ msgid ""
 "  save /client/sim/ckt/no33\n"
 "You can specify a path name.\n"
 msgstr ""
+"  save works.ckt\n"
+"Сохранить схему в файл ''works.ckt'' в текущем каталоге.\n"
+"  save\n"
+"Сохранить схему. Так как имя файла не указано, оно будет запрошено программой.\n"
+"  save partof.ckt R*\n"
+"Сохранить схему частично, а именно резисторы, в файл ''partof.ckt''. (См. [[List.ru|описание команды List]].)\n"
+"  save /client/sim/ckt/no33\n"
+"Можно указывать путь к файлу.\n"
 
 #. type: Title ======
 #: manual/commands/status.txt:1
@@ -13547,11 +13564,6 @@ msgstr ""
 "} p2;\n"
 "DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
 "</code>\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:save]] Save the circuit in a file.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:save.ru|save]] Сохранение описания схемы в файл.\n"
 
 #~ msgid ""
 #~ "  * [[gnucap:manual:commands:temp]] Set or view temperature.\n"
