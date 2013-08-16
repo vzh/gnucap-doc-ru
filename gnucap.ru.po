@@ -384,20 +384,19 @@ msgstr "[[gnucap:manual:commands:chdir.ru|chdir]] Смена текущего к
 #: manual/commands.txt:73
 #, no-wrap
 msgid "[[gnucap:manual:commands:pause]] Wait for key hit in batch mode.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:pause.ru|pause]] Ожидание нажатия клавиши при работе в пакетном режиме.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:73
 #, no-wrap
 msgid "[[gnucap:manual:commands:status]] Display resource usage, etc.\n"
-msgstr ""
+msgstr "[[gnucap:manual:commands:status.ru|status]] Вывод использования ресурсов и т. п.\n"
 
 #. type: Bullet: '  * '
 #: manual/commands.txt:73
-#, fuzzy, no-wrap
-#| msgid "View and create the heading line for printouts and files."
+#, no-wrap
 msgid "[[gnucap:manual:commands:title]] View and create the heading line for printouts and files.\n"
-msgstr "Просмотр и создание строки заголовка для вывода на печать и в файлы."
+msgstr "[[gnucap:manual:commands:title.ru|title]] Просмотр и создание строк заголовков для вывода на печать или в файл.\n"
 
 #. type: Title ======
 #: manual/commands/ac.txt:1
@@ -3443,7 +3442,7 @@ msgstr ""
 #: manual/commands/pause.txt:10
 #, no-wrap
 msgid "  pause comment\n"
-msgstr "  pause комментарий\n"
+msgstr "|''**pause** //комментарий//''|\n"
 
 #. type: Title ======
 #: manual/commands/pause.txt:11 manual/commands/plot.txt:14
@@ -3466,9 +3465,10 @@ msgid ""
 "Prints Continue? and waits for a key hit. Type `n', `N', escape or control-c "
 "to terminate the batch mode. Type anything else to continue."
 msgstr ""
-"Выводит Continue? и ожидает следующего нажатия клавиши. Для завершения "
-"работы в пакетном режиме следует нажать `n', `N', escape или control-c. "
-"Нажатие других клавиш ведёт к продолжению."
+"Выводит ''Continue?'' и ожидает следующего нажатия клавиши. Для выхода из "
+"пакетного режима следует нажать <key>n</key>, <key>S-N</key>, <key>escape</"
+"key> или <key>control-c</key>. Нажатие других клавиш ведёт к продолжению "
+"работы."
 
 #. type: Plain text
 #: manual/commands/pause.txt:20
@@ -3486,7 +3486,7 @@ msgstr ""
 "  pause Пробуем больший коэффициент усиления\n"
 "  pause\n"
 "Обе эти команды работают одинаково. Запрашивается продолжение,\n"
-"ожидается нажатия клавиши, затем работа продолжается.\n"
+"ожидается нажатие клавиши, затем работа продолжается.\n"
 
 #. type: Title ======
 #: manual/commands/plot.txt:1
@@ -3833,7 +3833,7 @@ msgstr "Команда «status»"
 #. type: Plain text
 #: manual/commands/status.txt:6
 msgid "Shows information on how the system resources are being utilized."
-msgstr ""
+msgstr "Отображение информации об использовании системных ресурсов."
 
 #. type: Plain text
 #: manual/commands/status.txt:11
@@ -3842,11 +3842,13 @@ msgid ""
 "  status\n"
 "  status notime\n"
 msgstr ""
+"|''**status**       ''|\n"
+"|''**status** notime''|\n"
 
 #. type: Plain text
 #: manual/commands/status.txt:14
 msgid "The notime option omits times but prints everything else."
-msgstr ""
+msgstr "При задании с опцией ''notime'' выводится всё, кроме времени."
 
 #. type: Title ======
 #: manual/commands/store.txt:1
@@ -4218,8 +4220,8 @@ msgid ""
 "  title\n"
 "  title a line of text\n"
 msgstr ""
-"  title\n"
-"  title текстовая строка\n"
+"|''**title**                     ''|\n"
+"|''**title** //текстовая строка//''|\n"
 
 #. type: Plain text
 #: manual/commands/title.txt:15
@@ -4228,6 +4230,9 @@ msgid ""
 "it in the future. This command sets up what it says. It also sets up a "
 "heading for printouts and graphs."
 msgstr ""
+"В начале каждого файла имеется строка заголовка для информации о файле на "
+"будущее. Данной командой задаётся содержимое этой строки. Кроме того, с её "
+"помощью настраивается заголовок для вывода данных и графиков."
 
 #. type: Plain text
 #: manual/commands/title.txt:17
@@ -4236,6 +4241,9 @@ msgid ""
 "title with the one in the file. The `title' command lets you change it, for "
 "the next time it is written out."
 msgstr ""
+"Когда для открытия файла новой схемы используется команда [[get.ru|get]], "
+"заголовок заменяется строкой заголовка из этого файла. Команда **title** "
+"позволяет изменить его для записи в следующий раз."
 
 #. type: Plain text
 #: manual/commands/title.txt:23
@@ -4247,11 +4255,10 @@ msgid ""
 "Displays the file heading. In this case, it prints `This is a test.'\n"
 msgstr ""
 "  title This is a test.\n"
-"Задаёт в качестве заголовка файла строку `This is a test.' В\n"
-"будущем во всех записываемых файлах первой будет идти строка `This\n"
-"is a test.'\n"
+"Задаёт в качестве заголовка файла строку «''This is a test.''». В\n"
+"будущем во всех записываемых файлах эта строка будет идти первой.\n"
 "  title\n"
-"Выводит заголовок файла. В данном случае печатает `This is a test.'\n"
+"Выводит заголовок файла. В данном случае печатает «''This is a test.''».\n"
 
 #. type: Title ======
 #: manual/commands/transient.txt:1
@@ -13626,12 +13633,3 @@ msgstr ""
 "} p2;\n"
 "DISPATCHER<FUNCTION>::INSTALL d2(&measure_dispatcher, \"min\", &p2);\n"
 "</code>\n"
-
-#~ msgid ""
-#~ "  * [[gnucap:manual:commands:pause]] Wait for key hit in batch mode.\n"
-#~ "  * [[gnucap:manual:commands:status]] Display resource usage, etc.\n"
-#~ "  * [[gnucap:manual:commands:title]] View and create the heading line for printouts and files.\n"
-#~ msgstr ""
-#~ "  * [[gnucap:manual:commands:pause.ru|pause]] Ожидания нажатия клавиши в пакетном режиме.\n"
-#~ "  * [[gnucap:manual:commands:status.ru|status]] Вывод использования ресурсов и т. п.\n"
-#~ "  * [[gnucap:manual:commands:title.ru|title]] Просмотр и создание строк заголовков для вывода на печать или в файл.\n"
