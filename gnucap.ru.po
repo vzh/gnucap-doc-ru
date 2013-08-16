@@ -7138,7 +7138,7 @@ msgstr "[[gnucap:manual:examples:Hello world.ru|Привет, мир]]\n"
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Resistors and sources]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Resistors and sources.ru|Резисторы и источники напряжения и тока]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -9079,11 +9079,15 @@ msgid ""
 "networks of resistors and sources. These are essentially linear circuits "
 "that have no relation to time. A more elaborate example is presented below:"
 msgstr ""
+"В предыдущем примере рассмотрено достаточно понятий, чтобы моделировать "
+"процессы в цепях произвольной сложности, состоящих из резисторов и "
+"источников напряжения и тока. Это, в сущности, цепи линейные, не имеющие "
+"временной зависимости. Более сложный пример приводится ниже:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:8
 msgid "eg2.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:21
@@ -9102,11 +9106,23 @@ msgid ""
 "R6 0 5 15k\n"
 "</code>\n"
 msgstr ""
+"<file spice eg2.ckt>\n"
+"ЦЕПЬ ИЗ РЕЗИСТОРОВ И ИСТОЧНИКОВ НАПРЯЖЕНИЯ\n"
+"V1 2 1 10\n"
+"V2 4 3 5\n"
+"V3 0 3 3\n"
+"R1 1 2 220\n"
+"R2 2 3 4.7k\n"
+"R3 4 5 3.3k\n"
+"R4 3 5 10k\n"
+"R5 0 1 22k\n"
+"R6 0 5 15k\n"
+"</file>\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:23
 msgid "Run this with:"
-msgstr ""
+msgstr "Запустим это следующим образом:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:32
@@ -9121,6 +9137,14 @@ msgid ""
 "gnucap>\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"gnucap> get eg2.ckt\n"
+"gnucap> print dc v(1) v(2) v(3) v(4) v(5)\n"
+"gnucap> dc\n"
+"#           v(1)       v(2)       v(3)       v(4)       v(5)\n"
+" 0.        -10.712    -0.71161   -3.         2.         0.65161\n"
+"gnucap>\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:34
@@ -9130,6 +9154,11 @@ msgid ""
 "current source (any component with a name that begins with \"I\" is a "
 "current source) and the dependent sources:"
 msgstr ""
+"Учтите, что это почти предел того, что может быть сделано с этими двумя "
+"типами компонентов. К другим компонентам, предоставляющим дополнительные "
+"возможности, относятся источники тока (источником тока является любой "
+"компонент, имя которого начинается с «I») и зависимые источники напряжения и "
+"тока:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:40
@@ -9141,6 +9170,11 @@ msgid ""
 "|G                    |current     |voltage    |\n"
 "|H                    |voltage     |current    |\n"
 msgstr ""
+"| Первая буква имени  | Тип выхода | Тип входа  |\n"
+"| E                   | напряжение | напряжение |\n"
+"| F                   | ток        | ток        |\n"
+"| G                   | ток        | напряжение |\n"
+"| H                   | напряжение | ток        |\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:49
@@ -9153,11 +9187,19 @@ msgid ""
 "to a Thevenin or Norton equivalent circuit when considered from the point of "
 "view of one particular node and the ground node 0."
 msgstr ""
+"Значение коэффициента усиления для каждого из этих компонентов выражает "
+"взаимосвязь между выходом и входом, и с их помощью можно моделировать "
+"линейные усилители и другие подобные им устройства. Как было отмечено выше, "
+"ни один из этих компонентов не понимает время, а также не может "
+"использоваться для представления нелинейных устройств. Таким образом, любая "
+"цепь, собранная из тех компонентов, что рассматривались до сих пор, может "
+"быть сведена к эквивалентной схеме Тевенина или Нортона, при рассмотрении её "
+"с точки зрения одного конкретного узла и узла земли 0."
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:51
 msgid "eg3.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:77
@@ -9189,6 +9231,31 @@ msgid ""
 ".end\n"
 "</code>\n"
 msgstr ""
+"<file spice eg3.ckt>\n"
+"ЦЕПЬ ИЗ РЕЗИСТОРОВ И ЗАВИСИМЫХ ИСТОЧНИКОВ НАПРЯЖЕНИЯ И ТОКА\n"
+"*\n"
+"* Упростим этот сложный набор зависимостей\n"
+"* до эквивалентной схемы Тевенина между узлом 2 и\n"
+"* узлом земли 0\n"
+"*\n"
+"I1 1 4 2\n"
+"V1 1 0 5\n"
+"E1 5 2 1 3 0.4\n"
+"F1 5 6 R1 3e-2\n"
+"G1 2 3 4 6 1.3\n"
+"H1 3 0 R3 1\n"
+"R1 4 5 2.2\n"
+"R2 1 2 470\n"
+"R3 0 2 330\n"
+"R4 3 6 1k\n"
+"R5 5 6 1e4\n"
+"*\n"
+"* Посмотреть напряжение и импеданс для узла 2\n"
+"*\n"
+".print dc v(2) z(2)\n"
+".dc\n"
+".end\n"
+"</file>\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:86
@@ -9202,17 +9269,26 @@ msgid ""
 "lines as a little tribute to SPICE and to make it easier to see what is "
 "going on when you read a .ckt file."
 msgstr ""
+"Обратите внимание, что файл данного примера содержит несколько строк, "
+"начинающихся с точки. Это строки команд, и ведут они себя точно так же, как "
+"команды, которые вводятся в интерактивном режиме. Они начинаются с точек из-"
+"за старой, доставшейся от SPICE традиции обрабатывать сначала все строки "
+"компонентов, а строки команд выполнять потом. Программа gnucap на этот счёт "
+"не беспокоится, она выполняет строки в том порядке, в котором их видит, но "
+"всё же ради того, чтобы отдать небольшую дань уважения SPICE, а также, чтобы "
+"при чтении файла .ckt было легче видно, что там идёт дальше, следует старой "
+"традиции начинать строки команд с точек."
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:88
 msgid "When you run this example, you might try:"
-msgstr ""
+msgstr "Можно попробовать запустить этот пример так:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:90
 #, no-wrap
 msgid "  gnucap -b eg3.ckt\n"
-msgstr ""
+msgstr "  gnucap -b eg3.ckt\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:97
@@ -9224,6 +9300,14 @@ msgid ""
 "want to use this example circuit in interactive mode, to achieve this you "
 "could either delete the \".end\" command, or (from the system prompt) type:"
 msgstr ""
+"И (если всё пойдёт нормально) вы увидите, что узел 2 эквивалентен источнику "
+"напряжения в 54.343 вольт последовательно с резистором 0.83888 ом. Вам "
+"следует также отметить, что gnucap не перейдёт в интерактивный режим работы. "
+"Это из-за  команды [[..:commands:end.ru|.end]], которая даёт программе "
+"команду завершить работу в этой точке. Если вам захочется воспользоваться "
+"схемой из этого примера в интерактивном режиме, можно либо стереть команду "
+"[[..:commands:end.ru|.end]], либо набрать в оболочке после её приглашения "
+"следующее:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:100
@@ -9232,6 +9316,8 @@ msgid ""
 "  gnucap\n"
 "  get eg3.ckt\n"
 msgstr ""
+"  gnucap\n"
+"  get eg3.ckt\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:104
@@ -9240,6 +9326,9 @@ msgid ""
 "circuit interactively too. Consider adding another resistor by typing the "
 "following at the interactive prompt:"
 msgstr ""
+"Затем можно использовать другие интерактивные команды. Заметьте, что схему "
+"можно менять и в интерактивном режиме. Давайте посмотрим, как добавить ещё "
+"один резистор, для этого после приглашения программы нужно набрать:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:108
@@ -9249,6 +9338,9 @@ msgid ""
 "  R6 3 4 12k\n"
 "  <blank line>\n"
 msgstr ""
+"  build R3\n"
+"  R6 3 4 12k\n"
+"  <пустая строка>\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:114
@@ -9259,6 +9351,12 @@ msgid ""
 "command or you can wipe out the entire circuit using the \"clear\" command.  "
 "To put the adjusted topology into a file you use the save command:"
 msgstr ""
+"Эта команда позволяет корректировать топологию загруженной в память схемы. "
+"Сюда входит как добавление новых, так и редактирование уже существующих "
+"компонентов. В интерактивном режиме можно удалять компоненты из схемы с "
+"помощью команды [[..:commands:delete.ru|delete]] или командой [[..:commands:"
+"delete.ru|clear]] стирать схемы целиком.  Для сохранения изменённой "
+"топологии в файл используйте команду [[..:commands:save.ru|save]]:"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:118
@@ -9268,6 +9366,9 @@ msgid ""
 "  quit\n"
 "  cat eg3_mod.ckt\n"
 msgstr ""
+"  save eg3_mod.ckt\n"
+"  quit\n"
+"  cat eg3_mod.ckt\n"
 
 #. type: Plain text
 #: manual/examples/resistors_and_sources.txt:124
@@ -9279,6 +9380,13 @@ msgid ""
 "\"build\" command and allows you to insert your build lines where you want "
 "them."
 msgstr ""
+"Посмотрев на результаты сохранения, вы, возможно, заметите несколько вещей: "
+"во-первых, программа gnucap запомнила и строки с вашими комментариями, и "
+"строки команд, и сохранила всё вместе; во-вторых, добавленная вами строка "
+"была вставлена в файл до строки определения компонента ''R3'', что было "
+"вызвано использованием аргумента для команды [[..:commands:build.ru|build]], "
+"что даёт вам возможность при построении схемы вставлять строки в любое "
+"нужное место."
 
 #. type: Title ======
 #: manual/examples/simple_power_supply.txt:1
