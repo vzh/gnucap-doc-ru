@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-16 16:57+0400\n"
+"PO-Revision-Date: 2013-08-20 12:18+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -2625,8 +2625,8 @@ msgid ""
 "commands:store]] command.  If you don't specify, no data is stored."
 msgstr ""
 "Перед использованием команды **measure** необходимо сохранить данные для "
-"[[..:howto:probes.ru|датчиков]], которые хотелось бы измерить. Для "
-"этого используется команда [[gnucap:manual:commands:store.ru|store]]. Если её не "
+"[[..:howto:probes.ru|датчиков]], которые хотелось бы измерить. Для этого "
+"используется команда [[gnucap:manual:commands:store.ru|store]]. Если её не "
 "задать, никакие данные сохранены не будут."
 
 #. type: Plain text
@@ -2692,12 +2692,12 @@ msgid ""
 msgstr ""
 "|[[gnucap:manual:measure:at.ru|at]]     | Значение сигнала в какой-нибудь точке или его производная  |\n"
 "|[[gnucap:manual:measure:mean.ru|average]]\\\\ [[gnucap:manual:measure:mean.ru|mean]]              |Среднее значение  |\n"
-"|[[gnucap:manual:measure:cross.ru|cross]]  |Нахождение пересечений  |\n"
+"|[[gnucap:manual:measure:cross.ru|cross]]  |Поиск пересечений  |\n"
 "|[[gnucap:manual:measure:mean.ru|integrate]]\\\\ [[gnucap:manual:measure:mean.ru|area]]  | Размер области под кривой  |\n"
 "|[[gnucap:manual:measure:minmax.ru|max]]  |Значение максимума или точка, в которой он находится  |\n"
 "|[[gnucap:manual:measure:minmax.ru|min]]  |Значение минимума  или точка, в которой он находится  |\n"
 "|[[gnucap:manual:measure:mean.ru|rms]]    |Среднеквадратичное значение  |\n"
-"|[[gnucap:manual:measure:slope.ru|slewrate]]\\\\ [[gnucap:manual:measure:slope.ru|slope]]\\\\ [[gnucap:manual:measure:slope.ru|ddt]]  | Скорость нарастания сигнала или крутизна характеристики |\n"
+"|[[gnucap:manual:measure:slope.ru|slewrate]]\\\\ [[gnucap:manual:measure:slope.ru|slope]]\\\\ [[gnucap:manual:measure:slope.ru|ddt]]  | Скорость нарастания или наклон кривой сигнала |\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:46
@@ -2736,7 +2736,7 @@ msgstr ""
 "Найти последнее пересечение нуля при возрастании напряжения до момента времени t2.\n"
 "  gnucap> param period = {t2-t1}\n"
 "  gnucap> param frequency = {1/period}\n"
-"Параметры интерпретируются как в функциональном языке, поэтому их обновление будет производиться при любом изменении t1 или t2.\n"
+"Параметры интерпретируются как в функциональных языках программирования, поэтому их обновление будет производиться при любом изменении t1 или t2.\n"
 
 #. type: Plain text
 #: manual/commands/measure.txt:61
@@ -9811,13 +9811,13 @@ msgstr ""
 #: manual/howto.txt:1
 #, no-wrap
 msgid "How to"
-msgstr ""
+msgstr "Как сделать"
 
 #. type: Bullet: '  * '
 #: manual/howto.txt:5
 #, no-wrap
 msgid "[[gnucap:manual:howto:probes]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:howto:probes.ru     |Датчики]]\n"
 
 #. type: Bullet: '  * '
 #: manual/howto.txt:5
@@ -9829,7 +9829,7 @@ msgstr "[[gnucap:manual:howto:expressions.ru|Выражения]]\n"
 #: manual/howto.txt:5
 #, no-wrap
 msgid "[[gnucap:manual:howto:measure|measurements]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:howto:measure.ru    |Измерения]]\n"
 
 #. type: Title ======
 #: manual/howto/expressions.txt:1
@@ -10923,18 +10923,18 @@ msgstr ""
 #: manual/measure/at.txt:1
 #, no-wrap
 msgid "\"at\" measure"
-msgstr ""
+msgstr "Измерение «at»"
 
 #. type: Plain text
 #: manual/measure/at.txt:6
 msgid "Measure a signal at a time or frequency."
-msgstr ""
+msgstr "Измерение сигнала в определённое время или при определённой частоте."
 
 #. type: Plain text
 #: manual/measure/at.txt:10
 #, no-wrap
 msgid "  at(probe=\"p(d)\"  at=time  derivative)\n"
-msgstr ""
+msgstr "|''**at**(probe=%%\"%%//д//(//у//)%%\"%%  at=//время//  derivative)''|\n"
 
 #. type: Plain text
 #: manual/measure/at.txt:15
@@ -10944,6 +10944,10 @@ msgid ""
 "|at\\\\ x      |Measure the value here.  |\n"
 "|derivative  |Flag: measure the derivative instead of the value.  |\n"
 msgstr ""
+"^ Имя аргумента  ^ Описание  ^\n"
+"|''probe''       |Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]  |\n"
+"|''at\\\\ x''    |Измерить значение в данной точке                           |\n"
+"|''derivative''  |Флажок: измерять производную вместо значения               |\n"
 
 #. type: Plain text
 #: manual/measure/at.txt:19
@@ -10951,6 +10955,8 @@ msgid ""
 "If you specify x to be out of range, it returns the value at the end, with a "
 "derivative of zero."
 msgstr ""
+"Если указать значение ''x'' вне диапазона, то будет возвращено значение в "
+"точке конца диапазона с производной равной нулю."
 
 #. type: Plain text
 #: manual/measure/at.txt:21 manual/measure/cross.txt:33
@@ -10958,6 +10964,9 @@ msgid ""
 "If you didn't store the waveform (see store command), it throws a \"no match"
 "\" exception, which prints \"no match\"."
 msgstr ""
+"Если сигнал не был сохранён (см. [[gnucap:manual:commands:store.ru|описание "
+"команды store]]), будет выдано исключение «о несоответствии», выводящее "
+"строку «no match»."
 
 #. type: Plain text
 #: manual/measure/at.txt:27
@@ -10968,23 +10977,29 @@ msgid ""
 "  measure sample = at(probe=\"v(out)\", at=4u, derivative)\n"
 "Measure the derivative of \"v(out)\" at 4 microseconds.\n"
 msgstr ""
+"  measure sample = at(probe=\"v(out)\", at=4u)\n"
+"Измерить значение «v(out)» в момент времени 4 мкс.\n"
+"  measure sample = at(probe=\"v(out)\", at=4u, derivative)\n"
+"Измерить производную от «v(out)» в момент времени 4 мкс.\n"
 
 #. type: Title ======
 #: manual/measure/cross.txt:1
 #, no-wrap
 msgid "\"cross\" measure"
-msgstr ""
+msgstr "Измерение «cross»"
 
 #. type: Plain text
 #: manual/measure/cross.txt:6
 msgid "Find the time or frequency where a probed value crosses a reference."
 msgstr ""
+"Поиск времени или частоты, где измеренное значение пересекает опорное "
+"значение. "
 
 #. type: Plain text
 #: manual/measure/cross.txt:10
 #, no-wrap
 msgid "  cross(probe=\"p(d)\" cross=value begin=time end=time rise fall last first)\n"
-msgstr ""
+msgstr "|''**cross**(probe=%%\"%%//д//(//у//)%%\"%% cross=//значение// begin=//время// end=//время// rise fall last first)''|\n"
 
 #. type: Plain text
 #: manual/measure/cross.txt:21
@@ -11000,12 +11015,21 @@ msgid ""
 "|rise           |true       |Consider only rising crossings.  (Cancels fall.)  |\n"
 "|fall           |false      |Consider only falling crossings.  (Cancels rise.)  |\n"
 msgstr ""
+"^ Имя аргумента       ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''probe''            |  //обязательный//        | Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]     |\n"
+"|''cross''            |  **''0''**               | Опорное значение                                              |\n"
+"|''begin\\\\ after''  |  **''-infinity''** (-∞)  | Начало окна измерений (время или частота)                     |\n"
+"|''end\\\\ before''   |  **''+infinity''** (+∞)  | Конец  окна измерений (время или частота)                     |\n"
+"|''first''            |  **''true''**            | Поиск первого    пересечения в окне     (отменяет  ''last'')  |\n"
+"|''last''             |  **''false''**           | Поиск последнего пересечения в окне     (отменяет ''first'')  |\n"
+"|''rise''             |  **''true''**            | Учитывать только восходящие пересечения (отменяет  ''fall'')  |\n"
+"|''fall''             |  **''false''**           | Учитывать только нисходящие пересечения (отменяет  ''rise'')  |\n"
 
 #. type: Title =====
 #: manual/measure/cross.txt:21
 #, no-wrap
 msgid "Caveats"
-msgstr ""
+msgstr "Предостережения"
 
 #. type: Plain text
 #: manual/measure/cross.txt:27
@@ -11016,6 +11040,10 @@ msgid ""
 "  * Being at the cross value and leaving is not a crossing.\n"
 "  * Merely touching (becoming equal to) the cross value and leaving from the same side is not a crossing.\n"
 msgstr ""
+"Для того, чтобы данная функция могла определить пересечение, опорное значение должно пересекаться на самом деле.\n"
+"  * Режим постоянного равенства измеряемого значения опорному пересечением не является.\n"
+"  * Исходное равенство измеряемого значения опорному и уход с него пересечением не является.\n"
+"  * Простое касание измеряемым значением опорного (достижение равенства между ними) и уход с него с той же стороны пересечением не является.\n"
 
 #. type: Plain text
 #: manual/measure/cross.txt:31
@@ -11023,6 +11051,8 @@ msgid ""
 "If there is no crossing within the specified range, it returns \"Inf"
 "\" (infinity)."
 msgstr ""
+"Если в пределах указанного диапазона пересечений нет, функция возвращает "
+"«Inf» (бесконечность)."
 
 #. type: Plain text
 #: manual/measure/cross.txt:42
@@ -11036,12 +11066,19 @@ msgid ""
 "  param frequency = {1/period}\n"
 "Params are interpreted like a functional language so they will be updated whenever t1 or t2 changes.\n"
 msgstr ""
+"  measure t2 = cross(probe=\"v(out)\" cross=0 rise last)\n"
+"Найти последний момент времени, когда v(out) пересекает 0 снизу вверх.\n"
+"  measure t1 = cross(probe=\"v(out)\" cross=0 rise last before=t2)\n"
+"Найти последнее время пересечения нуля при восходящем изменении сигнала до момента времени t2.\n"
+"  param period = {t2-t1}\n"
+"  param frequency = {1/period}\n"
+"Параметры интерпретируются как в функциональных языках программирования, поэтому их обновление будет производиться при любом изменении t1 или t2.\n"
 
 #. type: Title ======
 #: manual/measure/mean.txt:1
 #, no-wrap
 msgid "\"mean\", \"integrate\", \"rms\" measures"
-msgstr ""
+msgstr "Измерения «mean», «integrate», «rms»"
 
 #. type: Plain text
 #: manual/measure/mean.txt:8
@@ -11051,6 +11088,9 @@ msgid ""
 "|integrate  |Find the integral of a waveform, the area under the curve.  |\n"
 "|rms        |Find the RMS (root mean square) value of a waveform.  |\n"
 msgstr ""
+"  * **mean**:      определение среднего значения сигнала\n"
+"  * **integrate**: определение интеграла для сигнала, области под кривой\n"
+"  * **rms**:       определение среднеквадратичного значения сигнала\n"
 
 #. type: Plain text
 #: manual/measure/mean.txt:14
@@ -11060,6 +11100,9 @@ msgid ""
 "  integrate(probe=\"p(d)\"  begin=time  end=time)\n"
 "  rms(probe=\"p(d)\"  begin=time  end=time)\n"
 msgstr ""
+"|''**mean**(probe=%%\"%%//д//(//у//)%%\"%%       begin=//время//  end=//время//)''|\n"
+"|''**integrate**(probe=%%\"%%//д//(//у//)%%\"%%  begin=//время//  end=//время//)''|\n"
+"|''**rms**(probe=%%\"%%//д//(//у//)%%\"%%        begin=//время//  end=//время//)''|\n"
 
 #. type: Plain text
 #: manual/measure/mean.txt:21
@@ -11070,6 +11113,10 @@ msgid ""
 "|begin     |- infinity  |Start averaging at this time or frequency.  |\n"
 "|end       |+ infinity  |Stop averaging at this time or frequency.  |\n"
 msgstr ""
+"^ Имя аргумента ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''probe''      |  //обязательный//        | Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]   |\n"
+"|''begin''      |  **''-infinity''** (-∞)  | Время или частота начала определения среднего значения      |\n"
+"|''end''        |  **''+infinity''** (+∞)  | Время или частота конца  определения среднего значения      |\n"
 
 #. type: Plain text
 #: manual/measure/mean.txt:25
@@ -11077,6 +11124,8 @@ msgid ""
 "The \"mean\" measure gives you the true average or mean value.  The mean "
 "value of a sine over a full cycle is zero."
 msgstr ""
+"**mean** служит для измерения точного среднего значения. Среднее значение "
+"синусоиды за полный период равно нулю."
 
 #. type: Plain text
 #: manual/measure/mean.txt:27
@@ -11084,11 +11133,13 @@ msgid ""
 "The \"integrate\" measure gives you the integral, or area under the curve, "
 "signed.  The integral of a sine over a full cycle is zero."
 msgstr ""
+"**integrate** служит для измерения интеграла или области под кривой с учётом "
+"знака. Интеграл синусоиды за полный период равен нулю."
 
 #. type: Plain text
 #: manual/measure/mean.txt:29
 msgid "The \"rms\" measure gives you the RMS (root mean square) value."
-msgstr ""
+msgstr "**rms** служит для измерения среднеквадратичного значения."
 
 #. type: Plain text
 #: manual/measure/mean.txt:38
@@ -11101,6 +11152,12 @@ msgid ""
 "  measure sample = mean(probe=\"v(out)\" begin=4u)\n"
 "Find the mean value of v(out) starting at 4 microseconds, to the end.\n"
 msgstr ""
+"  measure sample = mean(probe=\"v(out)\" begin=4u end=6u)\n"
+"Найти среднее значение v(out) за время от 4 мкс до 6 мкс.\n"
+"  measure sample = mean(probe=\"v(out)\")\n"
+"Найти среднее значение v(out) за всё время работы.\n"
+"  measure sample = mean(probe=\"v(out)\" begin=4u)\n"
+"Найти среднее значение v(out) начиная с 4 мкс и до конца.\n"
 
 #. type: Plain text
 #: manual/measure/mean.txt:44
@@ -11113,24 +11170,32 @@ msgid ""
 "  measure sample = integrate(probe=\"v(out)\" begin=4u)\n"
 "Find the area under of v(out) starting at 4 microseconds, to the end.\n"
 msgstr ""
+"  measure sample = integrate(probe=\"v(out)\" begin=4u end=6u)\n"
+"Найти область под кривой v(out) за время от 4 мкс до 6 мкс.\n"
+"  measure sample = integrate(probe=\"v(out)\")\n"
+"Найти область под кривой v(out) за всё время работы.\n"
+"  measure sample = integrate(probe=\"v(out)\" begin=4u)\n"
+"Найти область под кривой v(out) начиная с 4 мкс и до конца.\n"
 
 #. type: Title ======
 #: manual/measure/minmax.txt:1
 #, no-wrap
 msgid "\"min\", \"max\" measure"
-msgstr ""
+msgstr "Измерения «min», «max»"
 
 #. type: Plain text
 #: manual/measure/minmax.txt:6
 msgid ""
 "Find the time or frequency where a probed value hits a maximum or minimum."
 msgstr ""
+"Определение значения времени или частоты, при котором измеряемое значение "
+"достигает максимума или минимума."
 
 #. type: Plain text
 #: manual/measure/minmax.txt:10
 #, no-wrap
 msgid "  min(probe=\"p(d)\" begin=time end=time last first arg)\n"
-msgstr ""
+msgstr "|''**min**(probe=%%\"%%//д//(//у//)%%\"%% begin=//время// end=//время// last first arg)''|\n"
 
 #. type: Plain text
 #: manual/measure/minmax.txt:20
@@ -11144,6 +11209,13 @@ msgid ""
 "|first     |true       |Find the first min or max in the window.  (Cancels last.)  |\n"
 "|last      |false      |Find the last min or max in the window.  (Cancels first.)  |\n"
 msgstr ""
+"^ Имя аргумента ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''probe''      |  //обязательный //       | Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]            |\n"
+"|''arg''        |  **''false''**           | Определение времени или частоты появления минимума или максимума (вместо значения)  |\n"
+"|''begin''      |  **''-infinity''** (-∞)  | Начало окна измерений (время или частота)                            |\n"
+"|''end''        |  **''+infinity''** (+∞)  | Конец  окна измерений (время или частота)                            |\n"
+"|''first''      |  **''true''**            | Поиск первого    минимума или максимума в окне (отменяет ''last'')   |\n"
+"|''last''       |  **''false''**           | Поиск последнего минимума или максимума в окне (отменяет ''first'')  |\n"
 
 #. type: Plain text
 #: manual/measure/minmax.txt:34
@@ -11162,23 +11234,35 @@ msgid ""
 "Find the last time when a minimum occurred before t2.\n"
 "  param risetime = {t2-t0}\n"
 msgstr ""
+"  measure maxvalue = max(probe=\"v(out)\" cross=0 last)\n"
+"Найти максимальное значение v(out).\n"
+"  measure t2 = max(probe=\"v(out)\" last arg)\n"
+"Найти последний момент времени, когда появлялся максимум.\n"
+"  measure t1 = max(probe=\"v(out)\" arg last before=t2)\n"
+"Найти время последнего максимума до момента времени t2.\n"
+"  param period = {t2-t1}\n"
+"  param frequency = {1/period}\n"
+"Параметры интерпретируются как в функциональных языках программирования, поэтому их обновление будет производиться при любом изменении t1 или t2.\n"
+"  measure t0 = min(probe=\"v(out)\" arg last before=t2)\n"
+"Найти время последнего минимума до момента времени t2.\n"
+"  param risetime = {t2-t0}\n"
 
 #. type: Title ======
 #: manual/measure/slope.txt:1
 #, no-wrap
 msgid "\"slope\" measure"
-msgstr ""
+msgstr "Измерение «slope»"
 
 #. type: Plain text
 #: manual/measure/slope.txt:6
 msgid "Find the slope or slew rate of a waveform."
-msgstr ""
+msgstr "Найти наклон кривой или скорость нарастания сигнала."
 
 #. type: Plain text
 #: manual/measure/slope.txt:10
 #, no-wrap
 msgid "  slope(probe=\"p(d)\" initial=value final=value begin=time end=time expression)\n"
-msgstr ""
+msgstr "|''**slope**(probe=%%\"%%//д//(//у//)%%\"%% initial=//значение// final=//значение// begin=//время// end=//время// expression)''|\n"
 
 #. type: Plain text
 #: manual/measure/slope.txt:22
@@ -11194,6 +11278,15 @@ msgid ""
 "|last        |false      |Find the last crossing in the window.  (Cancels first.)  |\n"
 "|expression  |false      |The result is an unreduced expression.  |\n"
 msgstr ""
+"^ Имя аргумента ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''probe''       |  //обязательный//        | Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]  |\n"
+"|''initial''     |  **''0''**               | Начальное значение                                         |\n"
+"|''final''       |  **''0''**               | Конечное значение                                          |\n"
+"|''begin''       |  **''-infinity''** (-∞)  | Начало окна измерений (время или частота)                  |\n"
+"|''end''         |  **''+infinity''** (+∞)  | Конец  окна измерений (время или частота)                  |\n"
+"|''first''       |  **''true''**            | Найти первое пересечение в окне     (Отменяет  ''last'')   |\n"
+"|''last''        |  **''false''**           | Найти последнее пересечение в окне  (Отменяет ''first'')   |\n"
+"|''expression''  |  **''false''**           | Результатом является нераскрытое выражение                 |\n"
 
 #. type: Plain text
 #: manual/measure/slope.txt:26
@@ -11201,12 +11294,16 @@ msgid ""
 "Ordinarily, the result is a number.  If the probe is a voltage probe the "
 "units would be volts per second."
 msgstr ""
+"Обычно результатом является число. Если измерение производится для датчика "
+"напряжения, единицей измерения будет В/c (вольт в секунду)."
 
 #. type: Plain text
 #: manual/measure/slope.txt:28
 msgid ""
 "If the \"expression\" keyword is given the result is an unreduced expression."
 msgstr ""
+"При задании ключевого слова «''expression''» результатом будет нераскрытое "
+"выражение."
 
 #. type: Plain text
 #: manual/measure/slope.txt:34
@@ -11216,6 +11313,9 @@ msgid ""
 "Find the slope (slew rate) for the last transition from -2 to 2, as a number.\n"
 "  sr= 30.15738K\n"
 msgstr ""
+"  measure sr = slope(probe=\"v(out)\" initial=-2 final=2 last)\n"
+"Найти наклон кривой (скорость нарастания) сигнала за последний переход от -2 до 2 как число.\n"
+"  sr= 30.15738K\n"
 
 #. type: Plain text
 #: manual/measure/slope.txt:37
@@ -11225,6 +11325,9 @@ msgid ""
 "Find the slope (slew rate) for the last transition from -2 to 2, as an unreduced expression.\n"
 "  sr={( 2.--2.)/( 0.001066319- 933.6812u)}\n"
 msgstr ""
+"  measure sr = slope(probe=\"v(out)\" initial=-2 final=2 last expression)\n"
+"Найти наклон кривой (скорость нарастания) сигнала за последний переход от -2 до 2 как нераскрытое выражение.\n"
+"  sr={( 2.--2.)/( 0.001066319- 933.6812u)}\n"
 
 #. type: Title ======
 #: manual/tech.txt:1
