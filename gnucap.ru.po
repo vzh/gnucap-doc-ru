@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-20 12:18+0400\n"
+"PO-Revision-Date: 2013-08-20 15:31+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7144,7 +7144,7 @@ msgstr "[[gnucap:manual:examples:Resistors and sources.ru|Резисторы и 
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Things that can go wrong]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Things that can go wrong.ru|Кое-что, что может пойти не так]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -9647,18 +9647,18 @@ msgstr ""
 #: manual/examples/things_that_can_go_wrong.txt:1
 #, no-wrap
 msgid "Things that can go wrong"
-msgstr ""
+msgstr "Кое-что, что может пойти не так"
 
 #. type: Title =====
 #: manual/examples/things_that_can_go_wrong.txt:3
 #, no-wrap
 msgid "Voltage sources in parallel"
-msgstr ""
+msgstr "Параллельное соединение источников напряжения"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:6
 msgid "eg4.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:9
@@ -9667,11 +9667,19 @@ msgid ""
 "<code>\n"
 "VOLTAGE SOURCES IN PARALLEL\n"
 msgstr ""
+"<file spice eg4.ckt>\n"
+"ПАРАЛЛЕЛЬНОЕ СОЕДИНЕНИЕ ИСТОЧНИКОВ НАПРЯЖЕНИЯ\n"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:16
 msgid "V1 1 0 10.0 V2 1 0 10.2 .print dc v(1) i(V1) i(V2)  .dc .end </code>"
 msgstr ""
+"V1 1 0 10.0\n"
+"V2 1 0 10.2\n"
+".print dc v(1) i(V1) i(V2)\n"
+".dc\n"
+".end\n"
+"</file>"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:26
@@ -9685,6 +9693,15 @@ msgid ""
 "converge... the answer that it gets for v(1)  is a compromise, halfway "
 "between the two sources."
 msgstr ""
+"Здесь у нас V1 и V2 оба запитывают один и тот же узел напряжением около 10 "
+"вольт.  На самом деле V2 чуть больше 10 вольт, поэтому V1 и V2 будут спорить "
+"насчёт того, какое напряжение должно на самом деле получиться в итоге на "
+"узле 1. Вы должны увидеть, что как раз вследствие этого небольшого различия "
+"в напряжении через источники питания текут огромные токи (10000 ампер). "
+"Также заметьте, что gnucap не только не сдаётся и не отказывается работать, "
+"но и не имеет проблем со сходимостью... Решение, которое программа находит "
+"для v(1), является компромиссным, равным среднему значению напряжений двух "
+"источников."
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:31
@@ -9694,6 +9711,10 @@ msgid ""
 "the best guess that it can in a difficult situation. How much is this "
 "resistance? You can find out like so:"
 msgstr ""
+" Что она делает, так это вводит в источник напряжения маленькое "
+"несовершенство, маленький внутренний последовательный резистор. В трудной "
+"ситуации это позволит сделать наиболее вероятный приблизительный расчёт. "
+"Какой величины это сопротивление? Его величину можно найти так:"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:34
@@ -9702,6 +9723,8 @@ msgid ""
 "\tacs\n"
 "\toptions\n"
 msgstr ""
+"\tacs\n"
+"\toptions\n"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:41
@@ -9713,6 +9736,13 @@ msgid ""
 "short circuit value is more appropriate for running the above circuit so you "
 "can type (from the prompt):"
 msgstr ""
+"Взгляните на значение [[gnucap:manual:commands:options.ru|опции]] "
+"''short'' (примерно в середине блока опций), это значение внутреннего "
+"сопротивления источника напряжения (в омах). Приставка «u» означает «микро» "
+"или 1e-6, поэтому по умолчанию значение сопротивления короткого замыкания "
+"составляет 1e-5 Ом. Допустим вы решили, что для указанной выше схемы более "
+"подходит другое значение короткого замыкания, тогда вы можете набрать (после "
+"приглашения):"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:46
@@ -9723,6 +9753,10 @@ msgid ""
 "\tdc\n"
 "\texit\n"
 msgstr ""
+"\toptions short=0.5\n"
+"\tget eg4.ckt\n"
+"\tdc\n"
+"\texit\n"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:53
@@ -9734,17 +9768,23 @@ msgid ""
 "options\" command lines in order to set these options whenever the circuit "
 "is loaded."
 msgstr ""
+"В результате должно быть показано то же самое напряжение (10.1), но ток "
+"уменьшится теперь лишь до одной пятой ампера (всё еще не мал, но в гораздо "
+"более разумных пределах, если сравнивать это с реальными источниками "
+"питания).  Примерно так же можно менять и значения других опций, а команды "
+"[[gnucap:manual:commands:options.ru|.options]] можно добавлять во входные "
+"файлы, чтобы устанавливать нужные опции каждый раз при загрузке схемы."
 
 #. type: Title =====
 #: manual/examples/things_that_can_go_wrong.txt:54
 #, no-wrap
 msgid "Current sources in series"
-msgstr ""
+msgstr "Последовательное соединение источников тока"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:57
 msgid "eg5.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:60
@@ -9753,11 +9793,19 @@ msgid ""
 "<code>\n"
 "CURRENT SOURCES IN SERIES\n"
 msgstr ""
+"<file spice eg5.ckt>\n"
+"ПОСЛЕДОВАТЕЛЬНОЕ СОЕДИНЕНИЕ ИСТОЧНИКОВ ТОКА\n"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:67
 msgid "I1 0 1 2.0001 I2 1 0 2.0 .print dc v(1) i(I1) i(I2)  .dc .end </code>"
 msgstr ""
+"I1 0 1 2.0001\n"
+"I2 1 0 2.0\n"
+".print dc v(1) i(I1) i(I2)\n"
+".dc\n"
+".end\n"
+"</file>"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:77
@@ -9772,6 +9820,16 @@ msgid ""
 "these resistors if you like by putting the resistor in parallel with the "
 "current source."
 msgstr ""
+"Случай с последовательным соединением двух источников тока имеет много "
+"общего со случаем параллельного соединения двух источников напряжения. "
+"Однако заметьте, что с ним gnucap справляется по-другому. Программа не может "
+"найти компромиссный ток, то есть какое-то среднее значение для двух "
+"источников, и всегда выдаёт огромное значение для напряжения на узле 1. "
+"Фатального сбоя, по крайней мере, не будет, и программа выдаст результаты, "
+"дающие некоторые указания в отношении того, где может быть проблема. "
+"Существует [[gnucap:manual:commands:options.ru|опция]] ''gmin'', вводящая в "
+"источник тока сопротивление, или, если хочется, такие сопротивления можно "
+"добавить явно, подключив параллельно источникам тока резисторы."
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:82
@@ -9780,6 +9838,10 @@ msgid ""
 "sources in series but you never thought about checking the strange node? How "
 "would you ever know that the circuit was broken? Try this exercise:"
 msgstr ""
+"А что если бы у вас была большая, сложная схема, и вы ошиблись, добавив "
+"последовательно два источника тока, но никогда даже не собирались проверять "
+"этот странный узел? Как бы вы вообще узнали, что схема испорчена? Попробуйте "
+"это упражнение:"
 
 #. type: Plain text
 #: manual/examples/things_that_can_go_wrong.txt:88
@@ -9806,6 +9868,12 @@ msgid ""
 "to ensure that your simulated circuit stays within what you might expect to "
 "be the absolute maximum values."
 msgstr ""
+"Теперь вы будете получать предупреждения всякий раз, когда на любом из "
+"компонентов будет напряжение более 1000 вольт. Это можно использовать для "
+"проверки компонентов на пробой, если вы знаете, что используемые у вас "
+"компоненты не выдерживают высоких напряжений. Это можно использовать и для "
+"гарантии того, что моделируемая схема останется в рамках тех величин, "
+"которые по вашим расчётам должны быть абсолютными максимальными значениями."
 
 #. type: Title ======
 #: manual/howto.txt:1
