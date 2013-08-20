@@ -4440,18 +4440,23 @@ msgid ""
 "suggested.  In almost all cases, there are plans to provide exact "
 "compatibility in the future."
 msgstr ""
+"В настоящем разделе рассматриваются вопросы совместимости, в том числе "
+"синтаксические отличия и отличия в возможностях по сравнению с другими "
+"программами моделирования. В некоторых случаях предлагаются обходные "
+"варианты решения проблем. В будущем планируется обеспечить полную "
+"совместимость почти во всех случаях."
 
 #. type: Bullet: '  * '
 #: manual/compatibility.txt:5
 #, no-wrap
 msgid "[[.:compatibility:subcircuit with parameters|subcircuit with parameters, Pspice, LTspice]]\n"
-msgstr ""
+msgstr "[[.:compatibility:subcircuit with parameters.ru|подсхема с параметрами, Pspice, LTspice]]\n"
 
 #. type: Title =====
 #: manual/compatibility/subcircuit_with_parameters.txt:2
 #, no-wrap
 msgid "Subcircuit with parameters"
-msgstr ""
+msgstr "Подсхема с параметрами"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:5
@@ -4459,23 +4464,27 @@ msgid ""
 "Some simulators (LTspice, Pspice) accept a syntax for subcircuits that is "
 "incompatible with gnucap."
 msgstr ""
+"Синтаксис подсхем некоторых программы моделирования (LTspice, Pspice) не "
+"совместим с gnucap."
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:7
 msgid "The Gnucap syntax is compatible with other simulators such as Hspice."
 msgstr ""
+"Синтаксис gnucap совместим с другими программами моделирования, такими как "
+"Hspice."
 
 #. type: Title ====
 #: manual/compatibility/subcircuit_with_parameters.txt:7
 #, no-wrap
 msgid "Subcircuit instantiation syntax"
-msgstr ""
+msgstr "Синтаксис создания экземпляра подсхемы"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:10
 #: manual/compatibility/subcircuit_with_parameters.txt:25
 msgid "LTspice syntax:"
-msgstr ""
+msgstr "Синтаксис LTspice:"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:13
@@ -4484,6 +4493,8 @@ msgid ""
 "  Xv   v1r v1i      vri_slack params: ( vr=10  vi=1  on=1 vfactor=1.732 )\n"
 "  Ximp v1r v1i 0 0  impedance params: ( r=1 xl=10 xc=2 length=1 zfactor=1 )\n"
 msgstr ""
+"  Xv   v1r v1i      vri_slack params: ( vr=10  vi=1  on=1 vfactor=1.732 )\n"
+"  Ximp v1r v1i 0 0  impedance params: ( r=1 xl=10 xc=2 length=1 zfactor=1 )\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:16
@@ -4491,6 +4502,8 @@ msgid ""
 "The key ''params:'' should be omitted.  Parentheses are optional.\\\\ Gnucap "
 "syntax:"
 msgstr ""
+"Ключевое слово «''params:''» использоваться не должно. Круглые скобки "
+"необязательны.\\\\ Синтаксис gnucap: "
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:19
@@ -4499,6 +4512,8 @@ msgid ""
 "  Xv   v1r v1i      vri_slack ( vr=10  vi=1  on=1 vfactor=1.732 )\n"
 "  Ximp v1r v1i 0 0  impedance ( r=1 xl=10 xc=2 length=1 zfactor=1 )\n"
 msgstr ""
+"  Xv   v1r v1i      vri_slack ( vr=10  vi=1  on=1 vfactor=1.732 )\n"
+"  Ximp v1r v1i 0 0  impedance ( r=1 xl=10 xc=2 length=1 zfactor=1 )\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:22
@@ -4507,18 +4522,20 @@ msgid ""
 "  Xv   v1r v1i      vri_slack vr=10  vi=1  on=1 vfactor=1.732\n"
 "  Ximp v1r v1i 0 0  impedance r=1 xl=10 xc=2 length=1 zfactor=1\n"
 msgstr ""
+"  Xv   v1r v1i      vri_slack vr=10  vi=1  on=1 vfactor=1.732\n"
+"  Ximp v1r v1i 0 0  impedance r=1 xl=10 xc=2 length=1 zfactor=1\n"
 
 #. type: Title ====
 #: manual/compatibility/subcircuit_with_parameters.txt:22
 #, no-wrap
 msgid "Subcircuit declaration syntax"
-msgstr ""
+msgstr "Синтаксис объявления подсхемы"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:27
 #, no-wrap
 msgid "  .subckt impedance v1r v1i v2r v2i params: on = 1 r = 100 xl = 0\n"
-msgstr ""
+msgstr "  .subckt impedance v1r v1i v2r v2i params: on = 1 r = 100 xl = 0\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:33
@@ -4530,6 +4547,11 @@ msgid ""
 "  + r = 100\n"
 "  + xl = 0\n"
 msgstr ""
+"  .subckt impedance v1r v1i v2r v2i\n"
+"  + params:\n"
+"  + on = 1\n"
+"  + r = 100\n"
+"  + xl = 0\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:36
@@ -4539,12 +4561,16 @@ msgid ""
 "values.  Parameters can be on the same line or in .param statements on "
 "following lines.\\\\ Gnucap syntax:"
 msgstr ""
+"Ключевое слово «''params:''» использоваться не должно. Параметры объявлять "
+"не обязательно, но делать это можно для документирования или для указания "
+"значений по умолчанию. Параметры можно указывать в той же самой строке или в "
+"операторах «''.param''» в следующих строках.\\\\ Синтаксис gnucap:"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:38
 #, no-wrap
 msgid "  .subckt impedance v1r v1i v2r v2i on = 1 r = 100 xl = 0\n"
-msgstr ""
+msgstr "  .subckt impedance v1r v1i v2r v2i on = 1 r = 100 xl = 0\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:43
@@ -4555,12 +4581,16 @@ msgid ""
 "  + r = 100\n"
 "  + xl = 0\n"
 msgstr ""
+"  .subckt impedance v1r v1i v2r v2i\n"
+"  + on = 1\n"
+"  + r = 100\n"
+"  + xl = 0\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:45
 #, no-wrap
 msgid "  .subckt impedance v1r v1i v2r v2i (on = 1 r = 100 xl = 0)\n"
-msgstr ""
+msgstr "  .subckt impedance v1r v1i v2r v2i (on = 1 r = 100 xl = 0)\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:48
@@ -4569,6 +4599,8 @@ msgid ""
 "  .subckt impedance v1r v1i v2r v2i\n"
 "  .param on = 1 r = 100 xl = 0\n"
 msgstr ""
+"  .subckt impedance v1r v1i v2r v2i\n"
+"  .param on = 1 r = 100 xl = 0\n"
 
 #. type: Plain text
 #: manual/compatibility/subcircuit_with_parameters.txt:53
@@ -4580,6 +4612,11 @@ msgid ""
 "  + r = 100\n"
 "  + xl = 0\n"
 msgstr ""
+"  .subckt impedance v1r v1i v2r v2i\n"
+"  .param\n"
+"  + on = 1\n"
+"  + r = 100\n"
+"  + xl = 0\n"
 
 #. type: Title ======
 #: manual/devices.txt:1
