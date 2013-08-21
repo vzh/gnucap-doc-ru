@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-20 15:31+0400\n"
+"PO-Revision-Date: 2013-08-21 16:35+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7217,7 +7217,7 @@ msgstr "[[gnucap:manual:examples:Simple Power supply.ru|Простой исто�
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Phase shift oscillator]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Phase shift oscillator.ru|Фазосдвигающий генератор]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -7502,7 +7502,7 @@ msgstr ""
 #: manual/examples/phase_shift_oscillator.txt:56
 #, no-wrap
 msgid "Setting up"
-msgstr ""
+msgstr "Настройка"
 
 #. type: Plain text
 #: manual/examples/fm_spectrum_analysis.txt:9
@@ -8653,7 +8653,7 @@ msgstr ""
 #: manual/examples/phase_shift_oscillator.txt:1
 #, no-wrap
 msgid "Phase shift oscillator"
-msgstr ""
+msgstr "Фазосдвигающий генератор"
 
 #. type: Title =====
 #: manual/examples/phase_shift_oscillator.txt:3
@@ -8668,6 +8668,9 @@ msgid ""
 "In this example, we will analyze a phase shift oscillator.  It was designed "
 "in a hurry, so the specs are not expected to be very good.  We will see."
 msgstr ""
+"В данном примере мы проанализируем фазосдвигающий генератор. Он был "
+"разработан наспех, поэтому на хорошие характеристики я не рассчитываю. "
+"Поглядим --- увидим."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:8
@@ -8675,34 +8678,36 @@ msgid ""
 "It uses a single BJT, plus an emitter follower, and runs on a single-ended "
 "12 volt supply."
 msgstr ""
+"В нём используется один биполярный транзистор, плюс эмиттерный повторитель, "
+"и работает он от несимметричного 12-вольтового питания."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:10
 msgid "Some measurements might include:"
-msgstr ""
+msgstr "Можно померить:"
 
 #. type: Bullet: '  - '
 #: manual/examples/phase_shift_oscillator.txt:14
 #, no-wrap
 msgid "Oscillation frequency\n"
-msgstr ""
+msgstr "Частоту генерации\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/phase_shift_oscillator.txt:14
 #, no-wrap
 msgid "Start-up time (how long it takes to stabilize)\n"
-msgstr ""
+msgstr "Время запуска (как долго идёт стабилизация)\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/phase_shift_oscillator.txt:14
 #, no-wrap
 msgid "Distortion\n"
-msgstr ""
+msgstr "Искажения\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:16
 msgid "Of course, we will look at the waveform."
-msgstr ""
+msgstr "Конечно же, мы посмотрим и форму сигнала."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:18
@@ -8711,28 +8716,31 @@ msgid ""
 "I am not showing some of the mistake and trial steps, so your results may be "
 "a little different."
 msgstr ""
+"Я делал это с помощью среза разработки 2008-07-07, используя кое-какие новые "
+"возможности. Некоторые ошибочные и пробные шаги здесь не показаны, поэтому "
+"ваши результаты могут слегка отличаться от моих."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:20
 msgid ""
 "I am using an external waveform viewer \"gwave\" to display the waveforms."
-msgstr ""
+msgstr "Для отображения сигналов я использую стороннюю программу «gwave»."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:22
 msgid "That's enough for now, let's go..."
-msgstr ""
+msgstr "На данный момент достаточно, поехали..."
 
 #. type: Title =====
 #: manual/examples/phase_shift_oscillator.txt:23
 #, no-wrap
 msgid "The circuit"
-msgstr ""
+msgstr "Схема"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:26
 msgid "{{gnucap:pso.tar.gz|Here's a netlist for the circuit:}}"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:43
@@ -8755,11 +8763,29 @@ msgid ""
 "  Rf1 (f1 0)  10k\n"
 "  Rf2 (f2 0)  10k\n"
 msgstr ""
+"<file spice pso.ckt>\n"
+"' phase shift oscillator\n"
+".model npn npn bf=100\n"
+"Vcc (vcc 0) pulse(iv=0 pv=12 rise=.01)\n"
+"Rb1 (vcc b) 100k\n"
+"Rb2 (b 0)   10k\n"
+"Rc  (vcc c) 10k\n"
+"Re  (e 0)   1k\n"
+"Ce  (e 0)   5000u\n"
+"Re2 (e2 0)  1k\n"
+"Q1  (c b e)    npn\n"
+"Q2  (vcc c e2) npn\n"
+"C1  (e2 f1) .01u\n"
+"C2  (f1 f2) .01u\n"
+"C3  (f2 b)  .01u\n"
+"Rf1 (f1 0)  10k\n"
+"Rf2 (f2 0)  10k\n"
+"</file>\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:45
 msgid "There are some tricks here .."
-msgstr ""
+msgstr "Здесь есть несколько трюков ..."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:47
@@ -8769,6 +8795,12 @@ msgid ""
 "It starts at zero, and waits until time=.01 to switch on.  I did this "
 "because I want to see how it starts."
 msgstr ""
+"Сначала источник питания (Vcc). Это источник напряжения, но вместо того, "
+"чтобы просто сказать \"DC=12\", чтобы сделать его источником постоянного "
+"питания 12 вольт, я делаю его [[gnucap:manual:devices:basic:pulse.ru|"
+"источником импульсного напряжения]].  Он запускается в нулевой момент "
+"времени и ждёт 0,01 с до включения. Я сделал так, потому что хочу увидеть, "
+"как он запускается. "
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:49
@@ -8777,11 +8809,16 @@ msgid ""
 "the actual start waveform.  For one, the emitter bypass would already be "
 "charged."
 msgstr ""
+"Если задать только «DC=12», генератор бы, конечно, заработал, но я не мог бы "
+"точно знать действительную начальную форму сигнала. Например, блокировочный "
+"конденсатор в цепи эмиттера был бы уже заряжен."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:51
 msgid "Next, I used a simple model of the BJT, specifying only the beta."
 msgstr ""
+"Далее, я использовал простую модель биполярного транзистора (BJT), где "
+"указывал только β."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:53
@@ -8789,6 +8826,8 @@ msgid ""
 "The emitter bypass gives a time constant of 5 seconds, which should make the "
 "start-up nice and slow."
 msgstr ""
+"Блокировочный конденсатор даёт постоянную времени 5 секунд, что должно "
+"сделать запуск красивым и медленным."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:55
@@ -8796,6 +8835,9 @@ msgid ""
 "Finally, to show some contempt for good design, I just picked R and C for "
 "the filter arbitrarily, with no real idea what the frequency would be."
 msgstr ""
+"Наконец, чтобы показать некоторое презрение к хорошим проектам, я совершенно "
+"произвольно выбрал R и C для фильтра, абсолютно не представляя себе, какой "
+"должна быть частота."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:72
@@ -8814,16 +8856,28 @@ msgid ""
 "  gnucap> get pso.ckt\n"
 "  ' phase shift oscillator\n"
 msgstr ""
+"  $$$$$$$gnucap\n"
+"  Gnucap 2008.07.07 RCS 26.86\n"
+"  The Gnu Circuit Analysis Package\n"
+"  Never trust any version less than 1.0\n"
+"  Copyright 1982-2007, Albert Davis\n"
+"  Gnucap comes with ABSOLUTELY NO WARRANTY\n"
+"  This is free software, and you are welcome\n"
+"  to redistribute it under the terms of\n"
+"  the GNU General Public License, version 3 or later.\n"
+"  See the file \"COPYING\" for details.\n"
+"  gnucap> get pso.ckt\n"
+"  ' phase shift oscillator\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:74
 msgid "Load the circuit .. it echos the title line."
-msgstr ""
+msgstr "Загружаем схему ... выдаётся строка заголовка."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:76
 msgid "As a check, list it, see if it is what you expected."
-msgstr ""
+msgstr "Для проверки выведем её, посмотрим, то ли это, что ожидалось."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:95
@@ -8848,6 +8902,24 @@ msgid ""
 "  Rf1 ( f1 0 )  10.K\n"
 "  Rf2 ( f2 0 )  10.K\n"
 msgstr ""
+"  gnucap> list\n"
+"  .model npn npn ( level=1 kf=NA( 0.) af=NA( 1.) bf= 100. br=NA( 1.) is=NA( 100.E-18) nf=NA( 1.) nr=NA( 1.) isc=NA(\n"
+"   0.) re=NA( 0.) rc=NA( 0.) cjc=NA( 0.) cje=NA( 0.) cjs=NA( 0.) fc=NA( 0.5) mjc=NA( 0.33) mje=NA( 0.33) mjs=NA( 0.)\n"
+"   tf=NA( 0.) tr=NA( 0.) xtf=NA( 0.) xtb=NA( 0.) xti=NA( 3.) eg=NA( 1.11))\n"
+"  Vcc ( vcc 0 ) pulse iv= 0. pv= 12. delay=NA( 0.) rise= 0.01 fall=NA( 0.) width=NA( Inf) period=NA( Inf)\n"
+"  Rb1 ( vcc b )  100.K\n"
+"  Rb2 ( b 0 )  10.K\n"
+"  Rc ( vcc c )  10.K\n"
+"  Re ( e 0 )  1.K\n"
+"  Ce ( e 0 )  0.005\n"
+"  Re2 ( e2 0 )  1.K\n"
+"  Q1 ( c b e )  npn NA( 1.)\n"
+"  Q2 ( vcc c e2 )  npn NA( 1.)\n"
+"  C1 ( e2 f1 )  10.n\n"
+"  C2 ( f1 f2 )  10.n\n"
+"  C3 ( f2 b )  10.n\n"
+"  Rf1 ( f1 0 )  10.K\n"
+"  Rf2 ( f2 0 )  10.K\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:97
@@ -8856,11 +8928,14 @@ msgid ""
 "unspecified, but assumed to be 5.  You can see what parameters were "
 "specified, and which took the defaults."
 msgstr ""
+"Выглядит неплохо, обратите внимание на поля \"NA\" ...  NA(5) значит, что "
+"значение не определено, но принимается равным 5.  Можно увидеть, какие "
+"параметры были заданы, а какие принимают значения по умолчанию."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:99
 msgid "Before making a run, you need to set a few things up ..."
-msgstr ""
+msgstr "Перед запуском нужно кое-что настроить..."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:102
@@ -8869,6 +8944,8 @@ msgid ""
 "Pick the points you want to view (all node voltages):\n"
 "  gnucap> print tran v(nodes)\n"
 msgstr ""
+"Выберем значения, которые нужно посмотреть (напряжения всех узлов):\n"
+"  gnucap> print tran v(nodes)\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:105
@@ -8877,6 +8954,8 @@ msgid ""
 "Pick the points you want to be able to do things like \"measure\" on (all probes named \"v\" on anything, including nodes, devices, etc):\n"
 "  gnucap> store tran v(*)\n"
 msgstr ""
+"Выберем точки, в которых хотелось бы иметь возможность делать такие вещи как «[[gnucap:manual:commands:measure.ru|measure]]» (все датчики под названием «v» на всём, чём угодно, включая узлы, устройства и т. д.):\n"
+"  gnucap> store tran v(*)\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:114
@@ -8891,6 +8970,14 @@ msgid ""
 "  old= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2= 0.04166667  trstepcoe\n"
 "   units=spice\n"
 msgstr ""
+"Теперь проверим [[gnucap:manual:commands:options.ru|опции]]. Может быть мы захотим изменить какие-нибудь из них:\n"
+"  gnucap> opt\n"
+"  .options  noacct  nolist  mod  nopage  nonode  noopts  gmin= 1.p  reltol= 0.001  abstol= 1.p  vntol= 1.u  trtol= 7\n"
+"  0  limtim=2  limpts=201  lvlcod=2  lvltim=2  method=trap  maxord=2  itl1=100  itl2=50  itl3=6  itl4=20  itl5=5000\n"
+"  er  dampmax= 1.  dampmin= 0.5  dampstrategy=0  floor= 1.E-21  vfloor= 1.f  roundofftol= 100.f  temperature= 27.  s\n"
+"  ansits=2  nodupcheck  bypass  incmode  lcbypass  lubypass  fbbypass  traceload  itermin=1  vmax= 5.  vmin=-5.  dtm\n"
+"  old= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2= 0.04166667  trstepcoe\n"
+"   units=spice\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:117
@@ -8899,12 +8986,14 @@ msgid ""
 "The only one I will change now is the printing precision .. Set it to 8 digits.  Starting an oscillator takes a long time.\n"
 "  gnucap> opt numdgt=8\n"
 msgstr ""
+"Единственное, что я сейчас поменяю, это точность вывода... Установим его в 8 цифр. Запуск генератора длится долго.\n"
+"  gnucap> opt numdgt=8\n"
 
 #. type: Title =====
 #: manual/examples/phase_shift_oscillator.txt:118
 #, no-wrap
 msgid "Get started, run to steady state"
-msgstr ""
+msgstr "Запуск, достижение установившегося режима"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:121
@@ -8913,6 +9002,9 @@ msgid ""
 "\"trace all\" says to output all of the internal time steps too.  Otherwise, "
 "you will just get the ones you asked for."
 msgstr ""
+"Для начала давайте запустим его на 10 секунд с пробным шагом времени 0,01. "
+"Опция «''trace all''» говорит выводить все внутренние шаги тоже. Иначе мы "
+"получим только те, что запросили."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:123
@@ -8922,6 +9014,11 @@ msgid ""
 "(&) says to leave it running and return, just like a shell command.  That "
 "way we can keep the waveforms on the screen and keep going."
 msgstr ""
+"Я направил вывод в файл под скучным именем «z».  Затем гляжу его с помощью "
+"gwave.  Восклицательный знак (!) говорит запускать команду в оболочке. "
+"Амперсанд (&) говорит оставить её запущенной в фоне и вернуться, прямо как "
+"для команд в shell. Таким образом сигналы можно держать на экране и "
+"продолжать работу."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:126
@@ -8930,6 +9027,8 @@ msgid ""
 "  gnucap> tran 0 10 .01 trace all >z\n"
 "  gnucap> !gwave z &\n"
 msgstr ""
+"  gnucap> tran 0 10 .01 trace all >z\n"
+"  gnucap> !gwave z &\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:132
@@ -8938,37 +9037,40 @@ msgid ""
 "1 second.  Then takes until about 5 seconds to settle.  It looks like 10 "
 "seconds was a good guess."
 msgstr ""
+"Вот и форма сигнала.  Кажется, что колебания не начинаются примерно до 1 "
+"секунды. Затем где-то до 5 секунд идёт переход в установившийся режим. "
+"Кажется, 10 секунд было неплохим предположением."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:134
 msgid "{{gnucap:w1.png}}"
-msgstr ""
+msgstr "{{gnucap:w1.png}}"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:136
 msgid "Here's an expanded view just as it starts to oscillate:"
-msgstr ""
+msgstr "А вот увеличенный вид момента начала колебаний: "
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:138
 msgid "{{gnucap:w7.png}}"
-msgstr ""
+msgstr "{{gnucap:w7.png}}"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:140
 msgid "The last few cycles at the end of the run:"
-msgstr ""
+msgstr "Последние несколько периодов в конце работы:"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:142
 msgid "{{gnucap:w8.png}}"
-msgstr ""
+msgstr "{{gnucap:w8.png}}"
 
 #. type: Title =====
 #: manual/examples/phase_shift_oscillator.txt:143
 #, no-wrap
 msgid "The measurements we want"
-msgstr ""
+msgstr "Измерения, которые нам нужны"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:146
@@ -8976,6 +9078,9 @@ msgid ""
 "Now, tighten the tolerance, so we can get good measurements.  The default "
 "settings are fine most of the time, but for this we need better."
 msgstr ""
+"Теперь зажмём [[gnucap:manual:commands:options.ru|допуски]], чтобы можно "
+"было добиться хороших измерений. Чаще всего вполне подходят стандартные "
+"настройки, но для данного случая нужны настройки получше."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:156
@@ -8991,6 +9096,15 @@ msgid ""
 "  cstray  harmonics=9  trstepgrow= 1.E+99  trstephold= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2=\n"
 "  0.04166667  trstepcoef3= 0.005208333  noquitconvfail  edit  recursion=20  language=acs  insensitive  units=spice\n"
 msgstr ""
+"Посмотрим, каковы они:\n"
+"  gnucap> opt\n"
+"  .options  noacct  nolist  mod  nopage  nonode  noopts  gmin= 1.p  reltol= 0.001  abstol= 1.p  vntol= 1.u  trtol= 7.  chgtol= 10.f  pivtol= 100.f\n"
+"  pivrel= 0.001  numdgt=8  tnom= 27.  cptime=30000  limtim=2  limpts=201  lvlcod=2  lvltim=2  method=trap  maxord=2  itl1=100  itl2=50  itl3=6\n"
+"  itl4=20  itl5=5000  itl6=0  itl7=1  itl8=99  defl= 100.u  defw= 100.u  defad= 0.  defas= 0.  clobber  dampmax= 1.  dampmin= 0.5  dampstrategy=0\n"
+"  floor= 1.E-21  vfloor= 1.f  roundofftol= 100.f  temperature= 27.  short= 10.u  out=9999  ydivisions= 4.  phase=degrees  order=auto  mode=mixed\n"
+"  transits=2  nodupcheck  bypass  incmode  lcbypass  lubypass  fbbypass  traceload  itermin=1  vmax= 5.  vmin=-5.  dtmin= 1.p  dtratio= 1.G  rstray\n"
+"  cstray  harmonics=9  trstepgrow= 1.E+99  trstephold= 1.E+99  trstepshrink= 2.  trreject= 0.5  trsteporder=3  trstepcoef1= 0.25  trstepcoef2=\n"
+"  0.04166667  trstepcoef3= 0.005208333  noquitconvfail  edit  recursion=20  language=acs  insensitive  units=spice\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:159
@@ -8999,6 +9113,8 @@ msgid ""
 "Now tighten \"reltol\" and \"trtol\".\n"
 "  gnucap> opt reltol=.0001 trtol=1\n"
 msgstr ""
+"Теперь уменьшим ''reltol'' и ''trtol''...\n"
+"  gnucap> opt reltol=.0001 trtol=1\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:163
@@ -9008,6 +9124,9 @@ msgid ""
 "  gnucap> tran 10.01 .001 trace all >z\n"
 "  gnucap> !gwave z &\n"
 msgstr ""
+"и запустим моделирование ещё на .01 секунды, продолжая далее...\n"
+"  gnucap> tran 10.01 .001 trace all >z\n"
+"  gnucap> !gwave z &\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:172
@@ -9022,6 +9141,14 @@ msgid ""
 "  gnucap> eval frequency\n"
 "  frequency= 606.060606060714\n"
 msgstr ""
+"и сделаем несколько измерений...\n"
+"  gnucap> measure t2=cross(\"v(e2)\", cross=7, rise, last)\n"
+"  t2= 10.00943\n"
+"  gnucap> measure t1=cross(\"v(e2)\", cross=7, rise, last, before=t2)\n"
+"  t1= 10.00778\n"
+"  gnucap> param frequency={1/(t2-t1)}\n"
+"  gnucap> eval frequency\n"
+"  frequency= 606.060606060714\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:174
@@ -9032,6 +9159,12 @@ msgid ""
 "the frequency we specified is slightly in error, and we need to tighten "
 "tolerances and fine tune."
 msgstr ""
+"Для [[gnucap:manual:commands:fourier.ru|анализа Фурье]] выберем основную "
+"частоту в половину настоящей основной частоты, как индикатор точности. Мы "
+"все знаем, что там ничего не должно быть. Если составляющая на частотах "
+"нечётных гармоник слишком велика, это значит, что частота, которую мы "
+"задали, слегка ошибочна, и нам нужно зажать допуски и произвести тонкую "
+"настройку."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:183
@@ -9046,6 +9179,14 @@ msgid ""
 "   10.013326     8.7969959\n"
 "   10.013352     8.5847199\n"
 msgstr ""
+"  gnucap> eval frequency/2\n"
+"  (frequency / 2)= 303.030303030357\n"
+"  gnucap> print fourier v(e2)\n"
+"  gnucap> fourier 0 10k 303.030303030357\n"
+"  #Time          v(e2)\n"
+"   10.0133       8.9974012\n"
+"   10.013326     8.7969959\n"
+"   10.013352     8.5847199\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:197
@@ -9065,16 +9206,29 @@ msgid ""
 "   2.1212K    0.0042367  -47.46   67.220  0.0013708  -57.26  -67.528\n"
 "   2.4242K    0.079307   -22.01   94.762  0.02566    -31.82  -39.986\n"
 msgstr ""
+"   10.016574     9.0517243\n"
+"   10.0166       8.8549586\n"
+"  # v(e2)     --------- actual ---------  -------- relative --------\n"
+"  #freq       value        dB      phase  value        dB      phase\n"
+"   0.         7.0656      16.98   90.000  2.2861       7.18  -44.748\n"
+"   303.03     0.034076   -29.35  118.607  0.011025   -39.15  -16.141\n"
+"   606.06     3.0907       9.80  134.748  1.           0.00    0.000\n"
+"   909.09     0.040746   -27.80  -43.182  0.013183   -37.60 -177.930\n"
+"   1.2121K    0.3894      -8.19  -94.915  0.12599    -17.99  130.337\n"
+"   1.5152K    0.017954   -34.92   17.761  0.0058088  -44.72 -116.987\n"
+"   1.8182K    0.15704    -16.08    4.083  0.05081    -25.88 -130.665\n"
+"   2.1212K    0.0042367  -47.46   67.220  0.0013708  -57.26  -67.528\n"
+"   2.4242K    0.079307   -22.01   94.762  0.02566    -31.82  -39.986\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:199
 msgid "303 Hz has a relative amplitude of -39 db.  Not very good."
-msgstr ""
+msgstr "Относительная амплитуда для 303 Гц составляет -39 дБ. Не очень хорошо."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:201
 msgid "Tighten the tolerances and measure again:"
-msgstr ""
+msgstr "Ещё раз зажмём допуски и померим снова:"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:206
@@ -9085,12 +9239,18 @@ msgid ""
 "  gnucap> measure t2=cross(\"v(e2)\", cross=7, rise, last)\n"
 "  t2= Inf\n"
 msgstr ""
+"  gnucap> opt reltol=.00001 trtol=1\n"
+"  gnucap> tran 10.01 .001 trace all >z\n"
+"  gnucap> measure t2=cross(\"v(e2)\", cross=7, rise, last)\n"
+"  t2= Inf\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:208
 msgid ""
 "Error ....  we already went past 10.01 seconds ..  Move ahead and try again."
 msgstr ""
+"Ошибка...  мы уже прошли через 10.01 секунды...  Продолжим и попробуем ещё "
+"раз."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:224
@@ -9112,6 +9272,21 @@ msgid ""
 "   10.030012     6.1507251\n"
 "   10.030037     5.9090503\n"
 msgstr ""
+"  gnucap> tran 10.03 .001 trace all >z\n"
+"  gnucap> !gwave z &\n"
+"  gnucap> measure t2=cross(\"v(e2)\", cross=7, rise, last)\n"
+"  t2= 10.02911\n"
+"  gnucap> measure t1=cross(\"v(e2)\", cross=7, rise, last, before=t2)\n"
+"  t1= 10.02747\n"
+"  gnucap> eval frequency/2\n"
+"  (frequency / 2)= 304.878048780472\n"
+"  gnucap> eval frequency\n"
+"  frequency= 609.756097560944\n"
+"  gnucap> fourier 0 10k 304.878048780472\n"
+"  #Time          v(e2)\n"
+"   10.029986     6.3978311\n"
+"   10.030012     6.1507251\n"
+"   10.030037     5.9090503\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:248
@@ -9141,11 +9316,34 @@ msgid ""
 "   4.5732K    52.818u    -85.54  168.840  17.089u    -95.35  -25.834\n"
 "   4.878K     0.018021   -34.88 -148.890  0.0058308  -44.69   16.435\n"
 msgstr ""
+"   10.033189     7.1588976\n"
+"   10.033215     6.9059126\n"
+"   10.03324      6.6531773\n"
+"   10.033266     6.4023893\n"
+"  # v(e2)     --------- actual ---------  -------- relative --------\n"
+"  #freq       value        dB      phase  value        dB      phase\n"
+"   0.         7.0581      16.97   90.000  2.2836       7.17 -104.675\n"
+"   304.88     256.82u    -71.81   -1.240  83.092u    -81.61  164.086\n"
+"   609.76     3.0908       9.80 -165.325  1.           0.00    0.000\n"
+"   914.63     0.0011098  -59.09 -171.143  359.08u    -68.90   -5.817\n"
+"   1.2195K    0.38362     -8.32   21.927  0.12412    -18.12 -172.748\n"
+"   1.5244K    103.52u    -79.70  178.156  33.493u    -89.50  -16.518\n"
+"   1.8293K    0.14832    -16.58 -177.459  0.047988   -26.38  -12.133\n"
+"   2.1341K    357.2u     -68.94 -179.519  115.57u    -78.74  -14.193\n"
+"   2.439K     0.079273   -22.02  -23.966  0.025648   -31.82  141.360\n"
+"   2.7439K    132.94u    -77.53 -126.976  43.011u    -87.33   38.350\n"
+"   3.0488K    0.049584   -26.09  126.722  0.016043   -35.89  -67.952\n"
+"   3.3537K    168.29u    -75.48  163.828  54.45u     -85.28  -30.847\n"
+"   3.6585K    0.033637   -29.46  -84.750  0.010883   -39.27   80.575\n"
+"   3.9634K    163.24u    -75.74 -138.899  52.816u    -85.54   26.426\n"
+"   4.2683K    0.024012   -32.39   63.711  0.0077689  -42.19 -130.964\n"
+"   4.5732K    52.818u    -85.54  168.840  17.089u    -95.35  -25.834\n"
+"   4.878K     0.018021   -34.88 -148.890  0.0058308  -44.69   16.435\n"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:250
 msgid "That's better.  Noise is -68 db or better.  305 Hz is -81 db."
-msgstr ""
+msgstr "Это лучше. Помехи в районе -68 дБ или лучше. Для 305 Гц это -81 дБ."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:252
@@ -9153,11 +9351,13 @@ msgid ""
 "As I said, the oscillator isn't very good.  The second harmonic is only 18 "
 "db below the fundamental."
 msgstr ""
+"Как я сказал, генератор не очень хорош. Вторая гармоника только на 18 дБ "
+"ниже основной частоты."
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:253
 msgid "Enough for now..."
-msgstr ""
+msgstr "Хватит на этот раз..."
 
 #. type: Title ======
 #: manual/examples/resistors_and_sources.txt:1
