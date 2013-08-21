@@ -7211,7 +7211,7 @@ msgstr "[[gnucap:manual:examples:Experimentally finding model parameters.ru|Эк
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Simple Power supply]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Simple Power supply.ru|Простой источник питания]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -8660,7 +8660,7 @@ msgstr ""
 #: manual/examples/simple_power_supply.txt:3
 #, no-wrap
 msgid "Getting started"
-msgstr ""
+msgstr "Приступаем к работе"
 
 #. type: Plain text
 #: manual/examples/phase_shift_oscillator.txt:6
@@ -9485,12 +9485,12 @@ msgstr ""
 #: manual/examples/simple_power_supply.txt:1
 #, no-wrap
 msgid "A simple power supply"
-msgstr ""
+msgstr "Простой источник питания"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:6
 msgid "In this example, we will analyze a simple power supply."
-msgstr ""
+msgstr "В этом примере мы проанализируем простой источник питания."
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:8
@@ -9501,6 +9501,12 @@ msgid ""
 "load), with less than 1 volt of ripple.  The power supply should be able to "
 "handle a short with no damage, with no fuse."
 msgstr ""
+"Источник питания состоит из трансформатора из внешнего адаптера питания с "
+"довольно слабой трансформаторной связью для защиты от коротких замыканий, "
+"двухполупериодного мостового выпрямителя и фильтрующего конденсатора. "
+"Желаемый выход составляет около 50 вольт при 0,5 Ампер (нагрузка в 100 Ом), "
+"с пульсацией менее 1 вольта.  Источник питания должен без предохранителя "
+"выдерживать короткое замыкание без повреждения."
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:10
@@ -9510,6 +9516,11 @@ msgid ""
 "stock transformer has a coefficient of coupling of .9.  He has also chosen "
 "1N4004 diodes, and a 5000 uf filter capacitor."
 msgstr ""
+"Неопытный инженер выбрал трансформатор с индуктивностью первичной обмотки "
+"равной 1 Гн, индуктивностью вторичной обмотки равной 0,1 Гн, и отношением "
+"числа витков 3,16:1. Имеющийся в наличии трансформатор имеет коэффициент "
+"связи равный 0,9.  Он также выбрал диоды 1N4004 и фильтрующий конденсатор на "
+"5000 мкФ."
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:12
@@ -9517,6 +9528,8 @@ msgid ""
 "The first goal of simulation is to validate the design.  Then, make "
 "adjustments to the design to meet the specs."
 msgstr ""
+"Первая цель моделирования --- проверить правильность разработки. Затем --- "
+"скорректировать её для получения соответствия характеристикам."
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:14
@@ -9524,66 +9537,68 @@ msgid ""
 "To validate the design, the following measurements need to be made, not "
 "necessarily in this order."
 msgstr ""
+"Для проверки правильности разработки необходимо провести следующие "
+"измерения, не обязательно в указанном порядке."
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "DC output voltage, loaded (100 Ohm) and unloaded.\n"
-msgstr ""
+msgstr "Постоянное напряжение выхода, под нагрузкой (100 Ом) и без.\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Ripple voltage.\n"
-msgstr ""
+msgstr "Напряжение пульсаций.\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Current in diodes: waveform, average, steady state peak, power-on surge, AC.\n"
-msgstr ""
+msgstr "Ток в диодах: вид сигнала, среднее значение, пиковое значение в установившемся режиме, выброс тока при включении, значение переменного тока.\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Current in filter cap: as above\n"
-msgstr ""
+msgstr "Ток в фильтрующих конденсаторах: то же, что и выше\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Input current: as above\n"
-msgstr ""
+msgstr "Входной ток: то же, что и выше\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Input power, VAR, and power factor: as above\n"
-msgstr ""
+msgstr "Входная мощность, реактивная мощность и коэффициент мощности: то же, что и выше\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Above currents and power for load = nominal (100 Ohm), unloaded, and shorted (.01 Ohm)\n"
-msgstr ""
+msgstr "Вышеуказанные токи и мощность для номинальной нагрузки (100 Ом), холостого хода и короткого замыкания (.01 Ом)\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Diode voltages, PIV, etc.\n"
-msgstr ""
+msgstr "Напряжения диодов, максимальное обратное напряжение и т. д.\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Transformer voltages\n"
-msgstr ""
+msgstr "Напряжения трансформатора\n"
 
 #. type: Bullet: '  - '
 #: manual/examples/simple_power_supply.txt:25
 #, no-wrap
 msgid "Impact of high line (132 volts) and low line (108 volts)\n"
-msgstr ""
+msgstr "Влияние повышенного (132 вольт) и пониженного (108 вольт) сетевого напряжения\n"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:27
@@ -9591,23 +9606,26 @@ msgid ""
 "This example will show how to do some of these.  The rest are left as an "
 "exercise.  You can make all of these measurements with gnucap."
 msgstr ""
+"В этом примере будет показано, как сделать кое-что из этого. Остальное "
+"остаётся в качестве упражнения.  Все эти измерения можно произвести с "
+"помощью gnucap."
 
 #. type: Title =====
 #: manual/examples/simple_power_supply.txt:29
 #, no-wrap
 msgid "Building the circuit"
-msgstr ""
+msgstr "Построение схемы"
 
 #. type: Title ====
 #: manual/examples/simple_power_supply.txt:31
 #, no-wrap
 msgid "Models"
-msgstr ""
+msgstr "Модели"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:34
 msgid "First, let's make subcircuits for the transformer and diode bridge:"
-msgstr ""
+msgstr "Сначала сделаем подсхемы для трансформатора и диодного моста:"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:40
@@ -9619,6 +9637,11 @@ msgid ""
 "  K1 (L1 L2) .9\n"
 "  .ends\n"
 msgstr ""
+"  .subckt transformer (p1 p2 s1 s2)\n"
+"  L1 (p1 p2) 1\n"
+"  L2 (s1 s2) .1\n"
+"  K1 (L1 L2) .9\n"
+"  .ends\n"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:48
@@ -9632,22 +9655,29 @@ msgid ""
 "  D4 (minus in2) 1n4004\n"
 "  .ends\n"
 msgstr ""
+"  .subckt bridge (in1 in2 minus plus)\n"
+"  .model 1n4004 d is=1n\n"
+"  D1 (in1 plus) 1n4004\n"
+"  D2 (in2 plus) 1n4004\n"
+"  D3 (minus in1) 1n4004\n"
+"  D4 (minus in2) 1n4004\n"
+"  .ends\n"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:50
 msgid "Save it in the file \"models\"."
-msgstr ""
+msgstr "Сохраним их в файл ''models''."
 
 #. type: Title ====
 #: manual/examples/simple_power_supply.txt:51
 #, no-wrap
 msgid "Main circuit"
-msgstr ""
+msgstr "Основная схема"
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:54
 msgid "Now, let's run it interactively..  Type in the circuit..."
-msgstr ""
+msgstr "Теперь давайте запустим это в интерактивном режиме... Введём схему..."
 
 #. type: Plain text
 #: manual/examples/simple_power_supply.txt:68
@@ -9667,18 +9697,31 @@ msgid ""
 "  gnucap-spice>.control\n"
 "  gnucap>\n"
 msgstr ""
+"  $ gnucap\n"
+"  ..... (начало сеанса работы)\n"
+"  gnucap> include models\n"
+"  gnucap> list\n"
+"     ..... (описание схемы, введённой до этого момента)\n"
+"  gnucap> spice\n"
+"  gnucap-spice>Vin (in 0) sin (freq=60 ampl=170) ac 120\n"
+"  gnucap-spice>X1 (in 0 s1 s2) transformer\n"
+"  gnucap-spice>X2 (s1 s2 0 out) bridge\n"
+"  gnucap-spice>Rload (out 0) rload\n"
+"  gnucap-spice>Cfilter (out 0) cfilter\n"
+"  gnucap-spice>.control\n"
+"  gnucap>\n"
 
 #. type: Title =====
 #: manual/examples/simple_power_supply.txt:69
 #, no-wrap
 msgid "Simulate"
-msgstr ""
+msgstr "Моделирование"
 
 #. type: Title ====
 #: manual/examples/simple_power_supply.txt:71
 #, no-wrap
 msgid "Set up and first run"
-msgstr ""
+msgstr "Настройка и первый запуск"
 
 #. type: Title ======
 #: manual/examples/things_that_can_go_wrong.txt:1
