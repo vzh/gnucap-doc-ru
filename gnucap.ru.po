@@ -7199,7 +7199,7 @@ msgstr "[[gnucap:manual:examples:Multiplying two voltages using diode nonlineari
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Using the generator in transient analysis]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Using the generator in transient analysis.ru|Использование генератора во временном анализе]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -7241,13 +7241,13 @@ msgstr "[[http://www.johannes-bauer.com/electronics/]] [[http://www.johannes-bau
 #: manual/examples.txt:17
 #, no-wrap
 msgid "[[http://geekwentfreak.wordpress.com/2009/12/11/spice-gschem-gnetlist-gnucap-gwave-gspiceui-linux/]]\n"
-msgstr ""
+msgstr "[[http://geekwentfreak.wordpress.com/2009/12/11/spice-gschem-gnetlist-gnucap-gwave-gspiceui-linux/]]\n"
 
 #. type: Title ======
 #: manual/examples/experimentally_finding_model_parameters.txt:1
 #, no-wrap
 msgid "Experimentally finding model parameters"
-msgstr "Экспериментальное нахождение параметров модели"
+msgstr "Экспериментальное определение параметров модели"
 
 #. type: Plain text
 #: manual/examples/experimentally_finding_model_parameters.txt:4
