@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-06-25 11:14+0400\n"
-"PO-Revision-Date: 2013-08-21 16:35+0400\n"
+"PO-Revision-Date: 2013-08-22 11:52+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7193,7 +7193,7 @@ msgstr "[[gnucap:manual:examples:Nonlinear devices -- diodes.ru|Нелинейн
 #: manual/examples.txt:14
 #, no-wrap
 msgid "[[gnucap:manual:examples:Multiplying two voltages using diode nonlinearity]]\n"
-msgstr ""
+msgstr "[[gnucap:manual:examples:Multiplying two voltages using diode nonlinearity.ru|Умножение двух напряжений с помощью нелинейности диодов]]\n"
 
 #. type: Bullet: '  * '
 #: manual/examples.txt:14
@@ -8362,7 +8362,7 @@ msgstr ""
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:1
 #, no-wrap
 msgid "Multiplying Two Voltages Using Diode Nonlinearity"
-msgstr ""
+msgstr "Умножение двух напряжений с помощью нелинейности диода"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:11
@@ -8376,11 +8376,20 @@ msgid ""
 "diode to find the exponential of the sum. This works in the same way as a "
 "slide rule does."
 msgstr ""
+"В примере выше показан режим падения напряжения на диоде, но диод можно "
+"использовать и для получения экспоненциальной функции. В настоящем примере "
+"группа диодов используется для конструирования умножителя напряжения. В "
+"большинстве компонентов электрических схем напряжения и токи складываются "
+"или вычитаются, но функция умножения несколько специфична. Что делается в "
+"этой схеме, так это с помощью экспоненциальной характеристики диодов берутся "
+"логарифмы от двух входных напряжений, затем они складываются, а для "
+"нахождения экспоненты суммы используется другой диод. Схема работает по тому "
+"же принципу, что и логарифмическая линейка."
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:13
 msgid "eg7.ckt"
-msgstr ""
+msgstr " "
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:16
@@ -8389,6 +8398,8 @@ msgid ""
 "<code>\n"
 "MULTILPLY TWO NUMBERS\n"
 msgstr ""
+"<file spice eg7.ckt>\n"
+"УМНОЖЕНИЕ ДВУХ ЧИСЕЛ\n"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:37
@@ -8415,11 +8426,35 @@ msgid ""
 "H1 3 0 V1 1e6\n"
 ".ends\n"
 msgstr ""
+".subckt multiplier 1 2 3\n"
+"*                        1 = вход A (напряжение)\n"
+"*                        2 = вход B (напряжение)\n"
+"*                        3 = выход  (напряжение)\n"
+"* Обратите внимание, что для обоих входов и выхода заданы коэффициенты\n"
+"* масштабирования, позволяющие диодам оставаться в области экспоненты.\n"
+".model dexp D EG=0 CJ=0 FC=0 gparallel=0\n"
+"G1 0 4 1 0 1e-3\n"
+"D1 4 0 dexp\n"
+"G2 0 5 2 0 1e-3\n"
+"D2 5 0 dexp\n"
+"I3 0 6 1\n"
+"D3 6 0 dexp\n"
+"E1 7 0 4 0 1\n"
+"E2 8 7 5 0 1\n"
+"E3 8 9 6 0 1\n"
+"V1 9 10 0\n"
+"D4 10 0 dexp\n"
+"H1 3 0 V1 1e6\n"
+".ends\n"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:42
 msgid "V1 1 0 0 V2 2 0 0.5 X1 1 2 3 multiplier R1 3 0 1"
 msgstr ""
+"V1 1 0 0\n"
+"V2 2 0 0.5\n"
+"X1 1 2 3 multiplier\n"
+"R1 3 0 1"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:52
@@ -8428,9 +8463,15 @@ msgid ""
 "E3)  .!rm eg7_1.dat eg7_2.dat eg7_3.dat .dc v1 0 1 0.01 > eg7_1.dat .modify "
 "V2=100 .dc v1 0 1 0.01 > eg7_2.dat .dc v1 0 1000 1 > eg7_3.dat .end </code>"
 msgstr ""
-".options vmin=-1e5 vmax=1e5 .print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1."
-"E3)  .!rm eg7_1.dat eg7_2.dat eg7_3.dat .dc v1 0 1 0.01 > eg7_1.dat .modify "
-"V2=100 .dc v1 0 1 0.01 > eg7_2.dat .dc v1 0 1000 1 > eg7_3.dat .end </code>"
+".options vmin=-1e5 vmax=1e5\n"
+".print dc V(3) V(2) V(X1.E1) V(X1.E2) V(X1.E3)\n"
+".!rm eg7_1.dat eg7_2.dat eg7_3.dat\n"
+".dc v1 0 1 0.01 > eg7_1.dat\n"
+".modify V2=100\n"
+".dc v1 0 1 0.01 > eg7_2.dat\n"
+".dc v1 0 1000 1 > eg7_3.dat\n"
+".end\n"
+"</file>"
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:60
@@ -8443,6 +8484,14 @@ msgid ""
 "voltage and current sources used in this example would not be possible to "
 "construct in a real circuit."
 msgstr ""
+"В этом примере, используя для тестирования нескольких диапазонов входных "
+"сигналов команду развёртки в диапазоне изменения статического режима по "
+"постоянному току [[gnucap:manual:commands:dc.ru|dc]], мы не пытаемся выйти "
+"за рамки умножения двух чисел. Для проверки линейности выходных данных можно "
+"вывести графики выходных файлов. Если для выполнения аналогового умножения "
+"нужно было бы построить реальную схему, понадобилось бы нечто более сложное, "
+"чем указанный выше пример, потому что из используемых в нём зависимых "
+"источников напряжения и тока нельзя составить реальную схему."
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:65
@@ -8452,6 +8501,11 @@ msgid ""
 "range requires adjustment of the input and output scaling factors so that "
 "the diodes themselves stay close to exponential functions."
 msgstr ""
+"Даже при наличии таких идеальных компонентов программы моделирования "
+"умножение в этом примере будет правильным только в пределах ограниченного "
+"диапазона. Работа вне этого диапазона требует подстройки коэффициентов "
+"масштабирования входа и выхода, чтобы функции самих диодов оставались близки "
+"к экспоненциальным."
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:74
@@ -8465,6 +8519,14 @@ msgid ""
 "the subcircuit, for example \"X1.E1\" refers to the sub-component named "
 "\"E1\" inside the subcircuit \"X1\"."
 msgstr ""
+"В этом примере вводится понятие подсхемы, которая в схемотехническом "
+"моделировании представляет собой средство, подобное макросу. Подсхема "
+"содержится между строками «''.subckt''» и «''.ends''», а для узлов в "
+"подсхеме может использоваться своя собственная нумерация, независимая от "
+"внешней схемы. Подсхеме задаётся имя (в данном случае «''multiplier''»), и "
+"компонент ''X1'' становится экземпляром этой подсхемы. Обратите внимание на "
+"то, каким образом можно задавать датчики для устройств внутри подсхем, "
+"например ''X1.E1'' относится к внутреннему компоненту ''E1'' подсхемы ''X1''."
 
 #. type: Plain text
 #: manual/examples/multiplying_two_voltages_using_diode_nonlinearity.txt:79
@@ -8475,6 +8537,13 @@ msgid ""
 "possibilities, or it can also be used interactively to trim a component "
 "value into the value that gives the desired operating point."
 msgstr ""
+"Ещё одна новая команда здесь --- это [[gnucap:manual:commands:alter.ru|."
+"modify]]. В этом примере нам хочется протестировать умножитель в нескольких "
+"диапазонах изменения режима по постоянному току, но между командами "
+"развёртки желательно поменять значение ''V2''. Эта команда позволяет "
+"использовать один пакетный запуск для тестирования нескольких вариантов. "
+"Кроме того, её же можно использовать в интерактивном режиме работы для "
+"регулировки значения компонента с целью получения нужной рабочей точки."
 
 #. type: Title ======
 #: manual/examples/nonlinear_devices_--_diodes.txt:1
