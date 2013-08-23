@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2013-07-26 12:43+0400\n"
+"POT-Creation-Date: 2013-08-23 15:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -4380,12 +4380,15 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:57
+#, no-wrap
 msgid ""
-"|order |The order of the polynomial to fit, within the supplied data.  "
+"|order  |The order of the polynomial to fit, within the supplied data.  "
 "(Default = 3) Legal values are 0, 1, 2, and 3, only.  For \"pwl\" a value of "
-"1 is assumed.  | |below |The value of the derivative to use below or before "
-"the specified range.  | |above |The value of the derivative to use above or "
-"after the specified range.  |"
+"1 is assumed.  |\n"
+"|below  |The value of the derivative to use below or before the specified "
+"range.  |\n"
+"|above  |The value of the derivative to use above or after the specified "
+"range.  |\n"
 msgstr ""
 
 #. type: Plain text
@@ -4404,25 +4407,28 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:66
+#, no-wrap
 msgid ""
-"|Order = 3\\\\ cubic_splines |The default is to use \"natural\" splines, "
+"|Order = 3\\\\ cubic_splines  |The default is to use \"natural\" splines, "
 "which sets the second derivative to zero at the boundary.  If a value of "
 "//below// or //above// is specified, \"clamped\" splines will be used.  In "
 "any case, there will be a smooth transition at the boundaries.  When using "
 "\"clamped\" splines, the second derivative may have a discontinuity at the "
-"boundaries.  | |Order = 2\\\\ quadratic_splines |By default, the derivative "
-"at the upper end is determined by the slope of the last segment.  This is "
-"also the derivative above the range.  Below the range, the derivative "
-"determined at the lower bound is used.  It is recommended that only one of "
-"//below// and //above// be specified.  If both are specified, the splines "
-"are determined using //above//, and there will be a discontinuity in the "
-"derivative at the lower bound.  | |Order = 1\\\\ piecewise_linear |For first "
-"order (linear) interpolation, the default slope outside the range is the "
-"extension of the slope in the end segments.  The parameters //below// and "
-"//above// have no effect inside the range.  | |Order = 0\\\\ "
-"piecewise_constant |The resulting value is constant over the interval, and "
-"hasdiscontinuities at the specified points.  The parameters //below// and "
-"//above// are ignored.  The slope is always 0.  |"
+"boundaries.  |\n"
+"|Order = 2\\\\ quadratic_splines  |By default, the derivative at the upper "
+"end is determined by the slope of the last segment.  This is also the "
+"derivative above the range.  Below the range, the derivative determined at "
+"the lower bound is used.  It is recommended that only one of //below// and "
+"//above// be specified.  If both are specified, the splines are determined "
+"using //above//, and there will be a discontinuity in the derivative at the "
+"lower bound.  |\n"
+"|Order = 1\\\\ piecewise_linear  |For first order (linear) interpolation, "
+"the default slope outside the range is the extension of the slope in the end "
+"segments.  The parameters //below// and //above// have no effect inside the "
+"range.  |\n"
+"|Order = 0\\\\ piecewise_constant  |The resulting value is constant over the "
+"interval, and hasdiscontinuities at the specified points.  The parameters "
+"//below// and //above// are ignored.  The slope is always 0.  |\n"
 msgstr ""
 
 #. type: Plain text
@@ -4598,7 +4604,10 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:31
-msgid "|Voltage source |v = f(t)  | |Current source |i = f(t)  |"
+#, no-wrap
+msgid ""
+"|Voltage source  |v = f(t)  |\n"
+"|Current source  |i = f(t)  |\n"
 msgstr ""
 
 #. type: Title =====
@@ -4773,23 +4782,26 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:101
+#, no-wrap
 msgid ""
-"|Fixed sources |Time dependent functions are voltage or current as a "
+"|Fixed sources  |Time dependent functions are voltage or current as a "
 "function of time. They are mostly Spice compatible, with extensions.\\\\ "
 "Nonlinear transfer functions use time as the independent variable.  Some may "
-"not make sense, but they are there anyway.  | |Capacitors and inductors "
-"|Time dependent functions are capacitance or inductance as a function of "
-"time.  They are voltage/current conserving, not charge/flux conserving.\\\\ "
-"Nonlinear transfer functions are charge or flux as a function of input "
-"(voltage or current).  Charge and flux are conserved, and can be probed.  | "
-"|Resistors and conductances |Time dependent functions are resistance or "
+"not make sense, but they are there anyway.  |\n"
+"|Capacitors and inductors  |Time dependent functions are capacitance or "
+"inductance as a function of time.  They are voltage/current conserving, not "
+"charge/flux conserving.\\\\ Nonlinear transfer functions are charge or flux "
+"as a function of input (voltage or current).  Charge and flux are conserved, "
+"and can be probed.  |\n"
+"|Resistors and conductances  |Time dependent functions are resistance or "
 "conductance as a function of time.\\\\ Nonlinear transfer functions are "
 "current or voltage as a function of input (voltage or current).  Resistors "
 "define voltage as a function of current.  Conductances define current as a "
-"function of voltage.  | |Controlled sources |Time dependent functions are "
-"gain (v/v, transconductance, etc) function of time.\\\\ Nonlinear transfer "
-"functions are output (voltage or current) as a function of input (voltage or "
-"current).  |"
+"function of voltage.  |\n"
+"|Controlled sources  |Time dependent functions are gain (v/v, "
+"transconductance, etc) function of time.\\\\ Nonlinear transfer functions "
+"are output (voltage or current) as a function of input (voltage or "
+"current).  |\n"
 msgstr ""
 
 #. type: Title ====
@@ -4996,11 +5008,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/poly.txt:32
+#, no-wrap
 msgid ""
-"|min |Minimum output value (clipping).  (Default = -infinity)  | |max "
-"|Maximum output value (clipping).  (Default = infinity)  | |abs |Absolute "
-"value, truth value.  (Default = false).  If set to true, the result will be "
-"always positive.  |"
+"|min  |Minimum output value (clipping).  (Default = -infinity)  |\n"
+"|max  |Maximum output value (clipping).  (Default = infinity)  |\n"
+"|abs  |Absolute value, truth value.  (Default = false).  If set to true, the "
+"result will be always positive.  |\n"
 msgstr ""
 
 #. type: Plain text
@@ -5198,21 +5211,26 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/probes.txt:51
+#, no-wrap
 msgid ""
 "|method |A number corresponding to what differentiation method is now being "
 "used for this device.\\\\ 0 = trapgear, 1 = Euler, 2 = trapezoidal, 3 = "
-"Gear, 4 = trapeuler | |q\\\\ qcap\\\\ charge |The charge stored in this "
-"capacitor, in Coulombs. | |c\\\\ capacitance |The effective capacitance of "
-"this device. For a fixed capacitor, it be its value. For a nonlinear "
-"capacitor, it is the effective capacitance at this time, or ∂q/∂v. | |dcdt "
-"|The time derivative of capacitance. For a linear capacitor it will be "
-"zero. | |dc |The change in capacitance compared to the previous sample. Its "
-"primary use is in debugging models and numerical problems. For a linear "
-"capacitor it will be zero. | |dqdt |The time derivative of charge. Hopefully "
-"this is the same as current, but it is calculated a different way and can be "
-"used as an accuracy check. | |dq |The change in charge compared to the "
-"previous sample. Its primary use is in debugging models and numerical "
-"problems. |"
+"Gear, 4 = trapeuler |\n"
+"|q\\\\ qcap\\\\ charge |The charge stored in this capacitor, in "
+"Coulombs. |\n"
+"|c\\\\ capacitance |The effective capacitance of this device. For a fixed "
+"capacitor, it be its value. For a nonlinear capacitor, it is the effective "
+"capacitance at this time, or ∂q/∂v. |\n"
+"|dcdt |The time derivative of capacitance. For a linear capacitor it will be "
+"zero. |\n"
+"|dc |The change in capacitance compared to the previous sample. Its primary "
+"use is in debugging models and numerical problems. For a linear capacitor it "
+"will be zero. |\n"
+"|dqdt |The time derivative of charge. Hopefully this is the same as current, "
+"but it is calculated a different way and can be used as an accuracy "
+"check. |\n"
+"|dq |The change in charge compared to the previous sample. Its primary use "
+"is in debugging models and numerical problems. |\n"
 msgstr ""
 
 #. type: Title =====
@@ -5223,20 +5241,25 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/probes.txt:60
+#, no-wrap
 msgid ""
 "|method |A number corresponding to what differentiation method is now being "
 "used for this device.\\\\ 0 = trapgear, 1 = Euler, 2 = trapezoidal, 3 = "
-"Gear, 4 = trapeuler | |flux |The flux linkages stored in this inductor, in "
-"Weber-turns. | |L\\\\ inductance |The effective inductance of this "
-"device. For a fixed inductor, it be its value. For a nonlinear inductor, it "
-"is the effective inductance at this time, or ∂ϕ/∂v. | |dldt |The time "
-"derivative of inductance. For a linear inductor it will be zero. | |dl |The "
-"change in inductance compared to the previous sample. Its primary use is in "
-"debugging models and numerical problems. For a linear inductor it will be "
-"zero. | |dfdt |The time derivative of flux. Hopefully this is the same as "
-"voltage, but it is calculated a different way and can be used as an accuracy "
-"check. | |dflux |The change in flux linkages compared to the previous "
-"sample. Its primary use is in debugging models and numerical problems. |"
+"Gear, 4 = trapeuler |\n"
+"|flux |The flux linkages stored in this inductor, in Weber-turns. |\n"
+"|L\\\\ inductance |The effective inductance of this device. For a fixed "
+"inductor, it be its value. For a nonlinear inductor, it is the effective "
+"inductance at this time, or ∂ϕ/∂v. |\n"
+"|dldt |The time derivative of inductance. For a linear inductor it will be "
+"zero. |\n"
+"|dl |The change in inductance compared to the previous sample. Its primary "
+"use is in debugging models and numerical problems. For a linear inductor it "
+"will be zero. |\n"
+"|dfdt |The time derivative of flux. Hopefully this is the same as voltage, "
+"but it is calculated a different way and can be used as an accuracy "
+"check. |\n"
+"|dflux |The change in flux linkages compared to the previous sample. Its "
+"primary use is in debugging models and numerical problems. |\n"
 msgstr ""
 
 #. type: Title ======
@@ -5755,11 +5778,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:26
+#, no-wrap
 msgid ""
-"Many parameters are offered.  You should not specify them all.  ^Parameters "
-"that always work.  ^^ |len |Length multiplier.  (Default = 1) The effective "
-"length, regardless of its method of calculation is multiplied by this "
-"number.  |"
+"Many parameters are offered.  You should not specify them all.\n"
+"^Parameters that always work.  ^^\n"
+"|len  |Length multiplier.  (Default = 1) The effective length, regardless of "
+"its method of calculation is multiplied by this number.  |\n"
 msgstr ""
 
 #. type: Plain text
@@ -5778,11 +5802,13 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:36
+#, no-wrap
 msgid ""
-"^Physical parameters ^^ |L |Inductance per unit length.  This value is used "
-"only if //z0// and //td// are both not specified.  | |C |Capacitance per "
-"unit length.  This value is used only if //z0// and //td// are both not "
-"specified.  |"
+"^Physical parameters  ^^\n"
+"|L  |Inductance per unit length.  This value is used only if //z0// and "
+"//td// are both not specified.  |\n"
+"|C  |Capacitance per unit length.  This value is used only if //z0// and "
+"//td// are both not specified.  |\n"
 msgstr ""
 
 #. type: Plain text
