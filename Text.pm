@@ -685,6 +685,12 @@ sub parse {
                 or $paragraph =~ /\[\[\!\S[^\]]+$/ms     # macro begin
             );
         }
+        if ($dokuwiki) {
+            # Some Dokuwiki markup can (or might) not survive wrapping
+            $wrapped_mode = 0 if (
+                   $paragraph =~ /^[|^]/ms                  # table
+            );
+        }
         if ($end_of_paragraph) {
             do_paragraph($self,$paragraph,$wrapped_mode);
             $paragraph="";
