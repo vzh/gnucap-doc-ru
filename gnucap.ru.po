@@ -13237,7 +13237,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:44
 #, no-wrap
 msgid "bool do_tr()"
-msgstr ""
+msgstr "bool do_tr()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:46
@@ -13791,7 +13791,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:7
 #, no-wrap
 msgid "int max_nodes()const"
-msgstr ""
+msgstr "int max_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:9
@@ -13928,7 +13928,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:38
 #, no-wrap
 msgid "bool has_iv_probe()const"
-msgstr ""
+msgstr "bool has_iv_probe()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:40
@@ -13969,7 +13969,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:47
 #, no-wrap
 msgid "bool f_is_value()const"
-msgstr ""
+msgstr "bool f_is_value()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:49
