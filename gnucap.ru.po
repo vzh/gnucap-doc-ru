@@ -12921,7 +12921,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:14
 #, no-wrap
 msgid "CARD* clone()const"
-msgstr ""
+msgstr "CARD* clone()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:16
@@ -13206,7 +13206,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:38
 #, no-wrap
 msgid "bool tr_needs_eval()const"
-msgstr ""
+msgstr "bool tr_needs_eval()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:40
@@ -13302,7 +13302,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:58
 #, no-wrap
 msgid "bool do_tr_last()"
-msgstr ""
+msgstr "bool do_tr_last()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:60
@@ -13367,7 +13367,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:75
 #, no-wrap
 msgid "TIME_PAIR tr_review()"
-msgstr ""
+msgstr "TIME_PAIR tr_review()"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:77
@@ -13479,7 +13479,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:11
 #, no-wrap
 msgid "int param_count()const"
-msgstr ""
+msgstr "int param_count()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:13
@@ -13490,7 +13490,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:14
 #, no-wrap
 msgid "bool param_is_printable(int)const"
-msgstr ""
+msgstr "bool param_is_printable(int)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:16
@@ -13510,7 +13510,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:17
 #, no-wrap
 msgid "std::string param_name(int)const"
-msgstr ""
+msgstr "std::string param_name(int)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:19
@@ -13525,7 +13525,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:20
 #, no-wrap
 msgid "std::string param_name(int i,int j)const"
-msgstr ""
+msgstr "std::string param_name(int i,int j)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:22
@@ -13539,7 +13539,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:23
 #, no-wrap
 msgid "std::string param_value(int)const"
-msgstr ""
+msgstr "std::string param_value(int)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:25
@@ -13586,7 +13586,7 @@ msgstr ""
 #: manual/tech/plugins/devices/parameters.txt:32
 #, no-wrap
 msgid "std::string value_name()const"
-msgstr ""
+msgstr "std::string value_name()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:33
@@ -13634,7 +13634,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:11
 #, no-wrap
 msgid "std::string port_name(int i)const"
-msgstr ""
+msgstr "std::string port_name(int i)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:13
@@ -13673,7 +13673,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:21
 #, no-wrap
 msgid "const std::string current_port_value(int)const"
-msgstr ""
+msgstr "const std::string current_port_value(int)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:23
@@ -13686,7 +13686,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:24
 #, no-wrap
 msgid "std::string current_port_name(int)const"
-msgstr ""
+msgstr "std::string current_port_name(int)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:25
@@ -13699,7 +13699,7 @@ msgstr ""
 #: manual/tech/plugins/devices/probes.txt:5
 #, no-wrap
 msgid "double tr_probe_num(const std::string&)const"
-msgstr ""
+msgstr "double tr_probe_num(const std::string&)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:8
@@ -13805,7 +13805,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:10
 #, no-wrap
 msgid "int min_nodes()const"
-msgstr ""
+msgstr "int min_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:12
@@ -13819,7 +13819,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:13
 #, no-wrap
 msgid "int_num_current_ports()const"
-msgstr ""
+msgstr "int_num_current_ports()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:15
@@ -13834,7 +13834,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:16
 #, no-wrap
 msgid "int tail_size()const"
-msgstr ""
+msgstr "int tail_size()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:18
@@ -13855,7 +13855,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:21
 #, no-wrap
 msgid "int net_nodes()const"
-msgstr ""
+msgstr "int net_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:23
@@ -13870,7 +13870,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:24
 #, no-wrap
 msgid "int ext_nodes()const"
-msgstr ""
+msgstr "int ext_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:26
@@ -13883,7 +13883,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:27
 #, no-wrap
 msgid "int int_nodes()const"
-msgstr ""
+msgstr "int int_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:29
@@ -13896,7 +13896,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:30
 #, no-wrap
 msgid "int_matrix_nodes()const"
-msgstr ""
+msgstr "int_matrix_nodes()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:32
@@ -13915,7 +13915,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:35
 #, no-wrap
 msgid "bool has_inode()const"
-msgstr ""
+msgstr "bool has_inode()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:37
@@ -13941,7 +13941,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:41
 #, no-wrap
 msgid "bool is_device()const"
-msgstr ""
+msgstr "bool is_device()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:43
@@ -13956,7 +13956,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:44
 #, no-wrap
 msgid "bool is_source()const"
-msgstr ""
+msgstr "bool is_source()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:46
@@ -13982,7 +13982,7 @@ msgstr ""
 #: manual/tech/plugins/devices/query.txt:50
 #, no-wrap
 msgid "bool_makes_own_scope()const"
-msgstr ""
+msgstr "bool_makes_own_scope()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:51
