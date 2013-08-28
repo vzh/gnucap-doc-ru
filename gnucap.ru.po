@@ -6945,7 +6945,7 @@ msgstr ""
 #: manual/devices/semi/bjt.txt:8
 #, no-wrap
 msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man076.html|bjt]]\n"
-msgstr ""
+msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man076.html|bjt]]\n"
 
 #. type: Title ====
 #: manual/devices/semi/bjt.txt:8 manual/devices/semi/diode.txt:9
@@ -6981,7 +6981,7 @@ msgstr ""
 #: manual/devices/semi/diode.txt:8
 #, no-wrap
 msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man063.html|diode]]\n"
-msgstr ""
+msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man063.html|diode]]\n"
 
 #. type: Plain text
 #: manual/devices/semi/diode.txt:16
