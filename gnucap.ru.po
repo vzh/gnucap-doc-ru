@@ -13996,7 +13996,7 @@ msgstr ""
 #: manual/tech/plugins/files.txt:5
 #, no-wrap
 msgid "Files"
-msgstr ""
+msgstr "Файлы"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:8
@@ -14037,7 +14037,7 @@ msgstr ""
 #: manual/tech/plugins/files.txt:17
 #, no-wrap
 msgid "Interface"
-msgstr ""
+msgstr "Интерфейс"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:20
@@ -14108,7 +14108,7 @@ msgstr ""
 #: manual/tech/plugins/files.txt:35
 #, no-wrap
 msgid "Namespaces"
-msgstr ""
+msgstr "Пространства имён"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:38
@@ -14129,7 +14129,7 @@ msgstr ""
 #: manual/tech/plugins/files.txt:41
 #, no-wrap
 msgid "Static linking"
-msgstr ""
+msgstr "Статическое связывание"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:44
