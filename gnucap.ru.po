@@ -10938,7 +10938,7 @@ msgstr ""
 #: manual/languages.txt:1
 #, no-wrap
 msgid "Languages"
-msgstr ""
+msgstr "Языки"
 
 #. type: Plain text
 #: manual/languages.txt:4
@@ -10963,7 +10963,7 @@ msgstr ""
 #: manual/languages/spectre.txt:1
 #, no-wrap
 msgid "Language : Spectre"
-msgstr ""
+msgstr "Язык Spectre"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:4
@@ -11030,7 +11030,7 @@ msgstr "  spectre\n"
 #: manual/languages/spectre.txt:23 manual/languages/verilog.txt:24
 #, no-wrap
 msgid "Components"
-msgstr ""
+msgstr "Компоненты"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:26 manual/languages/verilog.txt:27
@@ -11314,7 +11314,7 @@ msgstr ""
 #: manual/languages/verilog.txt:1
 #, no-wrap
 msgid "Language : Verilog"
-msgstr ""
+msgstr "Язык Verilog"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:4
@@ -13600,7 +13600,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:3
 #, no-wrap
 msgid "Ports"
-msgstr ""
+msgstr "Порты"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:5
@@ -13647,7 +13647,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ports.txt:14
 #, no-wrap
 msgid "Current ports"
-msgstr ""
+msgstr "Токовые порты"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ports.txt:17
