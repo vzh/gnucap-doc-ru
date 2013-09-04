@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:47+0400\n"
-"PO-Revision-Date: 2013-08-28 13:15+0400\n"
+"PO-Revision-Date: 2013-09-03 16:55+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1040,8 +1040,8 @@ msgid ""
 "Change the current directory to that specified by path. See your system "
 "manual for complete syntax."
 msgstr ""
-"Смена текущего каталога на заданный путь. Полный синтаксис см. в руководстве "
-"по своей системе."
+"Смена текущего каталога на заданный путь. Полный синтаксис команды см. в "
+"руководстве по своей системе."
 
 #. type: Plain text
 #: manual/commands/chdir.txt:17
@@ -4986,7 +4986,7 @@ msgid ""
 "|C      |trans-capacitor                   |Qout/vin          |Cxxxx (p n ps ns) tcap value  |\n"
 msgstr ""
 "^ Устройства с особым синтаксисом ^^^^\n"
-"^ Буква ^ Тип                              ^ Значение                       ^ Синтаксис                       ^\n"
+"^ Буква ^ Тип                                    ^ Значение                       ^ Синтаксис                       ^\n"
 "|G      |сопротивление, управляемое напряжением  |R/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcr   значение |\n"
 "|G      |проводимость,  управляемая напряжением  |Y/U<sub>у</sub>                 |Gxxxx (p n ps ns) vcg   значение |\n"
 "|G      |ёмкость,       управляемая напряжением  |C/U<sub>у</sub>                 |Gxxxx (p n ps ns) vccap значение |\n"
@@ -12448,7 +12448,7 @@ msgstr ""
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:39
 msgid "This is in a header file \"u_function.h\""
-msgstr "Это в заголовочном файле \"u_function.h\""
+msgstr "Это в заголовочном файле ''u_function.h''"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:41
