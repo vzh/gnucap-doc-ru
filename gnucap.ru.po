@@ -5111,18 +5111,20 @@ msgstr ""
 #: manual/devices/basic/complex.txt:1
 #, no-wrap
 msgid "\"complex\" Complex value"
-msgstr ""
+msgstr "Функция «complex»: комплексное значение"
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:6
 #, no-wrap
 msgid "  complex ( realpart imaginarypart options )\n"
-msgstr ""
+msgstr "|''**complex** ( //вещественная_часть мнимая_часть опции// )''|\n"
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:10
 msgid "Complex component value, using a real and imaginary part.  AC only."
 msgstr ""
+"Определение комплексного значения компонента, его вещественной и мнимой "
+"части. Только для анализа [[gnucap:manual:commands:ac.ru|ac]]."
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:15
@@ -5130,6 +5132,9 @@ msgid ""
 "Strictly, this adds no functionality over the polar option on any function, "
 "except notational convenience."
 msgstr ""
+"Строго говоря, по сравнению с использованием для любой функции опции "
+"''polar'', эта функция, кроме удобства записи, никакой функциональности не "
+"добавляет."
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:18
@@ -5137,6 +5142,9 @@ msgid ""
 "It is only meaningful in AC analysis.  Others take the real part and ignore "
 "the imaginary part.  No warning is issued."
 msgstr ""
+"Использовать её имеет смысл только в анализе [[gnucap:manual:commands:ac.ru|"
+"ac]].  В других анализах вещественная часть учитывается, а мнимая "
+"игнорируется. Никаких предупреждений не выдаётся."
 
 #. type: Title =====
 #: manual/devices/basic/complex.txt:18 manual/devices/basic/exp.txt:43
@@ -5146,7 +5154,7 @@ msgstr ""
 #: manual/devices/lossless_transmission_line.txt:41
 #, no-wrap
 msgid "Step control"
-msgstr ""
+msgstr "Управление временным шагом"
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:21
@@ -5154,6 +5162,8 @@ msgid ""
 "This function does have any role in time step control.  The notion of "
 "complex values does not work in transient analysis."
 msgstr ""
+"Эта функция не играет никакой роли в управлении временным шагом. Для "
+"временного анализа категория комплексных значений не работает."
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:26
@@ -5162,6 +5172,8 @@ msgid ""
 "  V12 (2 0) complex(1,2)\n"
 "A voltage source with a value of 1 + j2 volts.\n"
 msgstr ""
+"  V12 (2 0) complex(1,2)\n"
+"Источник напряжения со значением 1 + j2 Вольт.\n"
 
 #. type: Plain text
 #: manual/devices/basic/complex.txt:28
@@ -5177,7 +5189,7 @@ msgstr ""
 #: manual/devices/basic/exp.txt:1
 #, no-wrap
 msgid "\"exp\" Exponential time dependent value"
-msgstr ""
+msgstr "Функция «exp»: экспоненциальная временная зависимость"
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:7
@@ -5186,11 +5198,13 @@ msgid ""
 "  exp (args)\n"
 "  exp (iv pv td1 tau1 td2 tau2 period)\n"
 msgstr ""
+"|''**exp** (//аргументы//)                     ''|\n"
+"|''**exp** (//iv pv td1 tau1 td2 tau2 period//)''|\n"
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:11
 msgid "The component value is an exponential function of time."
-msgstr "Значением компонента является функция экспоненты времени."
+msgstr "Задание значения компонента в виде экспоненциальной функции времени."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:14
@@ -5198,8 +5212,8 @@ msgid ""
 "For voltage and current sources, this is the same as the Spice \"exp\" "
 "function, with some extensions."
 msgstr ""
-"Для источников тока и напряжения это то же самое, что и функция \"exp\" в "
-"SPICE с несколькими расширениями."
+"Для источников напряжения и тока функция тождественна одноимённой функции "
+"SPICE, но имеет некоторые расширения."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:16 manual/devices/basic/sin.txt:24
@@ -5222,12 +5236,24 @@ msgid ""
 "}\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"ev = _iv;\n"
+"for (reltime=time; reltime>=0; reltime-=_period){\n"
+"  if (reltime > _td1){\n"
+"    ev += (_pv - _iv) * (1. - Exp(-(reltime-_td1)/_tau1));\n"
+"  }\n"
+"  if (reltime > _td2){\n"
+"    ev += (_iv - _pv) * (1. - Exp(-(reltime-_td2)/_tau2));\n"
+"  }\n"
+"}\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:30 manual/devices/basic/pulse.txt:40
 #: manual/devices/basic/sffm.txt:22 manual/devices/basic/sin.txt:39
 msgid "For other components, it gives a time dependent value."
-msgstr "Для прочих компонентов она задаёт значение, зависимое от времени."
+msgstr ""
+"Для прочих компонентов функцией задаётся временная зависимость их значений."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:33 manual/devices/basic/pulse.txt:43
@@ -5236,6 +5262,8 @@ msgid ""
 "As an extension beyond Spice, you may specify the parameters as name=value "
 "pairs in any order."
 msgstr ""
+"Расширением по отношению к SPICE является возможность задавать параметры в "
+"виде пар ''имя=значение'' в любом порядке следования."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:42
@@ -5249,6 +5277,14 @@ msgid ""
 "|tau2    |Fall time constant.  (Default = 0.)    |\n"
 "|period  |Repeat period.  (Default = infinity.)  |\n"
 msgstr ""
+"^ Параметр   ^  Значение по\\\\ умолчанию   ^ Описание                                    ^\n"
+"|''iv''      |  //обязательный//            | Исходное значение                           |\n"
+"|''pv''      |  //обязательный//            | Величина импульса                           |\n"
+"|''td1''     |  **''0''**                   | Выдержка времени перед нарастающим фронтом  |\n"
+"|''tau1''    |  **''0''**                   | Постоянная времени нарастающего фронта      |\n"
+"|''td2''     |  **''0''**                   | Выдержка времени перед ниспадающим фронтом  |\n"
+"|''tau2''    |  **''0''**                   | Постоянная времени ниспадающего фронта      |\n"
+"|''period''  |  **''∞''**                   | Период повторения                           |\n"
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:46
@@ -5256,6 +5292,8 @@ msgid ""
 "This function influences time step control through both smoothness control "
 "and analog events."
 msgstr ""
+"Данная функция влияет на управление временным шагом как через управление "
+"гладкостью, так и через аналоговые события."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:48
@@ -5263,6 +5301,9 @@ msgid ""
 "The time step is limited by the active time constant, either tau1 or tau2, "
 "depending on whether it is rising or falling."
 msgstr ""
+"Временной шаг ограничивается значением активной постоянной времени, либо "
+"''tau1'', либо ''tau2'', в зависимости от того, является ли текущий фронт "
+"нарастающим или ниспадающим."
 
 #. type: Plain text
 #: manual/devices/basic/exp.txt:49
@@ -5273,12 +5314,19 @@ msgid ""
 "exactly.  In any case, there should be a time step within option::dtmin of "
 "these times."
 msgstr ""
+"Начальные точки фронтов экспоненциального сигнала считаются аналоговыми "
+"событиями. Во [[gnucap:manual:commands:transient.ru|временном анализе]] "
+"программа будет пытаться отрегулировать точность выбора моментов времени для "
+"этих аналоговых событий.  Если она будет достаточной, временные шаги должны "
+"планироваться точно в моменты этих событий. В любом случае временной шаг "
+"должен попадать в указанный момент времени с погрешностью не более [[gnucap:"
+"manual:commands:options.ru|опции]] ''dtmin''."
 
 #. type: Title ======
 #: manual/devices/basic/fit.txt:1
 #, no-wrap
 msgid "\"fit\" Fit a curve   \"pwl\" Piece-wise linear"
-msgstr ""
+msgstr "Функция «fit»: аппроксимация кривой. Функция «pwl»: кусочно-линейная функция"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:6
