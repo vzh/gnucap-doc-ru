@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:47+0400\n"
-"PO-Revision-Date: 2013-09-03 16:55+0400\n"
+"PO-Revision-Date: 2013-09-05 14:31+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -5558,7 +5558,7 @@ msgstr ""
 #: manual/devices/basic/inline_behavioral_modeling.txt:1
 #, no-wrap
 msgid "Device behavioral expressions"
-msgstr ""
+msgstr "Поведенческие выражения устройств"
 
 #. type: Title ====
 #: manual/devices/basic/inline_behavioral_modeling.txt:2
@@ -5576,6 +5576,13 @@ msgid ""
 "Some only work on particular types of analysis, or over a small range of "
 "values.  Some can be used together, some cannot."
 msgstr ""
+"Все простые компоненты могут иметь поведенческое описание, синтаксис "
+"которого представляет собой расширение синтаксиса источников напряжения и "
+"тока SPICE, имеющих временную зависимость. Такие компоненты не обязательно "
+"физически реализуемы, но они предоставляют удобные возможности для "
+"моделирования.  Некоторые из них могут работать только в специфических видах "
+"анализов или в малых диапазонах значений. Какие-то могут использоваться "
+"совместно друг с другом, какие-то нет."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:7
@@ -5583,6 +5590,10 @@ msgid ""
 "As of July 2009, these functions only work with Spice or ACS syntax.  They "
 "do not work with Verilog or Spectre syntax."
 msgstr ""
+"На июль 2009 года эти функции работают только при использовании синтаксиса "
+"[[gnucap:manual:languages:spice.ru|SPICE]] или [[gnucap:manual:languages:acs."
+"ru|ACS]]. Синтаксис [[gnucap:manual:languages:Verilog.ru|Verilog]] или "
+"[[gnucap:manual:languages:Spectre.ru|Spectre]] для них не поддерживается."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:9
@@ -5592,6 +5603,11 @@ msgid ""
 "of their linear behavior.  For behavioral modeling or nonlinear values, "
 "replace the constant times input by an arbitrary function."
 msgstr ""
+"Считается, что все простые компоненты осуществляют простые преобразования. "
+"Любая функция в качестве расширения её линейного поведения возвращает один "
+"параметр как функцию от какого-то другого. Для реализации поведенческого "
+"моделирования или нелинейных значений входной постоянный коэффициент "
+"заменяется произвольной функцией."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:19
@@ -5607,6 +5623,15 @@ msgid ""
 "|CCVS        |v<sub>out</sub> = k i<sub>in</sub>  |v<sub>out</sub> = f(i<sub>in</sub>)  |\n"
 "|CCCS        |i<sub>out</sub> = k i<sub>in</sub>  |v<sub>out</sub> = f(i<sub>in</sub>)  |\n"
 msgstr ""
+"^Тип                   ^  Линейная\\\\ зависимость            ^  Нелинейная\\\\ зависимость           ^\n"
+"|конденсатор           |  q = C u                             |  q = f(u)                             |\n"
+"|катушка индуктивности |  Φ = L i                             |  Φ = f(i)                             |\n"
+"|резистор              |  u = R i                             |  u = f(i)                             |\n"
+"|проводимость          |  i = Y u                             |  i = f(u)                             |\n"
+"|ИНУН                  |  u<sub>вых</sub> = k u<sub>вх</sub>  |  u<sub>вых</sub> = f(u<sub>вх</sub>)  |\n"
+"|ИТУН                  |  i<sub>вых</sub> = k u<sub>вх</sub>  |  u<sub>вых</sub> = f(u<sub>вх</sub>)  |\n"
+"|ИНУТ                  |  u<sub>вых</sub> = k i<sub>вх</sub>  |  u<sub>вых</sub> = f(i<sub>вх</sub>)  |\n"
+"|ИТУТ                  |  i<sub>вых</sub> = k i<sub>вх</sub>  |  u<sub>вых</sub> = f(i<sub>вх</sub>)  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:21
@@ -5614,6 +5639,8 @@ msgid ""
 "Gnucap also has some other simple components, which are compatible with some "
 "versions of Spice that also have them:"
 msgstr ""
+"В gnucap имеется ещё несколько других простых компонентов, которые "
+"совместимы с некоторыми версиями SPICE, в которых они также есть:"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:26
@@ -5624,11 +5651,18 @@ msgid ""
 "|voltage controlled admittance  |Y = k v<sub>c</sub>                 |Y = f(v<sub>c</sub>)   |\n"
 "|trans-capacitor                |q<sub>out</sub> = k v<sub>in</sub>  |q = f(v<sub>in</sub>)  |\n"
 msgstr ""
+"^ Тип                                     ^  Линейная\\\\ зависимость            ^  Нелинейная\\\\ зависимость  ^\n"
+"| сопротивление, управляемое напряжением  |  R = k U<sub>у</sub>                 |  R = f(U<sub>у</sub>)        |\n"
+"| ёмкость, управляемая напряжением        |  C = k U<sub>у</sub>                 |  C = f(U<sub>у</sub>)        |\n"
+"| проводимость, управляемая напряжением   |  Y = k U<sub>у</sub>                 |  Y = f(U<sub>у</sub>)        |\n"
+"| проходная ёмкость                       |  Q<sub>вых</sub> = k U<sub>вх</sub>  |  Q = f(U<sub>вх</sub>)       |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:28
 msgid "Sources are defined as functions of time:"
 msgstr ""
+"Источники напряжения и тока определяются как устройства, имеющие временную "
+"зависимость:"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:31
@@ -5637,12 +5671,15 @@ msgid ""
 "|Voltage source  |v = f(t)  |\n"
 "|Current source  |i = f(t)  |\n"
 msgstr ""
+"^ Тип                ^  Функция   ^\n"
+"|Источник напряжения |  u = f(t)  |\n"
+"|Источник тока       |  i = f(t)  |\n"
 
 #. type: Title =====
 #: manual/devices/basic/inline_behavioral_modeling.txt:32
 #, no-wrap
 msgid "Verilog and Spectre syntax workaround"
-msgstr ""
+msgstr "Обходные варианты для работы с синтаксисом Verilog и Spectre"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:35
@@ -5651,6 +5688,12 @@ msgid ""
 "don't work with that syntax.  As a workaround, you can build a subcircuit "
 "with Spice syntax, then call it as a component in any syntax."
 msgstr ""
+"Указанные функции не соответствуют стилю [[gnucap:manual:languages:verilog."
+"ru|Verilog]] или [[gnucap:manual:languages:spectre.ru|Spectre]], поэтому они "
+"не работают, когда включен синтаксис одного из этих языков. Чтобы обойти это "
+"ограничение, можно построить подсхему с использованием синтаксиса [[gnucap:"
+"manual:languages:spice.ru|SPICE]], а затем вызывать её как компонент в "
+"режиме работы с синтаксисом любого языка."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:42
@@ -5663,17 +5706,23 @@ msgid ""
 ".ends\n"
 "verilog\n"
 msgstr ""
+"<code>\n"
+"spice\n"
+".subckt vsin (p n)\n"
+"Vsrc (p n) sin {offset} {amplitude} {frequency} {delay} {damping}\n"
+".ends\n"
+"verilog\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:45
 msgid "vsin #(.frequency(1K)) vinput (in, 0); </code>"
-msgstr ""
+msgstr "vsin #(.frequency(1K)) vinput (in, 0); </code>"
 
 #. type: Title =====
 #: manual/devices/basic/inline_behavioral_modeling.txt:47
 #, no-wrap
 msgid "Conditionals"
-msgstr ""
+msgstr "Условные выражения"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:50
@@ -5681,6 +5730,9 @@ msgid ""
 "Gnucap behavioral modeling conditionals are an extension of the \"AC\" and "
 "\"DC\" Spice source parameters."
 msgstr ""
+"Условные выражения поведенческого моделирования gnucap представляют собой "
+"расширения параметров ''AC'' и ''DC'', используемых в SPICE для источников "
+"напряжения и тока."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:55
@@ -5691,11 +5743,15 @@ msgid ""
 "  * They apply to all elements (primitive components).\n"
 "  * Each section can contain functions and options.\n"
 msgstr ""
+"Расширения:\n"
+"  * Имеется больше возможностей выбора, включая ''else''.\n"
+"  * Они применяются ко всем элементам (компонентам-примитивам).\n"
+"  * Каждый раздел может содержать функции и опции.\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:57
 msgid "The following are available:"
-msgstr ""
+msgstr "Доступны следующие параметры:"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:65
@@ -5709,6 +5765,13 @@ msgid ""
 "|ELSE  |Anything not listed.      |\n"
 "|ALL   |Anything not listed.      |\n"
 msgstr ""
+"|''AC''    | Значение только для [[gnucap:manual:commands:AC.ru|анализа AC]]                        |\n"
+"|''DC''    | Значение для [[gnucap:manual:commands:DC.ru|анализа DC]] (расчёт статического режима)  |\n"
+"|''OP''    | Значение для [[gnucap:manual:commands:OP.ru|анализа OP]]                               |\n"
+"|''TRAN''  | Значение для [[gnucap:manual:commands:transient.ru|временного анализа]]                |\n"
+"|''FOUR''  | Значение только для [[gnucap:manual:commands:fourier.ru|анализа Фурье]]                |\n"
+"|''ELSE''  | Значение для всего остального, что не указано в строке команды                         |\n"
+"|''ALL''   | Значение для всего остального, что не указано в строке команды                         |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:67
@@ -5716,6 +5779,9 @@ msgid ""
 "A value or function with no conditional keyword is equivalent to \"ALL\".  "
 "For SPICE compatibility, use only \"DC\", \"AC\", or nothing."
 msgstr ""
+"Указание значения или функции без условного ключевого слова эквивалентно "
+"использованию ''ALL''.  Для обеспечения совместимости со SPICE следует "
+"использовать только ''DC'', ''AC'' или не использовать ничего."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:69
@@ -5724,11 +5790,15 @@ msgid ""
 "the last one applies.  A set of precedence rules applies when some keys are "
 "missing.  It is SPICE compatible to the extent the features overlap."
 msgstr ""
+"Указанные параметры интерпретируются как оператор переключения «switch».  В "
+"случае конфликта используется последний из них. Когда некоторые ключи "
+"отсутствуют, применяется набор правил приоритета. Это совместимо со SPICE в "
+"той области, где возможности программ совпадают."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:71
 msgid "The following table describes the precedence rules:"
-msgstr ""
+msgstr "В следующей таблице описаны правила приоритета:"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:78
@@ -5741,6 +5811,12 @@ msgid ""
 "|AC analysis, fixed sources   |AC, 0                       |\n"
 "|AC analysis, other elements  |AC, ALL, 0                  |\n"
 msgstr ""
+"|[[gnucap:manual:commands:OP.ru|Анализ OP]]                                                |''OP'', ''DC'', ''ALL'', ''TRAN'', ''0''        |\n"
+"|[[gnucap:manual:commands:DC.ru|Анализ DC]]                                                |''DC'', ''ALL'', ''OP'', ''TRAN'', ''0''        |\n"
+"|[[gnucap:manual:commands:transient.ru|Временной анализ]]                                  |''TRAN'', ''ALL'', ''DC'', ''OP'', ''0''        |\n"
+"|[[gnucap:manual:commands:Fourier.ru|Анализ Фурье]]                                        |''FOUR'', ''TRAN'', ''ALL'', ''DC'', ''OP'', ''0''  |\n"
+"|[[gnucap:manual:commands:AC.ru|Анализ AC]], для независимых источников напряжения и тока  |''AC'', ''0''                       |\n"
+"|[[gnucap:manual:commands:AC.ru|Анализ AC]], для других элементов                          |''AC'', ''ALL'', ''0''                  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:83
@@ -5750,7 +5826,7 @@ msgid ""
 "This voltage source has a value of 1 for AC analysis, 3 for DC.  OP, Transient, and Fourier inherit the DC value.\n"
 msgstr ""
 "  V12 (1 0) AC 1 DC 3\n"
-"Этот источник напряжения имеет значение 1 для анализа AC, 3 для DC.  OP, Transient и Fourier наследуют значение анализа DC.\n"
+"Этот источник напряжения имеет значение 1 для анализа [[gnucap:manual:commands:AC.ru|AC]], 3 для [[gnucap:manual:commands:DC.ru|DC]].  [[gnucap:manual:commands:OP.ru|OP]], [[gnucap:manual:commands:Transient.ru|Transient]] и [[gnucap:manual:commands:Fourier.ru|Fourier]] наследуют значение анализа [[gnucap:manual:commands:DC.ru|DC]].\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:86
@@ -5759,6 +5835,8 @@ msgid ""
 "  R44 (2 3) OP 1 ELSE 1g\n"
 "This resistor has a value of 1 ohm for the \"OP\" analysis, 1 gig-ohm for anything else.  This might be useful as the feedback resistor on an op-amp.  Set it to 1 ohm to set the operating point, then 1 gig to measure its open loop characteristics, hiding the fact that the op-amp would probably saturate if it was really left open loop.\n"
 msgstr ""
+"  R44 (2 3) OP 1 ELSE 1g\n"
+"Этот резистор имеет значение 1 Ом для анализа [[gnucap:manual:commands:OP.ru|OP]], 1 ГОм для всего прочего.  Это может быть полезным для использования в качестве резистора обратной связи операционного усилителя.  Для настройки рабочей точки он устанавливается в 1 ом, а затем, для измерения характеристик разомкнутого контура, в 1 гигаом, скрывая тот факт, что если бы этот операционный усилитель был на самом деле оставлен с разомкнутым контуром, он, вероятно, зашёл бы в насыщение.\n"
 
 #. type: Title =====
 #: manual/devices/basic/inline_behavioral_modeling.txt:87
@@ -5773,36 +5851,38 @@ msgid ""
 "Gnucap behavioral modeling functions are an extension of the Spice source "
 "time dependent values."
 msgstr ""
+"Функции поведенческого моделирования gnucap представляют собой расширение "
+"время-зависимых значений источников напряжения и тока SPICE."
 
 #. type: Title ====
 #: manual/devices/basic/inline_behavioral_modeling.txt:90
 #, no-wrap
 msgid "The extensions"
-msgstr ""
+msgstr "Расширения"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:96
 #, no-wrap
 msgid "They apply to all elements (primitive components).\n"
-msgstr ""
+msgstr "Функции могут применяться для всех элементов (компонентов-примитивов).\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:96
 #, no-wrap
 msgid "All accept either Spice compatible order dependent parameters, or easier keyword=value notation.\n"
-msgstr ""
+msgstr "Все функции принимают указание параметров либо совместимым со SPICE образом, где их назначение зависит от порядка задания, либо с использованием более лёгкой нотации ''ключевое_слово=значение''.\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:96
 #, no-wrap
 msgid "The syntax is identical for all supported components.\n"
-msgstr ""
+msgstr "Для всех поддерживаемых компонентов синтаксис одинаков.\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:96
 #, no-wrap
 msgid "They work a little different, depending on the type of device:\n"
-msgstr ""
+msgstr "Функции работают немного по-разному в зависимости от типа устройства:\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:101
@@ -5813,78 +5893,82 @@ msgid ""
 "|Resistors and conductances  |Time dependent functions are resistance or conductance as a function of time.\\\\ Nonlinear transfer functions are current or voltage as a function of input (voltage or current).  Resistors define voltage as a function of current.  Conductances define current as a function of voltage.  |\n"
 "|Controlled sources  |Time dependent functions are gain (v/v, transconductance, etc) function of time.\\\\ Nonlinear transfer functions are output (voltage or current) as a function of input (voltage or current).  |\n"
 msgstr ""
+"|Независимые источники напряжения и тока | К время-зависимым функциям относятся напряжение или ток в функции времени. Большей частью они совместимы со SPICE, но имеются расширения.\\\\ В нелинейных передаточных функциях в качестве независимой переменной используется время. Некоторые функции могут не иметь смысла, но так или иначе они есть в наличии.  |\n"
+"|Конденсаторы и катушки индуктивности | К время-зависимым функциям относятся ёмкость или индуктивность в функции времени. В них поддерживается сохранение напряжения/тока, а не заряда/потока.\\\\ Нелинейными передаточными функциями являются зависимости заряда или потока от входного параметра (напряжения или тока). Заряд и поток сохраняются и могут быть измерены.  |\n"
+"|Резисторы и проводимости   | К время-зависимым функциям относятся сопротивление или проводимость в функции времени.\\\\ Нелинейными передаточными функциями являются зависимости тока или напряжения от входного параметра (напряжения или тока).  Для резисторов напряжение является функцией тока. Для проводимостей ток является функцией напряжения.  |\n"
+"|Управляемые источники напряжения и тока | К время-зависимым функциям относятся усиление (коэффициент усиления по напряжению, активная составляющая проходной проводимости и т. д.) в функции времени.\\\\ Нелинейными передаточными функциями являются зависимость выходного параметра (напряжения или тока) от входного (напряжения или тока).  |\n"
 
 #. type: Title ====
 #: manual/devices/basic/inline_behavioral_modeling.txt:101
 #, no-wrap
 msgid "Available functions"
-msgstr ""
+msgstr "Функции, имеющиеся в наличии"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:complex]]  Complex (re, im) value.\n"
-msgstr ""
+msgstr "[[.:complex.ru|complex]]: комплексное значение (re, im);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:exp]] Spice Exp source.  (time dependent value).\n"
-msgstr ""
+msgstr "[[.:exp.ru|exp]]: SPICE-совместимый источник экспоненциального сигнала (функция времени);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:fit]] Fit a curve with splines.\n"
-msgstr ""
+msgstr "[[.:fit.ru|fit]]: аппроксимация кривой сплайнами;\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:generator]] Value from Generator command.\n"
-msgstr ""
+msgstr "[[.:generator.ru|generator]]: сигнал, выдаваемый [[gnucap:manual:commands:generator.ru|командой generator]];\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:poly]] Polynomial (Spice style).\n"
-msgstr ""
+msgstr "[[.:poly.ru|poly]]: SPICE-совместимая полиномиальная функция;\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:posy]] Posynomial (Like poly, non-integer powers).\n"
-msgstr ""
+msgstr "[[.:posy.ru|posy]]: позиномиальная функция (подобная полиномиальной, но не с целочисленными степенями);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:pulse]] Spice Pulse source.  (time dependent value).\n"
-msgstr ""
+msgstr "[[.:pulse.ru|pulse]]: SPICE-совместимый источник импульсного напряжения (функция времени);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:fit|pwl]] Piece-wise linear.\n"
-msgstr ""
+msgstr "[[.:fit.ru|pwl]]: кусочно-линейная функция;\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:sffm]] Spice Frequency Modulation (time dependent value).\n"
-msgstr ""
+msgstr "[[.:sffm.ru|sffm]]: SPICE-совместимый источник частотно-модулированного сигнала (функция времени);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:sin]] Spice Sin source.  (time dependent value).\n"
-msgstr ""
+msgstr "[[.:sin.ru|sin]]: SPICE-совместимый источник синусоидального сигнала (функция времени);\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:114
 #, no-wrap
 msgid "[[.:tanh]] Hyperbolic tangent transfer function.\n"
-msgstr ""
+msgstr "[[.:tanh.ru|tanh]]: передаточная функция равная гиперболическому тангенсу.\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:117
@@ -5892,30 +5976,32 @@ msgid ""
 "In addition, you may name a \"function\" defined by a \".model\" statement.  "
 "The following \".model\" types may be used here:"
 msgstr ""
+"Кроме того, можно указать «функцию» определённую оператором ''.model''. "
+"Здесь могут использоваться следующие типы моделей:"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:121
 #, no-wrap
 msgid "[[.:table]] Fit a curve with splines.\n"
-msgstr ""
+msgstr "[[.:table.ru|table]]: аппроксимация кривой сплайнами;\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:121
 #, no-wrap
 msgid "[[.:cap]] Spice semiconductor \"capacitor\" model.\n"
-msgstr ""
+msgstr "[[.:cap.ru|cap]]: SPICE-модель полупроводникового «конденсатора»;\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/basic/inline_behavioral_modeling.txt:121
 #, no-wrap
 msgid "[[.:res]] Spice semiconductor \"resistor\" model.\n"
-msgstr ""
+msgstr "[[.:res.ru|res]]: SPICE-модель полупроводникового «резистора».\n"
 
 #. type: Title ====
 #: manual/devices/basic/inline_behavioral_modeling.txt:122
 #, no-wrap
 msgid "Parameters that apply to all functions"
-msgstr ""
+msgstr "Параметры, относящиеся ко всем функциям"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:125
@@ -5923,6 +6009,8 @@ msgid ""
 "These parameters are available with all functions.  Some may not make sense "
 "in some cases, but they are available anyway."
 msgstr ""
+"Данные параметры доступны для всех функций. Некоторые из них в некоторых "
+"случаях могут не иметь смысла, но они всё равно имеются в наличии."
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:138
@@ -5941,17 +6029,32 @@ msgid ""
 "|TC2  |Second order temperature coefficient.  (Default = 0.)  |\n"
 "|IC   |Initial condition.  An initial value, to force at time=0.  The actual parameter applied depends on the component.  (Capacitor voltage, inductor current.  All others ignore it.)  You must use the \"UIC\" option for it to be used.  |\n"
 msgstr ""
+"^ Параметр      ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''Bandwidth''  |  ''**∞**''  | Рабочая полоса частот для [[gnucap:manual:commands:AC.ru|частотного анализа]]. Передаточная функция является частотно-зависимой и имеющей ослабление в 3 дБ при частоте, равной указанному значению.  Сдвиг фазы зависит от частоты и меняется в диапазоне от 0 градусов на низких частотах до 90 градусов на высоких. Для частоты, равной указанному значению, сдвиг фазы составляет 45 градусов. ТОЛЬКО ДЛЯ [[gnucap:manual:commands:AC.ru|АНАЛИЗА AC]]  |\n"
+"|''Delay''      |  ''**0**''  | Задержка для [[gnucap:manual:commands:AC.ru|частотного анализа]]. Сигнал задерживается на указанное количество секунд, фактически посредством сдвига фазы, зависящего от частоты. ТОЛЬКО ДЛЯ [[gnucap:manual:commands:AC.ru|АНАЛИЗА AC]]  |\n"
+"|''Phase''      |  ''**0**''  | Фаза для [[gnucap:manual:commands:AC.ru|частотного анализа]]. Используется фиксированный сдвиг фазы. В первую очередь это предусмотрено для источников напряжения и тока, но используется для всех элементов. ТОЛЬКО ДЛЯ [[gnucap:manual:commands:AC.ru|АНАЛИЗА AC]]  |\n"
+"|''IOffset''    |  ''**0**''  | Смещение входа. Смещение по постоянному току, добавляемое к «входному» значению элемента до вычисления его функции  |\n"
+"|''OOffset''    |  ''**0**''  | Смещение выхода. Смещение по постоянному току, добавляемое к «выходному» значению элемента после вычисления его функции  |\n"
+"|''Scale''      |  ''**1**''  | Коэффициент масштабирования передаточной функции. Константа, на которую умножается передаточная функция  |\n"
+"|''TNOM''       |  ''**значение [[gnucap:manual:commands:options.ru|опции]] TNOM**''  | Номинальная температура. При этой температуре элементы имеют номинальные значения своих величин  |\n"
+"|''TEMP''       |  ''**текущая глобальная температура моделирования**''  | Фактическая температура. Это текущая температура устройства  |\n"
+"|''DTEMP''      |  ''**0**''  | Превышение температуры над окружающей. Текущая температура устройства равна сумме глобальной температуры моделирования и данного параметра  |\n"
+"|''TC1''        |  ''**0**''  | Температурный коэффициент первого порядка  |\n"
+"|''TC2''        |  ''**0**''  | Температурный коэффициент второго порядка  |\n"
+"|''IC''         |             | Исходное условие. Исходное значение, которое принудительно должно быть выставлено в нулевой момент времени. Фактически применяемый параметр зависит от компонента.  (Для конденсатора --- напряжение, для катушки индуктивности --- ток. Для все остальных компонентов это значение игнорируется.) Для использования в анализе значения этого параметра необходимо задать опцию ''UIC''  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:141
 msgid "Temperature adjustments and scaling use the following formula:"
 msgstr ""
+"Для масштабирования и температурной коррекции значений используется "
+"следующая формула:"
 
 #. type: Plain text
 #: manual/devices/basic/inline_behavioral_modeling.txt:142
 #, no-wrap
 msgid "  value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)\n"
-msgstr ""
+msgstr "  value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)\n"
 
 #. type: Title ======
 #: manual/devices/basic/poly.txt:1
