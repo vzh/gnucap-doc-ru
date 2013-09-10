@@ -5335,13 +5335,15 @@ msgid ""
 "  fit x1,y1 x2,y2 ... args\n"
 "  pwl x1,y1 x2,y2 ... args\n"
 msgstr ""
-"  fit x1,y1 x2,y2 ... args\n"
-"  pwl x1,y1 x2,y2 ... args\n"
+"|''**fit** //x1,y1 x2,y2// ... //аргументы//''|\n"
+"|''**pwl** //x1,y1 x2,y2// ... //аргументы//''|\n"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:9
 msgid "FIT fits a set of data using piecewise polynomials, or splines."
 msgstr ""
+"**fit** аппроксимирует набор данных с помощью кусочно-полиномиальных функций "
+"или сплайнов."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:11
@@ -5349,12 +5351,16 @@ msgid ""
 "PWL is a a special case of FIT, it defines a piecewise linear transfer "
 "function or time dependent value."
 msgstr ""
+"**pwl** это особый вид **fit**, определяющий передаточную функцию или "
+"временную зависимость устройства в виде кусочно-линейной функции."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:14
 msgid ""
 "The \"fit\" function fits a set of piecewise polynomials to a set of data."
 msgstr ""
+"Функция **fit** аппроксимирует набор данных кусочно-полиномиальными "
+"функциями."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:16
@@ -5362,17 +5368,22 @@ msgid ""
 "The \"pwl\" function is a special case of \"fit\", forcing \"order\" to 1.  "
 "It is designed for Spice compatibility."
 msgstr ""
+"Функция **pwl** представляет собой особый вид **fit**, в которой степень "
+"полинома (''order'') принудительно устанавливается в 1.  Она разработана для "
+"совместимости со SPICE."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:18 manual/devices/basic/posy.txt:23
 msgid "For fixed sources, it defines voltage or current as a function of time."
 msgstr ""
+"Для независимых источников напряжения или тока они определяют временную "
+"зависимость напряжения или тока."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:20
 msgid ""
 "The meaning of the //x// and //y// values depends on the component type:"
-msgstr ""
+msgstr "Смысл значений //x// и //y// зависит от типа компонента:"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:36
@@ -5413,7 +5424,7 @@ msgstr ""
 #. type: Plain text
 #: manual/devices/basic/fit.txt:39
 msgid "The values of //x// must be in increasing order."
-msgstr ""
+msgstr "Значения //x// должны указываться в порядке возрастания."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:43
@@ -5422,6 +5433,9 @@ msgid ""
 "3, it will use cubic splines.  The result and its first two derivatives are "
 "continuous."
 msgstr ""
+"Если для функции **fit** параметр //order// равен 1, она будет тождественна "
+"функции **pwl**.  Если //order// равен 3, будут использоваться кубические "
+"сплайны. Результат и его первые две производные будут непрерывными."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:49
@@ -5432,11 +5446,19 @@ msgid ""
 "voltage gain for a VCVS, and so on.  If it is not specified, the value is "
 "automatically determined."
 msgstr ""
+"Вне указанного диапазона используется линейная экстраполяция. Поведение "
+"функции зависит от параметров //below// и //above//.  Значением //below// "
+"или //above// определяется значение производной, которое должно там "
+"использоваться, и для резисторов представляющее собой сопротивление, для "
+"ИНУН --- коэффициент усиления по напряжению и т. д.  Если это значение не "
+"указано, оно определяется автоматически."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:53
 msgid "These parameters apply to the \"fit\" function only, not \"pwl\"."
 msgstr ""
+"Следующие параметры относятся только к функции  **fit**, к **pwl** не "
+"относятся."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:57
@@ -5446,6 +5468,10 @@ msgid ""
 "|below  |The value of the derivative to use below or before the specified range.  |\n"
 "|above  |The value of the derivative to use above or after the specified range.  |\n"
 msgstr ""
+"^ Параметр ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''order'' |  **''3''**  | Порядок полигона для аппроксимации в пределах заданных данных. Допустимыми значениями являются только 0, 1, 2 и 3.  Для **pwl** принимается значение 1  |\n"
+"|''below'' | | Значение производной, которую следует использовать ниже или до указанного диапазона  |\n"
+"|''above'' | | Значение производной, которую следует использовать выше или после указанного диапазона  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:59
@@ -5453,6 +5479,8 @@ msgid ""
 "For \"fit\" only, the properties are determined by the value of //order//.  "
 "For \"pwl\", order is assumed to be 1."
 msgstr ""
+"Только для **fit** свойства определяются значением ''order''.  Для **pwl** "
+"''order'' принимается равным 1."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:61
@@ -5460,6 +5488,8 @@ msgid ""
 "If \"above\" or \"below\" are not specified, out of range behavior is "
 "determined as follows:"
 msgstr ""
+"Если ''above'' или ''below'' не указаны, поведение вне диапазона "
+"определяется следующим образом:"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:66
@@ -5470,6 +5500,10 @@ msgid ""
 "|Order = 1\\\\ piecewise_linear  |For first order (linear) interpolation, the default slope outside the range is the extension of the slope in the end segments.  The parameters //below// and //above// have no effect inside the range.  |\n"
 "|Order = 0\\\\ piecewise_constant  |The resulting value is constant over the interval, and hasdiscontinuities at the specified points.  The parameters //below// and //above// are ignored.  The slope is always 0.  |\n"
 msgstr ""
+"|''Order = 3\\\\ cubic_splines'' |По умолчанию используются «натуральные» сплайны, которые устанавливают вторую производную в ноль на границе. Если указано значение ''below'' или ''above'',  будут использоваться кубические эрмитовы сплайны («clamped spline»). В любом случае на границах будет плавный переход. При использовании таких сплайнов вторая производная может иметь разрывы на границах  |\n"
+"|''Order = 2\\\\ quadratic_splines'' |По умолчанию производная в верхнем конце определяется наклоном последнего сегмента. Это будет также производной выше диапазона. Ниже диапазона используется производная, определённая в нижней грaнице. Рекомендуется указывать только один из параметров ''below'' или ''above''. Если указать оба, сплайны будут определяться посредством ''above'' и в нижней границе диапазона будет разрыв производной  |\n"
+"|''Order = 1\\\\ piecewise_linear'' |Для интерполяции первого порядка (линейной) наклон кривой вне диапазона по умолчанию определяется как продолжение наклона в конечных сегментах. Внутри диапазона параметры ''below'' и ''above'' никакого действия не имеют  |\n"
+"|''Order = 0\\\\ piecewise_constant'' |Результирующее значение является константой на всём интервале и имеет разрывы в указанных точках.  Параметры ''below'' и ''above'' игнорируются.  Наклон всегда равен 0  |\n"
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:70
@@ -5481,6 +5515,15 @@ msgid ""
 "at these times exactly.  In any case, there should be a time step within "
 "option::dtmin of these times."
 msgstr ""
+"Функция **pwl** участвует в управлении временным шагом, только если "
+"устройство представляет собой независимый источник напряжения или тока. В "
+"этом случае начальные и конечные точки считаются аналоговыми событиями. Во "
+"[[gnucap:manual:commands:transient.ru|временном анализе]] программа будет "
+"пытаться отрегулировать точность выбора моментов времени для этих аналоговых "
+"событий.  Если она будет достаточной, временные шаги должны планироваться "
+"точно в моменты этих событий. В любом случае временной шаг должен попадать в "
+"указанный момент времени с погрешностью не более значения [[gnucap:manual:"
+"commands:options.ru|опции]] ''dtmin''."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:72
@@ -5490,6 +5533,12 @@ msgid ""
 "\"cross\" events, which is more difficult and not done yet.  This is "
 "considered to be a deficiency, and may be addressed in the future."
 msgstr ""
+"Для устройств, не являющихся независимыми источниками тока или напряжения, "
+"**fit** или **pwl** описывают нелинейную передаточную функцию. Нахождение "
+"соответствующих моментов времени требует анализа событий [[gnucap:manual:"
+"measure:cross.ru|пересечений]], что более сложно и пока ещё не реализовано. "
+"Это определённо рассматривается как недостаток программы, который может быть "
+"устранён в будущем."
 
 #. type: Plain text
 #: manual/devices/basic/fit.txt:83
@@ -5505,18 +5554,29 @@ msgid ""
 "charge at 5 volts indicates that it saturates at 2 microcoulombs.  For\n"
 "negative voltages, the slope continues.\n"
 msgstr ""
+"  C1 (2 0) fit (-5,-5u 0,0 1,1u 4,2u 5,2u) order=1\n"
+"Данный «конденсатор» при напряжении -5 вольт имеет заряд 5 микрокулон\n"
+"(отрицательный заряд соответствует отрицательному напряжению, как и\n"
+"следовало ожидать).  Заряд меняется линейно до 0 при 0 вольт, действуя как\n"
+"конденсатор ёмкостью в 1 микрофарад (C = dq/du). Это продолжается до\n"
+"напряжения в 1 вольт.  Точку 0,0 можно было бы исключить. Далее заряд\n"
+"растёт только до 2 микрокулон при напряжении в 4 вольта из-за приращения\n"
+"ёмкости, составляющего 1u/3 или 0,3333 микрофарад.  Тот же самый заряд при\n"
+"напряжении 5 вольт указывает, что при 2 микрокулонах происходит «насыщение».\n"
+"Для отрицательных напряжений наклон характеристики (уменьшение ёмкости с той\n"
+"же скоростью) будет продолжаться.\n"
 
 #. type: Title ======
 #: manual/devices/basic/generator.txt:1
 #, no-wrap
 msgid "\"generator\" Signal Generator time dependent value"
-msgstr ""
+msgstr "Функция «generator»: временная зависимость, определяемая генератором сигналов"
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:6
 #, no-wrap
 msgid "  generator  scale\n"
-msgstr ""
+msgstr "|''**generator** //коэффициент_масштабирования//''|\n"
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:11
@@ -5524,6 +5584,9 @@ msgid ""
 "The component \"value\" is dependent on a \"signal generator\", manipulated "
 "by the \"generator\" command."
 msgstr ""
+"Привязка значения величины компонента к значению выхода «генератора "
+"сигналов», управляемого командой [[gnucap:manual:commands:generator.ru|"
+"generator]]."
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:18
@@ -5532,11 +5595,17 @@ msgid ""
 "which is considered to be external to the circuit and part of the test "
 "bench.  See the \"generator\" command for more information."
 msgstr ""
+"Для [[gnucap:manual:commands:transient.ru|временного анализа]] указанное "
+"значение определяется генератором сигналов, который считается внешним к "
+"схеме и частью тестового оборудования.  Подробности см. в [[gnucap:manual:"
+"commands:generator.ru|описании команды generator]]."
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:20
 msgid "For AC analysis, the value here is the amplitude."
 msgstr ""
+"Для [[gnucap:manual:commands:ac.ru|частотного анализа]] данное значение "
+"определяет амплитуду."
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:25
@@ -5546,6 +5615,11 @@ msgid ""
 "closer to the function generator that an analog designer would use on a real "
 "bench.  It is mainly used for interactive operation."
 msgstr ""
+"Строго говоря, вся функциональность, и даже более того, доступна через SPICE-"
+"подобные функции поведенческого моделирования, но эта функция предоставляет "
+"пользовательский интерфейс, более близкий к функциональному генератору, "
+"который проектировщик аналоговых схем может использовать на реальном "
+"тестовом стенде. В основном она используется для интерактивной работы."
 
 #. type: Plain text
 #: manual/devices/basic/generator.txt:27
@@ -5553,6 +5627,8 @@ msgid ""
 "It also provides backward compatibility with predecessors to Gnucap, which "
 "used a different netlist format."
 msgstr ""
+"Она также обеспечивает обратную совместимость с предшественниками gnucap, в "
+"которых использовался другой формат списков соединений."
 
 #. type: Title ======
 #: manual/devices/basic/inline_behavioral_modeling.txt:1
