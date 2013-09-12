@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:47+0400\n"
-"PO-Revision-Date: 2013-09-11 16:40+0400\n"
+"PO-Revision-Date: 2013-09-12 15:27+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7019,13 +7019,13 @@ msgstr ""
 #: manual/devices/capacitor.txt:1
 #, no-wrap
 msgid "Capacitor, advanced"
-msgstr ""
+msgstr "Конденсатор, расширенный формат"
 
 #. type: Title =====
 #: manual/devices/capacitor.txt:3
 #, no-wrap
 msgid "Syntax: instance"
-msgstr ""
+msgstr "Синтаксис экземпляра"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:10
@@ -7036,6 +7036,10 @@ msgid ""
 "  Cxxxxxxx n+ n– value {IC=initial-voltage}\n"
 "  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}\n"
 msgstr ""
+"|''**C**//xxxxxxx// //n+ n– значение//                              ''|\n"
+"|''**C**//xxxxxxx// //n+ n– выражение//                             ''|\n"
+"|''**C**//xxxxxxx// //n+ n– значение// {IC=//начальное_напряжение//}''|\n"
+"|''**C**//xxxxxxx// //n+ n– модель// {L=//длина//} {W=//ширина//} {TEMP=//температура//} {IC=//начальное_напряжение//}''|\n"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:16
@@ -7046,6 +7050,10 @@ msgid ""
 "  Cxxxxxxx n+ n– capacitor C=value {IC=initial-voltage}\n"
 "  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}\n"
 msgstr ""
+"|''**C**//xxxxxxx// //n+ n–// capacitor C=//значение//                              ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// capacitor //выражение//                               ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// capacitor C=//значение// {IC=//начальное_напряжение//}''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //модель// {L=//длина//} {W=//ширина//} {TEMP=//температура//} {IC=//начальное_напряжение//}''|\n"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:23
@@ -7057,6 +7065,11 @@ msgid ""
 "  Cxxxxxxx n+ n– value {IC=initial-voltage}\n"
 "  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}\n"
 msgstr ""
+"|''**capacitor** #(.c(//значение//))                                   ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //значение//                             ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //выражение//                            ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //значение// {IC=//исходное_напряжение//}''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //модель// {L=//длина//} {W=//ширина//} {TEMP=//температура//} {IC=//исходное_напряжение//}''|\n"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:31
@@ -7067,11 +7080,15 @@ msgid ""
 ".model mname C {args}\n"
 " .model mname TABLE {args}\n"
 msgstr ""
+"|''**.capacitor** обозначение n+ n– выражение''|\n"
+"Модель (указывать не обязательно):\n"
+"|''**.model** //имя_модели// C     {//аргументы//}''|\n"
+"|''**.model** //имя_модели// TABLE {//аргументы//}''|\n"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:35
 msgid "Capacitor, or general charge storage element."
-msgstr ""
+msgstr "Конденсатор или общий элемент хранения заряда."
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:38
@@ -7079,6 +7096,8 @@ msgid ""
 "N+ and n– are the positive and negative element nodes, respectively. Value "
 "is the capacitance in Farads."
 msgstr ""
+"//''n+''// и //''n–''// представляют собой соответственно положительный и "
+"отрицательный узлы элемента. Значением компонента является ёмкость в фарадах."
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:40
@@ -7087,6 +7106,11 @@ msgid ""
 "capacitor voltage (in Volts). Note that the initial conditions (if any) "
 "apply only if the UIC option is specified on the transient command."
 msgstr ""
+"Начальным (необязательным) условием является начальное (в момент времени "
+"равный 0) значение напряжения конденсатора (в вольтах). Учтите, что "
+"начальные условия (если они вообще заданы) применяются только в том случае, "
+"когда в строке команды [[gnucap:manual:commands:transient.ru|transient]] "
+"указана опция ''UIC''."
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:43
@@ -7094,6 +7118,9 @@ msgid ""
 "You may specify the value in any of these forms: A simple value. This is the "
 "capacitance in Farads."
 msgstr ""
+"Значение можно задавать в одном из следующих видов:\n"
+"\n"
+"просто как значение. Это будет ёмкость в фарадах;"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:45
@@ -7102,6 +7129,10 @@ msgid ""
 "expression can specify the charge as a function of voltage, or the "
 "capacitance as a function of time."
 msgstr ""
+"в виде выражения, как описано [[gnucap:manual:devices:basic:"
+"inline_behavioral_modeling.ru|в главе по поведенческому моделированию]]. В "
+"этом выражении может определяться заряд в виде функции напряжения, или "
+"ёмкость в виде функции времени;"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:47
@@ -7109,6 +7140,10 @@ msgid ""
 "A model, as described in the behavioral modeling chapter. The table model "
 "describes a table of charge vs. voltage."
 msgstr ""
+"в виде модели, как описано [[gnucap:manual:devices:basic:"
+"inline_behavioral_modeling.ru|в главе по поведенческому моделированию]]. В "
+"табличной модели (''TABLE'') находится таблица соответствия зарядов и "
+"напряжений;"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:48
@@ -7117,6 +7152,9 @@ msgid ""
 "referencing a .model statement of type C. This is compatible with the "
 "Spice-3 “semiconductor capacitor”."
 msgstr ""
+"в виде модели, для которой ёмкость рассчитывается в зависимости от длины и "
+"ширины, ссылающейся на оператор ''.model'' типа ''C''. Это совместимо с "
+"«полупроводниковым конденсатором» SPICE-3."
 
 #. type: Title ======
 #: manual/devices/lossless_transmission_line.txt:1
