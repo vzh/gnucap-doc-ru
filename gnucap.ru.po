@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
-"POT-Creation-Date: 2013-08-23 15:47+0400\n"
-"PO-Revision-Date: 2013-09-12 15:27+0400\n"
+"POT-Creation-Date: 2013-08-23 15:57+0400\n"
+"PO-Revision-Date: 2013-09-12 16:33+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7160,18 +7160,18 @@ msgstr ""
 #: manual/devices/lossless_transmission_line.txt:1
 #, no-wrap
 msgid "Transmission Line"
-msgstr ""
+msgstr "Линия передачи"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:6
 #, no-wrap
 msgid "  Txxxxxxx (n1+ n1- n2+ n2-) args\n"
-msgstr ""
+msgstr "|''**T**//xxxxxxx// (//n1+ n1- n2+ n2-//) //аргументы//''|\n"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:10
 msgid "Lossless transmission line."
-msgstr ""
+msgstr "Линия передачи без потерь."
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:14
@@ -7179,6 +7179,8 @@ msgid ""
 "n1+ and n1- are the nodes at one end.  n2+ and n2- are the nodes at the "
 "other end."
 msgstr ""
+"''n1+'' и ''n1-'' --- узлы концов с одной стороны линии.  ''n2+'' и ''n2-'' "
+"--- узлы с другой стороны."
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:21
@@ -7189,12 +7191,18 @@ msgid ""
 "calculated based on the one you specify.  If you specify too many "
 "parameters, {\\tt Freq} and {\\tt NL} dominate, and a warning is issued."
 msgstr ""
+"Параметры ''TD'', ''Freq'' и ''NL'' определяют длину линии. Должны быть "
+"заданы либо ''TD'', либо ''Freq'' и ''NL''.  Если задан только параметр "
+"''Freq'', то ''NL'' принимается равным 0,25. Другие параметры будут "
+"рассчитываться на основе тех, что были указаны.  Если задать слишком много "
+"параметров, то за основу будут взяты ''Freq'' и ''NL'', а также будет выдано "
+"предупреждение."
 
 #. type: Title =====
 #: manual/devices/lossless_transmission_line.txt:21
 #, no-wrap
 msgid "Element Parameters"
-msgstr ""
+msgstr "Параметры элемента"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:26
@@ -7204,6 +7212,10 @@ msgid ""
 "^Parameters that always work.  ^^\n"
 "|len  |Length multiplier.  (Default = 1) The effective length, regardless of its method of calculation is multiplied by this number.  |\n"
 msgstr ""
+"Для линии предлагается множество параметров. Нет смысла указывать их все.\n"
+"^Параметры, работающие всегда  ^^^\n"
+"^ Имя параметра  ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''len'' |  **''1''**  |Множитель длины.  На это число умножается эффективная длина, независимо от метода её расчёта  |\n"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:32
@@ -7215,6 +7227,12 @@ msgid ""
 "|freq  |Frequency for //nl//.  |\n"
 "|nl    |Number of wavelengths at //freq//.  |\n"
 msgstr ""
+"^Параметры для прямого задания электрических характеристик  ^^^\n"
+"^ Имя параметра  ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''z0''    |  **''50 Ом''**  | Характеристический импеданс. Если не указан, рассчитывается по формуле ''sqrt(L/C)''.  Значение по умолчанию используется только тогда, когда не указаны ни ''z0'', ни ''L'' и ''C''  |\n"
+"|''td''    | | Временная задержка. Если параметр не указан, он будет рассчитан по одной из формул: ''nl/freq'' или ''sqrt(L*C)''  |\n"
+"|''freq''  | | Частота для ''nl''  |\n"
+"|''nl''    | | Количество длин волн при частоте ''freq''  |\n"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:36
@@ -7224,11 +7242,16 @@ msgid ""
 "|L  |Inductance per unit length.  This value is used only if //z0// and //td// are both not specified.  |\n"
 "|C  |Capacitance per unit length.  This value is used only if //z0// and //td// are both not specified.  |\n"
 msgstr ""
+"^ Физические параметры ^^^\n"
+"^ Имя параметра  ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''L'' | | Индуктивность на единицу длины. Это значение используется только тогда, когда не указаны ни ''z0'', ни ''td''  |\n"
+"|''C'' | | Ёмкость       на единицу длины. Это значение используется только тогда, когда не указаны ни ''z0'', ни ''td''  |\n"
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:40
 msgid "The standard probes for all basic elements are all available."
 msgstr ""
+"Доступны все стандартные датчики, используемые для всех базовых элементов."
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:44
@@ -7237,11 +7260,17 @@ msgid ""
 "transmission line.  Aside from this, there is no attempt to synchronize, "
 "because synchronization would result in a significant run speed penalty."
 msgstr ""
+"На временные шаги [[gnucap:manual:commands:transient.ru|временного анализа]] "
+"накладывается ограничение в том, что они не должны быть больше задержки "
+"линии передачи.  Кроме того, в этом случае программа не пытается "
+"использовать синхронизацию, поскольку это могло бы привести к значительному "
+"снижению скорости расчётов."
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:46
 msgid "There is significant room for improvement, if there is demand for it."
 msgstr ""
+"Здесь имеется большой простор для улучшений, если в этом есть потребность."
 
 #. type: Title =====
 #: manual/devices/lossless_transmission_line.txt:47
@@ -7256,6 +7285,8 @@ msgid ""
 "Transmission lines are linear devices, so it would seem they would not be a "
 "factor in convergence."
 msgstr ""
+"Линии передачи являются линейными устройствами, поэтому может показаться, "
+"что они никак не должны влиять на сходимость."
 
 #. type: Plain text
 #: manual/devices/lossless_transmission_line.txt:51
@@ -7267,6 +7298,11 @@ msgid ""
 "separate circuits.  Convergence problems in one part do not influence the "
 "other part."
 msgstr ""
+"Линии передачи могут использоваться для развязки проблемных контуров. Если "
+"схема имеет проблемы со сходимостью, эту проблему иногда может решить "
+"вставка в подходящее место короткой линии передачи, добавляющая маленькую "
+"задержку.  Части схемы, разделённые линиями передачи считаются отдельными "
+"схемами. Проблемы сходимости в одной части не оказывают влияния на другую."
 
 #. type: Title ======
 #: manual/devices/mutual_inductance.txt:1
