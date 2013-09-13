@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:57+0400\n"
-"PO-Revision-Date: 2013-09-12 16:33+0400\n"
+"PO-Revision-Date: 2013-09-13 14:35+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7308,18 +7308,18 @@ msgstr ""
 #: manual/devices/mutual_inductance.txt:1
 #, no-wrap
 msgid "Coupled (Mutual) Inductors"
-msgstr ""
+msgstr "Индуктивно-связанные катушки (взаимная индуктивность)"
 
 #. type: Plain text
 #: manual/devices/mutual_inductance.txt:6
 #, no-wrap
 msgid "  Kxxxxxxx Lyyyyyyy Lzzzzzzz value\n"
-msgstr ""
+msgstr "|''**K**//xxxxxxx// L//yyyyyyy// L//zzzzzzz// //значение//''|\n"
 
 #. type: Plain text
 #: manual/devices/mutual_inductance.txt:10
 msgid "Coupled mutual inductance."
-msgstr ""
+msgstr "Взаимная индуктивность."
 
 #. type: Plain text
 #: manual/devices/mutual_inductance.txt:14
@@ -7327,6 +7327,9 @@ msgid ""
 "K couples two inductors.  The value is the coefficient of coupling.  Using "
 "the dot convention, place a dot on the first node of each inductor."
 msgstr ""
+"Устройство **K** связывает две катушки индуктивности. Значение представляет "
+"собой коэффициент связи. В соответствии с соглашением о точках точки "
+"помещаются на первых узлах каждой из катушек."
 
 #. type: Plain text
 #: manual/devices/mutual_inductance.txt:16
@@ -7334,12 +7337,14 @@ msgid ""
 "The coefficient of coupling is given by K = m[i][j] / sqrt(L[i] L[j]).  K is "
 "always positive and less than 1."
 msgstr ""
+"Коэффициент связи задаётся выражением  ''K = m[i][j] / sqrt(L[i] L[j])''.  "
+"Значение ''K'' всегда положительно и меньше 1."
 
 #. type: Title =====
 #: manual/devices/mutual_inductance.txt:17
 #, no-wrap
 msgid "Bugs"
-msgstr ""
+msgstr "Программные ошибки"
 
 #. type: Plain text
 #: manual/devices/mutual_inductance.txt:19
@@ -7348,6 +7353,10 @@ msgid ""
 "the connections are inductors.  If you are using any other syntax, you can "
 "make a Spice subcircuit containing the entire transformer."
 msgstr ""
+"Эта версия элемента взаимной индуктивности поддерживается только для работы "
+"с синтаксисом SPICE, потому что соединения представляют собой катушки "
+"индуктивности.  Для работы с использованием синтаксиса другого языка можно "
+"сделать подсхему в формате SPICE, содержащую весь трансформатор целиком."
 
 #. type: Title ======
 #: manual/devices/other.txt:1
@@ -7544,24 +7553,24 @@ msgstr "Устройство:"
 #: manual/devices/switches.txt:10
 #, no-wrap
 msgid "  Sxxxxxxx (n+ n- nc+ nc-) modelname ic\n"
-msgstr ""
+msgstr "|''**S**//xxxxxxx// (//n+ n- nc+ nc-//) //имя_модели// ic''|\n"
 
 #. type: Plain text
 #: manual/devices/switches.txt:12 manual/devices/switches.txt:22
 msgid "Model (required):"
-msgstr ""
+msgstr "Модель (наличие обязательно):"
 
 #. type: Plain text
 #: manual/devices/switches.txt:14
 #, no-wrap
 msgid "  .model modelname SW args\n"
-msgstr ""
+msgstr "|''**.model** //имя_модели// SW //аргументы//''|\n"
 
 #. type: Title ==
 #: manual/devices/switches.txt:16
 #, no-wrap
 msgid "Current controlled switch"
-msgstr ""
+msgstr "Ключ, управляемый током"
 
 #. type: Plain text
 #: manual/devices/switches.txt:20
@@ -7575,7 +7584,7 @@ msgstr ""
 #: manual/devices/switches.txt:24
 #, no-wrap
 msgid "  .model modelname CSW args\n"
-msgstr ""
+msgstr "|''**.model** //имя_модели// CSW //аргументы//''|\n"
 
 #. type: Plain text
 #: manual/devices/switches.txt:28
@@ -7586,30 +7595,35 @@ msgstr "Ключ, управляемый напряжением или токо�
 #: manual/devices/switches.txt:29
 #, no-wrap
 msgid "Comments ======"
-msgstr "Описание"
+msgstr "Описание ====="
 
 #. type: Plain text
 #: manual/devices/switches.txt:32
 msgid ""
 "//N+// and //n-// are the positive and negative element nodes, respectively."
 msgstr ""
+"''n+'' и ''n-'' представляют собой соответственно положительный и "
+"отрицательный узлы элемента."
 
 #. type: Plain text
 #: manual/devices/switches.txt:34
 msgid ""
 "For voltage controlled switch, //Nc+// and //nc-// are the controlling nodes."
 msgstr ""
+"''nc+'' и ''nc-'' для ключа, управляемого напряжением, являются управляющими "
+"узлами."
 
 #. type: Plain text
 #: manual/devices/switches.txt:36
 msgid ""
 "For current controlled switch, //ce// is the name of a controlling element."
 msgstr ""
+"''ce'' для ключа, управляемого током, определяет имя управляющего элемента."
 
 #. type: Plain text
 #: manual/devices/switches.txt:38
 msgid "//Modelname// is the model name."
-msgstr ""
+msgstr "Параметр ''имя_модели'' определяет имя модели."
 
 #. type: Plain text
 #: manual/devices/switches.txt:41
@@ -7617,6 +7631,8 @@ msgid ""
 "A switch is a resistor between //n+// and //n-//.  The value of the resistor "
 "is determined by the state of the switch."
 msgstr ""
+"Ключ представляет собой резистор между ''n+'' и ''n-''.  Значение резистора "
+"определяется состоянием ключа."
 
 #. type: Plain text
 #: manual/devices/switches.txt:46
@@ -7627,6 +7643,10 @@ msgid ""
 "|vc < voff\\\\  ic < ioff  |Roff        |\n"
 "|otherwise               |no change   |\n"
 msgstr ""
+"^ Управление                   ^ Сопротивление     ^\n"
+"|''vc > von\\\\  ic > ion''    |''Ron''            |\n"
+"|''vc < voff\\\\  ic < ioff''  |''Roff''           |\n"
+"|иначе                         |без изменения      |\n"
 
 #. type: Plain text
 #: manual/devices/switches.txt:50
@@ -7634,11 +7654,15 @@ msgid ""
 "You may specify ''ON'' or ''OFF'' to indicate the initial state of the "
 "switch when the controlling voltage is in the hysteresis region."
 msgstr ""
+"Для указания исходного состояния ключа, когда управляющее напряжение "
+"находится в области гистерезиса, можно указать ''ON'' (ключ замкнут) или "
+"''OFF'' (ключ разомкнут)."
 
 #. type: Plain text
 #: manual/devices/switches.txt:52
 msgid "The parameters //ron// and //roff// must have finite positive values."
 msgstr ""
+"Параметры ''ron'' и ''roff'' должны иметь конечные положительные значения."
 
 #. type: Title =====
 #: manual/devices/switches.txt:52
@@ -7658,6 +7682,14 @@ msgid ""
 "|ron   |On resistance.  (Default = 1.)             |\n"
 "|roff  |Off resistance.  (Default = 1e12)          |\n"
 msgstr ""
+"| **Ключ, управляемый напряжением**  |||\n"
+"^ Имя параметра  ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''vt''    |  **''0''**        | Пороговое напряжение                                 |\n"
+"|''vh''    |  **''0''**        | Напряжение гистерезиса                               |\n"
+"|''von''   |  ''vt **+** vh''  | Управляющее напряжение включения                     |\n"
+"|''voff''  |  ''vt **-** vh''  | Управляющее напряжение отключения                    |\n"
+"|''ron''   |  **''1''**        | Сопротивление во включенном (замкнутом)   состоянии  |\n"
+"|''roff''  |  **''1e12''**     | Сопротивление в отключенном (разомкнутом) состоянии  |\n"
 
 #. type: Plain text
 #: manual/devices/switches.txt:69
@@ -7671,12 +7703,20 @@ msgid ""
 "|ron   |On resistance.  (Default = 1.)             |\n"
 "|roff  |Off resistance.  (Default = 1e12)          |\n"
 msgstr ""
+"| **Ключ, управляемый током**  |||\n"
+"^ Имя параметра  ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
+"|''it''    |  **''0''**        | Пороговый ток                                        |\n"
+"|''ih''    |  **''0''**        | Ток гистерезиса                                      |\n"
+"|''ion''   |  ''it **+** ih''  | Управляющий ток включения                            |\n"
+"|''ioff''  |  ''it **-** ih''  | Управляющий ток отключения                           |\n"
+"|''ron''   |  **''1''**        | Сопротивление во включенном (замкнутом)   состоянии  |\n"
+"|''roff''  |  **''1e12''**     | Сопротивление в отключенном (разомкнутом) состоянии  |\n"
 
 #. type: Title =====
 #: manual/devices/switches.txt:70
 #, no-wrap
 msgid "Time step control"
-msgstr ""
+msgstr "Управление временным шагом"
 
 #. type: Plain text
 #: manual/devices/switches.txt:75
@@ -7685,6 +7725,10 @@ msgid ""
 "threshold is a \"cross event\".  Cross events will generate extra time steps "
 "so the switch timing is accurate."
 msgstr ""
+"Изменение состояния ключа считается аналоговым событием. Пересечение входным "
+"сигналом порогового значения является «[[gnucap:manual:measure:cross.ru|"
+"событием пересечения]]». Для событий пересечений генерируются дополнительные "
+"временные шаги, поэтому выбор моментов времени для переключений будет точным."
 
 #. type: Plain text
 #: manual/devices/switches.txt:78
@@ -7692,6 +7736,9 @@ msgid ""
 "A switch can be used anywhere in a circuit to improve timing accuracy by "
 "sensing cross events."
 msgstr ""
+"Ключ можно использовать для увеличения точности временной синхронизации "
+"сигналов, поставив его в любое место схемы, так как это заставит программу "
+"обрабатывать события пересечения."
 
 #. type: Plain text
 #: manual/devices/switches.txt:81
@@ -7699,6 +7746,8 @@ msgid ""
 "Switches also influence time step control as resistors, which control "
 "smoothness by curve fitting."
 msgstr ""
+"Ключи также влияют на управление временным шагом как резисторы, в которых "
+"гладкость настраивается с помощью аппроксимации."
 
 #. type: Plain text
 #: manual/devices/switches.txt:84
@@ -7706,6 +7755,8 @@ msgid ""
 "Switches are linear devices that do not iterate unless there is a state "
 "change."
 msgstr ""
+"Ключи представляют собой линейные устройства, не пересчитываемые в процессе "
+"расчёта до тех пор, пока не произойдёт смена состояния."
 
 #. type: Title ======
 #: manual/examples.txt:1
