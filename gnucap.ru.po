@@ -7527,18 +7527,18 @@ msgstr ""
 #: manual/devices/switches.txt:1
 #, no-wrap
 msgid "Switches"
-msgstr ""
+msgstr "Ключи"
 
 #. type: Title ==
 #: manual/devices/switches.txt:5
 #, no-wrap
 msgid "Voltage controlled switch"
-msgstr ""
+msgstr "Ключ, управляемый напряжением"
 
 #. type: Plain text
 #: manual/devices/switches.txt:8
 msgid "Device:"
-msgstr ""
+msgstr "Устройство:"
 
 #. type: Plain text
 #: manual/devices/switches.txt:10
@@ -7580,7 +7580,7 @@ msgstr ""
 #. type: Plain text
 #: manual/devices/switches.txt:28
 msgid "Voltage or current controlled switch."
-msgstr ""
+msgstr "Ключ, управляемый напряжением или током."
 
 #. type: Title =====
 #: manual/devices/switches.txt:29
@@ -7644,7 +7644,7 @@ msgstr ""
 #: manual/devices/switches.txt:52
 #, no-wrap
 msgid "Model Parameters"
-msgstr ""
+msgstr "Параметры модели"
 
 #. type: Plain text
 #: manual/devices/switches.txt:61
