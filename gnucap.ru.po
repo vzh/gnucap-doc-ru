@@ -11544,7 +11544,7 @@ msgstr ""
 #: manual/languages/spectre.txt:18
 #, no-wrap
 msgid "  simulator lang=spectre\n"
-msgstr ""
+msgstr "  simulator lang=spectre\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:20
@@ -11572,7 +11572,7 @@ msgstr ""
 #: manual/languages/spectre.txt:28
 #, no-wrap
 msgid "  label (port list) type arguments\n"
-msgstr ""
+msgstr "  label (port list) type arguments\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:33 manual/languages/verilog.txt:34
@@ -11605,6 +11605,8 @@ msgid ""
 "  Rload (out 0) resistor r=10K\n"
 "  X1 (out in vc) amp rload=100K\n"
 msgstr ""
+"  Rload (out 0) resistor r=10K\n"
+"  X1 (out in vc) amp rload=100K\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:38
@@ -11656,7 +11658,7 @@ msgstr ""
 #: manual/languages/spectre.txt:58
 #, no-wrap
 msgid "model"
-msgstr ""
+msgstr "model"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:61
@@ -11703,13 +11705,13 @@ msgstr ""
 #: manual/languages/spectre.txt:71
 #, no-wrap
 msgid "  model gp_npn npn bf=150\n"
-msgstr ""
+msgstr "  model gp_npn npn bf=150\n"
 
 #. type: Title =====
 #: manual/languages/spectre.txt:72
 #, no-wrap
 msgid "subckt"
-msgstr ""
+msgstr "subckt"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:88
@@ -11740,6 +11742,10 @@ msgid ""
 "  Vin   (in  0)         vsource  ac=1\n"
 "  Rload (out 0)         resistor r=10k\n"
 msgstr ""
+"  X1    (out in vc)     amp      rload=100k\n"
+"  Vcc   (vc  0)         vsource  dc=15\n"
+"  Vin   (in  0)         vsource  ac=1\n"
+"  Rload (out 0)         resistor r=10k\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:97
@@ -11783,6 +11789,9 @@ msgid ""
 "  response ac start=20 stop=20K dec=10\n"
 "  - ac\n"
 msgstr ""
+"  setbias op\n"
+"  response ac start=20 stop=20K dec=10\n"
+"  - ac\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:111
@@ -11797,6 +11806,9 @@ msgid ""
 "  ac start=20 stop=20K dec=10 >response.ac\n"
 "  ac\n"
 msgstr ""
+"  op >setbias.op\n"
+"  ac start=20 stop=20K dec=10 >response.ac\n"
+"  ac\n"
 
 #. type: Title ======
 #: manual/languages/spectre.txt:116 manual/languages/verilog.txt:126
@@ -11890,7 +11902,7 @@ msgstr ""
 #: manual/languages/verilog.txt:20
 #, no-wrap
 msgid "  simulator lang=verilog\n"
-msgstr ""
+msgstr "  simulator lang=verilog\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:23
@@ -11904,7 +11916,7 @@ msgstr ""
 #: manual/languages/verilog.txt:29
 #, no-wrap
 msgid "  type #(arguments) label (port list) ;\n"
-msgstr ""
+msgstr "  type #(arguments) label (port list) ;\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:34
@@ -11936,7 +11948,7 @@ msgstr ""
 #: manual/languages/verilog.txt:39
 #, no-wrap
 msgid "  amp #(.rload(100K)) X1 (.out(out), .in(in), .vcc(vc));\n"
-msgstr ""
+msgstr "  amp #(.rload(100K)) X1 (.out(out), .in(in), .vcc(vc));\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:41
@@ -11977,7 +11989,7 @@ msgstr ""
 #: manual/languages/verilog.txt:62
 #, no-wrap
 msgid "paramset"
-msgstr ""
+msgstr "paramset"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:65
@@ -12018,6 +12030,9 @@ msgid ""
 "    .bf=150;\\\n"
 "  endparamset\n"
 msgstr ""
+"  paramset gp_npn npn;\\\n"
+"    .bf=150;\\\n"
+"  endparamset\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:81
@@ -12037,7 +12052,7 @@ msgstr ""
 #: manual/languages/verilog.txt:83
 #, no-wrap
 msgid "module"
-msgstr ""
+msgstr "module"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:86
@@ -12096,6 +12111,10 @@ msgid ""
 "  vsource  #(.ac(1))       Vin   (.p(in), .n(0));\n"
 "  resistor #(10K)          Rload (out, 0);\n"
 msgstr ""
+"  amp      #(.rload(100K)) X1    (.out(out), .in(in), .vcc(vc));\n"
+"  vsource  #(.dc(15))      Vcc   (.p(vc), .n(0));\n"
+"  vsource  #(.ac(1))       Vin   (.p(in), .n(0));\n"
+"  resistor #(10K)          Rload (out, 0);\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:123
