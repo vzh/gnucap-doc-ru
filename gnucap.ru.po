@@ -11232,8 +11232,9 @@ msgid ""
 "Gnucap offers a comprehensive set of probes.  This section lists system "
 "probes, node probes, and common element probes."
 msgstr ""
-"Gnucap предлагает исчерпывающий набор датчиков. В этом разделе приводится "
-"перечень системных датчиков, датчиков узлов и общих датчиков элементов."
+"В gnucap предлагается исчерпывающий набор датчиков. В этом разделе "
+"приводится перечень системных датчиков, датчиков узлов и общих датчиков "
+"элементов."
 
 #. type: Plain text
 #: manual/howto/probes.txt:6
