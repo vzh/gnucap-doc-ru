@@ -7353,25 +7353,25 @@ msgstr ""
 #: manual/devices/other.txt:1
 #, no-wrap
 msgid "Other \"spice\" devices"
-msgstr "Прочие «SPICE»-устройства"
+msgstr "Прочие устройства SPICE"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
 #, no-wrap
 msgid "[[.:mutual inductance]]\n"
-msgstr ""
+msgstr "[[.:mutual inductance.ru|Взаимоиндуктивность]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
 #, no-wrap
 msgid "[[.:switches]]\n"
-msgstr ""
+msgstr "[[.:switches.ru|Ключи]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
 #, no-wrap
 msgid "[[.:Lossless transmission line]]\n"
-msgstr ""
+msgstr "[[.:Lossless transmission line.ru|Линия передачи без потерь]]\n"
 
 #. type: Title ======
 #: manual/devices/semi.txt:1
@@ -7384,6 +7384,8 @@ msgstr "Полупроводниковые устройства"
 msgid ""
 "Gnucap supports both native and industry standard semiconductor devices."
 msgstr ""
+"В gnucap поддерживаются как собственные полупроводниковые устройства, так и "
+"те, что считаются промышленным стандартом."
 
 #. type: Plain text
 #: manual/devices/semi.txt:6
@@ -7392,6 +7394,10 @@ msgid ""
 "model compiler.  A BJT, diode, and several MOSFET models are available as "
 "native models."
 msgstr ""
+"Собственные модели --- это оптимизированные модели, скомпилированные с "
+"помощью компилятора gnucap-modelgen. В наличии имеются собственные модели "
+"биполярного транзистора (BJT), диода и несколько моделей полевых "
+"транзисторов (MOSFET)."
 
 #. type: Plain text
 #: manual/devices/semi.txt:8
@@ -7400,36 +7406,40 @@ msgid ""
 "of spice models are supported, including 3e, 3f, NGspice, and Jspice.  "
 "Usually, the models can be used without any modifications."
 msgstr ""
+"В качестве плагинов могут также использоваться C-модели, разработанные для "
+"SPICE. Поддерживается модели нескольких версий SPICE, в том числе 3e, 3f, "
+"NGspice и Jspice.  Обычно эти модели возможно использовать совершенно без "
+"каких бы то ни было изменений."
 
 #. type: Bullet: '  * '
 #: manual/devices/semi.txt:13
 #, no-wrap
 msgid "[[.:semi:diode]]\n"
-msgstr ""
+msgstr "[[.:semi:diode.ru|Диоды]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi.txt:13
 #, no-wrap
 msgid "[[.:semi:bjt]]\n"
-msgstr ""
+msgstr "[[.:semi:bjt.ru|Биполярные транзисторы (BJT)]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi.txt:13
 #, no-wrap
 msgid "[[.:semi:jfet]]\n"
-msgstr ""
+msgstr "[[.:semi:jfet.ru|jfet]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi.txt:13
 #, no-wrap
 msgid "[[.:semi:mosfet]]\n"
-msgstr ""
+msgstr "[[.:semi:mosfet.ru|mosfet]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi.txt:13
 #, no-wrap
 msgid "[[.:semi:mesfet]]\n"
-msgstr ""
+msgstr "[[.:semi:mesfet.ru|mesfet]]\n"
 
 #. type: Title ======
 #: manual/devices/semi/bjt.txt:1 manual/devices/semi/diode.txt:1
@@ -7441,13 +7451,13 @@ msgstr "Модели полупроводниковых устройств"
 #: manual/devices/semi/bjt.txt:3
 #, no-wrap
 msgid "BJT's"
-msgstr ""
+msgstr "Биполярные транзисторы"
 
 #. type: Title ====
 #: manual/devices/semi/bjt.txt:5 manual/devices/semi/diode.txt:5
 #, no-wrap
 msgid "Native models"
-msgstr ""
+msgstr "Собственные модели"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi/bjt.txt:8
@@ -7466,6 +7476,8 @@ msgstr "Модели SPICE"
 msgid ""
 "Several Spice diode models are available.  They are not documented here."
 msgstr ""
+"В наличии есть несколько SPICE-моделей диодов. Документация на них здесь не "
+"приводится."
 
 #. type: Plain text
 #: manual/devices/semi/bjt.txt:17
@@ -7478,12 +7490,18 @@ msgid ""
 "|models-ngspice17    |bjt2  |2      |NGspice-17    |+++   works         |similar to standard  |\n"
 "|models-ngspice17    |vbic  |4      |NGspice-17    |++++  works         |Colin McAndrew's VBIC model  |\n"
 msgstr ""
+"^ tar-архив gnucap   ^ Имя  ^ Уровень  ^ Происхождение ^ Состояние           ^ Комментарии                        ^\n"
+"|models-spice3f5     |bjt   |          |SPICE 3f5      |+++++ поддерживается | Стандартная модель                 |\n"
+"|models-jspice3-2.5  |bjt   |          |Jspice 3-2.5   |+++-  несовместимая  | Не рекомендуется                   |\n"
+"|models-ngspice17    |bjt   |1         |NGspice-17     |++++  работает       | Похожа на стандартную              |\n"
+"|models-ngspice17    |bjt2  |2         |NGspice-17     |+++   работает       | Похожа на стандартную              |\n"
+"|models-ngspice17    |vbic  |4         |NGspice-17     |++++  работает       | Модель VBIC, автор Colin McAndrew  |\n"
 
 #. type: Title =====
 #: manual/devices/semi/diode.txt:3
 #, no-wrap
 msgid "Diodes"
-msgstr ""
+msgstr "Диоды"
 
 #. type: Bullet: '  * '
 #: manual/devices/semi/diode.txt:8
@@ -7500,6 +7518,10 @@ msgid ""
 "|models-ngspice17    |NGspice-17    |+++++ supported  |Enhanced, with some additional parameters  |\n"
 "|models-jspice3-2.5  |Jspice 3-2.5  |+++++ supported  |The standard model  |\n"
 msgstr ""
+"^ tar-архив gnucap   ^ Происхождение ^ Состояние            ^ Комментарии                                           ^\n"
+"|models-spice3f5     |SPICE 3f5      |+++++ поддерживается  | Стандартная модель                                    |\n"
+"|models-ngspice17    |NGspice-17     |+++++ поддерживается  | Улучшенная, с несколькими дополнительными параметрами |\n"
+"|models-jspice3-2.5  |Jspice 3-2.5   |+++++ поддерживается  | Стандартная модель                                    |\n"
 
 #. type: Title ======
 #: manual/devices/switches.txt:1
@@ -11454,8 +11476,8 @@ msgid ""
 "By use of plugins, Gnucap gives you a choice of simulation languages.  The "
 "following are the simulation languages supported in this release."
 msgstr ""
-"Использование плагинов в Gnucap позволяет вам выбрать язык моделирования. В "
-"настоящей версии программы поддерживаются следующие языки:"
+"Поддержка плагинов в gnucap даёт вам возможность выбрать язык моделирования. "
+"В настоящей версии программы поддерживаются следующие языки:"
 
 #. type: Plain text
 #: manual/languages.txt:8
