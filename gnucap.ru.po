@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:57+0400\n"
-"PO-Revision-Date: 2013-09-13 14:35+0400\n"
+"PO-Revision-Date: 2013-09-13 14:47+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -7081,7 +7081,7 @@ msgid ""
 " .model mname TABLE {args}\n"
 msgstr ""
 "|''**.capacitor** обозначение n+ n– выражение''|\n"
-"Модель (указывать не обязательно):\n"
+"Модель (наличие не обязательно):\n"
 "|''**.model** //имя_модели// C     {//аргументы//}''|\n"
 "|''**.model** //имя_модели// TABLE {//аргументы//}''|\n"
 
@@ -7368,7 +7368,7 @@ msgstr "Прочие устройства SPICE"
 #: manual/devices/other.txt:5
 #, no-wrap
 msgid "[[.:mutual inductance]]\n"
-msgstr "[[.:mutual inductance.ru|Взаимоиндуктивность]]\n"
+msgstr "[[.:mutual inductance.ru|Взаимная индуктивность]]\n"
 
 #. type: Bullet: '  * '
 #: manual/devices/other.txt:5
@@ -8924,9 +8924,11 @@ msgid ""
 "  Vsupply 0 2 10\n"
 "  R1 0 2 1k\n"
 msgstr ""
-"  #РЕЗИСТОР, ПОДКЛЮЧЕННЫЙ К ИСТОЧНИКУ НАПРЯЖЕНИЯ\n"
-"  Vsupply 0 2 10\n"
-"  R1 0 2 1k\n"
+"<file spice eg1.ckt>\n"
+"#РЕЗИСТОР, ПОДКЛЮЧЕННЫЙ К ИСТОЧНИКУ НАПРЯЖЕНИЯ\n"
+"Vsupply 0 2 10\n"
+"R1 0 2 1k\n"
+"</file>\n"
 
 #. type: Plain text
 #: manual/examples/hello_world.txt:91
@@ -9458,7 +9460,8 @@ msgid ".print dc v(10) v(20) v(30)  .dc Vcc 0 5 0.5 >eg6.dat .end </code>"
 msgstr ""
 ".print dc v(10) v(20) v(30)\n"
 ".dc Vcc 0 5 0.5 >eg6.dat\n"
-".end </file>"
+".end\n"
+"</file>"
 
 #. type: Plain text
 #: manual/examples/nonlinear_devices_--_diodes.txt:45
