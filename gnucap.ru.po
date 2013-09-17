@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:57+0400\n"
-"PO-Revision-Date: 2013-09-13 14:47+0400\n"
+"PO-Revision-Date: 2013-09-17 13:54+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -11556,6 +11556,8 @@ msgid ""
 "The Spectre language plugin attempts to support the syntax of the Cadence "
 "Spectre simulator."
 msgstr ""
+"С помощью плагина для языка Spectre в программе gnucap предпринята попытка "
+"реализовать поддержку синтаксиса программы моделирования Spectre от Cadence."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:6
@@ -11564,11 +11566,15 @@ msgid ""
 "with Spectre syntax.  Wherever possible, Gnucap features will work in "
 "Spectre mode, even if they don't work in Spectre."
 msgstr ""
+"Не все возможности Spectre поддерживаются плагином, но те, что работают, "
+"будут работать и в режиме работы с синтаксисом Spectre. Программные "
+"возможности gnucap в этом режиме будут работать всюду, где только можно, "
+"даже если собственно в программе Spectre аналогичных возможностей нет."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:8
 msgid "The Spectre mode is case sensitive, and uses \"SI\" units."
-msgstr ""
+msgstr "Режим Spectre регистрозависим, и в нём используются единицы СИ."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:10 manual/languages/verilog.txt:10
@@ -11576,11 +11582,13 @@ msgid ""
 "The \"SI\" units are case sensitive.  1p is 1e-12.  1P is 1e15.  1m is "
 "1e-3.  1M is 1e6."
 msgstr ""
+"Единицы величин СИ регистрозависимы: 1p соответствует 1e-12, 1P --- 1e15,  "
+"1m --- 1e-3, 1M --- 1e6."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:12 manual/languages/verilog.txt:12
 msgid "Comments are preceded by /****/ and extend to the end of the line."
-msgstr ""
+msgstr "Комментарии начинаются с «%%//%%» и длятся до конца строки."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:14
@@ -11588,11 +11596,15 @@ msgid ""
 "The format is line oriented.  A newline terminates a statement.  You can "
 "extend a line by ending it with \\ ."
 msgstr ""
+"Формат строчноориентированный. Операторы завершаются символами новой строки. "
+"Если закончить строку символом «\\», следующая строка будет считаться её "
+"продолжением."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:16
 msgid "From startup, you can set Spectre mode with the command line:"
 msgstr ""
+"После запуска программы режим Spectre можно задать из командной строки:"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:18
@@ -11620,37 +11632,37 @@ msgstr "Компоненты"
 #. type: Plain text
 #: manual/languages/spectre.txt:26 manual/languages/verilog.txt:27
 msgid "All components have the same syntax:"
-msgstr ""
+msgstr "Для всех компонентов используется одинаковый синтаксис:"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:28
 #, no-wrap
 msgid "  label (port list) type arguments\n"
-msgstr "  label (port list) type arguments\n"
+msgstr "|''//обозначение// (//список портов//) //тип аргументы//''|\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:33 manual/languages/verilog.txt:34
 #, no-wrap
 msgid "**Label** : a string.  The first letter has no significance.\n"
-msgstr ""
+msgstr "''//обозначение//'' --- строка. Первая буква роли не играет.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:33
 #, no-wrap
 msgid "**Port list** : A list of the ports (connections), whitespace delimited.  Mapping is determined by order.  The port list should be surrounded by parentheses.\n"
-msgstr ""
+msgstr "''//список портов//'' --- список портов (соединений), разделённых пробельными символами. Соответствие портов соединениям определяется порядком записи. Список портов должен быть заключён в круглые скобки.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:33
 #, no-wrap
 msgid "**Type** : The type of component.  If there is a \"model\" statement, this is the name in the model statement.  Otherwise, it could be the name of a \"subckt\", a Verilog \"module\" or \"paramset\", or a standard device.  This is called \"master\" in the Spectre manual.\n"
-msgstr ""
+msgstr "''//тип//'' --- тип компонента. Если имеется оператор ''model'', это имя типа, заданное в данном операторе. В противном случае, это может быть имя ''[[#subckt]]'', ''[[.:verilog.ru#module]]'' или ''[[.:verilog.ru#paramset]]'' в Verilog, или какого-то стандартного устройства. В руководстве по Spectre это называется //оригиналом// («master»).\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:33
 #, no-wrap
 msgid "**Arguments** : A list of arguments (parameters or values).  All arguments are name = value pairs, of the form \"name = value\", whitespace delimited.  The value may be an expression.\n"
-msgstr ""
+msgstr "''//аргументы//'' --- список аргументов ([[gnucap:manual:commands:parameter.ru|параметры]] или значения). Все аргументы задаются в виде пар в формате «имя=значение» и отделяются друг от друга пробельными символами. Значение аргумента может быть [[gnucap:manual:howto:expressions.ru|выражением]].\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:36
@@ -11669,6 +11681,10 @@ msgid ""
 "are not supported in Spectre mode, but you can use them by switching to a "
 "mode that does support that syntax."
 msgstr ""
+"Имеется несколько компонентов, для которых используется синтаксис других "
+"языков, и которые в режиме Spectre не поддерживаются, но их всё же можно "
+"использовать, если переключиться в какой-нибудь режим, в котором этот "
+"синтаксис поддерживается."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:41
@@ -11677,11 +11693,15 @@ msgid ""
 "  Vcc (vc  0) vsource  dc=15 // Spice-style source arguments are not supported.\n"
 "  Vin (in  0) vsource  ac=1  // Spice-style source arguments are not supported.\n"
 msgstr ""
+"  Vcc (vc  0) vsource  dc=15 // Аргументы источников напряжения и тока в стиле SPICE не поддерживаются\n"
+"  Vin (in  0) vsource  ac=1  // Аргументы источников напряжения и тока в стиле SPICE не поддерживаются\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:44 manual/languages/verilog.txt:46
 msgid "But you can switch modes, to one that does support the syntax:"
 msgstr ""
+"Но можно переключить режим, выбрав тот, в котором поддерживается этот "
+"синтаксис:"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:53
@@ -11696,17 +11716,26 @@ msgid ""
 "  .spectre\n"
 "  // Now it is back in Spectre mode.\n"
 msgstr ""
+"  // Предположим, программа запущена в режиме Spectre\n"
+"  - spice\n"
+"  * Теперь используется синтаксис SPICE\n"
+"  Vcc (vc 0) dc 15\n"
+"  Vin (in 0) ac 1\n"
+"  * Команды в режиме SPICE начинаются с точки\n"
+"  .spectre\n"
+"  // Теперь программа снова в режиме Spectre\n"
 
 #. type: Title ======
 #: manual/languages/spectre.txt:54 manual/languages/verilog.txt:58
 #, no-wrap
 msgid "Top-level blocks"
-msgstr ""
+msgstr "Блоки верхнего уровня"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:57
 msgid "Two top level blocks are supported: model and subckt."
 msgstr ""
+"Поддерживается два блока верхнего уровня: ''[[#model]]'' и ''[[#subckt]]''."
 
 #. type: Title =====
 #: manual/languages/spectre.txt:58
@@ -11722,6 +11751,11 @@ msgid ""
 "that can be instantiated later.  It is equivalent to a spice \".model\" or a "
 "Verilog \"paramset\"."
 msgstr ""
+"Оператор ''model'' задаёт параметры на основе существующей скомпилированной "
+"модели. Это будет распространяться на все «оригиналы». Модель становится "
+"«оригиналом», экземпляры которого могут добавляться позже. Это эквивалентно "
+"ключевому слову ''.model'' в SPICE или ''[[.:verilog.ru#paramset]]'' в "
+"Verilog."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:64
@@ -11730,30 +11764,32 @@ msgid ""
 "The syntax is:\n"
 "  \"model\" newname itsmaster parameters\n"
 msgstr ""
+"Синтаксис:\n"
+"|''**model** //новый_тип имя_оригинала аргументы//''|\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69
 #, no-wrap
 msgid "**model** : Keyword identifies a model statement.\n"
-msgstr ""
+msgstr "''**model**'' --- ключевое слово, идентифицирующее оператор описания модели.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69 manual/languages/verilog.txt:75
 #, no-wrap
 msgid "**newtype** : The new type being defined.  This can be used as a device type later.\n"
-msgstr ""
+msgstr "''//новый_тип//'' --- новый тип, который здесь определяется. Позднее он может использоваться как тип устройства.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69 manual/languages/verilog.txt:75
 #, no-wrap
 msgid "**itsmaster** : The type it is derived from.\n"
-msgstr ""
+msgstr "''//имя_оригинала//'' --- тип, производным от которого будет ''//новый_тип//''.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:69
 #, no-wrap
 msgid "**Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form \"name = value\", whitespace delimited.  The value may be an expression.\n"
-msgstr ""
+msgstr "''//аргументы//'' --- список аргументов ([[gnucap:manual:commands:parameter.ru|параметры]] или значения). Все аргументы задаются в виде пар в формате «имя=значение» и отделяются друг от друга пробельными символами. Значение аргумента может быть [[gnucap:manual:howto:expressions.ru|выражением]].\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:71
@@ -11786,6 +11822,20 @@ msgid ""
 "  Rload (out 0  )       resistor  r=rload\n"
 "  ends amp\n"
 msgstr ""
+"  subckt amp (out in vcc)\n"
+"  parameters rload=10k\n"
+"  Rb1   (base vcc)      resistor  r=1M  // 1 мегаом\n"
+"  Rb2   (base 0  )      resistor  r=100k\n"
+"  Rc    (col  vcc)      resistor  r=100k\n"
+"  Re    (emit 0  )      resistor  r=10k\n"
+"  Ce    (emit 0  )      capacitor c=1m  // 1 миллифарад\n"
+"  Cin   (base in )      capacitor c=1u\n"
+"  Q1    (col base emit) gp-npn\n"
+"  Q2    (vcc col e2)    gp-npn\n"
+"  Re2   (e2   0  )      resistor  r=1k\n"
+"  Cout  (e2   out)      capacitor c=10u\n"
+"  Rload (out 0  )       resistor  r=rload\n"
+"  ends amp\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:93
@@ -11807,6 +11857,8 @@ msgid ""
 "Commands usually have the same syntax as components, but there is no port "
 "list."
 msgstr ""
+"Для команд обычно используется тот же синтаксис, что и для [[#компоненты|"
+"компонентов]], но не задаётся список портов."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:99
@@ -11814,6 +11866,8 @@ msgid ""
 "The Spectre mode does not introduce any new commands.  The only change is "
 "the syntax."
 msgstr ""
+"Для режима Spectre никаких новых команд не вводится. Единственным изменением "
+"является синтаксис."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:101
@@ -11822,6 +11876,10 @@ msgid ""
 "label names a file which will contain the results of the command.  The "
 "filename extension is the command."
 msgstr ""
+"В режиме Spectre перед командой указывается обозначение, как и для "
+"компонента. Это обозначение станет именем файла, в который будут выводиться "
+"результаты данной команды. В качестве расширения имени файла будет "
+"использоваться имя самой команды."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:103
@@ -11829,11 +11887,13 @@ msgid ""
 "As an non-standard extension, using a dash '-' as the label sends the "
 "command output to the standard output."
 msgstr ""
+"Нестандартным расширением является перенаправление вывода команды на "
+"стандартный вывод при задании обозначения в виде дефиса («-»)."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:105
 msgid "Commands are executed in the order given."
-msgstr ""
+msgstr "Команды выполняются в порядке их задания."
 
 #. type: Plain text
 #: manual/languages/spectre.txt:109
@@ -11851,6 +11911,8 @@ msgstr ""
 #: manual/languages/spectre.txt:111
 msgid "This is equivalent to the native mode:"
 msgstr ""
+"Это эквивалентно следующим командам в режиме работы с собственной системой "
+"команд gnucap:"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:115
@@ -11868,44 +11930,44 @@ msgstr ""
 #: manual/languages/spectre.txt:116 manual/languages/verilog.txt:126
 #, no-wrap
 msgid "Extras"
-msgstr ""
+msgstr "Кроме того..."
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:119
 #, no-wrap
 msgid "You can switch languages any time with the appropriate command.  The command must be in spectre syntax, with a label or dash first.  The command to switch back must be issued in the language you switched to.\n"
-msgstr ""
+msgstr "В любой момент соответствующей командой можно переключиться на другой язык. Для этой команды должен использоваться синтаксис Spectre, то есть сначала должно быть указано обозначение или дефис. Команда для переключения обратно должна задаваться на том языке, который был включен.\n"
 
 #. type: Plain text
 #: manual/languages/spectre.txt:123
 msgid ""
 "The current implementation in gnucap differs slightly from the Cadence "
 "product."
-msgstr ""
+msgstr "Текущая реализация в gnucap слегка отличается от продукта Cadence."
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:127 manual/languages/verilog.txt:143
 #, no-wrap
 msgid "The \"master\" must be defined before it is referenced.\n"
-msgstr ""
+msgstr "«Оригинал» должен быть определён до обращения к нему.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:127
 #, no-wrap
 msgid "The devices and commands are whatever gnucap has installed, which are probably different from what Spectre (the simulator) provides.\n"
-msgstr ""
+msgstr "В качестве устройств и команд используются все те, что устанавливаются вместе с gnucap, и они, вероятно, отличаются от предоставляемых в Spectre (в программе моделирования).\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:127 manual/languages/verilog.txt:143
 #, no-wrap
 msgid "The circuit must be defined before any commands using it, unless you want to simulate a partial circuit.  Scripted and interactive modifications to the circuit are done the way gnucap usually does.\n"
-msgstr ""
+msgstr "Схема должна быть полностью определена до вызова любой работающей с ней команды, за исключением случаев, когда нужно произвести моделирование для части схемы. Изменения схемы скриптовым и интерактивным способом производятся так же, как они делаются в gnucap и обычно.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/spectre.txt:127
 #, no-wrap
 msgid "There is an interactive mode, with spectre syntax.\n"
-msgstr ""
+msgstr "Имеется интерактивный режим с поддержкой синтаксиса Spectre.\n"
 
 #. type: Title ======
 #: manual/languages/verilog.txt:1
@@ -11919,6 +11981,8 @@ msgid ""
 "The Verilog language plugin attempts to support the syntax of the Verilog-"
 "AMS language."
 msgstr ""
+"С помощью плагина для языка Verilog в программе gnucap предпринята попытка "
+"реализовать поддержку синтаксиса Verilog-AMS."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:6
@@ -11927,11 +11991,15 @@ msgid ""
 "with Verilog-AMS syntax.  Wherever possible, Gnucap features will work in "
 "Verilog-AMS mode, even if they don't work in Verilog-AMS."
 msgstr ""
+"Не все возможности Verilog-AMS поддерживаются плагином, но те, что работают, "
+"будут работать и в режиме работы с синтаксисом Verilog-AMS. Программные "
+"возможности gnucap в этом режиме будут работать всюду, где только можно, "
+"даже если собственно в Verilog-AMS аналогичных возможностей нет."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:8
 msgid "The Verilog mode is case sensitive, and uses \"SI\" units."
-msgstr ""
+msgstr "Режим Verilog регистрозависим, и в нём используются единицы СИ."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:14
@@ -11939,6 +12007,9 @@ msgid ""
 "The format is not line oriented.  A semicolon terminates a statement.  You "
 "can extend a line by ending it with \\ ."
 msgstr ""
+"Формат не строчно-ориентированный. Операторы завершаются точками с запятой. "
+"Если закончить строку символом «\\», следующая строка будет считаться её "
+"продолжением."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:16
@@ -11946,11 +12017,14 @@ msgid ""
 "In gnucap, for now, you must have one statement per line.  This is non-"
 "standard."
 msgstr ""
+"В настоящее время в gnucap строка может содержать только один оператор. Это "
+"не соответствует стандарту."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:18
 msgid "From startup, you can set Verilog mode with the command line:"
 msgstr ""
+"После запуска программы режим Verilog можно задать из командной строки:"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:20
@@ -11965,30 +12039,32 @@ msgid ""
 "or\n"
 "  verilog\n"
 msgstr ""
+"или\n"
+"  verilog\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:29
 #, no-wrap
 msgid "  type #(arguments) label (port list) ;\n"
-msgstr "  type #(arguments) label (port list) ;\n"
+msgstr "|''//тип// #(//аргументы//) //обозначение// (//список портов//) ;''|\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:34
 #, no-wrap
 msgid "**Type** : The type of component.  If there is a \"paramset\" statement, this is the name in the paramset statement.  Otherwise, it could be the name of a \"subckt\", \"model\", or a standard device.  This is called \"master\" in the Spectre manual.\n"
-msgstr ""
+msgstr "''//тип//'' --- тип компонента. Если имеется оператор ''[[#paramset]]'', это имя типа, заданное в данном операторе.  В противном случае, это может быть имя ''[[.:spectre.ru#subckt]]'', ''[[.:spectre.ru#model]]'', или стандартного устройства. В руководстве по Spectre это называется //оригиналом// («master»).\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:34
 #, no-wrap
 msgid "**Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form \".name(value)\", separated by a comma.  The value may be an expression.  In some cases, a principal value can be given just by value, without its name.  The argument list is surrounded by parentheses, and prefixed by \"#\".\n"
-msgstr ""
+msgstr "''//аргументы//'' --- список аргументов ([[gnucap:manual:commands:parameter.ru|параметры]] или значения). Все аргументы задаются в виде пар в формате «''.имя(значение)''» и отделяются друг от друга запятыми. Значение аргумента может быть [[gnucap:manual:howto:expressions.ru|выражением]]. В некоторых случаях для основного аргумента достаточно задать только значение и не указывать имя. Список аргументов заключается в круглые скобки и перед ними ставится префикс «#».\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:34
 #, no-wrap
 msgid "**Port list** : A list of the ports (connections), separated by a comma.  Mapping can be determined by order or by name.  The port list should be surrounded by parentheses.  By order, list them, comma separated.  By name, they use the same syntax as arguments.  .name(value)\n"
-msgstr ""
+msgstr "''//список портов//'' --- список портов (соединений), разделённых запятыми. Соответствие портов соединениям может определяться порядком записи или именами. Список портов должен быть заключён в круглые скобки. При определении соответствия по порядку порты следует перечислить в нужной последовательности, отделяя друг от друга запятыми. При определении соответствия по имени используется тот же синтаксис, что и для аргументов, то есть «''.имя(значение)''».\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:37
@@ -11997,6 +12073,9 @@ msgid ""
 "  resistor #(10K)     Rload (out, 0);         // one unnamed argument, ports by order\n"
 "  resistor #(.r(10K)) Rload (.p(out), .n(0)); // the same component, arguments by name, ports by name\n"
 msgstr ""
+"  resistor #(10K)     Rload (out, 0);         // один безымянный аргумент, соответствие соединений\n"
+"                                              // портам определяется порядком записи\n"
+"  resistor #(.r(10K)) Rload (.p(out), .n(0)); // тот же компонент, аргументы и порты заданы по имени\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:39
@@ -12011,6 +12090,10 @@ msgid ""
 "are not supported in Verilog mode, but you can use them by switching to a "
 "mode that does support that syntax."
 msgstr ""
+"Имеется несколько компонентов, для которых используется синтаксис других "
+"языков, и которые в режиме Verilog не поддерживаются, но их всё же можно "
+"использовать, если переключиться в какой-нибудь режим, в котором этот "
+"синтаксис поддерживается."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:44
@@ -12019,6 +12102,8 @@ msgid ""
 "  // vsource  #(.dc(15)) Vcc (.p(vc), .n(0)); // Spice-style source arguments are not supported.\n"
 "  // vsource  #(.ac(1))  Vin (.p(in), .n(0)); // Spice-style source arguments are not supported.\n"
 msgstr ""
+"  // vsource  #(.dc(15)) Vcc (.p(vc), .n(0)); // Аргументы источников напряжения и тока в стиле SPICE не поддерживаются\n"
+"  // vsource  #(.ac(1))  Vin (.p(in), .n(0)); // Аргументы источников напряжения и тока в стиле SPICE не поддерживаются\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:55
@@ -12033,11 +12118,21 @@ msgid ""
 "  .verilog\n"
 "  // Now it is back in Verilog mode.\n"
 msgstr ""
+"  // Предположим, программа запущена в режиме Verilog\n"
+"  spice\n"
+"  * Теперь используется синтаксис SPICE\n"
+"  Vcc (vc 0) dc 15\n"
+"  Vin (in 0) ac 1\n"
+"  * Команды в режиме SPICE начинаются с точки\n"
+"  .verilog\n"
+"  // Теперь программа снова в режиме Verilog\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:61
 msgid "Two top level blocks are supported: module and paramset."
 msgstr ""
+"Поддерживается два блока верхнего уровня: ''[[#module]]'' и "
+"''[[#paramset]]''."
 
 #. type: Title =====
 #: manual/languages/verilog.txt:62
@@ -12053,6 +12148,10 @@ msgid ""
 "\"master\" that can be instantiated later.  It is equivalent to a spice \"."
 "model\"."
 msgstr ""
+"Оператор **''paramset''** задаёт параметры на основе существующей "
+"скомпилированной модели. Это будет распространяться на все «оригиналы». "
+"Модель становится «оригиналом», экземпляры которого могут добавляться позже. "
+"Это эквивалентно ключевому слову ''.model'' в SPICE."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:70
@@ -12063,18 +12162,20 @@ msgid ""
 "    parameters\n"
 "  \"endparamset\"\n"
 msgstr ""
+"Синтаксис:\n"
+"|''**paramset** //новый_тип// //имя_оригинала// **;**\\\\ // параметры//\\\\ **endparamset**''|\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:75
 #, no-wrap
 msgid "**paramset** : Keyword identifies a paramset statement.\n"
-msgstr ""
+msgstr "''**paramset**'' --- ключевое слово, идентифицирующее оператор описания модели.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:75
 #, no-wrap
 msgid "**Parameters** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form \".name = value;\".  (dot name equals value semicolon) The value may be an expression.\n"
-msgstr ""
+msgstr "''//параметры//'' --- список аргументов ([[gnucap:manual:commands:parameter.ru|параметры]] или значения). Все аргументы задаются в виде пар в формате «''.имя=значение;''» (точка, имя, знак равенства, значение, точка с запятой). Значение аргумента может быть [[gnucap:manual:howto:expressions.ru|выражением]].\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:79
@@ -12094,6 +12195,10 @@ msgid ""
 "According to the standard, lines are not significant.  In gnucap, for now, "
 "all must be on one line or lines extended by ending with \"\\\"."
 msgstr ""
+"Согласно стандарту разбиение на строки не имеет существенного значения. В "
+"gnucap, на данный момент, всё должно быть в одной строке или, чтобы "
+"следующие строки считались продолжением предыдущих, последние должны "
+"заканчиваться символами «\\»."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:83
@@ -12101,6 +12206,8 @@ msgid ""
 "Note that the parameter syntax in paramset is different from the parameter "
 "syntax instantiating a device."
 msgstr ""
+"Обратите внимание, что синтаксис параметров в **''paramset''** отличается от "
+"синтаксиса параметров в представлении экземпляров устройства."
 
 #. type: Title =====
 #: manual/languages/verilog.txt:83
@@ -12115,11 +12222,15 @@ msgid ""
 "of individual components.  Gnucap directly supports only the structural "
 "subset of Verilog, so a \"module\" here is equivalent to a Spice \"subckt\"."
 msgstr ""
+"Основной строительный блок называется модулем (**''module''**).  Модули "
+"представляют собой описания индивидуальных компонентов. gnucap "
+"непосредственно поддерживает только структурное подмножество языка Verilog, "
+"поэтому **''module''** здесь эквивалентно **''subckt''** в SPICE."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:88
 msgid "Modules take the form:"
-msgstr ""
+msgstr "Формат модулей:"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:98
@@ -12135,6 +12246,15 @@ msgid ""
 "  * A closing line\n"
 "    * Keyword \"endmodule\".\n"
 msgstr ""
+"  * Строка заголовка\n"
+"    * Ключевое слово **''module''**\n"
+"    * Имя нового, определяемого здесь модуля\n"
+"    * Список портов, отделённых друг от друга запятыми, в скобках\n"
+"    * **'';''** (точка с запятой)\n"
+"  * Операторы ''parameter''\n"
+"  * «Список соединений» внутренней схемы\n"
+"  * Строка завершения\n"
+"    * Ключевое слово **''endmodule''**\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:114
@@ -12155,6 +12275,20 @@ msgid ""
 "    resistor  #(.r(rload))Rload(out, 0 );\n"
 "  endmodule\n"
 msgstr ""
+"  module amp (out, in, vcc);\n"
+"    parameter rload=10k;\n"
+"    resistor  #(.r(1M))   Rb1  (base, vcc);        // 1 мегаом\n"
+"    resistor  #(.r(100K)) Rb2  (base, 0  );\n"
+"    resistor  #(100K)     Rc   (col,  vcc);\n"
+"    resistor  #(.r(10K))  Re   (.p(emit), .n(0));\n"
+"    capacitor #(.c(1m))   Ce   (.p(emit), .n(0));  // 1 миллифарад\n"
+"    capacitor #(.c(1u))   Cin  (base, in );\n"
+"    gp_npn                Q1   (.c(col), .b(base), .e(emit));\n"
+"    gp_npn                Q2   (.c(vcc), .b(col), .e(e2));\n"
+"    resistor  #(.r(1K))   Re2  (e2,  0  );\n"
+"    capacitor #(.c(10u))  Cout (e2,  out);\n"
+"    resistor  #(.r(rload))Rload(out, 0 );\n"
+"  endmodule\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:119
@@ -12173,72 +12307,76 @@ msgstr ""
 #. type: Plain text
 #: manual/languages/verilog.txt:123
 msgid "The Verilog language has no concept of commands."
-msgstr ""
+msgstr "В языке Verilog нет понятия команд."
 
 #. type: Plain text
 #: manual/languages/verilog.txt:125
 msgid ""
 "In gnucap, commands are executed at top level the same as the native mode."
 msgstr ""
+"Команды gnucap выполняются в схеме верхнего уровня так же, как и в режиме "
+"работы с собственной системой команд."
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:131
 #, no-wrap
 msgid "You can switch languages any time with the appropriate command.  In most cases, just name the language you want to switch to.  More generally, you can do \".option lang=xxx\".  The command to switch back must be issued in the language you switched to.\n"
-msgstr ""
+msgstr "В любой момент соответствующей командой можно переключиться на другой язык. В большинстве случаев достаточно набрать имя языка, на который надо переключиться.  Как ещё более общий вариант можно использовать «''.option lang=имя_языка''». Команда для переключения обратно должна задаваться на том языке, который был включен.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:131
 #, no-wrap
 msgid "You can define a top-level circuit in Verilog syntax.  The Verilog standard provides no way to define a top level circuit.\n"
-msgstr ""
+msgstr "Используя синтаксис Verilog, можно определять схемы верхнего уровня. В стандарте Verilog не предусматривается никаких способов определения схем верхнего уровня.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:131
 #, no-wrap
 msgid "You can include commands, which work the same as the Gnucap native mode.\n"
-msgstr ""
+msgstr "Можно включать команды, которые работают так же, как и в режиме работы с собственной системой команд gnucap.\n"
 
 #. type: Plain text
 #: manual/languages/verilog.txt:135
 msgid "The current implementation in gnucap is a very preliminary subset."
 msgstr ""
+"Текущая реализация в gnucap представляет собой очень ограниченное "
+"подмножество языка."
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "The devices and commands are whatever gnucap has installed, not necessarily what is defined in any standard.\n"
-msgstr ""
+msgstr "В качестве устройств и команд используются все те, что устанавливаются вместе с gnucap, причём не обязательно те, что определены в каком бы то ни было стандарте.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "The main circuit can also be in Verilog syntax.  The Verilog standard has no concept of components at top level.\n"
-msgstr ""
+msgstr "Синтаксис Verilog может использоваться и для описания основной схемы. В стандарте Verilog нет понятия компонентов верхнего уровня.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "To simulate, there must be a component at top level.  Uninstantiated modules do nothing.\n"
-msgstr ""
+msgstr "Для моделирования необходим хотя бы один компонент в схеме верхнего уровня.  Модули, не представленные экземплярами, работать не будут.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "Port direction statements like \"inout\" are not supported.\n"
-msgstr ""
+msgstr "Операторы направления порта, такие как ''inout'', не поддерживаются.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "Discipline statements like \"electrical\" are not supported.\n"
-msgstr ""
+msgstr "Операторы типа **''discipline''**, такие как ''electrical'', не поддерживаются.\n"
 
 #. type: Bullet: '  * '
 #: manual/languages/verilog.txt:143
 #, no-wrap
 msgid "Some components, and some types of arguments, are not supported in Verilog mode, but you can switch modes at any time.\n"
-msgstr ""
+msgstr "Некоторые компоненты и некоторые типы аргументов в режиме Verilog не поддерживаются, но режим можно переключить в любой момент.\n"
 
 #. type: Title ======
 #: manual/measure/at.txt:1
