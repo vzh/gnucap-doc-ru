@@ -13390,12 +13390,13 @@ msgstr ""
 #: manual/tech/plugins/commands.txt:1
 #, no-wrap
 msgid "Command plugins"
-msgstr ""
+msgstr "Плагины для реализации команд"
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:6
 msgid "Command plugins are called by a command interpreter, in a loop."
 msgstr ""
+"Плагины, реализующие команды, вызываются в цикле интерпретатором команд."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:8
@@ -13407,6 +13408,12 @@ msgid ""
 "contains the data, an index showing how far it has been read, and some "
 "status."
 msgstr ""
+"Обычно в основном цикле программа читает строки по очереди из стандартного "
+"ввода или файла. В процессе чтения файла строки-расширения комбинируются, "
+"поэтому код команды их не видит. Строка преобразовывается в «строку "
+"команды», объект типа «CS» («command string»), который определяется в «ap."
+"h».  Эта строка команды содержит данные, индекс, отражающий позицию чтения, "
+"и некоторую информацию о состоянии."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:10
@@ -13416,6 +13423,10 @@ msgid ""
 "returns a pointer to a static object that will interpret the command, or a "
 "NULL pointer if there is no match."
 msgstr ""
+"Строка команды начинается с имени этой команды. Оно ищется в диспетчере "
+"команд («command_dispatcher») с помощью операции индексирования. Диспетчер "
+"возвращает указатель на статический объект, который будет интерпретировать "
+"команду с указанным именем, или NULL, если не найдёт соответствия."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:12
@@ -13426,6 +13437,12 @@ msgid ""
 "\"do_it\" returns, it is assumed to have correctly done what was requested.  "
 "If something is wrong, it may throw an exception."
 msgstr ""
+"Затем для этого объекта вызывается метод «do_it», передающий сначала строку "
+"команды, с перенесённым на список аргументов индексом, и текущим контекстом "
+"(«Scope»), поэтому выражения с параметрами могут быть вычислены правильно. "
+"Если метод «do_it» возвращает значение, считается, что он правильно выполнил "
+"запрошенное действие. Если что-то пойдёт не так, он может выдать сигнал "
+"исключения."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:14
@@ -13433,6 +13450,7 @@ msgid ""
 "Each command defines a new class, derived from \"CMD\" which is defined in "
 "\"c_comand.h\"."
 msgstr ""
+"Для каждой команды в «c_comand.h» определяется новый класс, потомок от «CMD»."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:16
@@ -13440,11 +13458,15 @@ msgid ""
 "The header file \"globals.h\" is needed because it contains the declaration "
 "of the dispatcher."
 msgstr ""
+"Заголовочный файл «globals.h» необходим, потому что он содержит объявление "
+"диспетчера."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:19
 msgid "Plugins need to #include two files: \"c_comand.h\" and \"globals.h\"."
 msgstr ""
+"В плагинах должны подключаться с помощью #include два файла: «c_comand.h» и "
+"«globals.h»."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:21
@@ -13452,6 +13474,8 @@ msgid ""
 "Only one method is needed for each command: \"''do_it(CS& Cmd, CARD_LIST* "
 "Scope)''\"."
 msgstr ""
+"Только один метод необходим для каждой команды: «''do_it(CS& Cmd, CARD_LIST* "
+"Scope)''»."
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:23
@@ -13470,6 +13494,9 @@ msgid ""
 "#include \"c_comand.h\"\n"
 "#include \"globals.h\"\n"
 msgstr ""
+"<code>\n"
+"#include \"c_comand.h\"\n"
+"#include \"globals.h\"\n"
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:35
@@ -13484,6 +13511,14 @@ msgid ""
 "DISPATCHER<CMD>::INSTALL d(&command_dispatcher, \"hello\", &so);\n"
 "</code>\n"
 msgstr ""
+"class CMD_HELLO : public CMD {\n"
+"  void do_it(CS& Cmd, CARD_LIST* Scope)\n"
+"  {\n"
+"    // здесь идёт код\n"
+"  }\n"
+"} so;\n"
+"DISPATCHER<CMD>::INSTALL d(&command_dispatcher, \"hello\", &so);\n"
+"</code>\n"
 
 #. type: Title ====
 #: manual/tech/plugins/devices/ac_analysis.txt:3
