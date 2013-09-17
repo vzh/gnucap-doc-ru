@@ -14835,7 +14835,7 @@ msgid ""
 msgstr ""
 "Плагины загружаются командой [[gnucap:manual:commands:load.ru|load]] (или "
 "[[gnucap:manual:commands:attach.ru|attach]]), и выгружаются командой "
-"[[gnucap:manual:commands:unload.ru|unload]] (или [[gnucap:manual:commands:"
+"[[gnucap:manual:commands:load.ru|unload]] (или [[gnucap:manual:commands:"
 "detach.ru|detach]]).  Эти команды определяются в файле исходного кода "
 "«c_attach.cc»."
 
