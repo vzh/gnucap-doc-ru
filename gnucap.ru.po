@@ -12869,31 +12869,31 @@ msgstr "Типы плагинов "
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:commands]]\n"
-msgstr "[[gnucap:manual:tech:plugins:commands.ru|команды]]\n"
+msgstr "[[gnucap:manual:tech:plugins:commands.ru|Команды]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:devices]]\n"
-msgstr "[[gnucap:manual:tech:plugins:devices.ru|устройства]]\n"
+msgstr "[[gnucap:manual:tech:plugins:devices.ru|Устройства]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:languages]]\n"
-msgstr "[[gnucap:manual:tech:plugins:languages.ru|языки]]\n"
+msgstr "[[gnucap:manual:tech:plugins:languages.ru|Языки]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:behavioral functions]]\n"
-msgstr "[[gnucap:manual:tech:plugins:behavioral functions.ru|поведенческие функции]]\n"
+msgstr "[[gnucap:manual:tech:plugins:behavioral functions.ru|Поведенческие функции]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:15
 #, no-wrap
 msgid "[[gnucap:manual:tech:plugins:parameter functions and measurements]]\n"
-msgstr "[[gnucap:manual:tech:plugins:parameter functions and measurements.ru|параметрические функции и измерения]]\n"
+msgstr "[[gnucap:manual:tech:plugins:parameter functions and measurements.ru|Функции для работы с параметрами и измерениями]]\n"
 
 #. type: Title ======
 #: manual/tech/plugins/devices.txt:1
