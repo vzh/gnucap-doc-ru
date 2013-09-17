@@ -14781,18 +14781,22 @@ msgid ""
 "Gnucap plugins are standard \"shared object\" or \"dynamic link\" files, "
 "native to the environment."
 msgstr ""
+"Плагины gnucap представляют собой обычные файлы «разделяемых объектов» или "
+"динамических связей, «родные» для данного окружения."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:10
 msgid ""
 "Plugins must be compiled for the particular system, like shared libraries."
 msgstr ""
+"Плагины должны быть скомпилированы для конкретной системы, подобно "
+"разделяемым библиотекам."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:11
 #, no-wrap
 msgid "System Requirements"
-msgstr ""
+msgstr "Требования к системе"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:14
@@ -14802,6 +14806,10 @@ msgid ""
 "demand.  In particular, the calls \"dlopen\", \"dlclose\", and \"dlerror\" "
 "are used.  The \"dlsym\" call is not used."
 msgstr ""
+"Операционная система должна иметь способность динамического связывания и "
+"поддерживать системные вызовы POSIX.1-2001 для загрузки и выгрузки "
+"динамических библиотек по требованию. В частности, используются вызовы "
+"«dlopen», «dlclose» и «dlerror». Вызов «dlsym» не используется."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:16
@@ -14809,6 +14817,8 @@ msgid ""
 "If the system does not support these calls directly, but does have the "
 "functionality in a different form, a set of wrapper functions is needed."
 msgstr ""
+"Если система не поддерживает эти вызовы напрямую, но имеет эту "
+"функциональность в другой форме, необходим набор функций-обёрток."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:17
@@ -14823,6 +14833,11 @@ msgid ""
 "the \"unload\" (or \"detach\") command.  These commands are defined in the "
 "source file \"c_attach.cc\"."
 msgstr ""
+"Плагины загружаются командой [[gnucap:manual:commands:load.ru|load]] (или "
+"[[gnucap:manual:commands:attach.ru|attach]]), и выгружаются командой "
+"[[gnucap:manual:commands:unload.ru|unload]] (или [[gnucap:manual:commands:"
+"detach.ru|detach]]).  Эти команды определяются в файле исходного кода "
+"«c_attach.cc»."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:22
@@ -14831,6 +14846,9 @@ msgid ""
 "loading.  In the future, there will be changes to enable the ability to "
 "compile plugins on demand."
 msgstr ""
+"На момент написания сего документа файлы должны быть скомпилированы до "
+"загрузки. В будущем будут сделаны изменения для включения возможности "
+"компилировать плагины по требованию."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:24
@@ -14841,6 +14859,12 @@ msgid ""
 "possible by callbacks in the constructor.  Also, all callbacks are resolved "
 "at this time.  A plugin will fail to load if callbacks cannot be resolved."
 msgstr ""
+"Согласно спецификации функции «dlopen», при загрузке плагина запускаются "
+"конструкторы для всех его статических объектов.  Обычно связь идёт через "
+"классы-потомки и диспетчер, но возможны другие виды взаимодействия "
+"посредством обратных вызовов в конструкторе. Также в это время производится "
+"разрешение всех обратных вызовов. Плагин не сможет загрузиться, если "
+"невозможно разрешить обратные вызовы."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:26
@@ -14851,6 +14875,11 @@ msgid ""
 "not recommended for released code and likely to not work with non-POSIX "
 "systems.  It is provided as a debugging aid."
 msgstr ""
+"Если плагин желательно загрузить несмотря на неразрешённые обратные вызовы, "
+"это можно сделать с помощью опции ''lazy''. В этом случае плагин, вероятно, "
+"будет работать частично, но при попытке вызвать отсутствующую функцию будут "
+"происходить сбои. Это не рекомендуется для кода вышедших версий и, вероятно, "
+"не работает на не-POSIX системах. Это предусмотрено для облегчения отладки."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:28
@@ -14858,6 +14887,8 @@ msgid ""
 "Likewise, when a plugin is unloaded, destructors for the static objects are "
 "run."
 msgstr ""
+"Подобным образом, когда плагин выгружается, для статических объектов "
+"запускаются деструкторы."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:30
@@ -14865,12 +14896,14 @@ msgid ""
 "The \"dlsym\" function is not needed, because the interface is through "
 "derived classes."
 msgstr ""
+"Функция «dlsym» не нужна, потому что взаимодействие идёт через классы-"
+"потомки."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:31
 #, no-wrap
 msgid "Microsoft-Windows Interface"
-msgstr ""
+msgstr "Интерфейс к Microsoft-Windows"
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:34
@@ -14880,6 +14913,10 @@ msgid ""
 "\", \"FreeLibrary\", and \"GetLastError\".  These wrapper functions are "
 "defined in \"md.h\"."
 msgstr ""
+"Microsoft-Windows не поддерживает необходимые системные вызовы POSIX "
+"напрямую, поэтому используется набор функций-обёрток. Функции MS это "
+"«LoadLibrary», «FreeLibrary» и «GetLastError».  Эти обёрточные функции "
+"определены в «md.h»."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:35
@@ -14893,6 +14930,8 @@ msgid ""
 "Normally, each plugin has its own namespace, so its symbols are not visible "
 "to the main program or to other plugins."
 msgstr ""
+"Обычно для каждого плагина используется своё собственное пространство имён, "
+"поэтому его символы невидимы для основной программы или для других плагинов."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:40
@@ -14901,6 +14940,10 @@ msgid ""
 "\"public\" option.  This is not recommended for released code and likely to "
 "not work with non-POSIX systems.  It is provided as a debugging aid."
 msgstr ""
+"Если желательно сделать символы видимыми извне, плагины можно загружать с "
+"опцией «public». Это не рекомендуется для кода вышедших версий и, вероятно, "
+"не будет работать на не-POSIX системах. Это предусмотрено для облегчения "
+"отладки."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:41
@@ -14914,6 +14957,9 @@ msgid ""
 "In some cases it is desirable to static link code modules that are designed "
 "as plugins.  Usually, all that is needed is to add the file to the list."
 msgstr ""
+"В некоторых случаях для модулей кода, которые разрабатываются в виде "
+"плагинов, желательно использовать статическое связывание. Обычно всё, что "
+"нужно, это добавить файл в список."
 
 #. type: Plain text
 #: manual/tech/plugins/files.txt:45
@@ -14923,6 +14969,10 @@ msgid ""
 "you can enclose all of the code in an anonymous namespace to avoid name "
 "clashes."
 msgstr ""
+"Могут быть проблемы с конфликтами имён, потому что статически связанные "
+"модули совместно используют пространство имён основной программы. Если "
+"плагин имеет только один файл исходного кода, то во избежание конфликтов "
+"имён весь этот код можно заключить в анонимном пространстве имён."
 
 #. type: Title ======
 #: manual/tech/plugins/parameter_functions_and_measurements.txt:1
