@@ -13030,7 +13030,7 @@ msgstr ""
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:AC analysis]]\n"
-msgstr ""
+msgstr "[[.:devices:AC analysis.ru|Анализ AC]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
@@ -13524,7 +13524,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:3
 #, no-wrap
 msgid "AC analysis"
-msgstr ""
+msgstr "Анализ AC"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:6
@@ -13533,6 +13533,9 @@ msgid ""
 "functions in Spice.  Actually, they are more like the PZ functions, in the "
 "sense that frequency (SIM::jomega) is complex."
 msgstr ""
+"Функции [[gnucap:manual:commands:ac.ru|AC]] в gnucap соответствуют "
+"комбинации функций AC и PZ в SPICE.  Фактически они более похожи на функции "
+"PZ, в том смысле, что частота (SIM::jomega) является комплексной."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:7
@@ -13545,6 +13548,8 @@ msgstr "void ac_iwant_matrix()"
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:7
 msgid "Notify the sparse matrix of what nodes this device uses."
 msgstr ""
+"Предоставить для разреженной матрицы сведения об используемых данным "
+"устройством узлах."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:11
@@ -13553,6 +13558,11 @@ msgid ""
 "admittance matrix and the LU factors.  This is likely to change in the "
 "future to two matrices like in transient analysis."
 msgstr ""
+"Для анализа [[gnucap:manual:commands:ac.ru|ac]] используется единая матрица "
+"«acx», которая служит и как матрица узловых проводимостей, и как матрица "
+"множителей LU-разложения. Вероятно, в будущем это будет изменено и будут "
+"использоваться две матрицы, как во [[gnucap:manual:commands:transient.ru|"
+"временном анализе]]."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:16
@@ -13563,6 +13573,10 @@ msgid ""
 "  acx.iwant(_n[0].m_(),_n[1].m_());\n"
 "requests allocation of space for an element stamp connecting _n[0] and _n[1].  This is usually four places in the matrix.\n"
 msgstr ""
+"Предоставление этих сведений производится с помощью вызова матрицы «iwant» с парами узлов, которые нужно разместить.\n"
+"Следующая строка запрашивает выделение пространства для подматрицы элемента, соединяющего _n[0] и _n[1]:\n"
+"  acx.iwant(_n[0].m_(),_n[1].m_());\n"
+"Обычно это четыре места в матрице.\n"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:21
@@ -13573,6 +13587,10 @@ msgid ""
 "  * ac_iwant_matrix_active(), for controlled sources, with an asymmetric stamp\n"
 "  * ac_iwant_matrix_extended(), the general case, allocates all combinations\n"
 msgstr ""
+"Обычно это не производится непосредственно, но для этого вызывается другая функция:\n"
+"  * ac_iwant_matrix_passive(), для двух-выводных элементов вроде резисторов, имеющих симметричную подматрицу;\n"
+"  * ac_iwant_matrix_active(), для управляемых источников, имеющих несимметричную подматрицу;\n"
+"  * ac_iwant_matrix_extended(), для общего случая, размещает все комбинации.\n"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:22
@@ -13587,6 +13605,9 @@ msgid ""
 "ac_begin() before doing anything else.  It sets the value of any AC "
 "variables that remain constant through a run."
 msgstr ""
+"Данная функция вызывается в начале каждого анализа AC. Прежде чем что-либо "
+"делать, она должна вызвать BASE::ac_begin(). В ней задаются значения любых "
+"переменных AC, которые остаются постоянными на всё время анализа."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:25
@@ -13600,6 +13621,8 @@ msgid ""
 "In most cases, the do_ac functions do the real work, or call the ac_eval "
 "function to do it."
 msgstr ""
+"В большинстве случаев функции do_ac выполняют реальную работу или вызывают "
+"для её выполнения функцию ac_eval."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:29
@@ -13609,11 +13632,15 @@ msgid ""
 "state variables from a previous DC or transient analysis to compute AC "
 "values."
 msgstr ""
+"Если необходимо, в этой функции рассчитывается модель. Вызов этой функции "
+"более чем раз за итерацию безвреден, за исключением расхода времени. Обычно "
+"для расчёта значений AC в ней используются переменные состояния из "
+"предыдущего анализа DC или из временного анализа."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:31
 msgid "Unlike Spice, Gnucap does not actually load the matrix here."
-msgstr ""
+msgstr "В отличие от SPICE, gnucap на самом деле не загружает здесь матрицу."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:32
@@ -13627,6 +13654,8 @@ msgid ""
 "This function gives the appearance of loading the admittance matrix and "
 "current vector with the values calculated in do_ac."
 msgstr ""
+"Данная функция создаёт видимость загрузки матрицы проводимостей и вектора "
+"тока значениями, рассчитанными в do_ac."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:36
@@ -13637,12 +13666,19 @@ msgid ""
 "source. Only certain patterns can be stamped. Complex devices use a "
 "combination of these patterns."
 msgstr ""
+"Фактическая загрузка производится одной или более маленькими группами общих "
+"функций, в зависимости от того, является ли элемент активным, пассивным, "
+"полиномиальным или источником тока или напряжения. В матрицу могут "
+"заноситься только определённые шаблоны подматриц. Для комплексных устройств "
+"используется комбинация этих шаблонов."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:37
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:71
 msgid "WARNING to model developers: DO NOT stamp the matrix directly!"
 msgstr ""
+"ПРЕДУПРЕЖДЕНИЕ для разработчиков моделей: НЕ заполняйте подматрицы в матрице "
+"напрямую!"
 
 #. type: Title ====
 #: manual/tech/plugins/devices/allocation_and_setup.txt:3
