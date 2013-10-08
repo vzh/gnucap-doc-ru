@@ -13018,7 +13018,7 @@ msgstr ""
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:Allocation and setup]]\n"
-msgstr ""
+msgstr "[[.:devices:Allocation and setup.ru|Распределение памяти и настройка]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
@@ -13684,13 +13684,13 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:3
 #, no-wrap
 msgid "Allocation and setup"
-msgstr ""
+msgstr "Распределение памяти и настройка"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:5
 #, no-wrap
 msgid "default constructor"
-msgstr ""
+msgstr "default constructor"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:7
@@ -13699,12 +13699,15 @@ msgid ""
 "object that is registered with the dispatcher.  It should do what a default "
 "constructor usually does."
 msgstr ""
+"Стандартный конструктор, обязателен. Используется для создания статического "
+"объекта, который регистрируется диспетчером.  Должен делать то, чем обычно "
+"занимается стандартный конструктор."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:8
 #, no-wrap
 msgid "copy constructor"
-msgstr ""
+msgstr "copy constructor"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:10
@@ -13715,12 +13718,18 @@ msgid ""
 "linked and not copied.  A copy constructor must explicitly invoke the copy "
 "constructor of the base class."
 msgstr ""
+"Копировочный конструктор, обязателен. Большинство объектов создаются "
+"копировочным конструктором, как копии объекта, зарегистрированные "
+"диспетчером. Обычно он должен делать поверхностную (SHALLOW) копию. В "
+"частности, COMMON должно передаваться по ссылке, а не копироваться. "
+"Копировочный конструктор должен явно вызывать копировочный конструктор "
+"базового класса."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:11
 #, no-wrap
 msgid "destructor"
-msgstr ""
+msgstr "destructor"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:13
@@ -13729,6 +13738,9 @@ msgid ""
 "anyway even if it is empty.  It must deallocate any dynamic memory that is "
 "used."
 msgstr ""
+"Обычно деструктор не обязателен, но в любом случае будет хорошо "
+"предоставлять его, даже если он будет пустым. Его задача --- освобождать всю "
+"используемую динамическую память."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:14
@@ -13742,6 +13754,8 @@ msgid ""
 "Create a new object as a copy of this one, using the copy constructor with "
 "the argument \"*this\"."
 msgstr ""
+"Создать новый объект как копию данного, используя копировочный конструктор с "
+"аргументом «*this»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:17
@@ -13758,6 +13772,11 @@ msgid ""
 "after reading the circuit, and possibly later when the topology of the "
 "circuit is changed."
 msgstr ""
+"Функция expand развёртывает подсхемы и модели нужным образом. В отличие от "
+"SPICE, она на самом деле не создаёт плоский список соединений для схемы, но "
+"резервирует пространство для дополнительного хранилища, прикрепляет модели и "
+"связанные задачи. Функция вызывается один раз после чтения схемы и, "
+"возможно, потом, когда меняется топология схемы."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:21
@@ -13767,6 +13786,11 @@ msgid ""
 "Either it frees then re-expands, or (preferably) it keeps what it can and "
 "checks to make sure it is correct."
 msgstr ""
+"Существует возможность вызова функции более одного раза. Если она вызвана "
+"два раза подряд, результат должен быть таким же, как если бы вызов был "
+"один.  Функция либо освобождает память, а затем развёртывает схему заново, "
+"либо (что предпочтительно) сохраняет то, что может, и проверяет данные, "
+"чтобы убедиться, что они корректны."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:23
@@ -13774,6 +13798,8 @@ msgid ""
 "Most simple elements do not have expand functions. Most advanced components "
 "do."
 msgstr ""
+"У большинства простых элементов функции expand нет. У большинства сложных "
+"компонентов есть."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:25
@@ -13782,6 +13808,10 @@ msgid ""
 "\" if needed in case the values affect topology.  It is preferred that the "
 "action of expand is the same regardless of parameter values."
 msgstr ""
+"Не ожидается, что функция будет рассчитывать какие-то значения, но при "
+"необходимости ей позволяется вызывать «precalc» в случаях, когда значения "
+"влияют на топологию. Предпочтительным является вариант, когда expand "
+"действует одинаково независимо от значений параметров."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:27
@@ -13792,6 +13822,12 @@ msgid ""
 "never copied when the owner components are copied, but commons may be "
 "duplicated later if something changes."
 msgstr ""
+"Развёртывание подсхемы означает создание её копии и перераспределение узлов. "
+"Для большинства компонентов используется поверхностная копия. То есть, если "
+"что-то прикрепляется посредством указателя, то копируется значение этого "
+"указателя, а не то, что прикреплено. При копировании компонента владельца "
+"никогда не копируются общие блоки, но копии общих частей могут быть сделаны "
+"позже, если что-то изменится."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:28
@@ -13809,6 +13845,13 @@ msgid ""
 "the controlled source can send a message to the controlling element that can "
 "result in a different expansion."
 msgstr ""
+"Функция expand_first это функция развёртывания, выполняемая в первый раз, "
+"перед запуском любой простой функции expand. Обычно она не нужна, но иногда "
+"имеются порядковые зависимости, и это даёт возможность управления порядком "
+"вызовов. Как пример, для источников, управляемых током, имеющих "
+"чувствительный элемент, управляемый источник может посылать сообщение "
+"управляющему элементу, что в итоге может привести к отличающемуся "
+"развёртыванию."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:31
@@ -13825,6 +13868,12 @@ msgid ""
 "an example, for current controlled sources with a sense element, the "
 "controlled source must be expanded after the sense element."
 msgstr ""
+"Функция expand_last это функция развёртывания, выполняемая последней, после "
+"любой функции плоского развёртывания. Обычно она не нужна, но иногда имеются "
+"порядковые зависимости, и это даёт возможность управления порядком вызовов. "
+"Как пример, для источников, управляемых током, имеющих чувствительный "
+"элемент, развёртывание для самого управляющего источника должно "
+"производиться после развёртывания для его чувствительного элемента."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:34
@@ -13840,6 +13889,11 @@ msgid ""
 "parameters and the stamp values for linear elements.  It also evaluates "
 "parameter expressions."
 msgstr ""
+"В функциях precalc производится попытка заранее посчитать всё, что будет "
+"оставаться постоянным в процессе выполнения моделирования. Сюда входят "
+"параметры транзисторов, зависящие от размера, и значения подматрицы для "
+"линейных элементов. Здесь также вычисляются [[gnucap:manual:howto:"
+"expressions.ru|выражения с параметрами]]."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:38
@@ -13848,6 +13902,9 @@ msgid ""
 "input data in any way.  If it is called twice in succession, the result must "
 "be the same as if it were called once."
 msgstr ""
+"Возможно, что функция может вызываться более одного раза. Она никоим образом "
+"не должна менять свои входные данные. Если она вызывается два раза подряд, "
+"результат должен быть таким же, как если бы она вызывалась однажды."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:40
@@ -13855,6 +13912,8 @@ msgid ""
 "Some values must be calculated before determining structure.  These go in "
 "precalc_first."
 msgstr ""
+"Некоторые значения должны рассчитываться до определения структуры. Такие "
+"значения идут в precalc_first."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:42
@@ -13862,6 +13921,8 @@ msgid ""
 "Some values must be calculated after structure is determined.  These go in "
 "precalc_last."
 msgstr ""
+"Некоторые значения должны рассчитываться после определения структуры. Такие "
+"значения идут в precalc_last."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:46
@@ -13872,6 +13933,11 @@ msgid ""
 "expressions goes in precalc_first, calculation of other values that are done "
 "only once goes in precalc_last."
 msgstr ""
+"Для некоторых значений не важно, будут ли они рассчитаны до или после "
+"определения структуры. Абсолютно не имеет значения, будут ли они находиться "
+"в precalc_first или precalc_last. По соглашению вычисление выражений с "
+"параметрами производится в precalc_first, расчёт других значений, который "
+"выполняется только один раз, производится в precalc_last."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:47
@@ -13887,6 +13953,11 @@ msgid ""
 "(both ports and internal) and call their \"map\" function, and recursively "
 "map subcircuits."
 msgstr ""
+"Установка соответствия пользовательских имён узлов их внутренним номерам. "
+"Почти всегда эта унаследованная функция делает то, что нужно, то есть "
+"циклически проходится по всем узлам (и по портам, и по внутренним узлам), "
+"вызывает их функции «map» и рекурсивно определяет карту соответствия для "
+"подсхем."
 
 #. type: Title ====
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:3
