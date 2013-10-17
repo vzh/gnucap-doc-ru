@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-08-23 15:57+0400\n"
-"PO-Revision-Date: 2013-09-17 16:42+0400\n"
+"PO-Revision-Date: 2013-10-17 16:36+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -12922,12 +12922,17 @@ msgid ""
 "stored in a linked list, and are defined by classes derived from \"CARD\".  "
 "The container is a CARD_LIST."
 msgstr ""
+"Устройства, определения моделей, команды и определения подсхем, все "
+"сохраняются в связанном списке и определяются классами, производными от "
+"''CARD''.  Контейнером является ''CARD_LIST''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:8
 msgid ""
 "Device instances are derived from COMPONENT, which is derived from CARD."
 msgstr ""
+"Экземпляры устройств являются потомками класса ''COMPONENT'', который "
+"является потомком класса ''CARD''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:10
@@ -12935,11 +12940,16 @@ msgid ""
 "Model and paramset statements are derived from MODEL_CARD, which is derived "
 "from CARD."
 msgstr ""
+"Операторы [[gnucap:manual:languages:spectre.ru#model]] и [[gnucap:manual:"
+"languages:verilog.ru#paramset]] происходят от ''MODEL_CARD'', который "
+"является потомком класса ''CARD''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:12
 msgid "There are special classes of devices that are derived from COMPONENT."
 msgstr ""
+"Имеются особые классы устройств, которые являются потомками класса "
+"''COMPONENT''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:17
@@ -12950,6 +12960,10 @@ msgid ""
 "|ELEMENT     |e_elemnt.h |devices that are not defined in terms of other devices. |\n"
 "|STORAGE     |e_storag.h |elements that store some historical information, such as previous states. |\n"
 msgstr ""
+"|''COMPONENT''   | //e_compon.h// | все устройства, включая те, что определяются путём развёртывания подсхем  |\n"
+"|''BASE_SUBCKT'' | //e_subckt.h// | устройства, которые определяются в терминах других устройств, такие как подсхемы, с внутренней иерархической структурой  |\n"
+"|''ELEMENT''     | //e_elemnt.h// | устройства, которые не определяются в терминах других устройств  |\n"
+"|''STORAGE''     | //e_storag.h// | элементы, в которых сохраняется некоторая историческая информация, например, о предыдущих состояниях  |\n"
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:19
@@ -12957,6 +12971,8 @@ msgid ""
 "Devices do not contain any parsing or printing code, but do contain methods "
 "for setting and reading parameters."
 msgstr ""
+"Объекты устройств не содержат никакого кода синтаксического разбора или "
+"вывода, но имеют методы для установки и чтения параметров."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:21
@@ -12965,6 +12981,10 @@ msgid ""
 "includes \"obsolete_callback\".  That is not documented here, and will "
 "eventually be removed."
 msgstr ""
+"Для некоторых устройств есть код синтаксического разбора или вывода, "
+"прописанный в методах с именами, содержащими ''obsolete_callback''.  "
+"Информация об этом здесь не приводится и в конце концов этот код будет "
+"удалён."
 
 #. type: Plain text
 #: manual/tech/plugins/devices.txt:23
@@ -12974,6 +12994,10 @@ msgid ""
 "dispatcher, and later accessed by name or through that pointer.  This is the "
 "only interface."
 msgstr ""
+"Для каждого типа создаётся по одному статическому объекту при запуске "
+"программы или при загрузке плагина. В диспетчере на этот статический объект "
+"устанавливается указатель, и после этого доступ к объекту производится либо "
+"по имени, либо через этот указатель. Это единственный интерфейс."
 
 #. type: Title =====
 #: manual/tech/plugins/devices.txt:23 manual/tech/plugins/commands.txt:16
@@ -12995,18 +13019,21 @@ msgid ""
 "Device plugins need to include at least one file, defining its base class.  "
 "Often, that is the only include file needed."
 msgstr ""
+"В плагинах устройств должен подключаться с помощью ''#include'' по крайней "
+"мере один файл с определением их основного класса.  Часто это единственный "
+"файл, который необходимо подключить."
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:query|Simple query functions]]\n"
-msgstr ""
+msgstr "[[.:devices:query.ru|Функции простых запросов]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:Ports]]\n"
-msgstr ""
+msgstr "[[.:devices:Ports.ru|Порты]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
@@ -13018,25 +13045,25 @@ msgstr "[[.:devices:Parameters.ru|Параметры]]\n"
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:Allocation and setup]]\n"
-msgstr "[[.:devices:Allocation and setup.ru|Распределение памяти и настройка]]\n"
+msgstr "[[.:devices:Allocation and setup.ru|Выделение памяти и настройка]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:DC and transient analysis]]\n"
-msgstr "[[.:devices:DC and transient analysis.ru|Анализы DC и transient]]\n"
+msgstr "[[.:devices:DC and transient analysis.ru|Анализы «dc» и «transient»]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:AC analysis]]\n"
-msgstr "[[.:devices:AC analysis.ru|Анализ AC]]\n"
+msgstr "[[.:devices:AC analysis.ru|Анализ «ac»]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:probes]]\n"
-msgstr ""
+msgstr "[[.:devices:probes.ru|Датчики]]\n"
 
 #. type: Title ====
 #: manual/tech/plugins/coding.txt:5
@@ -13524,7 +13551,7 @@ msgstr ""
 #: manual/tech/plugins/devices/ac_analysis.txt:3
 #, no-wrap
 msgid "AC analysis"
-msgstr "Анализ AC"
+msgstr "Анализ «ac»"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:6
@@ -13533,9 +13560,10 @@ msgid ""
 "functions in Spice.  Actually, they are more like the PZ functions, in the "
 "sense that frequency (SIM::jomega) is complex."
 msgstr ""
-"Функции [[gnucap:manual:commands:ac.ru|AC]] в gnucap соответствуют "
-"комбинации функций AC и PZ в SPICE.  Фактически они более похожи на функции "
-"PZ, в том смысле, что частота (SIM::jomega) является комплексной."
+"Функции [[gnucap:manual:commands:ac.ru|ac]] в gnucap соответствуют "
+"комбинации функций **ac** и **pz** в SPICE.  Фактически они более похожи на "
+"функции **pz**, в том смысле, что частота (''SIM::jomega'') является "
+"комплексной."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:7
@@ -13559,7 +13587,7 @@ msgid ""
 "future to two matrices like in transient analysis."
 msgstr ""
 "Для анализа [[gnucap:manual:commands:ac.ru|ac]] используется единая матрица "
-"«acx», которая служит и как матрица узловых проводимостей, и как матрица "
+"''acx'', которая служит и как матрица узловых проводимостей, и как матрица "
 "множителей LU-разложения. Вероятно, в будущем это будет изменено и будут "
 "использоваться две матрицы, как во [[gnucap:manual:commands:transient.ru|"
 "временном анализе]]."
@@ -13573,8 +13601,8 @@ msgid ""
 "  acx.iwant(_n[0].m_(),_n[1].m_());\n"
 "requests allocation of space for an element stamp connecting _n[0] and _n[1].  This is usually four places in the matrix.\n"
 msgstr ""
-"Предоставление этих сведений производится с помощью вызова матрицы «iwant» с парами узлов, которые нужно разместить.\n"
-"Следующая строка запрашивает выделение пространства для подматрицы элемента, соединяющего _n[0] и _n[1]:\n"
+"Предоставление этих сведений производится с помощью вызова матрицы ''iwant'' с парами узлов, которые нужно разместить.\n"
+"Следующая строка запрашивает выделение пространства для подматрицы элемента, соединяющего ''_n[0]'' и ''_n[1]'':\n"
 "  acx.iwant(_n[0].m_(),_n[1].m_());\n"
 "Обычно это четыре места в матрице.\n"
 
@@ -13587,10 +13615,10 @@ msgid ""
 "  * ac_iwant_matrix_active(), for controlled sources, with an asymmetric stamp\n"
 "  * ac_iwant_matrix_extended(), the general case, allocates all combinations\n"
 msgstr ""
-"Обычно это не производится непосредственно, но для этого вызывается другая функция:\n"
-"  * ac_iwant_matrix_passive(), для двух-выводных элементов вроде резисторов, имеющих симметричную подматрицу;\n"
-"  * ac_iwant_matrix_active(), для управляемых источников, имеющих несимметричную подматрицу;\n"
-"  * ac_iwant_matrix_extended(), для общего случая, размещает все комбинации.\n"
+"Обычно это не делается напрямую, а вызывается другая функция:\n"
+"  * ''ac_iwant_matrix_passive()'', для двухвыводных элементов вроде резисторов, имеющих симметричную подматрицу;\n"
+"  * ''ac_iwant_matrix_active()'', для управляемых источников, имеющих несимметричную подматрицу;\n"
+"  * ''ac_iwant_matrix_extended()'', для общего случая, размещает все комбинации.\n"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:22
@@ -13605,9 +13633,10 @@ msgid ""
 "ac_begin() before doing anything else.  It sets the value of any AC "
 "variables that remain constant through a run."
 msgstr ""
-"Данная функция вызывается в начале каждого анализа AC. Прежде чем что-либо "
-"делать, она должна вызвать BASE::ac_begin(). В ней задаются значения любых "
-"переменных AC, которые остаются постоянными на всё время анализа."
+"Данная функция вызывается в начале каждого анализа **ac**. Прежде чем что-"
+"либо делать, она должна вызвать ''BASE::ac_begin()''. В ней задаются "
+"значения любых переменных **ac**, которые остаются постоянными на всё время "
+"анализа."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ac_analysis.txt:25
@@ -13621,8 +13650,8 @@ msgid ""
 "In most cases, the do_ac functions do the real work, or call the ac_eval "
 "function to do it."
 msgstr ""
-"В большинстве случаев функции do_ac выполняют реальную работу или вызывают "
-"для её выполнения функцию ac_eval."
+"В большинстве случаев функции ''do_ac'' выполняют реальную работу или "
+"вызывают для её выполнения функцию ''ac_eval''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:29
@@ -13634,8 +13663,8 @@ msgid ""
 msgstr ""
 "Если необходимо, в этой функции рассчитывается модель. Вызов этой функции "
 "более чем раз за итерацию безвреден, за исключением расхода времени. Обычно "
-"для расчёта значений AC в ней используются переменные состояния из "
-"предыдущего анализа DC или из временного анализа."
+"для расчёта значений **ac** в ней используются переменные состояния из "
+"предыдущего анализа **dc** или из временного анализа."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:31
@@ -13655,7 +13684,7 @@ msgid ""
 "current vector with the values calculated in do_ac."
 msgstr ""
 "Данная функция создаёт видимость загрузки матрицы проводимостей и вектора "
-"тока значениями, рассчитанными в do_ac."
+"тока значениями, рассчитанными в ''do_ac''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/ac_analysis.txt:36
@@ -13684,7 +13713,7 @@ msgstr ""
 #: manual/tech/plugins/devices/allocation_and_setup.txt:3
 #, no-wrap
 msgid "Allocation and setup"
-msgstr "Распределение памяти и настройка"
+msgstr "Выделение памяти и настройка"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:5
@@ -13721,7 +13750,7 @@ msgstr ""
 "Копировочный конструктор, обязателен. Большинство объектов создаются "
 "копировочным конструктором, как копии объекта, зарегистрированные "
 "диспетчером. Обычно он должен делать поверхностную (SHALLOW) копию. В "
-"частности, COMMON должно передаваться по ссылке, а не копироваться. "
+"частности, ''COMMON'' должно передаваться по ссылке, а не копироваться. "
 "Копировочный конструктор должен явно вызывать копировочный конструктор "
 "базового класса."
 
@@ -13755,7 +13784,7 @@ msgid ""
 "the argument \"*this\"."
 msgstr ""
 "Создать новый объект как копию данного, используя копировочный конструктор с "
-"аргументом «*this»."
+"аргументом «''*this''»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:17
@@ -13772,10 +13801,10 @@ msgid ""
 "after reading the circuit, and possibly later when the topology of the "
 "circuit is changed."
 msgstr ""
-"Функция expand развёртывает подсхемы и модели нужным образом. В отличие от "
-"SPICE, она на самом деле не создаёт плоский список соединений для схемы, но "
-"резервирует пространство для дополнительного хранилища, прикрепляет модели и "
-"связанные задачи. Функция вызывается один раз после чтения схемы и, "
+"Функция ''expand'' развёртывает подсхемы и модели нужным образом. В отличие "
+"от SPICE, она на самом деле не создаёт плоский список соединений для схемы, "
+"но резервирует пространство для дополнительного хранилища, прикрепляет "
+"модели и связанные задачи. Функция вызывается один раз после чтения схемы и, "
 "возможно, потом, когда меняется топология схемы."
 
 #. type: Plain text
@@ -13798,8 +13827,8 @@ msgid ""
 "Most simple elements do not have expand functions. Most advanced components "
 "do."
 msgstr ""
-"У большинства простых элементов функции expand нет. У большинства сложных "
-"компонентов есть."
+"У большинства простых элементов функции ''expand'' нет. У большинства "
+"сложных компонентов есть."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:25
@@ -13809,8 +13838,8 @@ msgid ""
 "action of expand is the same regardless of parameter values."
 msgstr ""
 "Не ожидается, что функция будет рассчитывать какие-то значения, но при "
-"необходимости ей позволяется вызывать «precalc» в случаях, когда значения "
-"влияют на топологию. Предпочтительным является вариант, когда expand "
+"необходимости ей позволяется вызывать ''precalc'' в случаях, когда значения "
+"влияют на топологию. Предпочтительным является вариант, когда ''expand'' "
 "действует одинаково независимо от значений параметров."
 
 #. type: Plain text
@@ -13845,10 +13874,10 @@ msgid ""
 "the controlled source can send a message to the controlling element that can "
 "result in a different expansion."
 msgstr ""
-"Функция expand_first это функция развёртывания, выполняемая в первый раз, "
-"перед запуском любой простой функции expand. Обычно она не нужна, но иногда "
-"имеются порядковые зависимости, и это даёт возможность управления порядком "
-"вызовов. Как пример, для источников, управляемых током, имеющих "
+"Функция ''expand_first'' это функция развёртывания, выполняемая в первый "
+"раз, перед запуском любой простой функции ''expand''. Обычно она не нужна, "
+"но иногда имеются порядковые зависимости, и это даёт возможность управления "
+"порядком вызовов. Как пример, для источников, управляемых током, имеющих "
 "чувствительный элемент, управляемый источник может посылать сообщение "
 "управляющему элементу, что в итоге может привести к отличающемуся "
 "развёртыванию."
@@ -13868,12 +13897,12 @@ msgid ""
 "an example, for current controlled sources with a sense element, the "
 "controlled source must be expanded after the sense element."
 msgstr ""
-"Функция expand_last это функция развёртывания, выполняемая последней, после "
-"любой функции плоского развёртывания. Обычно она не нужна, но иногда имеются "
-"порядковые зависимости, и это даёт возможность управления порядком вызовов. "
-"Как пример, для источников, управляемых током, имеющих чувствительный "
-"элемент, развёртывание для самого управляющего источника должно "
-"производиться после развёртывания для его чувствительного элемента."
+"Функция ''expand_last'' это функция развёртывания, выполняемая последней, "
+"после любой функции плоского развёртывания. Обычно она не нужна, но иногда "
+"имеются порядковые зависимости, и это даёт возможность управления порядком "
+"вызовов. Как пример, для источников, управляемых током, имеющих "
+"чувствительный элемент, развёртывание для самого управляющего источника "
+"должно производиться после развёртывания для его чувствительного элемента."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:34
@@ -13889,7 +13918,7 @@ msgid ""
 "parameters and the stamp values for linear elements.  It also evaluates "
 "parameter expressions."
 msgstr ""
-"В функциях precalc производится попытка заранее посчитать всё, что будет "
+"В функциях ''precalc'' производится попытка заранее посчитать всё, что будет "
 "оставаться постоянным в процессе выполнения моделирования. Сюда входят "
 "параметры транзисторов, зависящие от размера, и значения подматрицы для "
 "линейных элементов. Здесь также вычисляются [[gnucap:manual:howto:"
@@ -13913,7 +13942,7 @@ msgid ""
 "precalc_first."
 msgstr ""
 "Некоторые значения должны рассчитываться до определения структуры. Такие "
-"значения идут в precalc_first."
+"значения идут в ''precalc_first''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:42
@@ -13922,7 +13951,7 @@ msgid ""
 "precalc_last."
 msgstr ""
 "Некоторые значения должны рассчитываться после определения структуры. Такие "
-"значения идут в precalc_last."
+"значения идут в ''precalc_last''."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/allocation_and_setup.txt:46
@@ -13935,9 +13964,9 @@ msgid ""
 msgstr ""
 "Для некоторых значений не важно, будут ли они рассчитаны до или после "
 "определения структуры. Абсолютно не имеет значения, будут ли они находиться "
-"в precalc_first или precalc_last. По соглашению вычисление выражений с "
-"параметрами производится в precalc_first, расчёт других значений, который "
-"выполняется только один раз, производится в precalc_last."
+"в ''precalc_first'' или ''precalc_last''. По соглашению вычисление выражений "
+"с параметрами производится в ''precalc_first'', расчёт других значений, "
+"который выполняется только один раз, производится в ''precalc_last''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/allocation_and_setup.txt:47
@@ -13963,7 +13992,7 @@ msgstr ""
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:3
 #, no-wrap
 msgid "DC and transient analysis"
-msgstr "Анализ DC и временной анализ"
+msgstr "Анализы «dc» и «transient»"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:5
@@ -13978,10 +14007,10 @@ msgid ""
 "admittance matrix.  The matrix \"lu\" is the LU factors of the admittance "
 "matrix.  Both need to be notified, and have identical patterns."
 msgstr ""
-"Используются две матрицы, «aa» и «lu». Матрица «aa» --- это матрица узловых "
-"проводимостей. Матрица «lu» --- это матрица множителей LU-разложения матрицы "
-"проводимостей. Для обеих должны предоставляться сведения об узлах и обе "
-"должны иметь идентичные шаблоны подматриц."
+"Используются две матрицы, ''aa'' и ''lu''. Матрица ''aa'' --- это матрица "
+"узловых проводимостей. Матрица ''lu'' --- это матрица множителей LU-"
+"разложения матрицы проводимостей. Для обеих должны предоставляться сведения "
+"об узлах и обе должны иметь идентичные шаблоны подматриц."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:15
@@ -13993,7 +14022,7 @@ msgid ""
 "  lu.iwant(_n[0].m_(),_n[1].m_());\n"
 "requests allocation of space for an element stamp connecting _n[0] and _n[1].  This is usually four places in the matrix.\n"
 msgstr ""
-"Предоставление указанных сведений производится вызовом матрицы «iwant» с указанием пар узлов, которые нужно разместить.\n"
+"Предоставление указанных сведений производится вызовом матрицы ''iwant'' с указанием пар узлов, которые нужно разместить.\n"
 "Следующие строки:\n"
 "  aa.iwant(_n[0].m_(),_n[1].m_());\n"
 "  lu.iwant(_n[0].m_(),_n[1].m_());\n"
@@ -14028,12 +14057,13 @@ msgid ""
 "reasonable values for historical states.  It should call BASE::tr_begin() "
 "before doing anything else."
 msgstr ""
-"Данная функция вызывается в начале каждого анализа DC или OP, и временного "
-"анализа, кроме случаев, когда продолжается выполнение предыдущего анализа. "
-"Она инициализирует все переменные состояния, устанавливает исходные "
-"приближения для нелинейного анализа и вписывает приемлемые значения для "
-"исторических состояний. Прежде чем что-либо делать, она должна вызвать "
-"''BASE::tr_begin()''."
+"Данная функция вызывается в начале каждого анализа [[gnucap:manual:commands:"
+"dc.ru|dc]] или [[gnucap:manual:commands:op.ru|op]], и [[gnucap:manual:"
+"commands:transient.ru|временного анализа]], кроме случаев, когда "
+"продолжается выполнение предыдущего анализа. Она инициализирует все "
+"переменные состояния, устанавливает исходные приближения для нелинейного "
+"анализа и вписывает приемлемые значения для исторических состояний. Прежде "
+"чем что-либо делать, она должна вызвать ''BASE::tr_begin()''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:24
@@ -14148,8 +14178,8 @@ msgstr ""
 "момент времени и в этой итерации или нет. В простейшем случае, написание "
 "этой функции можно отложить, просто возвращая «true», но это ведёт к "
 "излишним полным вычислениям. Основная цель этой функции --- разбудить "
-"латентное устройство. На предмет общего примера этой функции взгляните в "
-"spice_wrapper.cc."
+"латентное устройство. На предмет общего примера этой функции взгляните в //"
+"spice_wrapper.cc//."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/dc_and_transient_analysis.txt:41
@@ -14679,6 +14709,9 @@ msgid ""
 "Verilog.  Usually this is not needed because the inherited method will do "
 "the right thing."
 msgstr ""
+"Сделать соединение между портом и остальной частью схемы по имени, как в "
+"[[gnucap:manual:languages:verilog.ru|Verilog]].  Обычно это не требуется, "
+"потому что то, что надо, сделает унаследованный метод."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:8
@@ -14693,6 +14726,9 @@ msgid ""
 "in Spice.  Usually this is not needed because the inherited method will do "
 "the right thing."
 msgstr ""
+"Сделать соединение между портом и остальной схемой в соответствии с его "
+"позицией, как в [[gnucap:manual:languages:spice.ru|SPICE]]. Обычно это не "
+"требуется, потому что то, что надо, сделает унаследованный метод."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:11
@@ -14706,6 +14742,8 @@ msgid ""
 "Return the name of a port given its index.  This is required, because all "
 "devices have unique port names."
 msgstr ""
+"Возвратить имя порта по его индексу. Этот метод обязателен, потому что имена "
+"портов у всех устройств уникальны."
 
 #. type: Title ===
 #: manual/tech/plugins/devices/ports.txt:14
@@ -14719,6 +14757,8 @@ msgid ""
 "Most devices do not have current ports, so these methods are usually not "
 "needed."
 msgstr ""
+"У большинства устройств нет токовых портов, поэтому обычно эти методы не "
+"нужны."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:18
@@ -14732,6 +14772,9 @@ msgid ""
 "Make a connection between a current port and the rest of the circuit, by "
 "position as in Spice.  This is required if the device has current ports."
 msgstr ""
+"Сделать соединение между токовым портом и остальной частью схемы в "
+"соответствии с его позицией, как в [[gnucap:manual:languages:spice.ru|"
+"SPICE]].  Этот метод обязателен, если устройство имеет токовые порты."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:21
@@ -14745,6 +14788,8 @@ msgid ""
 "Return the name of the element that a current port is connected to.  This is "
 "required if the device has current ports."
 msgstr ""
+"Возвратить имя элемента, к которому присоединён токовый порт. Этот метод "
+"обязателен, если устройство имеет токовые порты."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/ports.txt:24
@@ -14758,6 +14803,8 @@ msgid ""
 "Return the name of a current port given its index.  This is required if the "
 "device has current ports."
 msgstr ""
+"Возвратить имя токового порта по его индексу. Этот метод обязателен, если "
+"устройство имеет токовые порты."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/probes.txt:5
@@ -14772,6 +14819,10 @@ msgid ""
 "selected by a string argument.  Any state variable or parameter may be "
 "selected."
 msgstr ""
+"Эта функция для анализов [[gnucap:manual:commands:dc.ru|dc]], [[gnucap:"
+"manual:commands:op.ru|op]] и [[gnucap:manual:commands:transient.ru|"
+"transient]] возвращает значение датчика, выбранного посредством строкового "
+"аргумента. Можно выбрать любую переменную состояния или любой параметр."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:10
@@ -14779,6 +14830,9 @@ msgid ""
 "Usually the code consists of a string of if - elseif statements.  If none "
 "match, in most cases it should call BASE::tr_probe_num and return its result."
 msgstr ""
+"Обычно код состоит из строки операторов ''if - elseif''. Если соответствия "
+"не найдено, в большинстве случаев нужно вызвать функцию ''BASE::"
+"tr_probe_num'' и возвратить её результат."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:23
@@ -14797,12 +14851,24 @@ msgid ""
 "}\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"double DEV_CAPACITANCE::tr_probe_num(const std::string& x)const\n"
+"{\n"
+"  if (Umatch(x, \"q{cap} |ch{arge} \")) {\n"
+"    return _y[0].f0;\n"
+"  }else if (Umatch(x, \"c{apacitance} \")) {\n"
+"    return _y[0].f1;\n"
+"  }else{\n"
+"    return STORAGE::tr_probe_num(x);\n"
+"  }\n"
+"}\n"
+"</code>\n"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/probes.txt:24
 #, no-wrap
 msgid "XPROBE ac_probe_ext(const std::string&)const"
-msgstr ""
+msgstr "XPROBE ac_probe_ext(const std::string&)const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:28
@@ -14810,11 +14876,14 @@ msgid ""
 "This function returns a probe value for AC analysis, selected by a string "
 "argument.  Any state variable or parameter may be selected."
 msgstr ""
+"Эта функция для анализа [[gnucap:manual:commands:ac.ru|ac]] возвращает "
+"значение датчика, выбранного посредством строкового аргумента. Можно выбрать "
+"любую переменную состояния или любой параметр."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:30
 msgid "It returns an XPROBE object:"
-msgstr ""
+msgstr "Функция возвращает объект ''XPROBE'':"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:41
@@ -14831,6 +14900,16 @@ msgid ""
 "}\n"
 "</code>\n"
 msgstr ""
+"<code>\n"
+"enum mod_t {mtNONE, mtMAG, mtPHASE, mtREAL, mtIMAG};\n"
+"class XPROBE{\n"
+"private:\n"
+"  COMPLEX _value;\n"
+"  mod_t   _modifier; // значение по умолчанию\n"
+"  double  _dbscale;  // 20 для напряжения, 10 для мощности и т. д.\n"
+"// .....\n"
+"}\n"
+"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:42
@@ -14838,18 +14917,21 @@ msgid ""
 "Usually, the returned value is made by a constructor with one argument, "
 "using defaults for _modifier and _dbscale.  The value is a COMPLEX number."
 msgstr ""
+"Обычно возвращаемое значение создаётся конструктором, запускаемым с одним "
+"аргументом и использующим значения по умолчанию для ''_modifier'' и "
+"''_dbscale''. Это значение является числом типа ''COMPLEX''."
 
 #. type: Title ====
 #: manual/tech/plugins/devices/query.txt:3
 #, no-wrap
 msgid "Simple query functions"
-msgstr ""
+msgstr "Функции простых запросов"
 
 #. type: Title ===
 #: manual/tech/plugins/devices/query.txt:5
 #, no-wrap
 msgid "Used by parser"
-msgstr ""
+msgstr "Используемые функциями синтаксического разбора"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:7
@@ -14864,6 +14946,9 @@ msgid ""
 "including both voltage ports and current ports.  Usually it returns a "
 "constant."
 msgstr ""
+"Возвращает максимальное число портов, используемое с точки зрения функции "
+"синтаксического разбора, включая как порты напряжения, так и токовые порты.  "
+"Обычно возвращается константа."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:10
@@ -14878,12 +14963,15 @@ msgid ""
 "including both voltage ports and current ports.  Usually it is the same as "
 "max_nodes."
 msgstr ""
+"Возвращает минимальное число портов, используемое с точки зрения функции "
+"синтаксического разбора, включая как порты напряжения, так и токовые порты. "
+"Обычно возвращает то же самое значение, что и ''max_nodes''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:13
 #, no-wrap
 msgid "int_num_current_ports()const"
-msgstr "int_num_current_ports()const"
+msgstr "int num_current_ports()const"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/query.txt:15
@@ -14893,6 +14981,11 @@ msgid ""
 "inherited method returns zero.  If this function returns a non-zero value, "
 "the device may not work with all netlist formats."
 msgstr ""
+"Возвращает требуемое количество токовых портов. В списке соединений есть "
+"порты, которые на самом деле являются элементами ветвей, используемыми как "
+"датчики тока. Если данный метод отсутствует, унаследованный метод будет "
+"возвращать ноль. Если эта функция возвращает ненулевое значение, устройство "
+"может работать не со всеми форматами списков соединений."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:16
@@ -14908,12 +15001,17 @@ msgid ""
 "type.  If omitted, the inherited method returns 0 or 1, but usually 1 is the "
 "correct value."
 msgstr ""
+"Возвращает минимальное количество не-портов, следующих за портами. Это трюк, "
+"сделанный для того, чтобы помочь функциям разбора формата [[gnucap:manual:"
+"language:SPICE.ru|SPICE]] проводить разграничение между именами портов и "
+"типом устройства. Если данный метод отсутствует, унаследованный метод "
+"возвращает 0 или 1, но обычно корректным значением является 1."
 
 #. type: Title ===
 #: manual/tech/plugins/devices/query.txt:19
 #, no-wrap
 msgid "Used by allocation functions and checking"
-msgstr ""
+msgstr "Используемые функциями выделения памяти и проверки"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:21
@@ -14929,6 +15027,11 @@ msgid ""
 "Otherwise, it is determined when the netlist is read.  If the syntax is "
 "correct it will always be between min_nodes and max_nodes."
 msgstr ""
+"Возвращает фактическое число портов. Если ''max_nodes == min_nodes'', "
+"единственным допустимым значением будет одно и то же число, поэтому "
+"разрешается возвращать его. В противном случае это число определяется при "
+"чтении списка соединений.  Если синтаксис корректен, оно всегда будет в "
+"пределах между ''min_nodes'' и ''max_nodes''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:24
@@ -14942,6 +15045,8 @@ msgid ""
 "Return the number of external nodes.  If omitted, the inherited method "
 "returns max_nodes()."
 msgstr ""
+"Возвращает число внешних узлов. Если этот метод отсутствует, унаследованный "
+"метод возвращает ''max_nodes()''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:27
@@ -14955,6 +15060,8 @@ msgid ""
 "Return the number of internal nodes.  If omitted, the inherited method "
 "return 0."
 msgstr ""
+"Возвращает число внутренних узлов. Если этот метод отсутствует, "
+"унаследованный метод возвращает 0."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:30
@@ -14968,12 +15075,14 @@ msgid ""
 "Return the number of nodes that stamp into the matrix.  The value is usually "
 "int_nodes() + ext_nodes()."
 msgstr ""
+"Возвращает число узлов, которые будут заноситься в матрицу. Это значение "
+"обычно равно ''int_nodes() + ext_nodes()''."
 
 #. type: Title ===
 #: manual/tech/plugins/devices/query.txt:33
 #, no-wrap
 msgid "Special simple element property flags (usually not needed)"
-msgstr ""
+msgstr "Особые флаги свойств простых элементов (обычно не нужны)"
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:35
@@ -14987,6 +15096,9 @@ msgid ""
 "Return true if the device has a hidden node that can be used as a current "
 "probe.  If omitted, the inherited method returns false."
 msgstr ""
+"Возвращает «true», если устройство имеет скрытый узел, который может "
+"использоваться как датчик тока. Если этот метод отсутствует, унаследованный "
+"метод возвращает «false»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:38
@@ -15000,6 +15112,9 @@ msgid ""
 "Return true if the device can be used as a current probe for current "
 "controlled spice devices.  If omitted, the inherited method returns false."
 msgstr ""
+"Возвращает «true», если устройство может использоваться как датчик тока для "
+"управляемых током устройств SPICE. Если этот метод отсутствует, "
+"унаследованный метод возвращает «false»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:41
@@ -15015,6 +15130,11 @@ msgid ""
 "a netlist can also include non-device objects, and this function identifies "
 "the difference."
 msgstr ""
+"Возвращает «true», если устройство является устройством. В данном контексте "
+"унаследованный метод возвращает «true», поэтому данный метод всегда можно "
+"пропустить. Он упоминается здесь потому, что в список соединений могут "
+"входить также объекты, не являющиеся устройствами, и эта функция может "
+"определить данный факт."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:44
@@ -15028,6 +15148,9 @@ msgid ""
 "Return true if the device is a fixed source.  If omitted, the inherited "
 "method returns false."
 msgstr ""
+"Возвращает «true», если устройство является независимым источником тока или "
+"напряжения. Если данный метод отсутствует, унаследованный метод возвращает "
+"«false»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:47
@@ -15041,6 +15164,9 @@ msgid ""
 "Return true if the result of evaluating a behavioral function is the \"value"
 "\".  If omitted, the inherited method returns false."
 msgstr ""
+"Возвращает «true», если результатом вычисления поведенческой функции "
+"является «значение».  Если данный метод отсутствует, унаследованный метод "
+"возвращает «false»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/query.txt:50
@@ -15055,6 +15181,10 @@ msgid ""
 "for the header lines of subcircuits.  For normal devices, it can be omitted, "
 "which will return false."
 msgstr ""
+"Возвращает «true», если устройство создаёт свой собственный контекст для "
+"поиска. Это используется для строк [[gnucap:manual:commands:title.ru|"
+"заголовков подсхем]]. Для обычных устройств этот метод можно пропустить, в "
+"таком случае будет возвращаться «false»."
 
 #. type: Title ====
 #: manual/tech/plugins/files.txt:5
