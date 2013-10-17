@@ -13012,7 +13012,7 @@ msgstr ""
 #: manual/tech/plugins/devices.txt:33
 #, no-wrap
 msgid "[[.:devices:Parameters]]\n"
-msgstr ""
+msgstr "[[.:devices:Parameters.ru|Параметры]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/devices.txt:33
@@ -14459,6 +14459,11 @@ msgid ""
 "are accessed by index, as if in an array.  It is up to the implementer to "
 "decide what type of storage to actually use."
 msgstr ""
+"Указанные здесь методы предоставляют полный доступ к параметрам. Параметры в "
+"этом контексте представлены в виде строк («string»), потому что это более "
+"гибко. Обычно доступ к параметрам производится по индексу, как будто бы в "
+"массиве. Ответственность за решение о типе хранилища, который следует "
+"использовать на самом деле, лежит на том, кто это реализует."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:8
@@ -14474,6 +14479,18 @@ msgid ""
 "All of these methods are required, and will march through the class "
 "hierarchy until the request is satisfied."
 msgstr ""
+"Индексирование начинается в ''CARD'' с 0 и далее счёт идёт вверх. "
+"Индексирование параметров должно быть последовательным. Например, если "
+"базовый класс имеет параметры, пронумерованные до 16, необходимо начинать с "
+"17.  Подходящий начальный номер можно получить, вызвав ''BASE::param_count"
+"()''. Для внутреннего индексирования предпочтителен метод, когда нумерация "
+"идёт с 0 и индексирование производится от значения ''BASE::param_count-1-"
+"i'', где ''i'' представляет собой внешний индекс. Если результат ''BASE::"
+"param_count-1-i'' окажется вне диапазона, нужно вызвать указанный метод для "
+"''BASE'', передав значение ''i'' дальше по иерархии. В этом разделе "
+"''BASE::'' относится к самому ближайшему базовому классу.  Все указанные "
+"методы обязательны и запросы будут проходить через иерархию классов до тех "
+"пор, пока не будут удовлетворены."
 
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:10
@@ -14482,6 +14499,10 @@ msgid ""
 "documented here and not recommended for any new work.  Support for "
 "\"obsolete_callback\" will be dropped at some time in the future."
 msgstr ""
+"Для некоторых устройств используется другой набор методов, "
+"''obsolete_callback''.  Этот способ здесь не описывается и его не "
+"рекомендуется использовать ни в каких новых разработках. Когда-нибудь в "
+"будущем поддержка ''obsolete_callback'' будет прекращена."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:11
@@ -14492,7 +14513,7 @@ msgstr "int param_count()const"
 #. type: Plain text
 #: manual/tech/plugins/devices/parameters.txt:13
 msgid "Return (local_param_count + BASE::param_count())."
-msgstr ""
+msgstr "Возвращает значение ''(local_param_count + BASE::param_count())''."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:14
@@ -14513,6 +14534,15 @@ msgid ""
 "suppress the printing of all base class parameters, return false for index "
 "out of range."
 msgstr ""
+"Возвращает «true», если значение этого параметра подходит для вывода в "
+"список соединений. Некоторые параметры должны выводиться независимо от их "
+"статуса, в таком случае эта функция может просто вывести «true» для "
+"соответствующего индекса. Можно возвращать «false», чтобы всегда подавлять "
+"вывод параметра и его значения. Иногда может быть нужно создать некоторого "
+"рода тест, чтобы определить, выводить ли параметр или нет. Обычно для себя "
+"самой эта функция должна определять результат, а для других возвращать "
+"''BASE::param_is_printable''.  Если нужно подавить вывод всех параметров "
+"базового класса, возвращайте «false» для индекса вне диапазона."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:17
@@ -14528,6 +14558,10 @@ msgid ""
 "scan the base classes, return an empty string to indicate an index out of "
 "range."
 msgstr ""
+"Возвращает предпочтительное имя параметра по заданному индексу. Используется "
+"обычная процедура для сканирования вниз по базовым классам. Если вы не "
+"хотите сканировать базовые классы, возвратите пустую строку для индикации "
+"того, что индекс вне диапазона."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:20
@@ -14542,6 +14576,9 @@ msgid ""
 "index j.  When j == 0, it returns the preferred name.  When j > 0, it "
 "returns either an alternative name or an empty string."
 msgstr ""
+"Возвращает альтернативное имя параметра по заданному индексу ''i'' и "
+"дополнительному индексу ''j''.  При ''j == 0'' возвращается предпочтительное "
+"имя. При ''j > 0'' возвращается либо альтернативное имя, либо пустая строка."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:23
@@ -14557,6 +14594,10 @@ msgid ""
 "scan the base classes, return an empty string to indicate an index out of "
 "range."
 msgstr ""
+"Возвращает значение параметра по заданному индексу в виде строки. "
+"Применяется обычная процедура для сканирования вниз до базовых классов. Если "
+"вы не хотите сканировать базовые классы, возвратите пустую строку для "
+"индикации того, что индекс вне диапазона."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:26
@@ -14573,6 +14614,12 @@ msgid ""
 "throw \"Exception_No_Match\" if there is no parameter corresponding to the "
 "name."
 msgstr ""
+"Устанавливает значение параметра по имени. Предоставление этого метода не "
+"обязательно. Если вы его не предоставляете, базовый класс предоставляет "
+"версию, которая ищет индекс, соответствующий этому имени и вызывает "
+"''set_param_by_index''. Функция должна выдать исключение "
+"«Exception_No_Match», если параметра, соответствующего указанному имени, не "
+"существует."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:29
@@ -14589,6 +14636,12 @@ msgid ""
 "for scanning down the base classes applies.  If you don't want to scan the "
 "base classes, throw \"Exception_Too_Many\"."
 msgstr ""
+"Устанавливает значение параметра по индексу. Предоставление этого метода "
+"обязательно, если ''set_param_by_name'' не предоставляется, или если вы "
+"хотите иметь возможность принимать список неименованных параметров, "
+"используя альтернативный синтаксис. Используется обычная процедура для "
+"сканирования вниз по базовым классам. Если вы не хотите сканировать базовые "
+"классы, выдайте исключение «Exception_Too_Many»."
 
 #. type: Title ==
 #: manual/tech/plugins/devices/parameters.txt:32
@@ -14603,6 +14656,9 @@ msgid ""
 "as in most Spice primitives.  If you don't want to accept any unnamed "
 "parameters, return an empty string."
 msgstr ""
+"Возвращает имя параметра, которое должно быть установлено, когда задано "
+"только числовое значение, как в большинстве примитивов SPICE. Если вы не "
+"хотите принимать никакие неименованные параметры, возвратите пустую строку."
 
 #. type: Title ====
 #: manual/tech/plugins/devices/ports.txt:3
