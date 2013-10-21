@@ -5,8 +5,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
-"POT-Creation-Date: 2013-08-23 15:57+0400\n"
-"PO-Revision-Date: 2013-10-17 16:36+0400\n"
+"POT-Creation-Date: 2013-10-21 14:56+0400\n"
+"PO-Revision-Date: 2013-10-21 14:57+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -709,7 +709,7 @@ msgid ""
 "Save the results in the file ''afile''. The file will look just like the screen. It will have all probe points. It will be a plot, if plotting is enabled.\n"
 msgstr ""
 "  ac 10m\n"
-"Частотный анализ в одной точке при 10 МГц.\n"
+"Частотный анализ в одной точке при 10 мГц.\n"
 "  ac 1000 3000 100\n"
 "Изменение от 1000 Гц до 3000 Гц с шагом 100 Гц.\n"
 "  ac start=1000 stop=3000 step=100\n"
@@ -1157,7 +1157,7 @@ msgstr ""
 msgid "This command will sweep up to 4 components, nested."
 msgstr ""
 "Этой командой производится развёртка с изменением значений до 4 компонентов "
-"одновременно."
+"рекурсивным способом."
 
 #. type: Plain text
 #: manual/commands/dc.txt:38 manual/commands/op.txt:33
@@ -1827,7 +1827,7 @@ msgstr ""
 "  fourier 40 20K 20\n"
 "Анализ спектра от 40 Гц до 20 кГц с шагом в 20 Гц. Результатом будет временной анализ с шагами в 25 микросекунд (1/40k). Он будет длиться 0,05 секунды (1/20).\n"
 "  fourier 0 20K 20\n"
-"Подобно предыдущему примеру, но показать также статический режим по постоянному току и периоды 20 Hz.\n"
+"Подобно предыдущему примеру, но показать также результаты для статического режима по постоянному тока и для частоты 20 Hz.\n"
 "  fourier\n"
 "Отсутствие параметров означает использование тех же самых параметров, что и в прошлый раз. В данном случае: от 0 до 20 кГц с шагом в 20 Гц.\n"
 "  fourier skip 10\n"
@@ -6128,10 +6128,15 @@ msgstr ""
 "следующая формула:"
 
 #. type: Plain text
-#: manual/devices/basic/inline_behavioral_modeling.txt:142
+#: manual/devices/basic/inline_behavioral_modeling.txt:143
 #, no-wrap
 msgid "  value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)\n"
 msgstr "  value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)\n"
+
+#. type: Plain text
+#: manual/devices/basic/inline_behavioral_modeling.txt:144
+msgid "where ''tempdiff'' is ''t - _tnom''."
+msgstr "где значение ''tempdiff'' равно ''t - _tnom''."
 
 #. type: Title ======
 #: manual/devices/basic/poly.txt:1
@@ -7065,11 +7070,11 @@ msgid ""
 "  Cxxxxxxx n+ n– value {IC=initial-voltage}\n"
 "  Cxxxxxxx n+ n– model {L=length} {W=width} {TEMP=temperature} {IC=initial-voltage}\n"
 msgstr ""
-"|''**capacitor** #(.c(//значение//))                                   ''|\n"
-"|''**C**//xxxxxxx// //n+ n–// //значение//                             ''|\n"
-"|''**C**//xxxxxxx// //n+ n–// //выражение//                            ''|\n"
-"|''**C**//xxxxxxx// //n+ n–// //значение// {IC=//исходное_напряжение//}''|\n"
-"|''**C**//xxxxxxx// //n+ n–// //модель// {L=//длина//} {W=//ширина//} {TEMP=//температура//} {IC=//исходное_напряжение//}''|\n"
+"|''**capacitor** #(.c(//значение//))                                    ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //значение//                              ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //выражение//                             ''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //значение// {IC=//начальное_напряжение//}''|\n"
+"|''**C**//xxxxxxx// //n+ n–// //модель// {L=//длина//} {W=//ширина//} {TEMP=//температура//} {IC=//начальное_напряжение//}''|\n"
 
 #. type: Plain text
 #: manual/devices/capacitor.txt:31
@@ -7579,6 +7584,8 @@ msgid ""
 "Device:\n"
 "  Wxxxxxxx (n+ n- ce) modelname ic\n"
 msgstr ""
+"Устройство:\n"
+"|''**W**//xxxxxxx// (//n+ n- ce//) //имя_модели// ic''|\n"
 
 #. type: Plain text
 #: manual/devices/switches.txt:24

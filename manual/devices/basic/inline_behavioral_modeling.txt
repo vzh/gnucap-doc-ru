@@ -140,3 +140,5 @@ These parameters are available with all functions.  Some may not make sense in s
 Temperature adjustments and scaling use the following formula:
 
   value *= _scale * (1 + _tc1*tempdiff + _tc2*tempdiff*tempdiff)
+
+where ''tempdiff'' is ''t - _tnom''.
