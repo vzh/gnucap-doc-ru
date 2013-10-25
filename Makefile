@@ -2,11 +2,11 @@
 pofile := gnucap.ru.po
 
 # Input files
-inputs := $(shell grep "\[type: text\]" po4a.conf |awk '{print $$3}')
+inputs := \
+  $(shell sed -n -e "/type:\s*text/ {s/.*\]\s\+//; s/\s.*//;p}" po4a.conf)
 
 # Output files
-outputs := \
-  $(shell grep "\[type: text\]" po4a.conf |awk '{print $$4}' |sed -e 's/^ru://')
+outputs := $(inputs:.txt=.ru.txt)
 
 # Installation directory
 PREFIX = /tmp/gnucap
