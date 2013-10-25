@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-10-25 14:28+0400\n"
-"PO-Revision-Date: 2013-10-21 14:57+0400\n"
+"PO-Revision-Date: 2013-10-25 15:07+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -481,8 +481,7 @@ msgstr "Синтаксис"
 
 #. type: Plain text
 #: manual/commands/ac.txt:10
-#, fuzzy, no-wrap
-#| msgid "  ac {//options// ...} //start stop stepsize// {//options// ...} \n"
+#, no-wrap
 msgid "  ac {//options// ...} //start stop stepsize// {//options// ...}\n"
 msgstr "| ''**ac** {//опции// ...} //начало конец размер_шага// {//опции// ...}'' |\n"
 
@@ -1082,10 +1081,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/dc.txt:11
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  dc start stop stepsize {options ...}\n"
-#| "  dc label start stop stepsize {options ...} \n"
+#, no-wrap
 msgid ""
 "  dc start stop stepsize {options ...}\n"
 "  dc label start stop stepsize {options ...}\n"
@@ -1652,8 +1648,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/fourier.txt:10
-#, fuzzy, no-wrap
-#| msgid "  fourier start stop stepsize {options ...} \n"
+#, no-wrap
 msgid "  fourier start stop stepsize {options ...}\n"
 msgstr "|''**fourier** //начало конец размер_шага// {//опции ...//}''|\n"
 
@@ -2811,8 +2806,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/op.txt:10
-#, fuzzy, no-wrap
-#| msgid "  op start stop stepsize {options ...} \n"
+#, no-wrap
 msgid "  op start stop stepsize {options ...}\n"
 msgstr "|''**op** //начало конец размер_шага// {//опции ...//}''|\n"
 
@@ -4285,10 +4279,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/transient.txt:11
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  transient start stop stepsize {options ...}\n"
-#| "  transient stepsize stop start {options ...} \n"
+#, no-wrap
 msgid ""
 "  transient start stop stepsize {options ...}\n"
 "  transient stepsize stop start {options ...}\n"
@@ -4333,13 +4324,6 @@ msgstr ""
 
 #. type: Plain text
 #: manual/commands/transient.txt:20
-#, fuzzy
-#| msgid ""
-#| "Do not use a step size too large as this will result in errors in the "
-#| "results. If you suspect that the results are not accurate, try a larger "
-#| "argument to skip. This will force a smaller internal step size. If the "
-#| "results are close to the same, they can be trusted. If not, try a still "
-#| "larger skip argument until they appear to match close enough.   \n"
 msgid ""
 "Do not use a step size too large as this will result in errors in the "
 "results. If you suspect that the results are not accurate, try a larger "
@@ -5122,22 +5106,17 @@ msgstr ""
 
 #. type: Plain text
 #: manual/devices/basic/basic_syntax.txt:91
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  vsource   #(.dc(10))  Vin     (in, 0);\n"
-#| "  inductor  #(.l(.01))  Lseries (in, out);\n"
-#| "  capacitor #(.c(100u)) Cshunt  (out, 0);\n"
-#| "  resistor  #(.r(100))  Rload   (out, 0);\n"
+#, no-wrap
 msgid ""
 "  vsource   #(10)   Vin     (in, 0);\n"
 "  inductor  #(.01)  Lseries (in, out);\n"
 "  capacitor #(100u) Cshunt  (out, 0);\n"
 "  resistor  #(100)  Rload   (out, 0);\n"
 msgstr ""
-"  vsource   #(.dc(10))  Vin     (in, 0);\n"
-"  inductor  #(.l(.01))  Lseries (in, out);\n"
-"  capacitor #(.c(100u)) Cshunt  (out, 0);\n"
-"  resistor  #(.r(100))  Rload   (out, 0);\n"
+"  vsource   #(10)   Vin     (in, 0);\n"
+"  inductor  #(.01)  Lseries (in, out);\n"
+"  capacitor #(100u) Cshunt  (out, 0);\n"
+"  resistor  #(100)  Rload   (out, 0);\n"
 
 #. type: Title ======
 #: manual/devices/basic/complex.txt:1
@@ -11420,13 +11399,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/howto/probes.txt:38
-#, fuzzy, no-wrap
-#| msgid ""
-#| "|logic  |A numeric interpretation of the logic value at the node. The value is displayed encoded in a number of the form a.bc where\\\\ \\\\ a is the logic state:\\\\ 0 = logic 0\\\\ 1 = rising\\\\ 2 = falling\\\\ 3 = logic 1\\\\ \\\\ b is an indication of the quality of the digital signal.\\\\ 0 is a fully valid logic signal.\\\\ Nonzero indicates it does not meet the criteria for logic simulation.\\\\ \\\\ c indicates how the node was calculated:\\\\ 0 indicates logic simulation.\\\\ 1 indicates analog simulation of a logic device.\\\\ 2 indicates analog simulation of analog devices.  |\n"
-#| "|lastchange  |The most recent time at which the logic state changed.  |\n"
-#| "|finaltime   |The scheduled time a pending logic state change will occur.  |\n"
-#| "|diter       |Iteration number for last digital update.  |\n"
-#| "|aiter       |Iteration number for last analog update.  |\n"
+#, no-wrap
 msgid ""
 "|logic  |A numeric interpretation of the logic value at the node. The value is displayed encoded in a number of the form a.bc where\\\\ \\\\ a is the logic state:\\\\ 0 = logic 0\\\\ 1 = rising\\\\ 2 = falling\\\\ 3 = logic 1\\\\ 4 = unknown\\\\ \\\\ b is an indication of the quality of the digital signal.\\\\ 0 is a fully valid logic signal.\\\\ Nonzero indicates it does not meet the criteria for logic simulation.\\\\ \\\\ c indicates how the node was calculated:\\\\ 0 indicates logic simulation.\\\\ 1 indicates analog simulation of a logic device.\\\\ 2 indicates analog simulation of analog devices.  |\n"
 "|lastchange  |The most recent time at which the logic state changed.  |\n"
@@ -11434,7 +11407,7 @@ msgid ""
 "|diter       |Iteration number for last digital update.  |\n"
 "|aiter       |Iteration number for last analog update.  |\n"
 msgstr ""
-"|''logic''       | Числовая интерпретация логического значения для узла. Это значение отображается в виде закодированного числа в формате ''a.bc'', где\\\\ \\\\ ''a'' это логическое состояние:\\\\ 0 = логический 0;\\\\ 1 = нарастающий фронт;\\\\ 2 = ниспадающий фронт;\\\\ 3 = логическая 1\\\\ \\\\ ''b'' является индикацией качества цифрового сигнала:\\\\ 0 это полностью допустимый логический сигнал;\\\\ ненулевое значение означает, что сигнал не соответствует критериям для логического моделирования\\\\ \\\\ ''c'' отражает способ расчёта для узла:\\\\ 0 означает логическое моделирование;\\\\ 1 означает аналоговое моделирование логического устройства;\\\\ 2 означает аналоговое моделирование аналоговых устройств  |\n"
+"|''logic''       | Числовая интерпретация логического значения для узла. Это значение отображается в виде закодированного числа в формате ''a.bc'', где\\\\ \\\\ ''a'' это логическое состояние:\\\\ 0 = логический 0;\\\\ 1 = нарастающий фронт;\\\\ 2 = ниспадающий фронт;\\\\ 3 = логическая 1\\\\ 4 = неизвестное\\\\ \\\\ ''b'' является индикацией качества цифрового сигнала:\\\\ 0 это полностью допустимый логический сигнал;\\\\ ненулевое значение означает, что сигнал не соответствует критериям для логического моделирования\\\\ \\\\ ''c'' отражает способ расчёта для узла:\\\\ 0 означает логическое моделирование;\\\\ 1 означает аналоговое моделирование логического устройства;\\\\ 2 означает аналоговое моделирование аналоговых устройств  |\n"
 "|''lastchange''  | Время самого последнего изменения логического состояния  |\n"
 "|''finaltime''   | Время, в которое запланировано выполнение отложенного изменения логического состояния  |\n"
 "|''diter''       | Число итераций для последнего цифрового   обновления  |\n"
@@ -12869,10 +12842,9 @@ msgstr "[[gnucap:manual:tech:plugins.ru|Плагины]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech.txt:10
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins]]\n"
+#, no-wrap
 msgid "[[gnucap:manual:tech:testing]]\n"
-msgstr "[[gnucap:manual:tech:plugins.ru|Плагины]]\n"
+msgstr "[[gnucap:manual:tech:testing.ru|Тестирование]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech.txt:10
@@ -12941,10 +12913,9 @@ msgstr "[[gnucap:manual:tech:plugins:devices.ru|Устройства]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:16
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:languages]]\n"
+#, no-wrap
 msgid "[[gnucap:manual:tech:plugins:languages|simulation languages]]\n"
-msgstr "[[gnucap:manual:tech:plugins:languages.ru|Языки]]\n"
+msgstr "[[gnucap:manual:tech:plugins:languages.ru|Языки моделирования]]\n"
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins.txt:16
@@ -13219,14 +13190,7 @@ msgstr "У нас есть базовый класс:"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:37
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<code>\n"
-#| "class FUNCTION {\n"
-#| "public:\n"
-#| "  virtual double eval(double arg)const = 0;\n"
-#| "};\n"
-#| "</code>\n"
+#, no-wrap
 msgid ""
 "<code cpp>\n"
 "class FUNCTION {\n"
@@ -13235,7 +13199,7 @@ msgid ""
 "};\n"
 "</code>\n"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "class FUNCTION {\n"
 "public:\n"
 "  virtual double eval(double arg)const = 0;\n"
@@ -13268,14 +13232,9 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:48
-#, fuzzy
-#| msgid ""
-#| "<code>\n"
-#| "#include \"u_function.h\"\n"
-#| "</code>\n"
 msgid "<code cpp> #include \"u_function.h\" </code>"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "#include \"u_function.h\"\n"
 "</code>\n"
 
@@ -13286,17 +13245,7 @@ msgstr "Затем сделаем класс-потомок и создадим 
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:60
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<code>\n"
-#| "class abs : public FUNCTION {\n"
-#| "public:\n"
-#| "  std::string eval(double arg)const\n"
-#| "  {\n"
-#| "    return std::abs(arg);\n"
-#| "  }\n"
-#| "} p;\n"
-#| "</code>\n"
+#, no-wrap
 msgid ""
 "<code cpp>\n"
 "class abs : public FUNCTION {\n"
@@ -13308,7 +13257,7 @@ msgid ""
 "} p;\n"
 "</code>\n"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "class abs : public FUNCTION {\n"
 "public:\n"
 "  std::string eval(double arg)const\n"
@@ -13326,16 +13275,11 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:66
-#, fuzzy
-#| msgid ""
-#| "<code>\n"
-#| "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"abs\", &p);\n"
-#| "</code>\n"
 msgid ""
 "<code cpp> DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"abs\", "
 "&p); </code>"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"abs\", &p);\n"
 "</code>\n"
 
@@ -13347,17 +13291,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:72
-#, fuzzy
-#| msgid ""
-#| "DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, \"absolute_value"
-#| "\", &p); </code>"
 msgid ""
 "<code cpp> DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, "
 "\"absolute_value\", &p); </code>"
 msgstr ""
-"DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, \"absolute_value\", "
-"&p);\n"
-"</code>\n"
+"<code cpp> DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, "
+"\"absolute_value\", &p); </code>"
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:74
@@ -13398,28 +13337,12 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:83
-#, fuzzy
-#| msgid ""
-#| "<code>\n"
-#| "#include \"fake_function.h\"\n"
 msgid "<code cpp> #include \"u_function.h\""
-msgstr ""
-"<code>\n"
-"#include \"fake_function.h\"\n"
+msgstr "<code cpp> #include \"u_function.h\""
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:93
-#, fuzzy, no-wrap
-#| msgid ""
-#| "class square : public FAKE_FUNCTION {\n"
-#| "public:\n"
-#| "  std::string eval(double arg)const\n"
-#| "  {\n"
-#| "    return arg * arg;\n"
-#| "  }\n"
-#| "} p;\n"
-#| "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"square\", &p);\n"
-#| "</code>\n"
+#, no-wrap
 msgid ""
 "class square : public FUNCTION {\n"
 "public:\n"
@@ -13431,7 +13354,7 @@ msgid ""
 "DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, \"square\", &p);\n"
 "</code>\n"
 msgstr ""
-"class square : public FAKE_FUNCTION {\n"
+"class square : public FUNCTION {\n"
 "public:\n"
 "  std::string eval(double arg)const\n"
 "  {\n"
@@ -13459,7 +13382,7 @@ msgid ""
 "when you install the main simulator."
 msgstr ""
 "Процедура компиляции плагина зависит от системы, и обычно настраивается при "
-"установки основной программы моделирования."
+"установке основной программы моделирования."
 
 #. type: Plain text
 #: manual/tech/plugins/coding.txt:101
@@ -13614,16 +13537,10 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:27
-#, fuzzy
-#| msgid ""
-#| "<code>\n"
-#| "#include \"c_comand.h\"\n"
-#| "#include \"globals.h\"\n"
 msgid "<code cpp> #include \"gnucap/c_comand.h\" #include \"gnucap/globals.h\""
-msgstr ""
-"<code>\n"
-"#include \"c_comand.h\"\n"
-"#include \"globals.h\"\n"
+msgstr "<code cpp>\n"
+"#include \"gnucap/c_comand.h\"\n"
+"#include \"gnucap/globals.h\"\n"
 
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:36
@@ -14936,20 +14853,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:23
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<code>\n"
-#| "double DEV_CAPACITANCE::tr_probe_num(const std::string& x)const\n"
-#| "{\n"
-#| "  if (Umatch(x, \"q{cap} |ch{arge} \")) {\n"
-#| "    return _y[0].f0;\n"
-#| "  }else if (Umatch(x, \"c{apacitance} \")) {\n"
-#| "    return _y[0].f1;\n"
-#| "  }else{\n"
-#| "    return STORAGE::tr_probe_num(x);\n"
-#| "  }\n"
-#| "}\n"
-#| "</code>\n"
+#, no-wrap
 msgid ""
 "<code cpp>\n"
 "double DEV_CAPACITANCE::tr_probe_num(const std::string& x)const\n"
@@ -14964,7 +14868,7 @@ msgid ""
 "}\n"
 "</code>\n"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "double DEV_CAPACITANCE::tr_probe_num(const std::string& x)const\n"
 "{\n"
 "  if (Umatch(x, \"q{cap} |ch{arge} \")) {\n"
@@ -15000,18 +14904,7 @@ msgstr "Функция возвращает объект ''XPROBE'':"
 
 #. type: Plain text
 #: manual/tech/plugins/devices/probes.txt:41
-#, fuzzy, no-wrap
-#| msgid ""
-#| "<code>\n"
-#| "enum mod_t {mtNONE, mtMAG, mtPHASE, mtREAL, mtIMAG};\n"
-#| "class XPROBE{\n"
-#| "private:\n"
-#| "  COMPLEX _value;\n"
-#| "  mod_t   _modifier; // default\n"
-#| "  double  _dbscale;  // 20 for voltage, 10 for power, etc.\n"
-#| "// .....\n"
-#| "}\n"
-#| "</code>\n"
+#, no-wrap
 msgid ""
 "<code cpp>\n"
 "enum mod_t {mtNONE, mtMAG, mtPHASE, mtREAL, mtIMAG};\n"
@@ -15024,7 +14917,7 @@ msgid ""
 "}\n"
 "</code>\n"
 msgstr ""
-"<code>\n"
+"<code cpp>\n"
 "enum mod_t {mtNONE, mtMAG, mtPHASE, mtREAL, mtIMAG};\n"
 "class XPROBE{\n"
 "private:\n"
@@ -16001,10 +15894,9 @@ msgstr ""
 
 #. type: Title ======
 #: about/algorithms.txt:1
-#, fuzzy, no-wrap
-#| msgid "accuracy, algorithms"
+#, no-wrap
 msgid "Algorithms"
-msgstr "Точность, алгоритмы"
+msgstr "Алгоритмы"
 
 #. type: Plain text
 #: about/algorithms.txt:4
@@ -16131,10 +16023,9 @@ msgstr ""
 #: about/plugins/commands.txt:17 about/plugins/languages.txt:17
 #: about/plugins/measurements.txt:13 about/plugins/methods.txt:15
 #: about/plugins/models.txt:28
-#, fuzzy, no-wrap
-#| msgid "The first run"
+#, no-wrap
 msgid "The future"
-msgstr "Первый запуск"
+msgstr "Будущее"
 
 #. type: Plain text
 #: about/plugins/commands.txt:20
@@ -16255,10 +16146,9 @@ msgstr ""
 
 #. type: Title =====
 #: about/plugins/methods.txt:3
-#, fuzzy, no-wrap
-#| msgid "Simulate"
+#, no-wrap
 msgid "Simulation methods"
-msgstr "Моделирование"
+msgstr "Методы моделирования"
 
 #. type: Plain text
 #: about/plugins/methods.txt:8
@@ -16442,38 +16332,33 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:devices]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:models|Models.]]\n"
-msgstr "[[gnucap:manual:tech:plugins:devices.ru|Устройства]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:commands]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:commands|Commands.]]\n"
-msgstr "[[gnucap:manual:tech:plugins:commands.ru|Команды]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:commands]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:methods|Simulation methods.]]\n"
-msgstr "[[gnucap:manual:tech:plugins:commands.ru|Команды]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:behavioral functions]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:functions|Behavioral modeling functions.]]\n"
-msgstr "[[gnucap:manual:tech:plugins:behavioral functions.ru|Поведенческие функции]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:howto:measure|measurements]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:measurements|Measurements]]\n"
-msgstr "[[gnucap:manual:howto:measure.ru    |Измерения]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
@@ -16489,10 +16374,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: about/plugins.txt:21
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:tech:plugins:Coding]]\n"
+#, no-wrap
 msgid "[[gnucap:about:plugins:other:|Almost anything.]]\n"
-msgstr "[[gnucap:manual:tech:plugins:Coding.ru|Программирование]]\n"
+msgstr ""
 
 #. type: Plain text
 #: manual/devices/inductor.txt:1
@@ -16501,10 +16385,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/examples/noise_syntax.txt:1
-#, fuzzy, no-wrap
-#| msgid "Syntax"
+#, no-wrap
 msgid "Noise Syntax"
-msgstr "Синтаксис"
+msgstr ""
 
 #. type: Plain text
 #: manual/examples/noise_syntax.txt:4
@@ -16576,23 +16459,13 @@ msgstr ""
 
 #. type: Title =====
 #: manual/howto/measurements.txt:1
-#, fuzzy, no-wrap
-#| msgid "Measurements"
+#, no-wrap
 msgid "Measures"
-msgstr "Измерения"
+msgstr ""
 
 #. type: Plain text
 #: manual/howto/measurements.txt:13
-#, fuzzy, no-wrap
-#| msgid ""
-#| "|[[gnucap:manual:measure:at]]     |The value of a wave at a point, or its derivative.  |\n"
-#| "|[[gnucap:manual:measure:mean|average]]\\\\ [[gnucap:manual:measure:mean]]              |Average or mean value.  |\n"
-#| "|[[gnucap:manual:measure:cross]]  |Find crossings.  |\n"
-#| "|[[gnucap:manual:measure:mean|integrate]]\\\\ [[gnucap:manual:measure:mean|area]]  |The area under the curve.  |\n"
-#| "|[[gnucap:manual:measure:minmax|max]]    |Maximum value, or its point.  |\n"
-#| "|[[gnucap:manual:measure:minmax|min]]    |Minimum value, or its point.  |\n"
-#| "|[[gnucap:manual:measure:mean|rms]]    |The RMS value.  |\n"
-#| "|[[gnucap:manual:measure:slope|slewrate]]\\\\ [[gnucap:manual:measure:slope]]\\\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |\n"
+#, no-wrap
 msgid ""
 "|[[gnucap:manual:measure:at]]     |The value of a wave at a point, or its derivative.  |\n"
 "|[[gnucap:manual:measure:mean|average]]\\\\ [[gnucap:manual:measure:mean]]              |Average or mean value.  |\n"
@@ -16603,21 +16476,12 @@ msgid ""
 "|[[gnucap:manual:measure:rms]]    |The RMS value.  |\n"
 "|[[gnucap:manual:measure:slope|slewrate]]\\\\ [[gnucap:manual:measure:slope]]\\\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |\n"
 msgstr ""
-"|[[gnucap:manual:measure:at.ru|at]]     | Значение сигнала в какой-нибудь точке или его производная  |\n"
-"|[[gnucap:manual:measure:mean.ru|average]]\\\\ [[gnucap:manual:measure:mean.ru|mean]]              |Среднее значение  |\n"
-"|[[gnucap:manual:measure:cross.ru|cross]]  |Поиск пересечений  |\n"
-"|[[gnucap:manual:measure:mean.ru|integrate]]\\\\ [[gnucap:manual:measure:mean.ru|area]]  | Размер области под кривой  |\n"
-"|[[gnucap:manual:measure:minmax.ru|max]]  |Значение максимума или точка, в которой он находится  |\n"
-"|[[gnucap:manual:measure:minmax.ru|min]]  |Значение минимума  или точка, в которой он находится  |\n"
-"|[[gnucap:manual:measure:mean.ru|rms]]    |Среднеквадратичное значение  |\n"
-"|[[gnucap:manual:measure:slope.ru|slewrate]]\\\\ [[gnucap:manual:measure:slope.ru|slope]]\\\\ [[gnucap:manual:measure:slope.ru|ddt]]  | Скорость нарастания или наклон кривой сигнала |\n"
 
 #. type: Title ======
 #: manual/measure/integrate.txt:1
-#, fuzzy, no-wrap
-#| msgid "\"at\" measure"
+#, no-wrap
 msgid "\"integrate\" measure"
-msgstr "Измерение «at»"
+msgstr ""
 
 #. type: Plain text
 #: manual/measure/integrate.txt:6
@@ -16626,53 +16490,30 @@ msgstr ""
 
 #. type: Plain text
 #: manual/measure/integrate.txt:10
-#, fuzzy, no-wrap
-#| msgid "  min(probe=\"p(d)\" begin=time end=time last first arg)\n"
+#, no-wrap
 msgid "  integrate(probe=\"p(d)\"  begin=time  end=time)\n"
-msgstr "|''**min**(probe=%%\"%%//д//(//у//)%%\"%% begin=//время// end=//время// last first arg)''|\n"
+msgstr ""
 
 #. type: Plain text
 #: manual/measure/integrate.txt:17
-#, fuzzy, no-wrap
-#| msgid ""
-#| "^arg name  ^default  ^description  ^\n"
-#| "|probe     |required    |The name of a probe to measure.  |\n"
-#| "|begin     |- infinity  |Start averaging at this time or frequency.  |\n"
-#| "|end       |+ infinity  |Stop averaging at this time or frequency.  |\n"
+#, no-wrap
 msgid ""
 "^arg name  ^default     ^description  ^\n"
 "|probe     |required    |The name of a probe to measure.  |\n"
 "|begin     |- infinity  |Start averaging at this time or frequency.  |\n"
 "|end       |+ infinity  |Stop averaging at this time or frequency.  |\n"
 msgstr ""
-"^ Имя аргумента ^  Значение по\\\\ умолчанию  ^ Описание  ^\n"
-"|''probe''      |  //обязательный//        | Имя измеряемого [[gnucap:manual:howto:probes.ru|датчика]]   |\n"
-"|''begin''      |  **''-infinity''** (-∞)  | Время или частота начала определения среднего значения      |\n"
-"|''end''        |  **''+infinity''** (+∞)  | Время или частота конца  определения среднего значения      |\n"
 
 #. type: Plain text
 #: manual/measure/integrate.txt:21
-#, fuzzy
-#| msgid ""
-#| "The \"integrate\" measure gives you the integral, or area under the "
-#| "curve, signed.  The integral of a sine over a full cycle is zero."
 msgid ""
 "This measure gives you the integral, or area under the curve, signed.  The "
 "integral of a sine over a full cycle is zero."
 msgstr ""
-"**integrate** служит для измерения интеграла или области под кривой с учётом "
-"знака. Интеграл синусоиды за полный период равен нулю."
 
 #. type: Plain text
 #: manual/measure/integrate.txt:29
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  measure sample = mean(probe=\"v(out)\" begin=4u end=6u)\n"
-#| "Find the mean value of v(out) between 4 microseconds and 6 microseconds.\n"
-#| "  measure sample = mean(probe=\"v(out)\")\n"
-#| "Find the mean value of v(out) for an entire run.\n"
-#| "  measure sample = mean(probe=\"v(out)\" begin=4u)\n"
-#| "Find the mean value of v(out) starting at 4 microseconds, to the end.\n"
+#, no-wrap
 msgid ""
 "  measure sample = integrate(probe=\"v(out)\" begin=4u end=6u)\n"
 "Find the mean value of v(out) between 4 microseconds and 6 microseconds.\n"
@@ -16681,12 +16522,6 @@ msgid ""
 "  measure sample = integrate(probe=\"v(out)\" begin=4u)\n"
 "Find the mean value of v(out) starting at 4 microseconds, to the end.\n"
 msgstr ""
-"  measure sample = mean(probe=\"v(out)\" begin=4u end=6u)\n"
-"Найти среднее значение v(out) за время от 4 мкс до 6 мкс.\n"
-"  measure sample = mean(probe=\"v(out)\")\n"
-"Найти среднее значение v(out) за всё время работы.\n"
-"  measure sample = mean(probe=\"v(out)\" begin=4u)\n"
-"Найти среднее значение v(out) начиная с 4 мкс и до конца.\n"
 
 #. type: Plain text
 #: manual/rr.txt:1
@@ -16824,10 +16659,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/tech/compiling.txt:1
-#, fuzzy, no-wrap
-#| msgid "Compiling it"
+#, no-wrap
 msgid "Compiling for test"
-msgstr "Компиляция"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/compiling.txt:4
@@ -17114,10 +16948,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/tech/plugins/languages/command.txt:3
-#, fuzzy, no-wrap
-#| msgid "\"print\" command"
+#, no-wrap
 msgid "parse, print command"
-msgstr "Команда «print»"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/command.txt:8
@@ -17165,10 +16998,9 @@ msgstr ""
 #. type: Title ====
 #: manual/tech/plugins/languages/command.txt:33
 #: manual/tech/plugins/languages/comment.txt:32
-#, fuzzy, no-wrap
-#| msgid "  pause comment\n"
+#, no-wrap
 msgid "parse_comment"
-msgstr "|''**pause** //комментарий//''|\n"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/command.txt:36
@@ -17207,10 +17039,9 @@ msgstr ""
 #. type: Title ====
 #: manual/tech/plugins/languages/command.txt:53
 #: manual/tech/plugins/languages/comment.txt:46
-#, fuzzy, no-wrap
-#| msgid "\"print\" command"
+#, no-wrap
 msgid "print_comment"
-msgstr "Команда «print»"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/command.txt:56
@@ -17234,10 +17065,9 @@ msgstr ""
 
 #. type: Title =====
 #: manual/tech/plugins/languages/comment.txt:3
-#, fuzzy, no-wrap
-#| msgid "  pause comment\n"
+#, no-wrap
 msgid "parse, print comment"
-msgstr "|''**pause** //комментарий//''|\n"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/comment.txt:8
@@ -17392,10 +17222,9 @@ msgstr ""
 #: manual/tech/plugins/languages/instance/type.txt:1
 #: manual/tech/plugins/languages.txt:1
 #: manual/tech/plugins/languages/type.txt:1
-#, fuzzy, no-wrap
-#| msgid "Languages"
+#, no-wrap
 msgid "Language plugins"
-msgstr "Языки"
+msgstr ""
 
 #. type: Title =====
 #: manual/tech/plugins/languages/instance/label.txt:5
@@ -17507,10 +17336,9 @@ msgstr ""
 #. type: Title =====
 #: manual/tech/plugins/languages/instance/ports.txt:5
 #: manual/tech/plugins/languages/ports.txt:3
-#, fuzzy, no-wrap
-#| msgid "Current ports"
+#, no-wrap
 msgid "parse, print ports"
-msgstr "Токовые порты"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/instance/ports.txt:10
@@ -17640,10 +17468,9 @@ msgstr ""
 #. type: Title ====
 #: manual/tech/plugins/languages/instance/ports.txt:76
 #: manual/tech/plugins/languages/ports.txt:74
-#, fuzzy, no-wrap
-#| msgid "Current ports"
+#, no-wrap
 msgid "print_ports"
-msgstr "Токовые порты"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/instance/ports.txt:85
@@ -17761,10 +17588,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages/instance.txt:28
-#, fuzzy, no-wrap
-#| msgid "[[.:switches]]\n"
+#, no-wrap
 msgid "[[.:type]]\n"
-msgstr "[[.:switches.ru|Ключи]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages/instance.txt:28
@@ -17774,17 +17600,15 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages/instance.txt:28
-#, fuzzy, no-wrap
-#| msgid "[[.:devices:Ports]]\n"
+#, no-wrap
 msgid "[[.:ports]]\n"
-msgstr "[[.:devices:Ports.ru|Порты]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages/instance.txt:28
-#, fuzzy, no-wrap
-#| msgid "[[.:switches]]\n"
+#, no-wrap
 msgid "[[.:args]]\n"
-msgstr "[[.:switches.ru|Ключи]]\n"
+msgstr ""
 
 #. type: Title ====
 #: manual/tech/plugins/languages/instance.txt:29
@@ -18219,10 +18043,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/tech/plugins/languages/module.txt:16
-#, fuzzy, no-wrap
-#| msgid "module"
+#, no-wrap
 msgid "parse_module"
-msgstr "module"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/module.txt:19
@@ -18283,10 +18106,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/tech/plugins/languages/module.txt:47
-#, fuzzy, no-wrap
-#| msgid "module"
+#, no-wrap
 msgid "print_module"
-msgstr "module"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/module.txt:55
@@ -18532,10 +18354,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/tech/plugins/languages/simple_query_functions.txt:11
-#, fuzzy, no-wrap
-#| msgid "std::string value_name()const"
+#, no-wrap
 msgid "std::string name()const"
-msgstr "std::string value_name()const"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/simple_query_functions.txt:16
@@ -18549,10 +18370,9 @@ msgstr ""
 
 #. type: Title ====
 #: manual/tech/plugins/languages/simple_query_functions.txt:17
-#, fuzzy, no-wrap
-#| msgid "bool has_inode()const"
+#, no-wrap
 msgid "bool case_insensitive()const"
-msgstr "bool has_inode()const"
+msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/simple_query_functions.txt:22
@@ -18643,29 +18463,15 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/top_level.txt:10
-#, fuzzy
-#| msgid ""
-#| "<code>\n"
-#| "#include \"u_function.h\"\n"
-#| "</code>\n"
 msgid "<code cpp> #include \"gnucap/lang_base.h\" </code>"
 msgstr ""
-"<code>\n"
-"#include \"u_function.h\"\n"
-"</code>\n"
 
 #. type: Plain text
 #: manual/tech/plugins/languages/top_level.txt:12
-#, fuzzy
-#| msgid ""
-#| "If you want to also be able to static-link this plugin, enclose the class "
-#| "and dispatcher installs in an anonymous namespace."
 msgid ""
 "If you want to be able to static link the plugin, or combine it with others, "
 "wrap it in an anonymous namespace."
 msgstr ""
-"Если для этого плагина нужна ещё возможность статического связывания, "
-"заключите установку класса и диспетчера в анонимное пространство имён."
 
 #. type: Plain text
 #: manual/tech/plugins/languages/top_level.txt:23
@@ -18741,16 +18547,10 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages/top_level.txt:60
-#, fuzzy
-#| msgid ""
-#| "Declare one static object of this new type, and INSTALL it in the "
-#| "DISPATCHER."
 msgid ""
 "Then delcare one static instance of it and \"INSTALL\" it with the "
 "\"DISPATCHER\"."
 msgstr ""
-"Объявите один статический объект данного нового типа и установите (с помощью "
-"INSTALL) его в диспетчере (DISPATCHER)."
 
 #. type: Plain text
 #: manual/tech/plugins/languages/top_level.txt:66
@@ -18846,16 +18646,10 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/plugins/languages.txt:28
-#, fuzzy
-#| msgid ""
-#| "Declare one static object of this new type, and INSTALL it in the "
-#| "DISPATCHER."
 msgid ""
 "As with all plugins, declare one static object of this new type, and INSTALL "
 "it in the DISPATCHER."
 msgstr ""
-"Объявите один статический объект данного нового типа и установите (с помощью "
-"INSTALL) его в диспетчере (DISPATCHER)."
 
 #. type: Plain text
 #: manual/tech/plugins/languages.txt:30
@@ -18883,10 +18677,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
-#, fuzzy, no-wrap
-#| msgid "[[.:devices:query|Simple query functions]]\n"
+#, no-wrap
 msgid "[[.:languages:Simple query functions]]\n"
-msgstr "[[.:devices:query.ru|Функции простых запросов]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
@@ -18908,10 +18701,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:Commands]]\n"
+#, no-wrap
 msgid "[[.:languages:command]]\n"
-msgstr "[[gnucap:manual:Commands.ru     |Команды             ]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
@@ -18921,17 +18713,15 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
-#, fuzzy, no-wrap
-#| msgid "[[.:semi:diode]]\n"
+#, no-wrap
 msgid "[[.:languages:module]]\n"
-msgstr "[[.:semi:diode.ru|Диоды]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/plugins/languages.txt:46
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:Commands]]\n"
+#, no-wrap
 msgid "[[.:languages:commands]]\n"
-msgstr "[[gnucap:manual:Commands.ru     |Команды             ]]\n"
+msgstr ""
 
 #. type: Title ======
 #: manual/tech/testing.txt:1
@@ -18941,12 +18731,8 @@ msgstr ""
 
 #. type: Plain text
 #: manual/tech/testing.txt:4
-#, fuzzy
-#| msgid "This section describes the Gnucap plugin system, for programmers."
 msgid "This section describes Gnucap test procedures, policy, and test macros."
 msgstr ""
-"В настоящем разделе приводится описание системы плагинов gnucap для "
-"программистов."
 
 #. type: Bullet: '  * '
 #: manual/tech/testing.txt:7
@@ -18956,10 +18742,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/testing.txt:7
-#, fuzzy, no-wrap
-#| msgid "Compiling it"
+#, no-wrap
 msgid "[[compiling]]\n"
-msgstr "Компиляция"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: manual/tech/testing.txt:7
@@ -19286,10 +19071,9 @@ msgstr ""
 
 #. type: Title =====
 #: projects.txt:24
-#, fuzzy, no-wrap
-#| msgid "Command plugins"
+#, no-wrap
 msgid "Command compatibility plugins"
-msgstr "Плагины для реализации команд"
+msgstr ""
 
 #. type: Plain text
 #: projects.txt:27
@@ -19345,55 +19129,30 @@ msgstr ""
 
 #. type: Plain text
 #: spectre.txt:28
-#, fuzzy
-#| msgid ""
-#| "The syntax is:\n"
-#| "  \"model\" newname itsmaster parameters\n"
 msgid "The syntax is: \"model\" newname itsmaster parameters"
 msgstr ""
-"Синтаксис:\n"
-"|''**model** //новый_тип имя_оригинала аргументы//''|\n"
 
 #. type: Bullet: '  * '
 #: spectre.txt:33 spectre.txt:46
-#, fuzzy, no-wrap
-#| msgid "**Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form \"name = value\", whitespace delimited.  The value may be an expression.\n"
+#, no-wrap
 msgid "**Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form \"name = value\", whitespace delimited.  In Spectre, the value may be an expression.  In gnucap, for now, the value must be an actual value or parameter name.\n"
-msgstr "''//аргументы//'' --- список аргументов ([[gnucap:manual:commands:parameter.ru|параметры]] или значения). Все аргументы задаются в виде пар в формате «имя=значение» и отделяются друг от друга пробельными символами. Значение аргумента может быть [[gnucap:manual:howto:expressions.ru|выражением]].\n"
+msgstr ""
 
 #. type: Plain text
 #: spectre.txt:35
-#, fuzzy, no-wrap
-#| msgid "  model gp_npn npn bf=150\n"
+#, no-wrap
 msgid "  model gp-npn npn bf=150\n"
-msgstr "  model gp_npn npn bf=150\n"
+msgstr ""
 
 #. type: Plain text
 #: spectre.txt:41
-#, fuzzy
-#| msgid "All components have the same syntax:"
 msgid ""
 "All components have the same syntax:\\\\ label (port list) type arguments"
-msgstr "Для всех компонентов используется одинаковый синтаксис:"
+msgstr ""
 
 #. type: Plain text
 #: spectre.txt:61
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  subckt amp (out in vcc)\n"
-#| "  parameters rload=10k\n"
-#| "  Rb1   (base vcc)      resistor  r=1M  // 1 megohm\n"
-#| "  Rb2   (base 0  )      resistor  r=100k\n"
-#| "  Rc    (col  vcc)      resistor  r=100k\n"
-#| "  Re    (emit 0  )      resistor  r=10k\n"
-#| "  Ce    (emit 0  )      capacitor c=1m  // 1 millifarad\n"
-#| "  Cin   (base in )      capacitor c=1u\n"
-#| "  Q1    (col base emit) gp-npn\n"
-#| "  Q2    (vcc col e2)    gp-npn\n"
-#| "  Re2   (e2   0  )      resistor  r=1k\n"
-#| "  Cout  (e2   out)      capacitor c=10u\n"
-#| "  Rload (out 0  )       resistor  r=rload\n"
-#| "  ends amp\n"
+#, no-wrap
 msgid ""
 "  subckt amp (out in vcc)\n"
 "  parameters rload=10k\n"
@@ -19410,52 +19169,27 @@ msgid ""
 "  Rload (out 0  ) resistor r=rload\n"
 "  ends amp\n"
 msgstr ""
-"  subckt amp (out in vcc)\n"
-"  parameters rload=10k\n"
-"  Rb1   (base vcc)      resistor  r=1M  // 1 мегаом\n"
-"  Rb2   (base 0  )      resistor  r=100k\n"
-"  Rc    (col  vcc)      resistor  r=100k\n"
-"  Re    (emit 0  )      resistor  r=10k\n"
-"  Ce    (emit 0  )      capacitor c=1m  // 1 миллифарад\n"
-"  Cin   (base in )      capacitor c=1u\n"
-"  Q1    (col base emit) gp-npn\n"
-"  Q2    (vcc col e2)    gp-npn\n"
-"  Re2   (e2   0  )      resistor  r=1k\n"
-"  Cout  (e2   out)      capacitor c=10u\n"
-"  Rload (out 0  )       resistor  r=rload\n"
-"  ends amp\n"
 
 #. type: Plain text
 #: spectre.txt:65
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  X1    (out in vc)     amp      rload=100k\n"
-#| "  Vcc   (vc  0)         vsource  dc=15\n"
-#| "  Vin   (in  0)         vsource  ac=1\n"
-#| "  Rload (out 0)         resistor r=10k\n"
+#, no-wrap
 msgid ""
 "  Vcc (vcc 0) vsource dc=15\n"
 "  Vin (in  0) vsource ac=1\n"
 "  Rload (out 0) resistor r=10k\n"
 msgstr ""
-"  X1    (out in vc)     amp      rload=100k\n"
-"  Vcc   (vc  0)         vsource  dc=15\n"
-"  Vin   (in  0)         vsource  ac=1\n"
-"  Rload (out 0)         resistor r=10k\n"
 
 #. type: Bullet: '  * '
 #: spectre.txt:99
-#, fuzzy, no-wrap
-#| msgid "The \"master\" must be defined before it is referenced.\n"
+#, no-wrap
 msgid "The \"master\" must be before it is referenced.\n"
-msgstr "«Оригинал» должен быть определён до обращения к нему.\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: spectre.txt:99
-#, fuzzy, no-wrap
-#| msgid "The circuit must be defined before any commands using it, unless you want to simulate a partial circuit.  Scripted and interactive modifications to the circuit are done the way gnucap usually does.\n"
+#, no-wrap
 msgid "The circuit must be before any commands using it, unless you want to simulate a partial circuit.  Scripted and interactive modifications to the circuit are done the way gnucap usually does.\n"
-msgstr "Схема должна быть полностью определена до вызова любой работающей с ней команды, за исключением случаев, когда нужно произвести моделирование для части схемы. Изменения схемы скриптовым и интерактивным способом производятся так же, как они делаются в gnucap и обычно.\n"
+msgstr ""
 
 #. type: Title ======
 #: start.txt:1
@@ -19483,10 +19217,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: start.txt:16
-#, fuzzy, no-wrap
-#| msgid "[[http://gnucap.org/gnucap-man-html/gnucap-man107.html|old tech notes]]\n"
+#, no-wrap
 msgid "[[http://gnucap.org/gnucap.html|Old web site]]\n"
-msgstr "[[http://gnucap.org/gnucap-man-html/gnucap-man107.html|Старые технические заметки]]\n"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: start.txt:16
@@ -19526,10 +19259,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: start.txt:16
-#, fuzzy, no-wrap
-#| msgid "[[gnucap:manual:Introduction]]\n"
+#, no-wrap
 msgid "[[gnucap:user:user|User contributions]]\n"
-msgstr "[[gnucap:manual:Introduction.ru |Введение            ]]\n"
+msgstr ""
 
 #. type: Plain text
 #: user/alias.txt:2
@@ -19557,10 +19289,8 @@ msgstr ""
 #: user/history.txt:8 user/mdump.txt:8 user/quit.txt:8 user/shell.txt:8
 #: user/strcmp.txt:8 user/sysinfo.txt:8 user/unalias.txt:8 user/undef.txt:8
 #: user/version.txt:8
-#, fuzzy
-#| msgid "Syntax"
 msgid "Syntax:"
-msgstr "Синтаксис"
+msgstr ""
 
 #. type: Plain text
 #: user/alias.txt:10
@@ -19575,10 +19305,8 @@ msgstr ""
 #: user/set.txt:12 user/setv.txt:12 user/shell.txt:12 user/strcmp.txt:13
 #: user/sysinfo.txt:12 user/unalias.txt:13 user/undef.txt:13
 #: user/version.txt:12
-#, fuzzy
-#| msgid "Comments"
 msgid "Comments:"
-msgstr "Описание"
+msgstr ""
 
 #. type: Plain text
 #: user/alias.txt:14
@@ -19593,10 +19321,8 @@ msgstr ""
 #: user/noise_syntax.txt:19 user/quit.txt:15 user/set.txt:16 user/setv.txt:16
 #: user/shell.txt:18 user/strcmp.txt:17 user/sysinfo.txt:16
 #: user/unalias.txt:19 user/undef.txt:17 user/version.txt:16
-#, fuzzy
-#| msgid "Examples:"
 msgid "Example:"
-msgstr "Примеры:"
+msgstr ""
 
 #. type: Plain text
 #: user/alias.txt:24
@@ -19643,16 +19369,11 @@ msgstr ""
 
 #. type: Plain text
 #: user/alter.txt:23
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  gnucap> save eg1.ckt\n"
-#| "  gnucap>\n"
+#, no-wrap
 msgid ""
 "      gnucap>alter vcc = 15\n"
 "      gnucap>\n"
 msgstr ""
-"  gnucap> save eg1.ckt\n"
-"  gnucap>\n"
 
 #. type: Plain text
 #: user/alter.txt:25
@@ -19661,16 +19382,11 @@ msgstr ""
 
 #. type: Plain text
 #: user/alter.txt:28
-#, fuzzy, no-wrap
-#| msgid ""
-#| "  gnucap> save eg1.ckt\n"
-#| "  gnucap>\n"
+#, no-wrap
 msgid ""
 "       gnucap>alter R1=5k R2=100\n"
 "       gnucap>\n"
 msgstr ""
-"  gnucap> save eg1.ckt\n"
-"  gnucap>\n"
 
 #. type: Plain text
 #: user/another_page.txt:1
@@ -19704,10 +19420,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/asco_for_gnucap.txt:8
-#, fuzzy
-#| msgid "Implementation"
 msgid "====Implementation===="
-msgstr "Реализация "
+msgstr ""
 
 #. type: Plain text
 #: user/asco_for_gnucap.txt:10
@@ -19894,10 +19608,8 @@ msgstr ""
 #. type: Plain text
 #: user/circbyline.txt:5 user/rmcirc.txt:5 user/run.txt:5 user/showmod.txt:5
 #: user/source.txt:5
-#, fuzzy
-#| msgid "Status"
 msgid "Status:Done"
-msgstr "Состояние"
+msgstr ""
 
 #. type: Plain text
 #: user/cls.txt:2
@@ -20022,23 +19734,16 @@ msgstr ""
 
 #. type: Title ======
 #: user/command_plugins.txt:1
-#, fuzzy, no-wrap
-#| msgid "Command plugins"
+#, no-wrap
 msgid "Commands Checklist"
-msgstr "Плагины для реализации команд"
+msgstr ""
 
 #. type: Plain text
 #: user/command_plugins.txt:6
-#, fuzzy
-#| msgid ""
-#| "Gnucap commands are defined by plugins.  This section defines all "
-#| "commands supplied in the main tarball."
 msgid ""
 "Gnucap commands are defined by plugins.  This section defines all commands "
 "supplied in the gnucap-WIP branch."
 msgstr ""
-"Команды gnucap определяются посредством плагинов. В настоящем разделе "
-"определяются все команды, поставляемые в основном tar-архиве."
 
 #. type: Bullet: '* '
 #: user/command_plugins.txt:13
@@ -20343,10 +20048,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/echo.txt:14
-#, fuzzy
-#| msgid "Commands are executed in the order given."
 msgid "Command echoes the text in the interpreter."
-msgstr "Команды выполняются в порядке их задания."
+msgstr ""
 
 #. type: Plain text
 #: user/echo.txt:23
@@ -20471,10 +20174,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/gnucap_linear_solver.txt:47 user/language_plugin_for_gschem.txt:160
-#, fuzzy
-#| msgid "<code>\n"
 msgid "</code>"
-msgstr "<code>\n"
+msgstr ""
 
 #. type: Title ===
 #: user/gnucap_nonlinear_solver.txt:1
@@ -20818,12 +20519,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/gnucap_nonlinear_solver.txt:121
-#, fuzzy
-#| msgid "Temperature adjustments and scaling use the following formula:"
 msgid "To calculate F we can use the following formula:"
 msgstr ""
-"Для масштабирования и температурной коррекции значений используется "
-"следующая формула:"
 
 #. type: Plain text
 #: user/gnucap_nonlinear_solver.txt:123
@@ -20841,10 +20538,9 @@ msgstr ""
 
 #. type: Title ===
 #: user/gnucap_nonlinear_solver.txt:127
-#, fuzzy, no-wrap
-#| msgid "\"Other\" commands"
+#, no-wrap
 msgid "Other Sections"
-msgstr "Прочие команды"
+msgstr ""
 
 #. type: Plain text
 #: user/gnucap_nonlinear_solver.txt:130
@@ -21696,10 +21392,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/language_plugin_for_qucs.txt:34
-#, fuzzy
-#| msgid "The first letter of the label determines the type:"
 msgid "The first letter in the netlist gives the component type"
-msgstr "Первая буква обозначения определяет тип устройства:"
+msgstr ""
 
 #. type: Plain text
 #: user/language_plugin_for_qucs.txt:36
@@ -22048,10 +21742,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: user/netlist_import_and_export.txt:26
-#, fuzzy, no-wrap
-#| msgid "Simulate"
+#, no-wrap
 msgid "simulation\n"
-msgstr "Моделирование"
+msgstr ""
 
 #. type: Title ====
 #: user/netlist_import_and_export.txt:27
@@ -22126,10 +21819,9 @@ msgstr ""
 
 #. type: Bullet: '  * '
 #: user/netlist_import_and_export.txt:60
-#, fuzzy, no-wrap
-#| msgid "Commands"
+#, no-wrap
 msgid "Commands\n"
-msgstr "Команды"
+msgstr ""
 
 #. type: Bullet: '  * '
 #: user/netlist_import_and_export.txt:60
@@ -22179,10 +21871,9 @@ msgstr ""
 
 #. type: Title ====
 #: user/netlist_import_and_export.txt:72
-#, fuzzy, no-wrap
-#| msgid "Spice format"
+#, no-wrap
 msgid "Some possible formats"
-msgstr "Формат SPICE"
+msgstr ""
 
 #. type: Title ===
 #: user/netlist_import_and_export.txt:74
@@ -22201,10 +21892,9 @@ msgstr ""
 
 #. type: Title ===
 #: user/netlist_import_and_export.txt:78
-#, fuzzy, no-wrap
-#| msgid "Verilog format"
+#, no-wrap
 msgid "Verilog"
-msgstr "Формат Verilog"
+msgstr ""
 
 #. type: Plain text
 #: user/netlist_import_and_export.txt:81 user/netlist_import_and_export.txt:85
@@ -22222,10 +21912,9 @@ msgstr ""
 
 #. type: Title ===
 #: user/netlist_import_and_export.txt:86
-#, fuzzy, no-wrap
-#| msgid "  spectre\n"
+#, no-wrap
 msgid "Spectre"
-msgstr "  spectre\n"
+msgstr ""
 
 #. type: Plain text
 #: user/netlist_import_and_export.txt:89
@@ -22312,10 +22001,9 @@ msgstr ""
 
 #. type: Title =====
 #: user/netlist_import_and_export.txt:108
-#, fuzzy, no-wrap
-#| msgid "Options"
+#, no-wrap
 msgid "Applications"
-msgstr "Опции"
+msgstr ""
 
 #. type: Plain text
 #: user/netlist_import_and_export.txt:111
@@ -22343,10 +22031,9 @@ msgstr ""
 
 #. type: Plain text
 #: user/netlist_import_and_export.txt:121
-#, fuzzy, no-wrap
-#| msgid "  type #(arguments) label (port list) ;\n"
+#, no-wrap
 msgid "  type #(attributes) name (connections);\n"
-msgstr "|''//тип// #(//аргументы//) //обозначение// (//список портов//) ;''|\n"
+msgstr ""
 
 #. type: Plain text
 #: user/netlist_import_and_export.txt:126
@@ -22487,12 +22174,8 @@ msgstr ""
 
 #. type: Plain text
 #: user/newtonnumericexample1.txt:14
-#, fuzzy
-#| msgid "This is equivalent to the native mode:"
 msgid "Which is equivalent to equation:"
 msgstr ""
-"Это эквивалентно следующим командам в режиме работы с собственной системой "
-"команд gnucap:"
 
 #. type: Plain text
 #: user/newtonnumericexample1.txt:16
@@ -22564,10 +22247,9 @@ msgstr ""
 
 #. type: Title =====
 #: user/noise_implementation.txt:1
-#, fuzzy, no-wrap
-#| msgid "Implementation"
+#, no-wrap
 msgid "Noise Implementation"
-msgstr "Реализация "
+msgstr ""
 
 #. type: Plain text
 #: user/noise_implementation.txt:4
@@ -22645,10 +22327,9 @@ msgstr ""
 
 #. type: Title ==
 #: user/noise_implementation.txt:40 user/noise_syntax.txt:29
-#, fuzzy, no-wrap
-#| msgid "Input / Output"
+#, no-wrap
 msgid "Output"
-msgstr "Вход / Выход"
+msgstr ""
 
 #. type: Plain text
 #: user/noise_implementation.txt:45 user/noise_syntax.txt:34
@@ -23435,10 +23116,9 @@ msgstr ""
 
 #. type: Plain text
 #: user/version.txt:10
-#, fuzzy, no-wrap
-#| msgid "  eval expression\n"
+#, no-wrap
 msgid "  version\n"
-msgstr "|''**eval** //выражение//''|\n"
+msgstr ""
 
 #. type: Plain text
 #: user/version.txt:14
@@ -23453,12 +23133,3 @@ msgid ""
 "      Gnucap Version: 2009.12.07 RCS 26.136\n"
 "      gnucap>\n"
 msgstr ""
-
-#~ msgid ""
-#~ "  vsource   #(10)   Vin     (in, 0);\n"
-#~ "  inductor  #(.01)  Lseries (in, out);\n"
-#~ "  capacitor #(100u) Cshunt  (out, 0);\n"
-#~ msgstr ""
-#~ "  vsource   #(10)   Vin     (in, 0);\n"
-#~ "  inductor  #(.01)  Lseries (in, out);\n"
-#~ "  capacitor #(100u) Cshunt  (out, 0);\n"
