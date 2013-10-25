@@ -1,0 +1,94 @@
+====== Language plugins : Implementation ======
+
+===== parse, print module =====
+
+==== Background ====
+
+A module is container of instances.  To a compiler, a module can also contain code to be executed, but gnucap does not directly support that.
+
+A Spice "subckt" is a module.
+
+  * type -- A module defines a new type.
+  * [[.:label]] -- The label is the name of the new type.
+  * [[.:ports]] -- This is the list of connections.
+  * [[.:args]] -- The arg list is optional.  If left out, the arg list is open.  It accepts whatever it is fed.
+
+==== parse_module ====
+
+A module is a collection.  Parsing it means to parse the header, then the body, then the trailer.  Parsing the body is a loop, getting text and calling ''new_''''_instance'' on each pass, until some indication that it is done.  It is important to have some kind of guarantee that the loop will exit.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+MODEL_SUBCKT* LANG_SPECTRE::parse_module(CS& cmd, MODEL_SUBCKT* x)
+{
+  assert(x);
+
+  // header
+  cmd.reset(0).skipbl();
+  cmd >> "subckt ";
+  parse_label(cmd, x);
+  parse_ports(cmd, x);
+
+  // body
+  for (;;) {
+    cmd.get_line("spectre-subckt>");
+
+    if (cmd >> "ends ") {
+      break;
+    }else{
+      new__instance(cmd, x, x->subckt());
+    }
+  }
+  return x;
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== print_module ====
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANG_SPICE_BASE::print_module(OMSTREAM& o, const MODEL_SUBCKT* x)
+{
+  assert(x);
+  assert(x->subckt());
+
+  o << ".subckt " <<  x->short_label();
+  print_ports(o, x);
+  o << '\n';
+
+  for (CARD_LIST::const_iterator
+	 ci = x->subckt()->begin(); ci != x->subckt()->end(); ++ci) {
+    print_item(o, *ci);
+  }
+
+  o << ".ends " << x->short_label() << "\n";
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== A command to get it started ====
+
+In addition to the above, it is necessary to make a command to recognize a keyword to get it started.
+
+It needs to allocate a new ''MODEL_SUBCKT'', parse it, then store it.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+class CMD_SUBCKT : public CMD {
+  void do_it(CS& cmd, CARD_LIST* Scope)
+  {
+    MODEL_SUBCKT* new_module = new MODEL_SUBCKT;
+    assert(new_module);
+    assert(!new_module->owner());
+    assert(new_module->subckt());
+    assert(new_module->subckt()->is_empty());
+    lang_spectre.parse_module(cmd, new_module);
+    Scope->push_back(new_module);
+  }
+} p2;
+DISPATCHER<CMD>::INSTALL d2(&command_dispatcher, "subckt", &p2);
+/*--------------------------------------------------------------------------*/
+</code>
+
+

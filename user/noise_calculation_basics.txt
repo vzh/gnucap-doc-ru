@@ -1,0 +1,4 @@
+=== Noise calculations basics ===
+
+Noise is claculated using adjacent system method
+[TBD GS - complete, explain ]

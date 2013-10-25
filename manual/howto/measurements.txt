@@ -1,0 +1,14 @@
+===== Measures =====
+
+"Point" here refers to time, frequency, or whatever is the independent "x" value.
+
+|[[gnucap:manual:measure:at]]     |The value of a wave at a point, or its derivative.  |
+|[[gnucap:manual:measure:mean|average]]\\ [[gnucap:manual:measure:mean]]              |Average or mean value.  |
+|[[gnucap:manual:measure:cross]]  |Find crossings.  |
+|[[gnucap:manual:measure:integrate]]\\ [[gnucap:manual:measure:integrate|area]]  |The area under the curve.  |
+|[[gnucap:manual:measure:max]]    |Maximum value, or its point.  |
+|[[gnucap:manual:measure:min]]    |Minimum value, or its point.  |
+|[[gnucap:manual:measure:rms]]    |The RMS value.  |
+|[[gnucap:manual:measure:slope|slewrate]]\\ [[gnucap:manual:measure:slope]]\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |
+
+

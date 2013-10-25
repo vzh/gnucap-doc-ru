@@ -1,0 +1,15 @@
+====== Language plugins : Implementation ======
+
+===== lang_base.h =====
+
+If your version of gnucap does not supply lang_base.h, use this one, copy it to the place where the gnucap headers are.
+
+<code cpp>
+#include "globals.h"
+#include "c_comand.h"
+#include "d_dot.h"
+#include "d_coment.h"
+#include "d_subckt.h"
+#include "e_model.h"
+#include "u_lang.h"
+</code>

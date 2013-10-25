@@ -1,0 +1,21 @@
+====== Plugins ======
+
+Gnucap is designed to use a light-weight, portable core that provides an environment to which new features can be added as "plugins" which are supported separately from the main simulator.  These plugins can be loaded and unloaded at run time if desired.  Most plugins can also be "static linked" if desired, giving the appearance of a traditional single executable program that will run on relatively primitive systems.
+
+Since plugins can be loaded at run time, it is possible to have the main program, and a standard set of libraries and plugins, installed and managed on a network, or by the system administrator, and provide a way for each user to add custom features including models.
+
+In the usual configuration, a set of plugins is loaded automatically, giving the capability expected of a Spice-like simulator, with some enhancements.
+
+Plugins are standard compiled shared object modules, usually ".so" or ".dll" files.  The source of plugins is portable across platforms, but the compiled code must be compiled for the specific system.
+
+At the lowest level, plugins are written in C++ and compiled.  There will be tools to support other languages, using preprocessors, wrappers, or both.  They can be added at any time, without recompiling the simulator core.
+
+  * [[gnucap:about:plugins:models|Models.]]
+  * [[gnucap:about:plugins:commands|Commands.]]
+  * [[gnucap:about:plugins:methods|Simulation methods.]]
+  * [[gnucap:about:plugins:functions|Behavioral modeling functions.]]
+  * [[gnucap:about:plugins:measurements|Measurements]]
+  * [[gnucap:about:plugins:interface|Interface to other software.]]
+  * [[gnucap:about:plugins:languages|Simulation languages and compatibility]]
+  * [[gnucap:about:plugins:other:|Almost anything.]]
+

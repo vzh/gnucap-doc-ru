@@ -33,3 +33,4 @@ Delete R12 and C3.
 Delete all resistors. (Also, any models and subcircuits starting with R.)
   clear
 Clear out everything to start over.
+

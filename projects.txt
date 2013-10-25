@@ -1,0 +1,37 @@
+====== Projects ======
+
+Gnucap is inviting anyone to take on projects.  Most of them involve creating plugins.  All of them create something that is identifiably yours, that will be noticed.  Most of them will stretch your skills a bit.  If you want to learn about simulation, beyond what you can get at school, this is the place.
+
+Here are some suggestions:
+===== Interface to other free EDA software =====
+
+The "language plugins" allow gnucap to read and write different netlist languages.  They can also provide the capability to directly read and write the formats of schematic and layout programs such as gEDA and Kicad.  Any one of these is a good "summer-of-code" project.
+
+The formats in need of support, grouped by priority:
+
+  - Free schematic formats:  <del>gEDA/gschem</del>, Kicad/eeschema, Qucs
+  - Free PCB layout formats:  gEDA/PCB, Kicad/pcbnew
+  - Proprietary formats:  Eagle, Multisim, Orcad, LTspice
+
+Formats that are <del>crossed out</del> are already works in progress.
+
+These plugins, when used with gnucap, will provide an interface for smooth interoperation.  When used with gnucap's translation utility (a subset of gnucap), they will provide the ability to translate from any supported format to any other, and also to a Verilog based intermediate language that can be used as a neutral, nonproprietary exchange format.
+
+
+
+
+
+===== Command compatibility plugins =====
+
+Some other simulators have a scripting language with lots of commands.  One example is the "nutmeg" part of Spice.  Gnucap has the mechanism, but only a few commands are implemented.
+
+A possible summer of code project would be to implement a set of these commands.  One or two commands would be a very easy project, too easy for a whole summer.  A bunch of these commands, would be a great project.
+
+These plugins, combined with "output compatibility" plugins will allow gnucap to be used as a drop-in replacement for commercial simulators in some applications.
+
+===== Output compatibility plugins =====
+
+The only output format supported by gnucap has been a generic ASCII format that is compatible with most spreadsheets and general purpose programs like octave and gnuplot.  We need more specific formats, to support some more special purpose post-processor tools.  The most obvious here is a Spice "rawfile" format.  There are both binary and ASCII formats, many of them.  Some are similar enough that if you have one, a trivial change gives you another.  The most requested seems to be the "HSpice" format, and the Tiburon format, which are often used as references.  These are similar, and the Spice3f5 format is close enough to be a trivial edit away.
+
+These plugins, combined with "command compatibility" plugins will allow gnucap to be used as a drop-in replacement for commercial simulators in some applications.
+

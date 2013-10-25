@@ -28,7 +28,7 @@ Most plugins will create new subtypes of something.  To explain how it works, I 
 
 We have a base class:
 
-<code>
+<code cpp>
 class FUNCTION {
 public:
   virtual double eval(double arg)const = 0;
@@ -42,13 +42,13 @@ This base class is simple.  It has one member function, which a number as input,
 Let's make a function to take the absolute value of a numeric argument, as a plugin.
 You need to include the header:
 
-<code>
+<code cpp>
 #include "u_function.h"
 </code>
 
 Then make a derived class, and create one instance of it.
 
-<code>
+<code cpp>
 class abs : public FUNCTION {
 public:
   std::string eval(double arg)const
@@ -60,14 +60,13 @@ public:
 
 Now, register it with the dispatcher so we can find it:
 
-<code>
+<code cpp>
 DISPATCHER<FUNCTION>::INSTALL d1(&function_dispatcher, "abs", &p);
 </code>
 
 If you want to also access it by another name, you can do that too:
 
-<code>
-
+<code cpp>
 DISPATCHER<FUNCTION>::INSTALL d2(&function_dispatcher, "absolute_value", &p);
 </code>
 
@@ -79,10 +78,10 @@ If you want to also be able to static-link this plugin, enclose the class and di
 
 Here's an example of another one with the same base, all together so you can see it as a unit:
 
-<code>
-#include "fake_function.h"
+<code cpp>
+#include "u_function.h"
 
-class square : public FAKE_FUNCTION {
+class square : public FUNCTION {
 public:
   std::string eval(double arg)const
   {
@@ -113,3 +112,4 @@ Then you can load it:
 <code>
 gnucap> load ./outfile.so
 </code>
+

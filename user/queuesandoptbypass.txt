@@ -1,0 +1,30 @@
+=== Queues and OPT::bypass ===
+
+To improve speed GNucap solver uses device queues, most queues are activated when OPT::bypass is set to true.
+
+This section will create analysis  of how this is implemented.
+
+== No bypass (OPT::bypass==false) ==
+
+Looking at code of SIM::evaluate_models() - if (OPT::bypass==false) then
+only _late_evalq queue is used.
+
+  * first for all devices do_tr() is performed (no queues);
+  * then - for devices in _late_evalq queue is executed method do_tr_last();
+
+
+Same approach is used in TRANSIENT::sweep():
+
+  * for all devices is executed do_tr()
+  * for _late_evalq is executed do_tr_last()
+
+_late_evalq itself is declared in u_sim_data.h
+
+elements can be added to _late_evalq are:
+
+  * d_cccs
+  * d_ccvs
+  * d_coil
+
+== bypass (OPT::bypass==true) ==
+TBD

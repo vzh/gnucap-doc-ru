@@ -1,0 +1,103 @@
+====== Language plugins : Implementation ======
+
+===== parse, print args =====
+
+==== Background ====
+
+"Args" are the parameters of the device.
+
+Some languages read in args by order, some by name, some either way.
+
+When reading by order, the meaning is determined by the order in the list.  A single value, such as resistance of a resistor, specified as just a number, is a simple case of reading by order.  There is also a special case that allows you to identify one as the "value" and read the rest by name.
+
+The syntax varies.  Some separate by whitespace, some separate by a comma.  Some may use "name=value".  Another may use ".name(value)".
+
+All of this must be considered in coding these functions.  Because of this, we cannot say to "usually" use a particular function.
+
+Some languages and devices use a different method "obsolete_callback" to handle the args.  This is legacy code remaining from before there were plugins.  Those will be recoded, and eventually obsolete_callback will be removed.  It is not otherwise documented here.
+
+==== parse_args ====
+
+This functions reads the args from the input and stores the info.
+
+Here is an example from Verilog, which accepts either order dependent or name=value pairs.  The whole list is enclosed in parentheses.  The port names are separated by commas.  The format for a name=value pair is ''.name(value)''.
+
+Remember, in the CS stream class "stream >> variable" reads into the variable, like the usual C++ iostream.  As an extension "stream >> constant" reads and consumes only a matching constant from the stream.
+
+While reading by order, the value is set by the function ''set_param_by_index(index, value)''.  An exception ''Exception_Too_Many'' will be thrown if there are too many.  Your code must catch the exception, and should print a message, and move on.
+
+Due to the way hierarchy is implemented, the count is backwards.  The highest numbered parameter is first.  One way to do this is to use an index that starts at 0 and is incremented with every read, and subtract that from ''x->param_count()''.   Alternatively, you could start at ''x->param_count()-1'' and count down.
+
+While reading by name, the value is set by the function ''set_param_by_name(name, value)''.  An exception ''Exception_No_Match'' will be thrown if the device type does not have a parameter that matches.  Your code must catch the exception.  Probably it should print a message, and move on.  In some cases, you may want to silently ignore invalid parameters.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void parse_args_instance(CS& cmd, CARD* x)
+{
+  assert(x);
+
+  if (cmd >> "#(") {
+    if (cmd.match1('.')) {
+      // by name
+      while (cmd >> '.') {
+	unsigned here = cmd.cursor();
+	std::string name  = cmd.ctos("(", "", "");
+	std::string value = cmd.ctos(",)", "(", ")");
+	cmd >> ',';
+	try{
+	  x->set_param_by_name(name, value);
+	}catch (Exception_No_Match&) {untested();
+	  cmd.warn(bDANGER, here, x->long_label() + ": bad parameter " + name + " ignored");
+	}
+      }
+    }else{
+      // by order
+      int index = 1;
+      while (cmd.is_alnum() || cmd.match1("+-.")) {
+	unsigned here = cmd.cursor();
+	try{
+	  std::string value = cmd.ctos(",)", "", "");
+	  x->set_param_by_index(x->param_count() - index++, value, 0/*offset*/);
+	}catch (Exception_Too_Many& e) {untested();
+	  cmd.warn(bDANGER, here, e.message());
+	}
+      }
+    }
+    cmd >> ')';
+  }else{
+    // no args
+  }
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== print_args ====
+
+Printing the arg list is just a loop.
+
+The print loop prints them in order, the same order as the order dependent readin.
+
+Due to the way hierarchy is implemented, the count is backwards.  The highest numbered parameter is first.  One way to do this is to use an index that starts at 0 and is incremented with every read, and subtract that from ''x->param_count()''.   Alternatively, you could start at ''x->param_count()-1'' and count down.
+
+For a device that uses the "obsolete_callback", no loop is needed, just call ''print_args_obsolete_callback'' and let the device code do the work.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANG_VERILOG::print_args(OMSTREAM& o, const MODEL_CARD* x)
+{
+  assert(x);
+  if (x->use_obsolete_callback_print()) {
+    x->print_args_obsolete_callback(o, this);  //BUG//callback//
+  }else{
+    for (int ii = x->param_count() - 1;  ii >= 0;  --ii) {
+      if (x->param_is_printable(ii)) {
+	std::string arg = " ." + x->param_name(ii) + "=" + x->param_value(ii) + ";";
+	o << arg;
+      }else{
+      }
+    }
+  }
+}
+/*--------------------------------------------------------------------------*/
+</code>
+

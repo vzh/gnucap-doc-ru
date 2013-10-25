@@ -88,3 +88,4 @@ Examples:
   vsource   #(10)   Vin     (in, 0);
   inductor  #(.01)  Lseries (in, out);
   capacitor #(100u) Cshunt  (out, 0);
+  resistor  #(100)  Rload   (out, 0);

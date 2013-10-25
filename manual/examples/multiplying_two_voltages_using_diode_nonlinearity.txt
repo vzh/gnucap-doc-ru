@@ -77,3 +77,4 @@ the multiplier on a few DC sweeps but want to change the value of "V2"
 between the sweeps. This allows a single batch run to test multiple
 possibilities, or it can also be used interactively to trim a component
 value into the value that gives the desired operating point.
+

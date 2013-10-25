@@ -1,0 +1,117 @@
+====== Language plugins ======
+
+===== Implementation =====
+
+==== parse, print ports ====
+
+=== Background ===
+
+Ports are the connections, how this particular instance is connected to the rest of the circuit.
+
+Paramsets do not have ports.
+
+In most languages, ports are nodes.  "Through" ports such as currents are rarely supported.  In a language that does support current ports, the syntax is the same.
+
+Most languages read in ports by order.  The meaning of a port is determined by the order in a port list.  For example, in a diode, the first is the anode, the second is the cathode.
+
+Some also support name=value pairs.  Some use either.
+
+The syntax varies.  Some separate by whitespace, some separate by a comma.  Some may use "name=value".  Another may use ".name(value)".
+
+All of this must be considered in coding these functions.  Because of this, we cannot say to "usually" use a particular function.
+
+=== parse_ports ===
+
+This functions reads the ports from the input and stores the info.
+
+Here is an example from Verilog, which accepts either order dependent or name=value pairs.  The whole list is enclosed in parentheses.  The port names are separated by commas.  The format for a name=value pair is ''.name(value)''.
+
+Remember, in the CS stream class "stream >> variable" reads into the variable, like the usual C++ iostream.  As an extension "stream >> constant" reads and consumes only a matching constant from the stream.
+
+While reading by order, the value is set by the function ''set_port_by_index(index, value)''.  The index starts at 0 and must be incremented with every read.  An exception ''Exception_Too_Many'' will be thrown if there are too many.  Your code must catch the exception, and should print a message, and move on.
+
+While reading by name, the value is set by the function ''set_port_by_name(name, value)''.  An exception ''Exception_No_Match'' will be thrown if the device type does not have a parameter that matches.  Your code must catch the exception.  Probably it should print a message, and move on.  In some cases, you may want to silently ignore invalid parameters.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void parse_ports(CS& cmd, COMPONENT* x)
+{
+  assert(x);
+
+  if (cmd >> '(') {
+    if (cmd.is_alnum()) {
+      // by order
+      int index = 0;
+      while (cmd.is_alnum()) {
+	unsigned here = cmd.cursor();
+	try{
+	  std::string value;
+	  cmd >> value;
+	  x->set_port_by_index(index++, value);
+	}catch (Exception_Too_Many& e) {untested();
+	  cmd.warn(bDANGER, here, e.message());
+	}
+      }
+    }else{
+      // by name
+      while (cmd >> '.') {
+	unsigned here = cmd.cursor();
+	try{
+	  std::string name, value;
+	  cmd >> name >> '(' >> value >> ')' >> ',';
+	  x->set_port_by_name(name, value);
+	}catch (Exception_No_Match&) {untested();
+	  cmd.warn(bDANGER, here, "mismatch, ignored");
+	}
+      }
+    }
+    cmd >> ')';
+  }else{untested();
+    cmd.warn(bDANGER, "'(' required (parse ports)");
+  }
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+=== print_ports ===
+
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void print_ports_long(OMSTREAM& o, const COMPONENT* x)
+{
+  // print in long form ...    .name(value)
+  assert(x);
+
+  o << " (";
+  std::string sep = ".";
+  for (int ii = 0;  x->port_exists(ii);  ++ii) {
+    o << sep << x->port_name(ii) << '(' << x->port_value(ii) << ')';
+    sep = ",.";
+  }
+  for (int ii = 0;  x->current_port_exists(ii);  ++ii) {
+    o << sep << x->current_port_name(ii) << '(' << x->current_port_value(ii) << ')';
+    sep = ",.";
+  }
+  o << ")";
+}
+/*--------------------------------------------------------------------------*/
+static void print_ports_short(OMSTREAM& o, const COMPONENT* x)
+{
+  // print in short form ...   value only
+  assert(x);
+
+  o << " (";
+  std::string sep = "";
+  for (int ii = 0;  x->port_exists(ii);  ++ii) {
+    o << sep << x->port_value(ii);
+    sep = ",";
+  }
+  for (int ii = 0;  x->current_port_exists(ii);  ++ii) {
+    o << sep << x->current_port_value(ii);
+    sep = ",";
+  }
+  o << ")";
+}
+/*--------------------------------------------------------------------------*/</code>
+

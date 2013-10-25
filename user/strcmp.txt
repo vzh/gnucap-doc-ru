@@ -1,0 +1,26 @@
+**14.STRCMP**
+
+Purpose:Compares two string
+
+Status:Implemented
+
+Syntax:
+
+    strcmp string1 string2
+    strcmp --help
+
+Comments:
+
+Compare two strings and outputs 0 if the two strings are equal otherwise output is the difference of the first non-matching character in string1 and string2. Strings may be passed with or without ” ”.
+
+Example:
+
+    gnucap> strcmp "hello" hello   evaluates to true(flag=0)
+    flag=0
+    gnucap> strcmp hello hello     also evaluates to true.
+    flag=0
+    gnucap> strcmp --help          prints the usage of the command.
+    Usage: strcmp string1 string2
+    Output Value:output variable flag is 0 if the two strings are equal otherwise output is the difference of the first non-matching character
+    in string1 and string2.
+    gnucap>

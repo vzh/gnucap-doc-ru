@@ -1,0 +1,27 @@
+**2.DEF**
+
+Purpose:Command is used to define a function.
+
+Status:Implemented
+
+Syntax:
+
+    def [function_name]
+
+Comments:
+
+Maximum three arguments can be provided which can be of type int or float.Variables are named x,y,z by default and only these variables should be used in the expression.
+
+Example:
+
+      gnucap>def f
+      >x*2+y*2+z*2
+      gnucap>f(1,2,3)
+      12.
+      gnucap>f(1.0,2.2,3.4)
+      13.2
+      gnucap>def max
+      >(x>y)*x+(x<=y)*y
+      gnucap>max(3.0,4.0)
+      4.0
+      gnucap>

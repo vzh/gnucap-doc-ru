@@ -1,0 +1,85 @@
+===== Test Macros =====
+
+Gnucap supplies a set of test macros in the file gnucap/io_trace.h .
+
+This file may be included more than once, at any place in the code, to change the options.
+
+All of these macros do nothing when compiled with default settings.  They exist so they can be left in the code and enabled or disabled as needed by developers without burdening end users with their clutter.
+
+=== unreachable() ===
+
+  #define unreachable() (printf("@@#\n@@@unreachable:%s:%u:%s\n", \
+			   __FILE__, __LINE__, __func__))
+
+It prints the word "unreachable", the source file name, line number, and function name.
+
+Use this macro to identify blocks of code that are unreachable in normal use.  Any output when the program is run indicates bugs in the code.
+
+It is appropriate to question why such a block of code should exist at all.  Normally, it shouldn't and should be removed.  However, there are cases where a function or other code must exist to satisfy a link requirement or to defeat something.
+
+One example of the link requirement is member functions in a base class that are overridden.  The usual recommended style is to use a "pure virtual", but then you can't instantiate any instances unless an overriding function exists.  In some cases, it is known that it is never used, but required for instantiation, hence "unreachable".
+
+Another example is overriding default and copy constructors with the purpose of preventing their use.  If you don't define one, C++ will create public default and copy constructors without asking.  To prevent automatic construction or copying, you could make them private, but to make it private you need to define your own.  In this case, those inhibiting constructors are unreachable.
+
+Usually an "unreachable" block can be empty except for the macro call.
+
+=== incomplete() ===
+
+  #define incomplete() (printf("@@#\n@@@incomplete:%s:%u:%s\n", \
+			   __FILE__, __LINE__, __func__))
+
+It prints the word "incomplete", the source file name, line number, and function name.
+
+Use this macro to identify blocks of code that are known to not function correctly.
+
+This is intended to be used as a reminder that attention is needed here, otherwise the problems could be forgotten until they show in a more unpleasant way.
+
+=== untested() ===
+
+  #ifdef TRACE_UNTESTED
+  #define untested() (printf("@@#\n@@@:%s:%u:%s\n", \
+			   __FILE__, __LINE__, __func__))
+  #else
+  #define untested()
+  #endif
+
+If ''TRACE_UNTESTED'' is defined, it prints the source file name, line number, and function name.  Otherwise (normally) it does nothing.
+
+It is used in code coverage testing, and to identify blocks of code for which testing is inadequate, specifically blocks of code that are not covered by the suite of test files.
+
+Such blocks of code are suspect when bugs are reported.
+
+=== itested() ===
+
+  #ifdef TRACE_ITESTED
+  #define itested() (printf("@@#\n@@@:%s:%u:%s\n", \
+			   __FILE__, __LINE__, __func__))
+  #else
+  #define itested()
+  #endif
+
+If ''TRACE_ITESTED'' is defined, it prints the source file name, line number, and function name.  Otherwise (normally) it does nothing.
+
+It is used in code coverage testing, and to identify blocks of code for which only interactive informal testing was done.  It was tested, but the test suite does not cover it.
+
+=== trace0(), trace1(), trace2(), .... ===
+
+  #ifdef DO_TRACE
+  #define trace0(s) (printf("@#@%s\n", s))
+  #define trace1(s,x) (printf("@#@%s  %s=%g\n", s, #x, (double)(x)))
+  #else
+  #define trace0(s)
+  #define trace1(s,x)
+  #endif
+
+If ''DO_TRACE'' is defined, it prints something, otherwise (normally) it does nothing.
+
+''trace0'' prints a string message.
+
+''trace1'' prints a string message and one argument.
+  trace1("hello", data);
+prints:
+  hello data=329232
+
+and so on.
+

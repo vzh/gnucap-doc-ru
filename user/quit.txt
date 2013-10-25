@@ -1,0 +1,19 @@
+**7.QUIT**
+
+Purpose:Terminates the gnucap interpreter
+
+Status:Implemeted
+
+Syntax:
+
+    quit
+    quit [status]
+
+Comments: This quit command is the modified form of the current quit command.status(integer)can be passed as a parameter which signals the success or failure of the termination process to the Operating System.Non-zero status indicates unsuccessful termination to the Operating System.
+
+Example:
+
+     gnucap>quit 0       returns a success value to the Operating system
+     Make sure you have saved everything you wanted to.
+     Are you sure you want to quit?y/n:
+

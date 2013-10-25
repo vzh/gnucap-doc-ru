@@ -15,3 +15,6 @@ Several Spice diode models are available.  They are not documented here.
 |models-ngspice17    |bjt   |1      |NGspice-17    |++++  works         |similar to standard  |
 |models-ngspice17    |bjt2  |2      |NGspice-17    |+++   works         |similar to standard  |
 |models-ngspice17    |vbic  |4      |NGspice-17    |++++  works         |Colin McAndrew's VBIC model  |
+
+
+

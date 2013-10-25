@@ -32,3 +32,4 @@ Params are interpreted like a functional language so they will be updated whenev
   measure t0 = min(probe="v(out)" arg last before=t2)
 Find the last time when a minimum occurred before t2.
   param risetime = {t2-t0}
+

@@ -1,0 +1,45 @@
+====== User contributions ======
+
+This page provides an area for users to make contributions.
+
+To add yours ....
+  - Create an account for yourself
+  - Edit this page to add a link to the new page you will make
+  - Make the new page for your contribution.
+
+----
+\\
+[[Noise implementation]] - here is all stuff related to .noise command implementation: syntax, noise calculation basics, discussions regarding noise implementation and code-related stuff. Noise command implementation is not complete yet, so all material have "working" status.
+
+[[Gnucap Nonlinear Solver]] - explanation of Gnucap nonlinear solver. Comparison with classic Newton formulation and some additional considerations
+
+[[Gnucap Linear Solver]] - Gnucap implements parse linear solver and it has own "quirks". THis section describes known informaton about solver and known issues
+
+[[Gnucap_Library]] - Experimental shared library version of Gnucap
+
+[[Gnucap_Python]] - A plugin that allows Python code to be executed within a Gnucap session and a Gnucap Python extension that allows
+direct access to the Gnucap core from Python
+
+[[Netlist import and export]] - Here is an idea for import and export of netlists from schematics, layouts, and foreign systems, inspired by Gnucap language plugins.
+
+[[Language plugin for gschem]] -
+
+[[Gnucap_verilog_reconciled]] - Fix inconsistencies with verilog-ams in the verilog language plugin and fix gEDA gnetlist verilog-ams back end to match.
+
+[[Sensitivity Anlysis]] - A Perl script to assist with sensitivity anylsis of a circuit in gnucap
+
+[[Build System for Plugins]] - a proposal on how to painlessly compile/install/load plugins
+
+[[Sensitivity Command]] - a sensitivity analysis implementation
+
+[[IR filters and (tr-)noise]] - behavioural models implementing {F,I}IR filters. possible noise applications
+
+[[asco for gnucap]] - circuit optimization revisited
+
+[[aging analysis]] - running tran in a loop, implementing aging effects
+
+[[gnucap-adms]] - an admsXml-based verilog-a model compiler
+
+[[Command Plugins]]- set of command plugins for scripting purposes.
+
+[[Language Plugin for Qucs]] - Plugin which to convert output file of Qucs into verilog netlist (.va or .vams) which can be analyzed by gnucap.

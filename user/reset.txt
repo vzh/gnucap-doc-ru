@@ -1,0 +1,5 @@
+**9.RESET**
+
+Purpose:Reset command re-parses the input file.The circuit can then be re-run from its initial state
+
+Status:Not implemented

@@ -1,0 +1,20 @@
+====== Plugins ======
+
+===== Simulation methods =====
+
+==== The past ====
+
+The most popular simulation methods are based on nodal analysis, which is taught in every undergraduate EE program.  The basic AC, DC, and transient analysis are well known.
+
+Other methods are usually available only in specialized simulators.  There are some special purpose academic simulators.  There are lots more expensive commercial simulators.
+
+==== The present ====
+
+Gnucap supports the traditional Spice methods, plus or minus a little.  On the plus side, the transient analysis is event driven and uses some technique that can give you significant speedup.  On the minus side, Gnucap is missing some methods that are important, such as noise.
+
+==== The future ====
+
+With plugins, there is a place for the missing modes to be added.  Anyone can contribute.  Works in progress can be shared, because it is your choice whether to use the extension or not.
+
+
+

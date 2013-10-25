@@ -17,3 +17,5 @@ The coefficient of coupling is given by K = m[i][j] / sqrt(L[i] L[j]).  K is alw
 ===== Bugs =====
 
 This version of mutual inductance is only supported in Spice syntax, because the connections are inductors.  If you are using any other syntax, you can make a Spice subcircuit containing the entire transformer.
+
+

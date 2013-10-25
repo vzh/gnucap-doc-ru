@@ -1,0 +1,27 @@
+====== Language plugins : Implementation ======
+
+===== find_type_in_string =====
+
+This function scans an input string and extracts the "type" from it.  In some cases the type is explicitly stated and easy to find.  In others finding the type can be tricky.  In any case, scanning is reset to the beginning after the type is found.
+
+Here is a simple case, where the type is the first word on the line, unless it is a comment which begins with ''/''''/''.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+std::string LANG_VERILOG::find_type_in_string(CS& cmd)
+{
+  unsigned here = cmd.cursor();
+  std::string type;
+  if ((cmd >> "//")) {
+    assert(here == 0);
+    type = "dev_comment";
+  }else{
+    cmd >> type;
+  }
+  cmd.reset(here);
+  return type;
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+This function can be considerably more complex if the type is not first in line.  In some cases it is necessary to read to the end then back up.

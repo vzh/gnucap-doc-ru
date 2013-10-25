@@ -1,0 +1,25 @@
+**CLS**
+
+Purpose:Clears the gnucap interpreter
+
+Status:Implemented
+
+Syntax:
+      cls
+      cls [command]
+
+Comments:
+
+A command can be issued with cls,it first clears the interpreter and then run th command.
+A bare cls simply clears the interpreter.
+
+Example:
+Following command first clears the screen and then runs the command 'sysinfo'.
+
+       gnucap>cls sysinfo
+       Model name	  : Intel(R) Core(TM) i5-2450M CPU @ 2.50GHz
+       OS Description     :"Ubuntu 12.04 LTS"
+       CPU MHz	          : 2494.409
+       RAM Available      : 1012348kB
+       RAM Free           : 132372kB
+       gnucap>

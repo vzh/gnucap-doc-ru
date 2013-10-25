@@ -1,0 +1,24 @@
+===== Noise Syntax =====
+
+//This section contains descriptions which are not implemented yet in simualtor. Work is in progress.//
+
+Spice .noise command syntax is implemented:
+
+''.noise V(<N1>[,<N2>]) <VIN> <ac_description>''
+
+  * <N1>, <N2> - output node numbers, if N2 is omited ground is implied;
+  * <VIN> - input AC source at which noise power will be calculated;
+  * <ac_description>  - gnucap AC simulation statement.
+
+Here are some examples:
+
+  * ''.noise V(6) Vin dec 10 20 20k''
+
+- noise at node 6 w.r.t. ground, calculated to **Vin**, noise power densinty will be calculated
+using **10** points per **dec**ade (logarithmic scale) in frequency range from **20Hz** to **20KHz**
+
+
+  * ''.noise V(6,3) VSRC oct 2 10 10k''
+
+- noise between nodes 6 and 3, calculated to **VSRC**, noise power densinty will be calculated
+using **2** points per **oct**ave (logarithmic scale) in frequency range from **10Hz** to **10kHz**

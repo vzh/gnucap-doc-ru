@@ -1,0 +1,5 @@
+**13.SOURCE**
+
+Purpose:Reads a gnucap input file
+
+Status:Done

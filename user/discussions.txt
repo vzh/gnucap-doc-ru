@@ -1,0 +1,18 @@
+is there a need for s_noise.cc? noise seems to be just about probes.
+in e_aux.h a function like
+<code cpp>
+inline COMPLEX port_noise(const node_t& n1, const node_t& n2){
+  std::fill_n(CKT_BASE::_sim->_sens, 1*CKT_BASE::_sim->_total_nodes+1, 0);
+  CKT_BASE::_sim->_sens[n1.m_()] = 1;
+  CKT_BASE::_sim->_sens[n2.m_()] = -1;
+  CKT_BASE::_sim->_acx.fbsubt(CKT_BASE::_sim->_sens); // use Gennadys transposed fbsub
+  double a = CARD_LIST::card_list.do_noise();
+  return a;
+}
+</code>
+could be used to probe the noise (called in e_element.cc and e_node.cc just like port_impedance is called).
+of course an array with sensitivity data needs to be added to SIM, also do_noise() must sum up all noise contributions like in Gennadys implementation.
+
+imo noise simulation is a bad candidate for a plugin, as there seems to be no way to make it work without changing  internals. once noise works, a plugin that implements spice command compatibility might make more sense.
+
+--felixs

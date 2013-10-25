@@ -1,0 +1,74 @@
+====== Commands Checklist ======
+
+
+
+Gnucap commands are defined by plugins.  This section defines all commands supplied in the gnucap-WIP branch.
+
+
+
+===== "Data" commands =====
+
+
+* [[MDUMP]] - Prints the dc tran matrix values.
+
+* [[RMCIRC]] - Removes the current circuit from the list of circuits sourced into gnucap.
+
+* [[CIRCBYLINE]] - Enter a circuit line by line.
+
+* [[PRE]] - Executes command prior to parsing the circuit.
+
+* [[TRACE]] - Command is used to trace nodes.
+
+
+
+===== "Parameter" and "Measure" commands =====
+
+* [[SHOWMOD]] - Lists model parameter values.
+
+* [[ALTER]] - Change parameters
+
+
+
+===== "File" commands =====
+
+* [[SOURCE]] - Loads a gnucap input file.
+
+* [[HISTORY]] - Review the previous commands.
+
+* [[RUN]] - Run the silumation as specified in the input file.
+
+* [[ASPICE]] - Start an asynchronous run and loads the data to specified output file.
+
+
+
+
+===== "Other" commands =====
+
+
+* [[ALIAS]] - Creates an alias for command.
+
+* [[CLS]] - Clears the gnucap interpreter.
+
+* [[DEF]] - Command is used to define a function.
+
+* [[ECHO]] - Prints the text.
+
+* [[QUIT]] - Terminates the gnucap interpreter.
+
+* [[SETV]] - Sets the value of a variable.
+
+* [[SHELL]] - Calls the command interpreter of operating system.
+
+* [[STRCMP]] - Compares two string.
+
+* [[SYSINFO]] - Command prints the system information.
+
+* [[UNALIAS]] - Removes the definition for each alias name specified.
+
+* [[UNDEF]] - Command removes the the user-defined functions.
+
+* [[VERSION]] - Prints the version of gnucap being used.
+
+* [[Colon Command]] - Command '':'',a colon, issued with multiple commands separated by semi-colon runs each command one by one.
+
+*//Commands's Syntax,Details and Examples will be added after the command is implemented.//

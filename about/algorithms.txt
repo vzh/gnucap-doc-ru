@@ -1,0 +1,21 @@
+====== Algorithms ======
+
+Gnucap is the original "Analog Fast-Spice".
+
+Gnucap's DC, AC, and Transient analysis are based on the traditional nodal analysis, similar to Spice.  As a starting point, this provides the same accuracy and generality we associate with Spice-type simulation.  From this well-known starting point, Gnucap has enhanced the algorithms, for improved speed, accuracy, and robustness, with user defined options to select what tradeoffs to apply when.
+
+Gnucap uses a vector sparse matrix solver that supports low rank updates and partial solutions.  For large circuits this can be significantly faster than a traditional sparse matrix solver.  The vector approach provides fast access, as fast as a regular dense matrix would be, while preserving cache localism that you would not ordinarily get with a general sparse solver.  For a full, dense matrix, it is as efficient as a full matrix solver.  For a tridiagonal matrix, it is as efficient as a dedicated tridiagonal solver.
+
+For a large circuit, only the parts of the circuit where there is activity are solved.  It is now possible to avoid redundant processing linear and latent parts of a circuit.  This improves speed significantly with no loss of accuracy.  This is part of the basis of most of today's "fast-spice" simulators, and was made available first here.
+
+Transient time step control checks more than just truncation error and iteration count.  There are additional checks for smoothness of most voltages and state variables, even where there are no storage elements.  There is also support for movable events, such as "cross" events, so switching times, zero crossings, and waveform peaks are properly controlled.
+
+This is managed by a set of queues, so time is not wasted processing devices when there is nothing happening.
+
+All of this is user controllable.  By setting some options, on one extreme you can turn off the optimizations, reverting to a more robust (and slower) derivative of the Spice algorithms, or you can choose to go for speed.
+
+The core provides a library of functions that can be used to build new types of analysis.  The matrix solver is a template class, so it can solve for all data types, including a symbolic type for a future symbolic analysis.
+
+Finally, it is all plugin based, inviting extensions and experiments.
+
+

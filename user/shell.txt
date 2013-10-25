@@ -1,0 +1,25 @@
+**11.SHELL**
+
+Purpose:Calls the command interpreter of operating system.
+
+Status:Implemented
+
+Syntax:
+
+     shell [system_command]
+
+Comments:
+
+system_command is the command which is to be run in interpreter.It is to be passed as an argument.
+
+Run 'exit' command to return to gnucap command interpreter.
+
+Example:
+
+     gnucap> shell
+     itsrishre@rishabh-laptop:~$
+
+When you are done with the shell,you can type exit to return to gnucap interpreter.
+
+     itsrishre@rishabh-laptop:~$ exit
+     gnucap>

@@ -1,0 +1,175 @@
+Language plugin for Qucs
+
+The basis idea is to parse the output schematic or the netlist of the qucs and create an intermediate netlist that is execetable in gnucap
+
+Example of a netlist file is shown below
+
+# Qucs 0.0.16  bridge.sch
+
+IProbe:Pr1 _net0 _net1
+R:R2 _net2 _net3 R="500 Ohm" Temp="26.85" Tc1="0.0" Tc2="0.0" Tnom="26.85"
+Vdc:V1 _net3 gnd U="1 V"
+R:R5 gnd _net2 R="Rmeasure" Temp="26.85" Tc1="0.0" Tc2="0.0" Tnom="26.85"
+R:R1 _net0 _net3 R="Rbranch" Temp="26.85" Tc1="0.0" Tc2="0.0" Tnom="26.85"
+R:R4 gnd _net0 R="Rbranch" Temp="26.85" Tc1="0.0" Tc2="0.0" Tnom="26.85"
+.DC:DC1 Temp="26.85" reltol="0.001" abstol="1 pA" vntol="1 uV" saveOPs="no" MaxIter="150" saveAll="no" convHelper="none" Solver="CroutLU"
+R:R3 _net1 _net2 R="500 Ohm" Temp="26.85" Tc1="0.0" Tc2="0.0" Tnom="26.85"
+.SW:SW1 Sim="DC1" Type="lin" Param="Rmeasure" Start="10 Ohm" Stop="1 kOhm" Points="100"
+.SW:SW2 Sim="SW1" Type="lin" Param="Rbranch" Start="200 Ohm" Stop="1 kOhm" Points="4"
+Eqn:Eqn1 Umeasure="500 * abs(Pr1.I)" Export="yes"
+
+
+Description of the Netlist file
+
+First line shows the version of the qucs and the file path
+
+The list of the components in Qucs can be seen in the link below
+http://qucs.sourceforge.net/docs/textmode.pdf
+
+Description of a schematic file will be done in future
+
+Identifying the Components
+
+The first letter in the netlist gives the component type
+
+_net gives information about in between which nodes the component is connected
+
+
+
+
+
+#include "c_comand.h"
+#include "d_dot.h"
+#include "d_coment.h"
+#include "d_subckt.h"
+#include "e_model.h"
+#include "u_lang.h"
+#include <fts.h>
+#include "io_trace.h"
+
+#include <gmpxx.h> // to workaround bug in gmp header about __cplusplus
+
+/*--------------------------------------------------------------------------*/
+namespace {
+/*--------------------------------------------------------------------------*/
+class LANG_QUCS : public LANGUAGE {
+
+public:
+    //
+    enum MODE {mATTRIBUTE, mCOMMENT} _mode;
+    mutable int _no_of_lines;
+    mutable bool _componentmod;
+    mutable std::string _componentname;
+    mutable bool _gotaline;
+    //
+    std::string name()const {return "qucs";}
+    bool case_insensitive()const {return false;}
+    UNITS units()const {return uSI;}
+
+public: //functions to be declared
+    std::string arg_front()const {
+        return " "; //arbitrary
+    }
+    std::string arg_mid()const {
+        return "="; //arbitrary
+    }
+    std::string arg_back()const {
+        return "";  //arbitrary
+    }
+
+public:
+    void		  parse_top_item(CS&, CARD_LIST*);
+    DEV_COMMENT*  parse_comment(CS&, DEV_COMMENT*);
+    DEV_DOT*	  parse_command(CS&, DEV_DOT*);
+    MODEL_CARD*	  parse_paramset(CS&, MODEL_CARD*);
+    MODEL_SUBCKT* parse_module(CS&, MODEL_SUBCKT*);
+    COMPONENT*	  parse_instance(CS&, COMPONENT*);
+    std::string	  find_type_in_string(CS&);
+    MODEL_SUBCKT* parse_componmod(CS&, MODEL_SUBCKT*);
+
+private:
+    void print_paramset(OMSTREAM&, const MODEL_CARD*);
+    void print_module(OMSTREAM&, const MODEL_SUBCKT*);
+    void print_instance(OMSTREAM&, const COMPONENT*);
+    void print_comment(OMSTREAM&, const DEV_COMMENT*);
+    void print_command(OMSTREAM& o, const DEV_DOT* c);
+
+}lang_qucs;
+
+static void parse_place(CS& cmd, COMPONENT* x)
+{
+    trace0("Got into parse_place");
+    assert(x);
+    assert(OPT::language->find_type_in_string(cmd)=="place");
+    cmd>>"place";
+    std::string _portname,_x,_y;
+    cmd>>" ">>_portname>>" ">>_x>>" ">>_y;
+    x->set_param_by_name("x",_x);
+    x->set_param_by_name("y",_y);
+    x->set_port_by_index(0,_portname);
+}
+
+static void parse_place(CS& cmd, COMPONENT* x)
+{
+    trace0("Got into parse_place");
+    assert(x);
+    assert(OPT::language->find_type_in_string(cmd)=="place");
+    cmd>>"place";
+    std::string _portname,_x,_y;
+    cmd>>" ">>_portname>>" ">>_x>>" ">>_y;
+    x->set_param_by_name("x",_x);
+    x->set_param_by_name("y",_y);
+    x->set_port_by_index(0,_portname);
+}
+/*--------------------------------------------------------------------------*/
+static void create_place(std::string cmdstr,COMPONENT* x)
+{
+    CS place_cmd(CS::_STRING,cmdstr);
+    OPT::language->new__instance(place_cmd,NULL,x->scope());
+}
+/*--------------------------------------------------------------------------*/
+static std::string findplacewithsameposition(COMPONENT* x,std::string xco,std::string yco)
+{
+    for (CARD_LIST::const_iterator ci = x->scope()->begin(); ci != x->scope()->end(); ++ci) {
+        if((*ci)->dev_type()=="place"){
+            if(xco==(*ci)->param_value(1) && yco==(*ci)->param_value(0)){
+                return static_cast<COMPONENT*>(*ci)->port_value(0);
+            }
+        }
+    }
+    return "";
+}
+/*--------------------------------------------------------------------------*/
+static std::string* findnodeonthisnet(CARD *x, std::string x0, std::string y0, std::string x1, std::string y1)
+{
+    for(CARD_LIST::const_iterator ci = x->scope()->begin(); ci != x->scope()->end(); ++ci) {
+        if((*ci)->dev_type()=="place"){
+            std::string _x=(*ci)->param_value(1),_y=(*ci)->param_value(0);
+            if (y0==y1){
+                if(  ( ( (atoi(x1.c_str()) < atoi(_x.c_str())) and (atoi(_x.c_str())<atoi(x0.c_str())) ) || ( (atoi(x0.c_str()) < atoi(_x.c_str())) and (atoi(_x.c_str())<atoi(x1.c_str())) ) ) and _y==y0 and _x!=x0 and _x!=x1){
+                    trace0("true0");
+                    std::string* coord=new std::string[2];
+                    coord[0]=_x;
+                    coord[1]=_y;
+                    return coord;
+                }
+                else{
+                    return NULL;
+                }
+            }else if (x0==x1){
+                if(  ( ( (atoi(y1.c_str()) < atoi(_y.c_str())) and (atoi(_y.c_str())<atoi(y0.c_str())) ) || ( (atoi(y0.c_str()) < atoi(_y.c_str())) and (atoi(_y.c_str())<atoi(y1.c_str())) ) ) and _x==x0 and _y!=y0 and _y!=y1){
+                    trace0("true1");
+                    std::string* coord=new std::string[2];
+                    coord[0]=_x;
+                    coord[1]=_y;
+                    return coord;
+                }else{
+                    return NULL;
+                }
+            }
+            else{
+                return NULL;
+            }
+        }
+    }
+}

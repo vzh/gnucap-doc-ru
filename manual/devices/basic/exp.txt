@@ -47,3 +47,4 @@ This function influences time step control through both smoothness control and a
 The time step is limited by the active time constant, either tau1 or tau2, depending on whether it is rising or falling.
 
 The corners in as exp waveform are considered to be analog events.  The transient analysis will attempt to control timing accuracy of these analog events.  If it is reasonable, a time step should be scheduled at these times exactly.  In any case, there should be a time step within option::dtmin of these times.
+

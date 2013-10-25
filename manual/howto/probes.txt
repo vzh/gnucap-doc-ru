@@ -30,7 +30,7 @@ All modes.
 
 Transient, DC, OP, only.
 
-|logic  |A numeric interpretation of the logic value at the node. The value is displayed encoded in a number of the form a.bc where\\ \\ a is the logic state:\\ 0 = logic 0\\ 1 = rising\\ 2 = falling\\ 3 = logic 1\\ \\ b is an indication of the quality of the digital signal.\\ 0 is a fully valid logic signal.\\ Nonzero indicates it does not meet the criteria for logic simulation.\\ \\ c indicates how the node was calculated:\\ 0 indicates logic simulation.\\ 1 indicates analog simulation of a logic device.\\ 2 indicates analog simulation of analog devices.  |
+|logic  |A numeric interpretation of the logic value at the node. The value is displayed encoded in a number of the form a.bc where\\ \\ a is the logic state:\\ 0 = logic 0\\ 1 = rising\\ 2 = falling\\ 3 = logic 1\\ 4 = unknown\\ \\ b is an indication of the quality of the digital signal.\\ 0 is a fully valid logic signal.\\ Nonzero indicates it does not meet the criteria for logic simulation.\\ \\ c indicates how the node was calculated:\\ 0 indicates logic simulation.\\ 1 indicates analog simulation of a logic device.\\ 2 indicates analog simulation of analog devices.  |
 |lastchange  |The most recent time at which the logic state changed.  |
 |finaltime   |The scheduled time a pending logic state change will occur.  |
 |diter       |Iteration number for last digital update.  |

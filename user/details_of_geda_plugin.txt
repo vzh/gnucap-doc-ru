@@ -1,0 +1,44 @@
+====== Details of the implementation of the gEDA/gschem plugin======
+
+=====Introduction=====
+The plugin for parsing and printing schematic files in the gEDA/gschem format is at <sup>[1]</sup> [[https://github.com/sksavant/gnucap/tree/lang_gschem/|Github branch]]. \\
+Get it by cloning the git repo : //git clone git@github.sksavant/gnucap.git --branch lang_gschem//
+or get this zip file : [[https://github.com/sksavant/gnucap/zipball/lang_gschem|zipfile]]
+\\ \\
+If you already have latest snapshot of gnucap installed you just need to get the following files: '//src/lang_gschem.cc//', '//src/d_net.cc//', '//src/d_place.cc//'. Also some [[https://github.com/sksavant/gnucap/compare/al...lang_gschem#diff-53|change]] is need in lang_verilog.cc to print verilog code correctly.
+Some examples are present in '//geda/examples/ //'
+\\ \\
+After getting the files compile the plugin with the following command: \\
+    g++ -DHAVE_GEDA -shared -fPIC -o lang_geda.so lang_geda.cc d_net.cc d_place.cc  $(pkg-config --cflags gtk+-2.0 --libs libgeda)
+And load it after running gnucap as follows: \\
+    gnucap>load ./lang_geda.so
+This line can be added to '~/.gnucaprc' to load the plugin every time gnucap starts. \\
+Switch the language to gEDA/gschem with the following command:
+    gnucap>option lang=gschem OR
+    gnucap>gschem
+
+=====How parsing works in lang_geda=====
+When the command 'gschem' is given, [[http://sksavant.github.com/gnucap/d0/d46/classanonymous__namespace_02lang__geda_8cc_03_1_1_c_m_d___g_s_c_h_e_m.html#a3a2cad7bedd3a820604937467e020369|CMD_GSCHEM::do_it]] is called.
+After setting the language to gschem,  [[http://sksavant.github.com/gnucap/d8/df9/classanonymous__namespace_02lang__geda_8cc_03_1_1_l_a_n_g___g_e_d_a.html#a164f7c8baeadf6b7acfca754153a45b5|parse_top_item]] is called, which will call [[http://sksavant.github.com/gnucap/d8/d92/class_l_a_n_g_u_a_g_e.html#a1ecab49c51a0f6d914170c04edb420a8|new__instance]] after getting a line from the command stream. \\
+Now depending on the type of the line parsed, which is found from [[http://sksavant.github.com/gnucap/d8/df9/classanonymous__namespace_02lang__geda_8cc_03_1_1_l_a_n_g___g_e_d_a.html#af6b409e3eb2cf7d30080fbb989e0989d|find_type_in_string]], corresponding parse_.. function is called.
+If a //command// or //dev_comment// is got, [[http://sksavant.github.com/gnucap/d8/df9/classanonymous__namespace_02lang__geda_8cc_03_1_1_l_a_n_g___g_e_d_a.html#a6c16c20ae8bb07669183e0a3a6c87da8|parse_command]] or [[http://sksavant.github.com/gnucap/d8/df9/classanonymous__namespace_02lang__geda_8cc_03_1_1_l_a_n_g___g_e_d_a.html#a23093bf34decc6675ef6b917829c491c|parse_comment]] is called respectively. \\ \\
+If component is found, then [[http://sksavant.github.com/gnucap/d2/d22/classanonymous__namespace_02lang__geda_8cc_03_1_1_c_m_d___c.html#a7c6d49a0e81fde05d6f402ac895596f5|CMD_C::do_it]] is called, which
+  * creates a new empty placeholder model (MODEL_SUBCKT)
+  * calls [[http://sksavant.github.com/gnucap/d8/df9/classanonymous__namespace_02lang__geda_8cc_03_1_1_l_a_n_g___g_e_d_a.html#abb190d7c72473be3e72c16323673e73e|parse_componmod]] which will
+    * get the symbol file name
+    * parse the symbol file and set the ports by name
+    * resets the cmd
+    * returns NULL if the model is not needed i.e, it is graphical
+  * If the model is not graphical ,push back into the CARD_LIST
+  * set componentname as the label of the model and componentmod as false and call new<nowiki>__</nowiki>instance.
+If net or place or any other is got, parse_instance is called which will call respective parse_ functions.\\
+When parse_net is called it will :
+  * Get the x y coordinates of the two ports
+  * parse the symbol file
+  * Call create_place which will create a CS with the place parameters and  parse it through new<nowiki>__</nowiki>instance.
+  * Check if there are any attributes after this line, parse them into set_param_by_name '{..}
+If a component is got, call parse_component which will :
+  * Get the position, angle, mirror flag and the symbol file name of the component
+  * Parse the symbol file associated with the component to get the ports and get the ports' coordinates relative to the component.
+  * Depending on the angle and mirror flag, get the absolute position of the ports of the component, create a new place with the position of nodes and call set_port_by_index to set the ports
+  * Check if there are any attributes after this line, parse them into set_param_by_name '{..}

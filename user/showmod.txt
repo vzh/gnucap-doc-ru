@@ -1,0 +1,5 @@
+**12.SHOWMOD**
+
+Purpose:Lists model parameter values
+
+Status:Done

@@ -33,3 +33,4 @@ The transfer function is defined by:
 ===== Step control =====
 
 This function does not directly participate in time step control, except as the device would otherwise.
+

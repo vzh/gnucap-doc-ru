@@ -8,7 +8,7 @@ This function returns a probe value for DC, OP, and transient analysis, selected
 
 Usually the code consists of a string of if - elseif statements.  If none match, in most cases it should call BASE::tr_probe_num and return its result.
 
-<code>
+<code cpp>
 double DEV_CAPACITANCE::tr_probe_num(const std::string& x)const
 {
   if (Umatch(x, "q{cap} |ch{arge} ")) {
@@ -28,7 +28,7 @@ This function returns a probe value for AC analysis, selected by a string argume
 
 It returns an XPROBE object:
 
-<code>
+<code cpp>
 enum mod_t {mtNONE, mtMAG, mtPHASE, mtREAL, mtIMAG};
 class XPROBE{
 private:
@@ -40,3 +40,6 @@ private:
 </code>
 
 Usually, the returned value is made by a constructor with one argument, using defaults for _modifier and _dbscale.  The value is a COMPLEX number.
+
+
+

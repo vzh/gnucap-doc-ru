@@ -1,0 +1,36 @@
+====== Plugins ======
+===== Models =====
+
+==== The past ====
+
+Traditional simulators have most of the models built-in, so you are stuck with the models you have.  Most of them do have macros, and all of them have subcircuits.  Some commercial simulators have more, but with the free simulators, you need to dig in and recompile.
+
+Gnucap draws on the knowledge of Spice, and moves on.
+
+==== The present ====
+
+
+Unlike Spice, models are not compiled into the simulator.  Models, all models, are plugins that can be changed by a user at run time.
+
+It is possible to static-link models if desired, but it is not recommended.
+
+The distribution tarball includes most of the basic "Spice" models, including the simple devices (resistors, sources, transistors).
+
+There is a wrapper "spice-wrapper.cc" that allows the use of unmodified Spice C models.  You need a simple configuration file with each Spice model.  There are just a few lines to configure.  It can usually be done in just a few minutes.
+
+Models written for several versions of Spice are supported directly.  As of when this is written, there is direct support for Berkeley 3e, Berkeley 3f, and NGspice 17, and Jspice 3-2.5.  Other versions may also work, but have not been tested.
+
+With the real Spice, you need to modify the models for the particular version of Spice you have.  Also, with the real Spice, you need to change some names to avoid name clashes.  In Gnucap, you don't need to do either.  All of the mentioned formats are supported directly and can co-exist.  The plugin system puts each model in its own namespace, so duplicate names are not a problem.
+
+There is a model compiler "gnucap-modelgen" which accepts a high-level description of a model.  This is backward compatible with old versions of gnucap.
+
+You can also use the "ADMS" model compiler, to generate a Spice model, then use spice-wrapper to use it with gnucap.
+==== The future ====
+
+There is work in progress to use Icarus Verilog as the model compiler.
+
+There are plans to make a modified version of ADMS that generates efficient Gnucap code that can be used directly.
+
+There are plans to improve the plugin attachment procedure so you will be able to develop and debug compiled models interactively.
+
+There could be wrapper plugins, so you can use other tools like octave and "R" to write models.

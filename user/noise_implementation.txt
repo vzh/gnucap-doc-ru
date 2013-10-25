@@ -1,0 +1,64 @@
+===== Noise Implementation =====
+
+This section contains all stuff related to AC Noise calculation in Gnucap.
+
+Currently (April 2011) noise is implemented in experimental branch and work as plugin. Please see [[Code-related Stuff]] for more details.
+
+=== Noise calculations basics ===
+
+Noise is claculated using adjacent system method
+[TBD GS - complete, explain ]
+
+=== Noise Simulation Syntax ===
+
+To run noise simulation - ad the following line to circuit file (spice format):
+
+''.noise V(a,b) Dev stepmode points fromF toF''
+
+
+  * V(a,b)  - output to measure noise at - nodes a to b; possible form:
+V(a) is the same as V(a,0)
+  * Dev    - device which is considered as input
+  * stepmode - [o{ctave}, d{ecade}, lin, ti{mes}, step, by, +, *]
+  * points - number of points (depends on stepmode)
+  * fromF   - lowest frequency
+  * toF     - highest frequency
+
+It will calculate noise power density between output nodes "a" and "b" and equivalent power at input device "Dev" using "stepmode" making "points" in frequency range "fromF"-"toF"
+
+Example:
+
+'' .noise v(3) V1 oct 5 10 10K ''
+
+ - calcualate spectral noise density at node "3" and reduce it to input device V1 making 5 points per octave in frequency range from 10HZ to 10KHZ
+
+'' .noise V(10,12) I1 dec 2 10K 10MEG''
+
+ - calcualate spectral noise density between nodes 10 and 12 and reduce it to input device I1 making 2 points per decade in frequency range from 10KHZ to 10MHZ
+
+
+== Output ==
+
+
+Usually simulators also support ''.print noise'' statement. Now it is not implemented yet.
+Currently output contains:
+
+'' Freq inoise_density onoise_density ''
+
+Also - at the end of the frequency range total power over the range s integrated:
+
+'' inoise_total onoise_total ''
+
+
+=== Code related stuff ===
+
+Currently noise simulation is implemented as plugin which is available at github at the following [[ https://github.com/gserdyuk/gnucap-plugins | link ]]
+
+It re-uses s_ac.cc file (ac simulation) to implement noise analysis.
+
+At the present moment (April 2011) noise works with only [[https://github.com/gserdyuk/gnucap-a | gnucap-a]] branch of gnucap, but hopefully soon it will work with main trunk too.
+
+[TBD - make description of the noise code]
+
+
+  * [[Discussions]] regarding noise implementation

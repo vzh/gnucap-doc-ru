@@ -1,0 +1,9 @@
+The verilog-ams specification adds on to the verilog, (IEEE-1364-2001 or IEEE-1364-2005), versions.
+I will be testing cross workability with Icarus Verilog of the same spec year.
+
+I'm not sure yet which verilog-ams version we will use to match up with netlist verilog,
+and not sure about needing to read the IEEE verilog specs -- they're not freely available.
+Acellera.org free publishes Verilog-AMS Language Reference Manual, Release 2.3.1 last changed June 1, 2009.
+
+It may be that running a quick sanity test of netlists with icarus verilog will catch blunders as well as reading
+IEEE-1364-2005.

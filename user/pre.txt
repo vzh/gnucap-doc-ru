@@ -1,0 +1,5 @@
+**6.PRE**
+
+Purpose:Executes command prior to parsing the circuit
+
+Status:Not implemented

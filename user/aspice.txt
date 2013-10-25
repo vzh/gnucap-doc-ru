@@ -1,0 +1,28 @@
+**23.ASPICE**
+
+Purpose:Start an asynchronous run and loads the data to specified output file.
+
+Status:Implemented
+
+Syntax:
+      aspice input_file output_file
+
+
+
+Comments:
+
+input_file is a file which is to be run in batch mode and output_file corresponds to the file on which data will be loaded.If output_file already exists then the contents of the file are overwritten by the current output.
+
+
+
+Example:
+
+Suppose my script file contains an instruction to execute the version command.Then,command to get the output of the script into another file say, version.txt is
+
+      gnucap>aspice script version.txt
+      Gnucap
+      Main version: 2009.12.07 RCS 26.136
+      gnucap>
+
+Now,version.txt contains the output of version command.
+

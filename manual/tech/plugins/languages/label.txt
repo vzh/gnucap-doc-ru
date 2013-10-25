@@ -1,0 +1,46 @@
+====== Language plugins : Implementation ======
+
+===== parse, print label =====
+
+==== Background ====
+
+The label is a string by which this instance is known.
+
+In a paramset (Spice .model) the label is the name of the new type being defined.
+
+A "short_label" is the simple form of the label, without scope information.
+
+A "long_label" is a full label including hierarchical scope information.
+
+==== parse_label ====
+
+This function usually reads the type from the input string, then calls ''set_dev_type'' to set it.
+
+Usually, you can use this function:
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void parse_label(CS& cmd, CARD* x)
+{
+  assert(x);
+  std::string my_name;
+  cmd >> my_name;
+  x->set_label(my_name);
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== print_label ====
+
+Printing the type usually simple.  Usually, you can use this function:
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void print_label(OMSTREAM& o, const COMPONENT* x)
+{
+  assert(x);
+  o << x->short_label();
+}
+/*--------------------------------------------------------------------------*/
+</code>
+

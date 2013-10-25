@@ -52,3 +52,4 @@ name=value pairs in any order.
 ===== Step control =====
 
 The corners in a pulse waveform are considered to be analog events.  The transient analysis will attempt to control timing accuracy of these analog events.  If it is reasonable, a time step should be scheduled at these times exactly.  In any case, there should be a time step within option::dtmin of these times.
+

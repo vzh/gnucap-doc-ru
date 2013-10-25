@@ -1,0 +1,9 @@
+=== Code related stuff ===
+
+Currently noise simulation is implemented as plugin which is available at github at the following [[ https://github.com/gserdyuk/gnucap-plugins | link ]]
+
+It re-uses s_ac.cc file (ac simulation) to implement noise analysis.
+
+At the present moment (April 2011) noise works with only [[https://github.com/gserdyuk/gnucap-a | gnucap-a]] branch of gnucap, but hopefully soon it will work with main trunk too.
+
+[TBD - make description of the noise code]

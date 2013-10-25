@@ -65,3 +65,4 @@ If you set the parameters "zero" and "peak" to true, both zero crossings and pea
 If you need improved waveform smoothness, you can do this by increasing "samples".
 
 If you need timing accuracy, set "zero" and/or "peak" to true.
+

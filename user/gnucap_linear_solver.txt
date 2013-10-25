@@ -1,0 +1,47 @@
+=== GNucap Linear Solver ===
+Gnucal linear solver is implemented in file m_matrix.h - that is C++ template.
+
+Most things are depicted in very extensive comments to this file.
+Some things which are discovered and are listed here.
+
+== No zero diagonal element allowed ==
+
+Solver has an issue if diagonal element is zero. lets consider system:
+
+<code>
+  | eps   -1|        | -1 |
+  |         | *X  =  |    |
+  | 10   -10|        |  0 |
+</code>
+
+if eps =0 or close to 0 (like 1.e-20 or so) current solver gives wrong answer of {1,0}.
+
+having eps=1.e-6 answer id ok = {1,1}
+
+This may be explained that during LU decomposition with no permutations with very small eps some values may grow higher 1/machine_eps and mask significant digits.
+
+Practical advice:
+Do not use .options gmin smaller than 1.e-6 .. 1.e-8 unless you know what you do.
+With current solver in my distort results .
+
+Note - spice circuit which creates this system:
+<code>
+* circuit - close to Rozenbrok
+.options nobypass
+.options gmin = 1.e-6
+* i1 = 10 *( v2 - v1^2)
+* i2 = 1 - v1
+*
+I1  1 0      dc 0
+G11 1 0 1 0  -10
+G11 1 0 2 0   10
+
+G21 2 0 1 0   -1
+I2  2 0      dc 1
+
+.print op v(1) v(2) i(I1) i(I2)
+
+.op
+.end
+
+</code>

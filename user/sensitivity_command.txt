@@ -1,0 +1,20 @@
+====Overview====
+Sensitivity can be calculated from a solution of the adjoint system,
+see "Computer Methods for Circuit Analysis and Design (Vlach and Singhal)".
+
+In gnucap it may look like this:
+
+  include netlist.ckt
+  .print dc v(nodes)
+  .dc
+  .print sens R(R1) W(MN1)
+  .sens v(node0) v(node1)
+
+calculates the sensitivities of node voltages with respect to device parameters.
+
+====Implementation====
+the ''.sens'' command is similar to the ac command. it expects a dc operation point to be computed already. It loads the acx matrix and does an lu decomposition. then for all outputs it solves the adjoint system using Gennadys ''fbsubt()'' and iterates the probelist. the solution is stored in ''double _sim->_sens[numberofnodes]''.
+
+devices need to provide a ''XPROBE sens_probe_ext(string) const'' for this to work. this function uses the adjacent values from ''sim->_sens''.
+
+the [[git://tool.em.cs.uni-frankfurt.de/git/gnucap|repository on tool]] contains this implementation attempt (the wiki doesnt display the link, see source).

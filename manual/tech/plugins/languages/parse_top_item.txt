@@ -1,0 +1,74 @@
+====== Language plugins : Implementation ======
+
+===== parse_top_item =====
+
+The function ''parse_top_item'' must be provided.  Usually you can just copy this.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANG_VERILOG::parse_top_item(CS& cmd, CARD_LIST* Scope)
+{
+  cmd.get_line("gnucap-verilog>");
+  new__instance(cmd, NULL, Scope);
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+It parses one line of input, where the definition of "line" may differ depending on the language.
+
+The string, in this case ''"gnucap-verilog>"'' is used as a prompt in interactive mode, and is suppressed when reading from a file.
+
+For educational purposes, the code for ''new_''''_instance'' follows.  You do not need to duplicate it.
+
+You do need to provide ''find_type_in_string'', which returns the type as a string, by scanning the input.
+
+''parse_item'' is shown here.  It dispatches to one of ''parse_module'', ''parse_instance'', ''parse_paramset'', ''parse_comment'', or ''parse_command'', which you must provide.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANGUAGE::new__instance(CS& cmd, MODEL_SUBCKT* owner, CARD_LIST* Scope)
+{
+  if (cmd.is_end()) {
+    // nothing
+  }else{
+    std::string type = find_type_in_string(cmd);
+    if (const CARD* proto = find_proto(type, owner)) {
+      CARD* new_instance = proto->clone_instance();
+      assert(new_instance);
+      new_instance->set_owner(owner);
+      CARD* x = parse_item(cmd, new_instance);
+      if (x) {
+	assert(Scope);
+	Scope->push_back(x);
+      }else{
+      }
+    }else{
+      cmd.warn(bDANGER, type + ": no match");
+    }
+  }
+}
+/*--------------------------------------------------------------------------*/
+CARD* LANGUAGE::parse_item(CS& cmd, CARD* c)
+{
+  // See Stroustrup 15.4.5
+  // If you can think of a better way, tell me.
+  // It must be in the LANGUAGE class, not CARD.
+
+  if (dynamic_cast<MODEL_SUBCKT*>(c)) {
+    return parse_module(cmd, prechecked_cast<MODEL_SUBCKT*>(c));
+  }else if (dynamic_cast<COMPONENT*>(c)) {
+    return parse_instance(cmd, prechecked_cast<COMPONENT*>(c));
+  }else if (dynamic_cast<MODEL_CARD*>(c)) {
+    return parse_paramset(cmd, prechecked_cast<MODEL_CARD*>(c));
+  }else if (dynamic_cast< DEV_COMMENT*>(c)) {
+    return parse_comment(cmd, prechecked_cast<DEV_COMMENT*>(c));
+  }else if (dynamic_cast<DEV_DOT*>(c)) {
+    return parse_command(cmd, prechecked_cast<DEV_DOT*>(c));
+  }else{untested();
+    incomplete();
+    unreachable();
+    return NULL;
+  }
+}
+/*--------------------------------------------------------------------------*/
+</code>

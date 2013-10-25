@@ -6,7 +6,7 @@ Performs a small signal, steady state, AC analysis. Sweeps frequency.
 
 ===== Syntax =====
 
-  ac {//options// ...} //start stop stepsize// {//options// ...} 
+  ac {//options// ...} //start stop stepsize// {//options// ...}
 
 ===== Comments =====
 
@@ -20,7 +20,7 @@ If only a new step size is specified, the old start and stop are kept and only t
 
 If the start frequency is zero, the program will still do an AC analysis. The actual frequency can be considered to be the limit as the frequency approaches zero. It is, therefore, still possible to have a non-zero phase angle, but delays are not shown because they may be infinite.
 
-The nodes to look at must have been previously selected by the print or plot command. This is different from Spice. 
+The nodes to look at must have been previously selected by the print or plot command. This is different from Spice.
 
 ===== Options =====
 

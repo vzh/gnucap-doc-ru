@@ -1,0 +1,28 @@
+the gnucap ''bm_'' framework can be used to plug in impulse response filters to elements.
+with these, filtering is as simple as this:
+
+  spice
+  .model sfir fir coefs=(1,0,-1,1,1,1,1,0,0,-1) step=1m
+  .model sir int_filter step=0.1m
+  v1 nin 0 1
+  e1 nout 0 nin 0 sfir
+  e2 nint 0 nin 0 sir
+
+  .print tran v(nin) v(nint) v(nout) Vout(e1)
+  .tran 0 2m 0.02m basic
+  .end
+
+here ''sfir'' is a finite impulse reponse filter with 10 coefficients. ''sir'' is an integrating filter, which is implemented similarly to the other ''iirs'' (but more efficient). in ac analysis, the filter transfer function can be computed using libfftw.
+
+these filters can also be used to generate alpha-noise from white noise. gnucap could get this in a netlist:
+
+  V0   n0   0 noise r=1 amp=0.1 step=0.1m alpha=0
+  V0.5 n0.5 1 noise r=1 amp=0.1 step=0.1m alpha=0.5
+  V1   n1   2 noise r=1 amp=0.1 step=0.1m alpha=1
+  V1.5 n1.5 3 noise r=1 amp=0.1 step=0.1m alpha=1.5
+  V2   n2   4 noise r=1 amp=0.1 step=0.1m alpha=2
+  V2.5 n2.5 5 noise r=1 amp=0.1 step=0.1m alpha=2.5
+
+unfortunately if alpha!=0 and alpha!=2, this is inefficient, but at least its not as ugly as precalculating noise.
+
+the implementation on [[git://tool/git/gnucap|tool]] (git repo) works, and is slightly incomplete (but was fun to write).

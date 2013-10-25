@@ -10,3 +10,5 @@
 |[[gnucap:manual:measure:minmax|min]]    |Minimum value, or its point.  |
 |[[gnucap:manual:measure:mean|rms]]    |The RMS value.  |
 |[[gnucap:manual:measure:slope|slewrate]]\\ [[gnucap:manual:measure:slope]]\\ [[gnucap:manual:measure:slope|ddt]]  |Slew rate or slope.  |
+
+

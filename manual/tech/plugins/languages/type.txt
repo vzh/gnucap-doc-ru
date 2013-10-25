@@ -1,0 +1,52 @@
+====== Language plugins ======
+
+===== Implementation =====
+
+==== parse, print instance, paramset ====
+
+=== parse, print type ===
+
+== Background ==
+
+It may seem redundant to parse the type again, because the type is already known.  It was determined by ''find_type_in_string'', then the type was looked up, and a new instance of that type was created.
+
+Often, it is, but sometimes parameters are encoded in the type, with several type names really representing the same real type.  One example of this is the "NPN" and "PNP" transistors, which are the same type with a polarity parameter, or the name associated with a paramset (Spice .model card).
+
+On the other hand, sometimes an identical type name could represent different real types.  An example of this is the different "levels" of Spice MOSFET models.  This is handled by trickery in parsing, and is not discussed here because it is a bad idea.
+
+In Spice format, sometimes the type is implied by the first letter of the label, and never explicitly appears.  In this case, the explicit parse and print can be skipped.
+
+In a paramset (including a Spice .model), the type is the master type being copied, not the new type being defined.
+
+== parse_type ===
+
+This function usually reads the type from the input string, then calls ''set_dev_type'' to set it.
+
+Usually, you can use this function:
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void parse_type(CS& cmd, CARD* x)
+{
+  assert(x);
+  std::string new_type;
+  cmd >> new_type;
+  x->set_dev_type(new_type);
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+== print_type ==
+
+Printing the type usually simple.  In some cases (Spice) the type may not be printed.  The extra code is not shown here.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+static void print_type(OMSTREAM& o, const COMPONENT* x)
+{
+  assert(x);
+  o << x->dev_type();
+}
+/*--------------------------------------------------------------------------*/
+</code>
+

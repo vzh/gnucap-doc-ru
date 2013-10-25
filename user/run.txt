@@ -1,0 +1,5 @@
+**RUN**
+
+Purpose:Run the silumation as specified in the input file.
+
+Status:Done

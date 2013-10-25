@@ -1,0 +1,16 @@
+====== Gnucap Wiki ======
+
+Gnucap is the GNU Circuit Analysis Package
+
+Gnucap is a modern post-spice circuit simulator with several advantages over Spice derivatives.
+
+  * [[about|About Gnucap, the sales pitch]]
+  * [[http://gnucap.org/gnucap.html|Old web site]]
+  * [[http://savannah.gnu.org/mail/?group_id=562|Mailing lists]]
+  * Download: [[http://www.gnucap.org/devel|Development snapshots]] [[http://www.gnucap.org/archive|Old stable versions]]
+  * Development: [[http://savannah.gnu.org/projects/gnucap|Savannah]] [[http://git.savannah.gnu.org/cgit/gnucap.git|GIT repository]]
+  * Help wanted: [[projects]]
+  * [[http://gnucap.org/gnucap-man-html/index.html|Stable version (0.35) manual]] [[http://gnucap.org/gnucap-man.pdf|pdf]]
+  * [[manual|Snapshot manual]]
+  * [[gnucap:user:user|User contributions]]
+

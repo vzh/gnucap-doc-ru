@@ -1,0 +1,5 @@
+**8.RMCIRC**
+
+Purpose:Removes the current circuit from the list of circuits sourced into gnucap
+
+Status:Done

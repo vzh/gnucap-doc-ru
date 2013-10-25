@@ -1,0 +1,180 @@
+====== Language plugins : Implementation ======
+
+===== parse, print instance, paramset =====
+
+==== Background ====
+
+A netlist is primarily a list of instances.
+
+Synonyms for instance include component, device, element.
+
+Examples of instances include resistors, transistors.
+
+A paramset is a prototype for an instance.  Internally, it is the same except that a paramset has no ports, but most languages have a different syntax for it.  The word "paramset" is from Verilog syntax.  In Spice, this would be a "model" statement.
+
+In most cases, the data can clearly be divided into four parts:
+
+**type**  -- The type of this instance.  (resistor)\\
+**label** -- The name of this instance.  (R22)\\
+**ports** -- Connections, nodes, ports, pins.\\
+**args**  -- Arguments, parameters, values.  (R=10k, tolerance=5%)
+
+To simplify coding, it is usually best to set up four separate functions to parse, and four to print.  These should be "static" or "private member" functions, so they are visible only in this file.  The top level ''parse_instance'' and ''print_instance'' can be just a set of calls to these functions, in the appropriate order.
+
+  * [[.:type]]
+  * [[.:label]]
+  * [[.:ports]]
+  * [[.:args]]
+
+==== parse_instance, parse_paramset ====
+
+The parse function reads the input string, interprets it, and stores the data as interpreted.  The string itself is not stored.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+COMPONENT* LANG_SPECTRE::parse_instance(CS& cmd, COMPONENT* x)
+{
+  assert(x);
+  cmd.reset(0);
+  parse_label(cmd, x);
+  parse_ports(cmd, x);
+  parse_type(cmd, x);
+  parse_args(cmd, x);
+  cmd.check(bWARNING, "what's this?");
+  return x;
+}
+/*--------------------------------------------------------------------------*/
+MODEL_CARD* LANG_SPECTRE::parse_paramset(CS& cmd, MODEL_CARD* x)
+{
+  assert(x);
+  cmd.reset(0).skipbl();
+  cmd >> "model ";
+  parse_label(cmd, x);
+  parse_type(cmd, x);
+  parse_args(cmd, x);
+  cmd.check(bWARNING, "what's this?");
+  return x;
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+''cmd.reset(0)'' at the beginning resets the parser/scanner to the beginning of the line.
+
+''cmd.check(bWARNING, "what's this?")'' checks that the line is used up, the cursor should be at the end of the line.  If not, there is something wrong, so it prints a warning.
+
+==== print_instance, print_paramset ====
+
+The print function re-creates a string from the stored data.  It should be in a form suitable to be passed to ''parse'', to recreate the same instance.  The round-trip should be lossless, in the sense of having identical data.  It serves as a check that both parse and print are working correctly.
+
+It is not necessary or desirable to EXACTLY reproduce the input.  Rather, show how the input was interpreted.  In cases where something could be ambiguous, this is important.  The printed output should be a cleaned-up version of the input.
+
+To parse in one language then print in another does a translation.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANG_SPECTRE::print_instance(OMSTREAM& o, const COMPONENT* x)
+{
+  print_label(o, x);
+  print_ports(o, x);
+  print_type(o, x);
+  print_args(o, x);
+  o << "\n";
+}
+/*--------------------------------------------------------------------------*/
+void LANG_SPECTRE::print_paramset(OMSTREAM& o, const MODEL_CARD* x)
+{
+  assert(x);
+  o << "model " << x->short_label() << ' ' << x->dev_type() << ' ';
+  print_args(o, x);
+  o << "\n\n";
+}
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== A command to get it started ====
+
+For instances, usually parse and print are all you need.  Finding a matching type gets it started.
+
+For paramsets (''.model'' in Spice) in addition to the above, it is necessary to make a command to recognize a keyword to get it started.
+
+It needs to allocate a new ''MODEL_CARD'', parse it, then store it.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+class CMD_PARAMSET : public CMD {
+  void do_it(CS& cmd, CARD_LIST* Scope)
+  {
+    // already got "paramset"
+    std::string my_name, base_name;
+    cmd >> my_name;
+    unsigned here = cmd.cursor();
+    cmd >> base_name;
+
+    //const MODEL_CARD* p = model_dispatcher[base_name];
+    const CARD* p = lang_verilog.find_proto(base_name, NULL);
+    if (p) {
+      MODEL_CARD* new_card = dynamic_cast<MODEL_CARD*>(p->clone());
+      if (new_card) {
+	assert(!new_card->owner());
+	lang_verilog.parse_paramset(cmd, new_card);
+	Scope->push_back(new_card);
+      }else{
+	cmd.warn(bDANGER, here, "paramset: base has incorrect type");
+      }
+    }else{
+      cmd.warn(bDANGER, here, "paramset: no match");
+    }
+  }
+} p1;
+DISPATCHER<CMD>::INSTALL d1(&command_dispatcher, "paramset", &p1);
+/*--------------------------------------------------------------------------*/
+</code>
+
+In some cases (Spice) you need to deal with the "level" concept here.  The same type field (for example ''NMOS'') can map to severa l different prototypes (level 1,2,3,...).  Those prototypes ultimately need different internal names, and a scheme to map them here.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+class CMD_MODEL : public CMD {
+  void do_it(CS& cmd, CARD_LIST* Scope)
+  {
+    // already got "model"
+    std::string my_name, base_name;
+    cmd >> my_name;
+    unsigned here1 = cmd.cursor();
+    cmd >> base_name;
+
+    // "level" kluge ....
+    // if there is a "level" keyword, with integer argument,
+    // tack that onto the given modelname and look for that
+    cmd.skip1b('(');
+    int level = 0;
+    {
+      unsigned here = cmd.cursor();
+      scan_get(cmd, "level ", &level);
+      if (!cmd.stuck(&here)) {
+	char buf[20];
+	sprintf(buf, "%u", level);
+	base_name += buf;
+      }else{
+      }
+    }
+
+    const MODEL_CARD* p = model_dispatcher[base_name];
+
+    if (p) {
+      MODEL_CARD* new_card = dynamic_cast<MODEL_CARD*>(p->clone());
+      if (new_card) {
+	assert(!new_card->owner());
+	lang_spice.parse_paramset(cmd, new_card);
+	Scope->push_back(new_card);
+      }else{untested();
+	cmd.warn(bDANGER, here1, "model: base has incorrect type");
+      }
+    }else{
+      cmd.warn(bDANGER, here1, "model: \"" + base_name + "\" no match");
+    }
+  }
+} p1;
+DISPATCHER<CMD>::INSTALL d1(&command_dispatcher, ".model", &p1);
+/*--------------------------------------------------------------------------*/
+</code>

@@ -21,9 +21,9 @@ Only one method is needed for each command:  "''do_it(CS& Cmd, CARD_LIST* Scope)
 
 Declare one static object of this new type, and INSTALL it in the DISPATCHER.
 
-<code>
-#include "c_comand.h"
-#include "globals.h"
+<code cpp>
+#include "gnucap/c_comand.h"
+#include "gnucap/globals.h"
 
 class CMD_HELLO : public CMD {
   void do_it(CS& Cmd, CARD_LIST* Scope)
@@ -33,3 +33,4 @@ class CMD_HELLO : public CMD {
 } so;
 DISPATCHER<CMD>::INSTALL d(&command_dispatcher, "hello", &so);
 </code>
+

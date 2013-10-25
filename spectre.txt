@@ -1,0 +1,99 @@
+====== Language : Spectre ======
+
+The Spectre language plugin attempts to support the syntax of the Cadence Spectre simulator.
+
+Not all features of Spectre are supported, but those that work will work with Spectre syntax.  Wherever possible, Gnucap features will work in Spectre mode, even if they don't work in Spectre.
+
+The Spectre mode is case sensitive, and uses "SI" units.
+
+The "SI" units are case sensitive.  1p is 1e-12.  1P is 1e15.  1m is 1e-3.  1M is 1e6.
+
+Comments are preceded by /****/ and extend to the end of the line.
+
+The format is line oriented.  A newline terminates a statement.  You can extend a line by ending it with \  .
+
+From startup, you can set Spectre mode with the command line:
+
+  simulator lang=spectre
+
+====== Top-level blocks ======
+
+Two top level blocks are supported: model and subckt.
+
+===== model =====
+
+A "model" statement sets parameters based on an existing compiled model.  This will be extended to cover all "masters".  It becomes a "master" that can be instantiated later.  It is equivalent to a spice ".model" or a Verilog "paramset".
+
+The syntax is: "model" newname itsmaster parameters
+
+  * **model** : Keyword identifies a model statement.
+  * **newtype** : The new type being defined.  This can be used as a device type later.
+  * **itsmaster** : The type it is derived from.
+  * **Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form "name = value", whitespace delimited.  In Spectre, the value may be an expression.  In gnucap, for now, the value must be an actual value or parameter name.
+
+  model gp-npn npn bf=150
+
+====== Components ======
+
+
+All components have the same syntax:\\
+label (port list) type arguments
+
+  * **Label** : a string.  The first letter has no significance.
+  * **Port list** : A list of the ports (connections), whitespace delimited.  Mapping is determined by order.  The port list should be surrounded by parentheses.
+  * **Type** : The type of component.  If there is a "model" statement, this is the name in the model statement.  Otherwise, it could be the name of a "subckt", a Verilog "module" or "paramset", or a standard device.  This is called "master" in the Spectre manual.
+  * **Arguments** : A list of arguments (parameters or values).  All arguments are name - value pairs, of the form "name = value", whitespace delimited.  In Spectre, the value may be an expression.  In gnucap, for now, the value must be an actual value or parameter name.
+
+  subckt amp (out in vcc)
+  parameters rload=10k
+  Rb1  (base vcc) resistor r=1M   // 1 megohm
+  Rb2  (base 0  ) resistor r=100k
+  Rc   (col  vcc) resistor r=100k
+  Re   (emit 0  ) resistor r=10k
+  Ce   (emit 0  ) capacitor c=1m  // 1 millifarad
+  Cin  (base in ) capacitor c=1u
+  Q1 (col base emit) gp-npn
+  Q2 (vcc col e2) gp-npn
+  Re2  (e2   0  ) resistor r=1k
+  Cout (e2   out) capacitor c=10u
+  Rload (out 0  ) resistor r=rload
+  ends amp
+
+  Vcc (vcc 0) vsource dc=15
+  Vin (in  0) vsource ac=1
+  Rload (out 0) resistor r=10k
+
+====== Commands ======
+
+Commands usually have the same syntax as components, but there is no port list.
+
+The Spectre mode does not introduce any new commands.  The only change is the syntax.
+
+In Spectre mode, there is a label before the command, like a component.  The label names a file which will contain the results of the command.  The filename extension is the command.
+
+As an non-standard extension, using a dash '-' as the label sends the command output to the standard output.
+
+Commands are executed in the order given.
+
+  setbias op
+  response ac start=20 stop=20K dec=10
+  - ac
+
+This is equivalent to the native mode:
+
+  op >setbias.op
+  ac start=20 stop=20K dec=10 >response.ac
+  ac
+
+====== Extras ======
+
+  * You can switch languages any time with the appropriate command.  The command must be in spectre syntax, with a label or dash first.  The command to switch back must be issued in the language you switched to.
+
+====== Status ======
+
+The current implementation in gnucap differs slightly from the Cadence product.
+
+  * The "master" must be before it is referenced.
+  * The devices and commands are whatever gnucap has installed, which are probably different from what Spectre (the simulator) provides.
+  * The circuit must be before any commands using it, unless you want to simulate a partial circuit.  Scripted and interactive modifications to the circuit are done the way gnucap usually does.
+  * There is an interactive mode, with spectre syntax.

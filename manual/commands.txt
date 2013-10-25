@@ -17,7 +17,7 @@ These commands are the core simulation commands.
 ===== "Data" commands =====
 
 These commands manipulate the circuit.
- 
+
   * [[gnucap:manual:commands:build]] Build a new circuit or change an existing one.
   * [[gnucap:manual:commands:delete|clear]] Delete the entire circuit, titles, etc.
   * [[gnucap:manual:commands:delete]] Delete a part, or group of parts.
@@ -25,10 +25,10 @@ These commands manipulate the circuit.
   * [[gnucap:manual:commands:fault|fault,unfault]] Temporarily change a component.
   * [[gnucap:manual:commands:list]] List the circuit on the display.
   * [[gnucap:manual:commands:alter|alter, modify]] Change a value, node, etc. For very simple changes.
- 
+
 ===== "Parameter" and "Measure" commands =====
 
-These commands work with parameters. 
+These commands work with parameters.
 
   * [[gnucap:manual:commands:parameter]] Set or view parameters.
   * [[gnucap:manual:commands:measure]] Make (post) measurements on your circuit.

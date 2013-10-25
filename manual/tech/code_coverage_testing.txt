@@ -1,0 +1,54 @@
+==== Code coverage testing ====
+
+To assist in testing the following procedure is used.  This is a semi-automated procedure, intended to assist in developing a test suite that fully tests the code, and to guide the developer in a code review.
+
+This procedure uses the ''untested()'' macro as a marker to indicate what has been tested and not.  It is performed on each source file.
+
+  - With an editor:
+    - Replace all ''{'' with ''{untested();''.
+    - Replace all '':'' in switch statements with '':untested();''
+    - If there are any code blocks without curlys, manually insert the untested() calls.
+    - Be sure to cover all cases in switch statements, and all branches of an ''if'' statement, including empty branches.
+    - If it is possible to have zero passes through a loop, that case must also be tested.
+    - If there are ?: or similar operators, both options must be tested.
+    - Multiple paths due to #if and other preprocessor directives must also be tested on the same level.
+  - Recompile, with debug enabled so the untested statements will print when run.
+  - Run gnucap on the test input files.
+  - Wherever you see the output from ''untested()'' (file, line, function)
+    - Look at the results to verify that they are correct.
+    - Look at the code to verify that it is clean and correct.
+    - Remove that particular ''untested()'' call.
+    - Go back to step 2.
+  - Stop when you don't see any more file-line-function in the output.
+  - Look at the code to see what ''untested()'' calls remain.  This indicates code that is not tested by the test files.  If this is new code, you need to create more tests to cover that code.
+
+When done, put a comment in the code just below the header block to indicate the status:
+
+==//testing=script 2012.12.12==
+This procedure was done on that date.  Some ''untested'' remains.
+
+==//testing=script,complete 2012.12.12==
+This procedure was done on that date.  No ''untested'' remains.  Test suite provides 100% coverage.
+
+==//testing=script,sparse 2012.12.12==
+This procedure was done on that date.  Many ''untested'' remains.  Test suite is clearly inadequate here.
+
+==//testing=obsolete 2012.12.12==
+This procedure was done on that date.  Changes have been made to the code since that date, but the procedure was not repeated.  Additional testing is needed.
+
+==//testing=trivial 2012.12.12==
+This procedure was done on that date, but there is nothing to see because the file contains no executable code.  The file is probably a header file.
+
+The absence of the //testing comment is taken to mean that no testing or only informal testing was done, so that file is considered to be still in development, not ready for release.
+
+If changes are made after the indicated test date, the procedure was done partially on only the new code meeting the indicated test level, do not change the date.  Only change the date when the full procedure is done again.
+
+For new code, the "script,complete" level is expected in most cases, but admittedly there are some cases where exception handling cannot be tested completely.
+
+For old code with changes, possibly done before this procedure was initiated, the "script" level is acceptable provided the few remaining blocks are marked as untested() or itested() and well understood.  itested() means that it is known that it was tested, the untested message was seen, but it is not in the regression suite.
+
+The details here assume C++ code.  For other source languages, an equivalent level of testing is expected.
+
+
+
+

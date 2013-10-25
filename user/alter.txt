@@ -1,0 +1,28 @@
+**13.ALTER**
+
+Purpose:Command is used to change the value of a parameter.
+
+Status:Implemented
+
+
+Syntax:
+
+      alter
+      alter parameter-name value
+
+
+Comments:Sets the value of specified parameter
+
+
+Example:
+
+To modify the value of vcc in a ciruit
+
+      gnucap>alter vcc = 15
+      gnucap>
+
+and to modify the resitances say R1 and R2
+
+       gnucap>alter R1=5k R2=100
+       gnucap>
+

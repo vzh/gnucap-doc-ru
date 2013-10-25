@@ -1,0 +1,23 @@
+====== About Gnucap ======
+
+Gnucap is a modern "post-spice" analog and mixed signal circuit simulator.
+
+Gnucap is designed so it can eventually replace Spice.  Today, it can replace Spice in some applications.  There are some significant technical advantages.  It is a work in progress.  New features are added regularly as time and demand permits.
+
+  * [[gnucap:about:plugins|Plugins, for extreme flexibility.]]
+    * [[gnucap:about:plugins:models|Models.]]
+    * [[gnucap:about:plugins:commands|Commands.]]
+    * [[gnucap:about:plugins:methods|Simulation methods.]]
+    * [[gnucap:about:plugins:functions|Behavioral modeling functions.]]
+    * [[gnucap:about:plugins:measurements|Measurements]]
+    * [[gnucap:about:plugins:interface|Interface to other software.]]
+    * [[gnucap:about:plugins:languages|Simulation languages and compatibility]]
+    * [[gnucap:about:plugins:other:|Almost anything.]]
+  * [[gnucap:about:algorithms|Modern algorithms]]
+    * true mixed-mode engine, analog events, the essence of modern "fast-spice" simulators.
+    * Improved speed with full Spice accuracy.
+    * Improved accuracy through rigorous error control.
+    * User control of speed vs. accuracy tradeoffs.
+  * Fully interactive operation with scripting.
+  * Parameters, measures.
+  * Multiple simulation languages, including Spice, Verilog, and Spectre.  More are coming!

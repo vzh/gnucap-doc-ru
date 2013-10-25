@@ -3,16 +3,16 @@
 ===== Purpose =====
 
 Performs a nonlinear time domain (transient) analysis, but displays the results in the frequency domain.
- 
+
 ===== Syntax =====
 
-  fourier start stop stepsize {options ...} 
- 
+  fourier start stop stepsize {options ...}
+
 Start, stop, and stepsize are frequencies.
 
 ===== Comments =====
 
-This command is slightly different and more flexible than the SPICE counterpart. SPICE always gives you the fundamental and 9 harmonics. Gnucap will do the same if you only specify one frequency. SPICE has the probes on the same line. Gnucap requires you to specify the probes with the print command. 
+This command is slightly different and more flexible than the SPICE counterpart. SPICE always gives you the fundamental and 9 harmonics. Gnucap will do the same if you only specify one frequency. SPICE has the probes on the same line. Gnucap requires you to specify the probes with the print command.
 
 SPICE uses the last piece of a transient that was already done. Gnucap does its own transient analysis, continuing from where the most recent one left off, and choosing the step size to match the Fourier Transform to be done. Because of this the Gnucap Fourier analysis is much more accurate than SPICE.
 
@@ -30,7 +30,7 @@ This command does a nonlinear time domain analysis, then performs a Fourier tran
 
 The underlying transient analysis begins where the previous one left off. If you specify the "cold" option, it begins at time = 0. Often repeating a run will improve the accuracy by giving more time for initial transients to settle out.
 
-See also: [[gnucap:manual:commands:transient|Transient command]]. 
+See also: [[gnucap:manual:commands:transient|Transient command]].
 
 
 ===== Options =====

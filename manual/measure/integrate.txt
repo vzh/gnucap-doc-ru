@@ -1,0 +1,29 @@
+====== "integrate" measure ======
+
+===== Purpose =====
+
+Find the integral of a waveform, the area under the curve.
+
+===== Syntax =====
+
+  integrate(probe="p(d)"  begin=time  end=time)
+
+===== Parameters =====
+
+^arg name  ^default     ^description  ^
+|probe     |required    |The name of a probe to measure.  |
+|begin     |- infinity  |Start averaging at this time or frequency.  |
+|end       |+ infinity  |Stop averaging at this time or frequency.  |
+
+===== Comments =====
+
+This measure gives you the integral, or area under the curve, signed.  The integral of a sine over a full cycle is zero.
+
+===== Examples =====
+
+  measure sample = integrate(probe="v(out)" begin=4u end=6u)
+Find the mean value of v(out) between 4 microseconds and 6 microseconds.
+  measure sample = integrate(probe="v(out)")
+Find the mean value of v(out) for an entire run.
+  measure sample = integrate(probe="v(out)" begin=4u)
+Find the mean value of v(out) starting at 4 microseconds, to the end.

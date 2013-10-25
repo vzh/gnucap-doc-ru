@@ -1,0 +1,18 @@
+====== Plugins ======
+
+===== Measurements =====
+
+==== The past ====
+
+The ability to make generalized post-measurements has been available in expensive commercial simulators for a long time.  Any simulator can tell you voltages and currents.  The ability to easily measure things like slew rate and rise time has not been so easy in the free simulators.
+
+==== The present ====
+
+A measure command (a plugin) can make post-measurements, interactively or scripted.  Measurements like crossing time, rise time, slew rate, and overshoot are available.  These are all plugins, so you can add your own when you need to.  They set parameters, so you can use the results in expressions to make more complex measurements, or to automatically change component values or command parameters.
+
+==== The future ====
+
+Proposed improvements in scripting will enable you to write your own more complicated measurements, an optimizer, or even what seems like new analysis methods.
+
+It is also possible to write wrappers for the measurements that are provided to add others, or for compatibility with the other simulators.
+

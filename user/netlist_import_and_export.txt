@@ -1,0 +1,174 @@
+====== File format translation ======
+
+We need a universal translator system that can translate in all directions between Free EDA tools, possible future free EDA tools, and outside tools that are likely to be used with free EDA tools.
+===== Scope =====
+
+Of course, everything to everything is not reasonable.  So, set a limit of circuit oriented free EDA tools, possible future tools, and outside tools that are likely to be used them.  Of course, tool formats where translation doesn't make sense don't need to be supported.
+
+Most tools use a format much like a netlist, often with some special information.  So, use a netlist based intermediate format.  First translate to the intermediate format, then translate out.  The intermediate format should be sufficiently expressive that there can be a lossless round trip from the tool format to the intermediate format and back.
+
+Lossless means that the resultant file is equivalent in how it works.  It is not necessary to preserve formatting and other things that don't matter.
+
+All of the formats needing translation presently consist of lists of objects, with some kind of encapsulation.  Each object has connections and attributes.
+
+This suggests the possible of a standard netlist format as the intermediate format.
+
+Further discussion related only to formats that fit this model.
+
+If possible, the format chosen should have a history of use for at least part of this, and have a published specification that is externally controlled and freely available.
+
+There needs to be a way to merge changes from any target/source without messing up other parts.
+
+==== Tool types needing support ====
+  * schematic
+  * layout
+  * simulation
+
+==== Free tools ====
+Lossless round trip is required, so archival storage can use the intermediate format.
+  * gschem
+  * pcb
+  * gnucap
+  * Icarus Verilog
+  * NGspice
+  * Qucs
+  * Kicad
+  * Magic
+  * Electric
+  * Xcircuit
+  * Fritzing
+
+==== Non-free import and export ====
+Support for these will allow gEDA tools to play nice with the commercial world.  Basic functionality is needed, but it doesn't need to be lossless.  Lossless should be possible, but it is not a high priority to actually implement it.
+  * Eagle
+  * Orcad
+  * LTspice
+  * Pads
+
+==== gEDA missing functionality ====
+Hopefully having a translator system will provide a seed so these can be done.
+  * Back annotation from layout or simulation to schematic
+  * Static timing analysis
+  * Post-layout signal integrity simulation.
+  * Layout - schematic comparison
+  * Use of the same schematic for the whole project.
+==== Explicitly not supported ====
+  * Plotting
+  * Commands
+  * Behavioral modeling
+  * Translating the symbols or footprints themselves.
+===== Concepts =====
+
+All of these consist of lists of objects, with connections and attributes.
+
+It is tradition that a netlist is used for interchange, but the traditional approach only goes one way, because information is lost in the translation.
+
+The format must convey the meaning, not necessarily in the same way as the tool's native format or internal storage.
+
+It is not necessary to translate parts that are usually in libraries, and are tool specific, such as models, symbols, or footprints.
+
+All contenders for possible formats must support a lossless round-trip to any other.
+
+==== Some possible formats ====
+
+=== Spice ===
+
+A popular netlist format.  It has a history of use for interchange, but not yet for physical placement.  Problems: irregular syntax, not sufficiently expressive.  These problems have been a major hassle for years for developers.  It is well accepted, but not by people who know it well.
+
+=== Verilog ===
+
+The structural subset is a good netlist format.  It is regular, sufficiently expressive, and has a published standard.  It has a history of use for interchange, but not yet for physical placement.
+
+=== VHDL ===
+
+The structural subset is a good netlist format.  It is regular, sufficiently expressive, and has a published standard.  It has a history of use for interchange, but not yet for physical placement.
+
+=== Spectre ===
+
+The structural subset is a good netlist format.  It is regular, sufficiently expressive, but belongs to one company (Cadence), so rule it out.  It has a history of use for simulation only.
+
+=== XML ===
+
+XML is not really a format but a syntax.  A good format can easily be made based on XML, but has no history of use in a similar context.  The syntax is well documented but there is no outside documentation of application in any related use.
+
+==== Representation of physical placement ====
+
+This part is the only part where there is not a strong history of use for VHDL and Verilog.
+
+Ideas:
+
+  * Nets are also objects with connections and attributes.  Nets have meaning in all contexts.
+  * A place on a schematic can be considered to be an object, with connections and attributes.
+  * Pads, connectors, thermals, vias .. are also objects, with connections and attributes.
+  * Use `define (assuming Verilog format) to set aside sections that have meaning in one context but not another.
+  * This is a high level description.  Take a high level view across all.  It's not lines, boxes, and circles.
+  * If you must, lines, boxes, and circles can be objects too, but not translatable because they have no meaning in other contexts.
+  * Attributes that have no meaning are silently ignored.  Attributes that have meaning in one context but not in another context are ignored where they have no meaning.
+
+===== Applications =====
+
+Choosing the Verilog format as one possibility.
+
+The unit of encapsulation is the "module":
+
+  module my-module(connections);
+  // contents
+  endmodule
+
+Each object in the list has a consistent syntax:
+
+  type #(attributes) name (connections);
+
+Example:
+
+  resistor #(.r(1k)) r123 (a, b);
+  resistor #(.r(1k)) r234 (.p(b), .n(c));
+
+"r" is the name of an attribute.  "1k" is the value (a string).
+
+In the first example, connections are determined by order.  In the second, they are mapped by name.  Node "b" connects to pin "p" and node "c" connects to pin "n".
+
+A "net" is also an object.
+
+In the above example, both connect to node b directly.  In a schematic representation the connection would not be direct, but through a "net"
+
+  resistor #(.r(1k)) r123 (.p(a1), .n(b1));
+  resistor #(.r(1k)) r125 (.p(b2), .n(c2));
+  net b (.1(b1), .2(b2));
+
+The name of the net is "b".  It has no attributes.
+
+For schematic, you can now place the nodes:
+
+  place #(.x(1222), .y(3438)) place11333 (b1);
+  place #(.x(4334), .y(8433)) place34894 (b2);
+  place #(.x(9393), .y(4232)) place49334 (a1);
+  place #(.x(2932), .y(2384)) place34983 (c2);
+
+Portions that apply in only certain contexts can be selectively included with 'ifdef:
+
+  module my_circuit;
+    `ifdef SCHEMATIC
+      place ...
+      place ...
+    `endif
+     res ...
+     res ...
+     net ...
+  endmodule
+
+Complex nets can be encapsulated:
+
+  module net23842 (1,2,3);
+    net n23482 (1,2);
+    net n84333 (2,3);
+    `ifdef SCHEMATIC
+      place ...
+      place ...
+      place ...
+    `endif
+  endmodule
+
+  module net9393 (1,2);
+    net #(.color(blue), .thickness(thin)) n38423 (1,2);
+  endmodule

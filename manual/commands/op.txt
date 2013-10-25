@@ -2,11 +2,11 @@
 
 ===== Purpose =====
 
-Performs a nonlinear DC steady state analysis, with no input. If a temperature range is given, it sweeps the temperature.  
+Performs a nonlinear DC steady state analysis, with no input. If a temperature range is given, it sweeps the temperature.
 
 ===== Syntax =====
 
-  op start stop stepsize {options ...} 
+  op start stop stepsize {options ...}
 
 ===== Comments =====
 

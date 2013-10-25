@@ -1,0 +1,48 @@
+=== Newton Numeric Example 1 ===
+
+Let us consider simple 1-node circuit
+
+<code>
+       --------+-------------
+      |        |             |
+    I=0.001   R=1000     i=V^3/1000
+      |        |             |
+     ---      ---           ---
+</code>
+
+Which is equivalent to equation:
+
+F(V) = I + V/R + N(V) =  V/1000 + 1/1000*V^3 - 0.001
+
+J(V) = 1/1000 + 3/1000 * V^2
+
+F'(V)= 3/1000*V^2*V + 0.001 - 1/1000*V^3
+
+model code and circuit file for this example are [[ NewtonNumericExample1_Code | here ]]
+
+Iteration sequence for this equation will be:
+
+^ Iteration ^ Newton classic (2,3) ^ Gnucap's Newton Modification (5,6,7) ^ Damped |
+^ 0         | V0=0                 | V0=0                                 |  |
+|           | J=0.001              | J=0.001                              |  |
+|           | F=-0.001             | F' = 0.001                           |  |
+|           | S=F/J=-1             | R  =F'/J=0.001/0.001=1;             |   |
+|           | V1= V0-S = 1         | V1 = R = 1                          |  |
+^ 1         | V1=1                 | V1 =1                               |  |
+|           | J=0.004              | J = 0.004                           |  |
+|           | F=0.001              | F' =0.003                           |  |
+|           | S=F/J=0.25           | R=F'/J=0.75                         |  |
+|           | V2=V1-S=0.75         | V2=R=0.75                           |  |
+^ 2         | V2=0.75              | V2=0.75                             |  |
+|           | J=0.0026875          | J=0.0026875                         |  |
+|           | F=0.000171875        | F'=0.00184375                       |  |
+|           | S=F/J=0.063953       | R=F'/J=0.686047                     |  |
+|           | V3=V2-S=0.0686047    | V3=R=0.686047                       |  |
+^ 3         | V3=0.0686047         | V3=0.0686047                        | ...|
+|           | J=0.0024119815       | J=0.0024119815                      |  |
+|           | F=0.00000894221      | F'=0.00164579043                    |  |
+|           | S=F/J=0.003707       | R=F'/J=0.68234                      |  |
+|           | V4=V3-S=068234       | V4=R=0.68234                        |  |
+|...        | ...                  | ...                                 |  |
+
+

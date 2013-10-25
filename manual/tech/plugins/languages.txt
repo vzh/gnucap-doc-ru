@@ -1,0 +1,46 @@
+====== Language plugins ======
+
+===== Framework =====
+
+Language plugins read and write a particular simulation language, and set up related commands.  They determine the syntax used by gnucap.
+
+This refers to SIMULATION languages, like "spice", "spectre" or "verilog", not NATURAL languages.
+
+Language plugins need to #include the file: ''gnucap/lang_base.h''.  Others may be needed in some cases.
+
+The base class ''LANGUAGE'' is defined in ''gnucap/u_lang.h'' which is included by ''gnucap/lang_base.h''.
+
+The "parse" and "print" functions go together.  For every "parse" there must be a "print" that regenerates a string suitable for input to "parse" that is equivalent to the original.
+
+As a generalization, to read a file the function ''parse_top_item'' is called in a loop:
+
+<code>
+  for (;;) {
+    OPT::language->parse_top_item(file, Scope);
+  }
+</code>
+
+The loop exits when an exception is thrown, most likely ''Exception_End_Of_Input''.
+
+This function must be provided by the language plugin.  A set of other functions must also be provided, as in this example:
+
+As with all plugins, declare one static object of this new type, and INSTALL it in the DISPATCHER.
+
+In addition to this, you will probably need to supply a few commands to recognize keywords at top level.
+
+Details are described in the following "Implementation" section.
+
+
+===== Implementation =====
+
+  * [[.:languages:Top level]]
+  * [[.:languages:lang_base.h]]
+  * [[.:languages:Simple query functions]]
+  * [[.:languages:parse_top_item]]
+  * [[.:languages:find_type_in_string]]
+  * [[.:languages:comment]]
+  * [[.:languages:command]]
+  * [[.:languages:instance|instance, paramset]]
+  * [[.:languages:module]]
+  * [[.:languages:commands]]
+

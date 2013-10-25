@@ -1,0 +1,7 @@
+====== Testing ======
+
+This section describes Gnucap test procedures, policy, and test macros.
+
+  * [[test macros]]
+  * [[compiling]]
+  * [[code coverage testing]]

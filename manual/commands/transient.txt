@@ -2,12 +2,12 @@
 
 ===== Purpose =====
 
-Performs a nonlinear time domain (transient) analysis. 
+Performs a nonlinear time domain (transient) analysis.
 
 ===== Syntax =====
 
   transient start stop stepsize {options ...}
-  transient stepsize stop start {options ...} 
+  transient stepsize stop start {options ...}
 ===== Comments =====
 
 The probes to look at must have been previously selected by the print or plot command.
@@ -16,9 +16,9 @@ Three parameters are normally needed for a Transient analysis: start time, stop 
 
 If all of these are omitted, the simulation will continue from where the most recent one left off, with the same step size, unless the circuit topology has been changed. It will run for the same length of time as the previous run.
 
-Do not use a step size too large as this will result in errors in the results. If you suspect that the results are not accurate, try a larger argument to skip. This will force a smaller internal step size. If the results are close to the same, they can be trusted. If not, try a still larger skip argument until they appear to match close enough.   
+Do not use a step size too large as this will result in errors in the results. If you suspect that the results are not accurate, try a larger argument to skip. This will force a smaller internal step size. If the results are close to the same, they can be trusted. If not, try a still larger skip argument until they appear to match close enough.
 
-The most obvious error of this type is aliasing. You must select sample frequency at least twice the highest signal frequency that exists anywhere in the circuit. This frequency can be very high, when you use the default step function as input. The signal generator does not have any filtering. 
+The most obvious error of this type is aliasing. You must select sample frequency at least twice the highest signal frequency that exists anywhere in the circuit. This frequency can be very high, when you use the default step function as input. The signal generator does not have any filtering.
 
 ===== Options =====
 

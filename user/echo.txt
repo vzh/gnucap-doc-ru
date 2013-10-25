@@ -1,0 +1,23 @@
+**3.ECHO**
+
+Purpose:Prints the text
+
+Status:Implemented
+
+Syntax:
+
+     echo [text]
+
+Comments:
+
+Command echoes the text in the interpreter.
+
+Example:
+
+     gnucap> echo
+     Usage: echo [text]
+     gnucap>echo "Hello"
+     "Hello"
+     gnucap>echo Hello World!
+     Hello World!
+     gnucap>

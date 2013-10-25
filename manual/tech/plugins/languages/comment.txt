@@ -1,0 +1,63 @@
+====== Language plugins : Implementation ======
+
+===== parse, print comment =====
+
+==== Background ====
+
+A comment object stores a string, otherwise does nothing.
+
+For reference, here is the class definition from d_coment.h .
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+class DEV_COMMENT : public CARD {
+private:
+  std::string	_s;
+  explicit	DEV_COMMENT(const DEV_COMMENT& p)
+				:CARD(p) {set_constant(true);}
+public:
+  explicit	DEV_COMMENT()	:CARD()  {set_constant(true);}
+private: // override virtual
+  char		id_letter()const	{return '\0';}
+  std::string	dev_type()const		{return "comment";}
+  CARD*		clone()const		{return new DEV_COMMENT(*this);}
+  std::string   value_name()const	{return "";}
+public:
+  void set(const std::string& s) {_s = s;}
+  std::string comment()const {return _s;}
+};
+/*--------------------------------------------------------------------------*/
+</code>
+
+==== parse_comment ====
+
+The parse function reads the string and stores it.  Usually, to "set" the comment to the "fullstring" is all that is needed.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+DEV_COMMENT* LANG_VERILOG::parse_comment(CS& cmd, DEV_COMMENT* x)
+{
+  assert(x);
+  x->set(cmd.fullstring());
+  return x;
+}
+/*--------------------------------------------------------------------------*/
+</code>
+==== print_comment ====
+
+It would seem that all that is needed is to print it, but it is also necessary to make sure that the printout is in a form that the current language interprets as a comment.  You could just prefix it with the comment marker, but this could cause a buildup in cases where there are repeated saves and reads of the file.  Therefore, it is best to check the stored prefix and only output an extra prefix if it doesn't match.
+
+<code cpp>
+/*--------------------------------------------------------------------------*/
+void LANG_VERILOG::print_comment(OMSTREAM& o, const DEV_COMMENT* x)
+{
+  assert(x);
+
+  if ((x->comment().compare(0, 2, "//")) != 0) {
+    o << "//";
+  }else{
+  }
+  o << x->comment() << '\n';
+}
+/*--------------------------------------------------------------------------*/
+</code>

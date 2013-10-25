@@ -1,0 +1,17 @@
+=== Programming Details ===
+
+Topmost level solver computations are concentrated in s__solve.cc file in
+<code c++> SIM::solve(...) </code>
+inside it main important steps:
+<code c++> do { </code>
+assume we have some value of unknowns: X_c
+calculate model parameters
+<code c++>   evaluate models; </code>
+load matrices (Jacobian J and vector FG)
+
+note, that dumping is implemented duing matrix & vector loading process.
+<code c++>   load_marix(); </code>
+solve equations and obtan new poin X_n
+<code c++>   solve_equations(); </code>
+until equations will converge or iteration limit will not be acieved
+<code c++>  } while ( ! converged && ! _sim-> exceeds_iteration_limit(it1));</code>

@@ -1,0 +1,135 @@
+=== Gnucap Nonlinear Solver ===
+
+This sections will describe my (gserdyuk) analysis of gnucap nonlinear solver, comparison of it to classic Newton notation and notes which will appear on the course of the study.
+
+== Classic Newton Notation ==
+
+Let us consider vector system of equations
+
+'' F = Y*X + N(X) + I =0 (1) ''
+
+where
+  * Y - linear matrix (here - impedance)
+  * X - unknows (here - node voltages)
+  * N(X) - currents of nonlinear branches
+  * I - free vector
+
+To solve that simultaneous equations with newton algorithms:
+
+''F_c = F(X_c)                  (2)''
+
+''S_c = inv(dF/dX)*F_c;         (3)''
+
+''X_n = X_c-S_c;                (4)''
+
+  * X_c - current vector of independent values
+  * F_c - current value of nonlinear function  (1)
+  * S_c - step at current iteration
+  * dF/dX = J - jacobian matrix, calculated at value X_c
+  * X_n - vector of independent values at next step
+
+Note - this formula does not contain damp factor - it will e considered later
+
+Such series of X_c have to converge to solution point X_* where F(X_*)=0.
+
+== Newton in Gnucap - simplest case ==
+
+//Simplest case of Newton method in gnucap - no damping, no incremental calculation.//
+
+Gnucap uses a bit modified formulation of formulas (2) - (4) to solve same equations (1).
+
+'' FG(X) = dN/dX*X_c-N(X)-I;     (5) ''
+
+'' FG_c  = FG(X_c) ;         (6) ''
+
+'' X_n = inv(J)*FG = inv(J)*(dN/dX*X_c-N-I) ; (7) ''
+
+'' J = dF/dX ''
+
+'' where  FG, dF/dx, dN/dX and N are calculated in point X_c ''
+
+namely:
+  - a) Modified error function does not contain linear term Y*X;
+  - b) Jacobian in gnucap formulation is the same as in original formulation ( dF/dx, not dFG/dx ) ;
+  - c) solution of equaton (7) gives new X point instead of the newtonian step.
+  - d) values dN/dX(X_c) - N(X_c) are calculated from each device whoich operation point is changed - so it saves computation resources.
+
+Indeed. Lets make substitutions:
+
+'' X_n = X_c-inv(J)*F = X_c-inv(J)*(I+N+Y*X_c) = ''
+
+'' = inv(J)*J*X_c-inv(J)*(I+N+Y*X_c) = inv(J)*(J*X_c-I-N-Y*X_c) = ''
+
+'' = inv(J)*(dN/dX*X_c+Y*X_c-I-N-Y*X_c) = ''
+
+finally
+
+'' = inv(J)*(dN/dX*X_c-I-N);  ''
+
+Where all values J, dN/dX, N are caluclaed in point X_c
+Note that
+
+'' J= dF/dX = dN/dX+Y (8) ''
+
+This has some consequences (see below).
+
+== Damping ==
+Damped Newton instead of update formula (4) uses smaller step:
+
+''X_n = X_c-k_c*S_c;                (9)''
+
+where k is damping factor.
+
+There is formal proof that process (9) converges globally under certain conditions and keeps quadratic convergence rate if k=1.
+
+I.e. at the some iteration "current", when next point X_n is calculated, reduced step is used. After that, F and J are caclulated exactly at value X_n.
+
+== Damping in Gnucap ==
+
+Gnucap implements somehow modified approach here too.
+
+When X_n is calculated, Gnucap computes element parameters at value X_n, but then calculates FG and J as:
+
+''FG_n = (1-k)*FG(X_c) + k*FG(X_n)  (10)''
+
+''J_n  = (1-k)*J(X_c)  + k*J(X_n)   (11)''
+
+Thus FG_c and J_c are linear interpolation between FG(X_c)=FG_c and FG_n
+
+But should be
+
+''FG_c=FG( (1-k)*X_c+k*X_n )       (12)''
+
+Same for Jacobian.
+
+This excludes from consideration higher order derivatives of F(X) and (partially)  reduces sense of dumping.
+
+//NB. This is my understanding of Gnucap gumping. If somebody have different opinion - please post it here.//
+
+
+Currently is planned to implement solver which will use 12 instead of 10,11. I will report results of numeric experiments.
+
+
+== Calculation of Error function and error norm ==
+
+To implement linear search along Newtonian direction it is desired to have strict measure - is next point is better than current or not.
+Such measure can be F or ||F|| - indeed - at solution point we have F=0 and ||F||=0.
+
+Unfortunately Gnucap formulation does not give F, but rather calculate FG, which does not tend to zero as X_c -> X*. So - new measure has to eb introduced.
+
+To calculate F we can use the following formula:
+
+''F_c = J_c * X_c - FG   (13)''
+
+This will require keeping original Jacobian matrix. In case of incremental processing it may mean an issue - we will investigate  incremental processing later
+
+
+=== Other Sections ===
+
+[[NewtonNumericExample1 | Newton Numeric Example ]] - compares standard and modified newton steps; damped step
+
+[[ProgramingDetails | Programing Details ]] - describeы programming details of solver
+
+[[QueuesAndOPtBypass | Queues and OPT::bypass ]] - covers **bypass** mode and queues
+
+

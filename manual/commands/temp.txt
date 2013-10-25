@@ -16,3 +16,5 @@ With no value, it prints the temperature.
 With a value, it is equivalent to “.option temperature=value”.
 
 The real purpose of this command is Spice compatibility.
+
+

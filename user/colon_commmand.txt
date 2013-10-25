@@ -1,0 +1,26 @@
+**20. '':'' Command**
+
+Purpose: command : issued with multiple commands separated by semi-colon runs each command one by one.
+
+Status:Implemented
+
+Syntax:
+
+     : command_1;command_2;.....;command_n
+
+Comments:
+
+Any number of commands may be passes to the : command. Shell commands passed with ! command are not executed.Like, :!ls will fail to run.
+
+Example:
+
+      gnucap>: ver
+      Gnucap Version: 2009.12.07 RCS 26.136
+      gnucap>: ver;echo "Hello World!"
+      Gnucap Version: 2009.12.07 RCS 26.136
+      Hello World!
+      gnucap>: strcmp "Hello" Hello;def f;shell
+      flag=0
+      >x^2+y^2
+      itsrishre@rishabh-laptop:~$exit
+      gnucap>

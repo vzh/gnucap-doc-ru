@@ -2,12 +2,12 @@
 
 ===== Purpose =====
 
-Performs a nonlinear DC steady state analysis, and sweeps the signal input, or a component value. 
+Performs a nonlinear DC steady state analysis, and sweeps the signal input, or a component value.
 
 ===== Syntax =====
 
   dc start stop stepsize {options ...}
-  dc label start stop stepsize {options ...} 
+  dc label start stop stepsize {options ...}
 
 ===== Comments =====
 
@@ -22,8 +22,8 @@ In some cases, you will get one more step outside the specified range of inputs 
 This command also sets up a movable operating point for subsequent AC analysis, which can be helpful in distortion analysis.
 
 The program will sweep any simple component, including resistors, capacitors, and controlled sources. SPICE sweeps only fixed sources (types V and I).
- 
-This command will sweep up to 4 components, nested. 
+
+This command will sweep up to 4 components, nested.
 
 ===== Options =====
 

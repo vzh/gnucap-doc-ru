@@ -1,0 +1,14 @@
+====Why Asco?====
+
+[[http://asco.sourceforge.net|Asco]] is a small C program that implements several numerical optimizers and interfaces to some circuit simulators. asco (version 0.4.8) does not particularly support gnucap as a backend, but rather provides a generic interface to any program that processes text somehow.
+
+while the functionality of asco could well be integrated into gnucap, it seems easier to do it this way. also it always makes sense to provide alternatives, considering that asco is quite worthless without a simulator. otoh, asco then can be use to benchmark gnucap, motivate measurement extensions for gnucap etc.
+
+====Implementation====
+
+the proposed implementation [[git://tool.em.cs.uni-frankfurt.de/git/asco|here]] works with gnucap. some provided examples (inv, amp3) are adapted accordingly. here, in contrast to asco-0.4.8, the simulator is running interactively. this not only runs much faster (skipping extra initialization), but also is simpler to use, as much less input needs to be generated, and less output needs to be processed.
+
+gnucap needs to be patched to not throw (debug) garbage to stdout.
+that might improve with output plugins. of course some problems arise from using spice (as a 'language').
+
+this approach (and asco in general) needs a lot of work. this is a place to start...

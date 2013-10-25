@@ -1,0 +1,26 @@
+====== Plugins ======
+
+===== Simulation languages and compatibility =====
+
+==== The past ====
+
+The most popular simulator, and most popular circuit simulation language is "SPICE".
+
+The SPICE format was a breakthrough when it was invented, in the 1970's, but we have outgrown it.
+
+The SPICE format has been extended, in many ways, by both commercial and free simulators.  Each one is a little different. Until recently, Gnucap used only an extended version of the SPICE format.  There is an ongoing problem with tradeoffs between compatibility and growth.  It seems that they are all different, and every extension breaks something.
+
+==== The present ====
+
+Gnucap now uses "language plugins" to determine the source language.  Of course, the traditional SPICE format is supported.  There are also plugins to support netlists in Spectre and Verilog format.
+
+==== The future ====
+
+Since the language is a plugin, there can be several to mimic the variants.  It is no longer necessary to trade between compatibility and growth.  There could easily be a dozen "SPICE" plugins, each compatible with a different version.
+
+New languages can be added too, including direct support for the internal format of schematic capture and layout programs.
+
+The plugins can also add commands, so it should be possible to make exact compatibility with any other simulator.
+
+There are plans for the future to make the output pluggable too.  This will enable a choice of output formats, and tight integration with other tools for post-processing.  It could also make it possible for the output to mimic another simulator.
+

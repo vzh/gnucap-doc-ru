@@ -1,0 +1,19 @@
+compling/installing/loading plugins must be as easy as possible. there are three kinds of modules that need to taken into account.
+
+  - Plugins shipped and installed within gnucap
+  - Device models, compiled locally, simulation based
+  - Plugins from other sources, compiled out-of-tree, installable.
+
+Assume (upstream) gnucap ships a plugin (s_fancy.so). what would a user want to do? load it. that means, she expects the command "load s_fancy.so" to load the module, just like she would type "modprobe fancy" when loading a kernel module. thus, two things must match: the path where plugins are installed to, and the path where gnucap is looking for modules. the install path is nothing seriously exotic, and already implemented in autotools, it's called "pkglibdir". gnucap uses 'dlopen' (see dlopen(3)) to load modules. that means it looks for dynamic libraries, where the system keeps dynamic libraries, which is in /lib, /usr/lib etc. the common way to make it look for modules in pkglibdir is linking with the rpath flag, which sets RPATH, see chrpath(1). basically this means, the path where plugins lie around is hardcoded in the gnucap binary. which totally makes sense, esp. if you want to have more than one gnucap, lets say for developing purposes.
+
+in order to compile a device model, we need to know where the headers are. usually the preprocessor looks for them in /usr/include, but that's _not_ where we want them to be. so gnucap better ships an executable that simply tells us the search path, or alternatively the CPPFLAGS we need to pass to the preprocessor. this executable could be a shell script that takes a switch and prints a line accordingly. needless to say that gnucap must install headers for this to work.
+
+how would you want to install plugins from other sources? as simple as possible: wget plugin.tbz2; tar -xf !$; cd plugin; less README; ./configure_orwhateverelse; make install. the problem: we need to know where to install to. probably 'chrpath $(which gnucap) | sed -e s/.*RPATH=//' is not portable. so we add a switch to the script above that makes it print pkglibdir.
+
+(for everyone who has ever compiled (linux) kernel modules: yes, it would be nice to have makefiles for staged plugins, but this totally looks like overkill to me)
+
+and finally, this has been implemented already: there are some repos on git://tool.em.cs.uni-frankfurt.de/git/
+"gnucap" contains a branch "gnucap+dev" with minimal changes above 0.36 to make this work.
+in "gnucap-geda" (master) i've packed lang_gschem that way. "gnucap-adms" ("master") contains a model compiler (in "master") that ships 2 example plugins and an out-of-tree compile helper script.
+
+some plugins need upstream changes or forked gnucap versions. the best way would be to have the plugin build system just check for a particular hack and give up with a notice (not implemented yet).

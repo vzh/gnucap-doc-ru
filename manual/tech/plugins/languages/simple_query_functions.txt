@@ -1,0 +1,51 @@
+====== Language plugins : Implementation ======
+
+===== Simple query functions =====
+
+==== ~LANGUAGE() ====
+C++ rules require a virtual destructor when there are virtual functions.  You need to define one as a tracing aid.  It can be an empty function.
+<code cpp>
+  ~LANG_VERILOG() {itested();}
+</code>
+
+==== std::string name()const ====
+Return the name to use as a key to enable this language.
+<code cpp>
+  std::string name()const {return "verilog";}
+</code>
+
+==== bool case_insensitive()const ====
+Return false if the language is case sensitive, true if case insensitive.
+<code cpp>
+  bool case_insensitive()const {return false;}
+</code>
+
+==== UNITS units()const ====
+This function determines how numeric strings with multiplier suffixes such as "10m" are parsed.  It should return ''uSI'' for standard SI units.  (M = meg = 10^6, m = milli = 10^-3)  or ''uSPICE'' for SPICE syntax (M = milli = 10^-3, Meg = meg = 10^6).
+<code cpp>
+  UNITS units()const {return uSI;}
+</code>
+
+===== Used by obsolete_callback =====
+
+These functions describe the syntax for parameter assignment statements.
+
+For example, the most common syntax is ''x=value'', but Verilog uses ''.x(value)''.
+
+You need to specify  the front, mid, and back strings.
+
+For ''x=value''
+the code is:
+<code cpp>
+  std::string arg_front()const {return " ";}
+  std::string arg_mid()const {return "=";}
+  std::string arg_back()const {return "";}
+</code>
+
+For ''.x(value)''
+the code is:
+<code cpp>
+  std::string arg_front()const {return ".";}
+  std::string arg_mid()const {return "(";}
+  std::string arg_back()const {return ")";}
+</code>

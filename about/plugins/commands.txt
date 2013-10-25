@@ -1,0 +1,22 @@
+====== Plugins ======
+
+===== Commands =====
+
+==== The past ====
+
+Traditional simulators have most of the commands built-in, so you are stuck with the commands you have. Most of them do have some kind of alias mechanism, but that is all.  If you want to add real functionality, you can't.
+
+==== The present ====
+
+Unlike Spice, commands are not compiled into the simulator. Commands, all commands, are plugins that can be changed by a user at run time.
+
+It is possible to static-link commands if desired, but it is not recommended.
+
+The distribution tarball includes most of the basic “Spice” commands, and some non-basic ones.
+
+==== The future ====
+
+There could be wrapper plugins, so you can use other languages like Python or TCL to write commands.
+
+More commands will be added to the standard set.
+

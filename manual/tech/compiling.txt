@@ -1,0 +1,18 @@
+===== Compiling for test =====
+
+Gnucap has two different modes for compiling.
+
+  - For regular users, only default compile options are used, for minimum clutter during compiling, so real problems will stand out.
+  - For developers, additional warnings are enabled, to catch minor issues that may lead to errors.  For code to be accepted into the main distribution (not plugins that are distributed separately) it must compile without warnings, with most compiler warnings enabled.
+
+For g++, the following compile options are used to enable additional warnings.
+
+<code>
+  -DUNIX  -g -O0 -I. -I../../include -DTRACE_UNTESTED \
+  -Wall -Wextra \
+  -Wswitch-enum -Wundef -Wpointer-arith -Woverloaded-virtual \
+  -Wcast-qual -Wcast-align -Wpacked -Wshadow -Wconversion \
+  -Winit-self -Wmissing-include-dirs -Winvalid-pch \
+  -Wvolatile-register-var -Wstack-protector \
+  -Wlogical-op -Wvla -Woverlength-strings -Wsign-conversion
+</code>

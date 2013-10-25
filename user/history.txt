@@ -1,0 +1,21 @@
+**4.HISTORY**
+
+Purpose:Review the previous commands
+
+Status:Implemented
+
+Syntax:
+
+    history
+    history -t
+    history -s
+
+Comments:
+
+Command prints the history of commands that has been executed after enabling the history track mode. Commands tracking can be stopped by disabling the history mode.
+
+Example:
+
+      gnucap>history -t  starts tracking history
+      gnucap>history     prints the history
+      gnucap>history -s  stops tracking history

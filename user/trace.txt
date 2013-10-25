@@ -1,0 +1,5 @@
+**16.TRACE**
+
+Purpose:Trace command traces nodes
+
+Status:Not implemented

@@ -1,0 +1,27 @@
+ --- //[[savant.2020@gmail.com|Savant Krishna]] 2012/03/31 09:59// --- //[[savant.2020@gmail.com|Savant Krishna]] 2012/03/31 09:59//====== User contributions ======
+
+This page provides an area for users to make contributions.
+
+To add yours ....
+  - Create an account for yourself
+  - Edit this page to add a link to the new page you will make
+  - Make the new page for your contribution.
+
+----
+\\
+[[Noise implementation]] - here is all stuff related to .noise command implementation: syntax, noise calculation basics, discussions regarding noise implementation and code-related stuff. Noise command implementation is not complete yet, so all material have "working" status.
+
+[[Gnucap Nonlinear Solver]] - explanation of Gnucap nonlinear solver. Comparison with classic Newton formulation and some additional considerations
+
+[[Gnucap Linear Solver]] - Gnucap implements parse linear solver and it has own "quirks". THis section describes known informaton about solver and known issues
+
+[[Gnucap_Library]] - Experimental shared library version of Gnucap
+
+[[Gnucap_Python]] - A plugin that allows Python code to be executed within a Gnucap session and a Gnucap Python extension that allows
+direct access to the Gnucap core from Python
+
+[[Netlist import and export]] - Here is an idea for import and export of netlists from schematics, layouts, and foreign systems, inspired by Gnucap language plugins.
+
+[[Language plugin for gschem]] - Plugin which can convert .sch file output of gschem into .ckt which can be analyzed by gnucap.
+
+[[Sensitivity Anlysis]] - A Perl script to assist with sensitivity anylsis of a circuit in gnucap
