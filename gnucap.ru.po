@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-10-25 14:28+0400\n"
-"PO-Revision-Date: 2013-10-25 15:07+0400\n"
+"PO-Revision-Date: 2013-10-25 16:21+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -13538,7 +13538,8 @@ msgstr ""
 #. type: Plain text
 #: manual/tech/plugins/commands.txt:27
 msgid "<code cpp> #include \"gnucap/c_comand.h\" #include \"gnucap/globals.h\""
-msgstr "<code cpp>\n"
+msgstr ""
+"<code cpp>\n"
 "#include \"gnucap/c_comand.h\"\n"
 "#include \"gnucap/globals.h\"\n"
 
@@ -15852,13 +15853,15 @@ msgstr ""
 #: about.txt:1
 #, no-wrap
 msgid "About Gnucap"
-msgstr ""
+msgstr "О gnucap"
 
 #. type: Plain text
 #: about.txt:4
 msgid ""
 "Gnucap is a modern \"post-spice\" analog and mixed signal circuit simulator."
 msgstr ""
+"gnucap представляет собой современную пост-SPICE программу моделирования "
+"аналоговых схем и схем со смешанными сигналами."
 
 #. type: Plain text
 #: about.txt:6
@@ -15868,6 +15871,11 @@ msgid ""
 "advantages.  It is a work in progress.  New features are added regularly as "
 "time and demand permits."
 msgstr ""
+"Программа gnucap построена таким образом, что в конце концов она должна "
+"заменить SPICE. Сегодня она может заменить SPICE в некоторых приложениях.  "
+"Имеется несколько существенных технических преимуществ. Работа над "
+"программой продолжается. Регулярно, насколько это позволяют время и спрос, "
+"добавляются новые возможности."
 
 #. type: Plain text
 #: about.txt:23
@@ -15891,6 +15899,23 @@ msgid ""
 "  * Parameters, measures.\n"
 "  * Multiple simulation languages, including Spice, Verilog, and Spectre.  More are coming!\n"
 msgstr ""
+"  * [[gnucap:about:plugins.ru|Плагины, для максимальной гибкости]]\n"
+"    * [[gnucap:about:plugins:models.ru|Модели]]\n"
+"    * [[gnucap:about:plugins:commands.ru|Команды]]\n"
+"    * [[gnucap:about:plugins:methods.ru|Методы моделирования]]\n"
+"    * [[gnucap:about:plugins:functions.ru|Функции поведенческого моделирования]]\n"
+"    * [[gnucap:about:plugins:measurements.ru|Измерения]]\n"
+"    * [[gnucap:about:plugins:interface.ru|Интерфейс к другому программному обеспечению]]\n"
+"    * [[gnucap:about:plugins:languages.ru|Языки моделирования и совместимость]]\n"
+"    * [[gnucap:about:plugins:other:|Почти всё что угодно]]\n"
+"  * [[gnucap:about:algorithms.ru|Современные алгоритмы]]\n"
+"    * Настоящее ядро-процессор для смешанного режима, аналоговых событий, существенная часть современных программ моделирования «fast-SPICE».\n"
+"    * Увеличение скорости при такой же точности, как у SPICE.\n"
+"    * Увеличение точности благодаря тщательному контролю ошибок расчётов.\n"
+"    * Пользовательский контроль над компромиссом между скоростью и точностью.\n"
+"  * Полностью интерактивная работа с возможностью использования скриптов.\n"
+"  * Параметры, измерения.\n"
+"  * Несколько языков функционального программирования для моделирования, в том числе SPICE, Verilog и Spectre.  Дальше-больше!\n"
 
 #. type: Title ======
 #: about/algorithms.txt:1
@@ -15980,7 +16005,7 @@ msgstr ""
 #: about/plugins/models.txt:4
 #, no-wrap
 msgid "The past"
-msgstr ""
+msgstr "Прошлое"
 
 #. type: Plain text
 #: about/plugins/commands.txt:8
@@ -15990,6 +16015,10 @@ msgid ""
 "mechanism, but that is all.  If you want to add real functionality, you "
 "can't."
 msgstr ""
+"В традиционных программах моделирования большинство команд встроено, поэтому "
+"вы ограничены теми командами, что там есть. Большинство этих программ имеет "
+"некоторого рода механизм использования псевдонимов, но это всё, что есть. Вы "
+"не сможете добавить реальную функциональность, даже если захотите."
 
 #. type: Title ====
 #: about/plugins/commands.txt:9 about/plugins/languages.txt:13
@@ -15997,7 +16026,7 @@ msgstr ""
 #: about/plugins/models.txt:10
 #, no-wrap
 msgid "The present"
-msgstr ""
+msgstr "Настоящее"
 
 #. type: Plain text
 #: about/plugins/commands.txt:12
@@ -16005,12 +16034,17 @@ msgid ""
 "Unlike Spice, commands are not compiled into the simulator. Commands, all "
 "commands, are plugins that can be changed by a user at run time."
 msgstr ""
+"В отличие от SPICE, команды не вмонтированы в программу. Команды, причём "
+"все, представляют собой плагины, которые пользователь может изменить в "
+"процессе работы."
 
 #. type: Plain text
 #: about/plugins/commands.txt:14
 msgid ""
 "It is possible to static-link commands if desired, but it is not recommended."
 msgstr ""
+"Если хочется, есть возможность статического связывания команд, но это не "
+"рекомендуется."
 
 #. type: Plain text
 #: about/plugins/commands.txt:16
@@ -16018,6 +16052,8 @@ msgid ""
 "The distribution tarball includes most of the basic “Spice” commands, and "
 "some non-basic ones."
 msgstr ""
+"В tar-архив дистрибутива включены файлы с функциями поддержки большинства "
+"основных команд SPICE и некоторых неосновных."
 
 #. type: Title ====
 #: about/plugins/commands.txt:17 about/plugins/languages.txt:17
@@ -16033,17 +16069,19 @@ msgid ""
 "There could be wrapper plugins, so you can use other languages like Python "
 "or TCL to write commands."
 msgstr ""
+"Можно добавить плагины-обёртки, чтобы для написания команд можно было "
+"использовать такие языки программирования, как Python или Tcl."
 
 #. type: Plain text
 #: about/plugins/commands.txt:22
 msgid "More commands will be added to the standard set."
-msgstr ""
+msgstr "К стандартному набору будет добавлено больше команд."
 
 #. type: Title =====
 #: about/plugins/languages.txt:3
 #, no-wrap
 msgid "Simulation languages and compatibility"
-msgstr ""
+msgstr "Языки моделирования и совместимость"
 
 #. type: Plain text
 #: about/plugins/languages.txt:8
