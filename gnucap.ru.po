@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnucap\n"
 "POT-Creation-Date: 2013-10-25 14:28+0400\n"
-"PO-Revision-Date: 2013-10-25 16:21+0400\n"
+"PO-Revision-Date: 2013-10-30 15:19+0400\n"
 "Last-Translator: Vladimir Zhbanov <vzhbanov@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -15927,6 +15927,8 @@ msgstr "Алгоритмы"
 #: about/algorithms.txt:4
 msgid "Gnucap is the original \"Analog Fast-Spice\"."
 msgstr ""
+"gnucap --- это оригинальная программа аналогового быстрого SPICE-"
+"моделирования («Analog Fast-Spice»)."
 
 #. type: Plain text
 #: about/algorithms.txt:6
@@ -15938,6 +15940,13 @@ msgid ""
 "speed, accuracy, and robustness, with user defined options to select what "
 "tradeoffs to apply when."
 msgstr ""
+"Расчёт статического режима, частотный и временной анализы в gnucap, как и в "
+"SPICE, основаны на традиционном методе узловых потенциалов. Для начала это "
+"даёт такую же точность и универсальность, которую мы ассоциируем с "
+"моделированием с помощью SPICE. Далее, отталкиваясь от этой хорошо известной "
+"стартовой точки, gnucap предлагает улучшенные алгоритмы для увеличения "
+"скорости, точности и ошибкоустойчивости, и опции для пользователей для "
+"выбора оптимальных критериев решения в разных случаях."
 
 #. type: Plain text
 #: about/algorithms.txt:8
@@ -15950,6 +15959,16 @@ msgid ""
 "For a full, dense matrix, it is as efficient as a full matrix solver.  For a "
 "tridiagonal matrix, it is as efficient as a dedicated tridiagonal solver."
 msgstr ""
+"В gnucap используется векторный алгоритм расчёта разреженных матриц с "
+"поддержкой неполных обновлений и частичных вычислений. Для больших схем он "
+"может быть значительно быстрее, чем традиционные алгоритмы расчёта "
+"разреженных матриц. Векторный подход даёт возможность быстрого доступа, "
+"такого же быстрого, как и для обычных плотных матриц, тогда как сохраняется "
+"локальность ячеек, которой нельзя было бы добиться с помощью обычных "
+"алгоритмов расчёта разреженных матриц. Для полных, плотных матриц данный "
+"алгоритм также эффективен, как и какой-нибудь другой алгоритм расчёта полных "
+"матриц. Для тридиагональной матрицы он будет также эффективен, как и "
+"алгоритм, специально предназначенный для расчёта тридиагональных матриц."
 
 #. type: Plain text
 #: about/algorithms.txt:10
@@ -15960,6 +15979,12 @@ msgid ""
 "of accuracy.  This is part of the basis of most of today's \"fast-spice\" "
 "simulators, and was made available first here."
 msgstr ""
+"Для больших схем рассчитываются только те их части, где имеется активность. "
+"Теперь стало возможно избегать избыточных вычислений для линейных и "
+"латентных частей схемы. Это значительно увеличивает скорость без потери "
+"точности. Это одна из основных особенностей большинства современных программ "
+"моделирования, называемых «fast-spice», которая стала доступной впервые "
+"здесь."
 
 #. type: Plain text
 #: about/algorithms.txt:12
@@ -15970,6 +15995,13 @@ msgid ""
 "There is also support for movable events, such as \"cross\" events, so "
 "switching times, zero crossings, and waveform peaks are properly controlled."
 msgstr ""
+"Для управления временным шагом временного анализа проверяются не только "
+"погрешность численного метода расчёта и количество итераций. Есть "
+"дополнительные проверки на гладкость выходных значений для большинства "
+"напряжений и переменных состояния, даже в тех случаях, где нет элементов "
+"памяти. Есть также поддержка подвижных событий, таких как события "
+"пересечений, поэтому надлежащим образом настраиваются моменты времени "
+"переключений, пересечений нуля и экстремумов сигнала."
 
 #. type: Plain text
 #: about/algorithms.txt:14
@@ -15977,6 +16009,8 @@ msgid ""
 "This is managed by a set of queues, so time is not wasted processing devices "
 "when there is nothing happening."
 msgstr ""
+"Всё это управляется набором очередей, поэтому время не тратится впустую на "
+"обработку устройств, если ничего не происходит."
 
 #. type: Plain text
 #: about/algorithms.txt:16
@@ -15985,6 +16019,10 @@ msgid ""
 "you can turn off the optimizations, reverting to a more robust (and slower) "
 "derivative of the Spice algorithms, or you can choose to go for speed."
 msgstr ""
+"Всё это под контролем пользователя. Установкой некоторых опций можно выбрать "
+"одну крайность и выключить все оптимизации, вернувшись к более ясным (и "
+"более медленным) алгоритмам, производным от алгоритмов SPICE, или же можно "
+"предпочесть увеличение скорости."
 
 #. type: Plain text
 #: about/algorithms.txt:18
@@ -15993,11 +16031,18 @@ msgid ""
 "of analysis.  The matrix solver is a template class, so it can solve for all "
 "data types, including a symbolic type for a future symbolic analysis."
 msgstr ""
+"Ядро программы предлагает библиотеку функций, которые можно использовать для "
+"построения новых видов анализов. Алгоритм расчёта матриц представлен в виде "
+"шаблона класса, поэтому расчёты с его помощью могут производиться для любых "
+"типов данных, включая данные символьного типа для какого-нибудь будущего "
+"символьного анализа."
 
 #. type: Plain text
 #: about/algorithms.txt:20
 msgid "Finally, it is all plugin based, inviting extensions and experiments."
 msgstr ""
+"Наконец, всё это построено на основе плагинов, что побуждает к написанию "
+"расширений и экспериментированию."
 
 #. type: Title ====
 #: about/plugins/commands.txt:5 about/plugins/languages.txt:5
